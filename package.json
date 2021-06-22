@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "psilly",
+  "homepage": "https://acerix.github.io/psilly/",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
