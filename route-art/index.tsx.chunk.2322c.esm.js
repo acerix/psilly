@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{JYoy:function(t){t.exports={art:"art__1ARuW"}},oSx9:function(t,i,o){"use strict";o.r(i);var e=o("hosL"),l=o("QRet"),n=o("JYoy"),a=o.n(n);i.default=()=>(Object(l.a)(()=>{document.title="Digital Art Exhibits"},[]),Object(e.h)("div",{class:a.a.art},Object(e.h)("h1",null,"Digital Art Exhibits"),Object(e.h)("ul",null,Object(e.h)("li",null,Object(e.h)("a",{href:"/art/polygons"},"Polygons")))))}}]);
+//# sourceMappingURL=index.tsx.chunk.2322c.esm.js.map

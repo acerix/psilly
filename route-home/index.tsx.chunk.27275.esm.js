@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{FA6U:function(e){e.exports={home:"home__MseGd"}},zXPN:function(e,o,t){"use strict";t.r(o);var s=t("hosL"),c=t("QRet"),l=t("FA6U"),n=t.n(l);o.default=()=>(Object(c.a)(()=>{document.title="Welcome to Psilly!"},[]),Object(s.h)("div",{class:n.a.home},Object(s.h)("h1",null,"Welcome to psilly pspace"),Object(s.h)("p",null,"Please enjoy your stay.")))}}]);
+//# sourceMappingURL=index.tsx.chunk.27275.esm.js.map
