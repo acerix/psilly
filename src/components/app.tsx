@@ -16,7 +16,7 @@ const App: FunctionalComponent = () => {
         <div id="preact_root">
             <Header />
             <Router>
-                <Route exact path="/" component={Home} />
+                <Route path="/" component={Home} />
                 <Route path="/about" component={About} />
                 <Route path="/bylaws" component={Bylaws} />
                 <Route path="/contact" component={Contact} />

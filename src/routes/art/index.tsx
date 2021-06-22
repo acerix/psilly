@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from 'preact'
-import { useEffect, useState } from 'preact/hooks'
+import { useEffect } from 'preact/hooks'
 import style from './style.css'
 
 const Art: FunctionalComponent = () => {
