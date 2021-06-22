@@ -1,0 +1,9 @@
+.bylaws {
+	padding: 56px 20px;
+	min-height: 100%;
+	width: 100%;
+}
+
+.bylaws ol {
+	margin-bottom: 20px;
+}
