@@ -17,48 +17,48 @@ const Header: FunctionalComponent = () => {
           </button>
           <div class="collapse navbar-collapse" id="nav-menu">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <Link class="nav-link" href="/">
+              <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
+                <Link class="nav-link" href="/" activeClassName="active">
                   Home
                 </Link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
                 <Link class="nav-link" href="/page/listen">
                   Listen
                 </Link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
                 <Link class="nav-link" href="/page/watch">
                   Watch
                 </Link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
                 <Link class="nav-link" href="/page/read">
                   Read
                 </Link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
                 <Link class="nav-link" href="/page/play">
                   Play
                 </Link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
                 <Link class="nav-link" href="/page/talk">
                   Talk
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" href="/art/">
+              <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
+                <Link class="nav-link" href="/art/" activeClassName="active">
                   Art
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" href="/about">
+              <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
+                <Link class="nav-link" href="/about" activeClassName="active">
                   About
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" href="/contact">
+              <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
+                <Link class="nav-link" href="/contact" activeClassName="active">
                   Contact
                 </Link>
               </li>
