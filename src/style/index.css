@@ -1,37 +1,13 @@
 html, body {
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	background: #000;
-	color: #a88bda;
-    font-family: -apple-system, BlinkMacSystemFont, 'Linux Biolinum', 'Helvetica Neue', helvetica, arial, sans-serif;
-	font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, 'Linux Biolinum', 'Helvetica Neue', helvetica, arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-a {
-    color: #bca6e3;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #e4ccfa;
-}
-
-a:visited {
-    color: #6713b7;
-}
-
 code {
-    font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+  font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-#app {
-	height: 100%;
+section.container {
+  min-height: 420px;
 }

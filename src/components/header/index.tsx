@@ -1,46 +1,73 @@
 import { FunctionalComponent, h } from 'preact'
 import { Link } from 'preact-router/match'
-import style from './style.css'
 
 const Header: FunctionalComponent = () => {
-    return (
-        <header class={style.header}>
-            <h1><a href="https://psilly.com/">Psilly.com 🍄</a></h1>
-            <p>Relax, get psilly...</p>
-            <nav>
-                <Link activeClassName={style.active} href="/">
-                    Home
+  return (
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="https://psilly.com/">
+            Psilly.com 🍄
+          </a>
+          <span class="navbar-text">
+            Relax, get psilly...
+          </span>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" />
+          </button>
+          <div class="collapse navbar-collapse" id="nav-menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <Link class="nav-link" href="/">
+                  Home
                 </Link>
-                <Link href="/page/listen">
-                    Listen
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" href="/page/listen">
+                  Listen
                 </Link>
-                <Link href="/page/watch">
-                    Watch
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" href="/page/watch">
+                  Watch
                 </Link>
-                <Link href="/page/read">
-                    Read
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" href="/page/read">
+                  Read
                 </Link>
-                <Link href="/page/play">
-                    Play
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" href="/page/play">
+                  Play
                 </Link>
-                <Link href="/page/talk">
-                    Talk
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" href="/page/talk">
+                  Talk
                 </Link>
-                <Link activeClassName={style.active} href="/art">
-                    Art (new)
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" href="/art/">
+                  Art
                 </Link>
-                <Link href="/experiments/">
-                    Art (archives)
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" href="/about">
+                  About
                 </Link>
-                <Link activeClassName={style.active} href="/about">
-                    About
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" href="/contact">
+                  Contact
                 </Link>
-                <Link activeClassName={style.active} href="/contact">
-                    Contact
-                </Link>
-            </nav>
-        </header>
-    )
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  )
 }
 
 export default Header

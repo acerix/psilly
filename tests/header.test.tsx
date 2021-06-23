@@ -1,12 +1,10 @@
 import { h } from 'preact'
 import Header from '../src/components/header'
-// See: https://github.com/preactjs/enzyme-adapter-preact-pure
 import { shallow } from 'enzyme'
 
-describe('Initial Test of the Header', () => {
-    test('Header renders 3 nav items', () => {
-        const context = shallow(<Header />)
-        expect(context.find('h1').text()).toBe('Psilly.com 🍄')
-        expect(context.find('Link').length).toBe(10)
-    })
+describe('Test header contents', () => {
+  test('Header brand is psilly', () => {
+    const context = shallow(<Header />)
+    expect(context.find('.navbar-brand').text()).toBe('Psilly.com 🍄')
+  })
 })

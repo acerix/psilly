@@ -1,0 +1,26 @@
+[
+	{
+		"url": "/",
+		"title": "Psilly.com"
+	},
+	{
+		"url": "/about",
+		"title": "About The Psilly Corporation"
+	},
+	{
+		"url": "/bylaws",
+		"title": "Psilly By-laws"
+	},
+	{
+		"url": "/contact",
+		"title": "Contact Psilly"
+	},
+	{
+		"url": "/art",
+		"title": "Psilly Digital Art Exhibits"
+	},
+	{
+		"url": "/art",
+		"title": "Psilly Polygons Exhibit"
+	}
+]

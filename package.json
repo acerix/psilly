@@ -14,6 +14,9 @@
     "predeploy": "yarn clean && yarn lint && yarn test --watchAll=false --coverage && yarn build",
     "deploy": "gh-pages -d build"
   },
+  "browserslist": [
+    "> 1%"
+  ],
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -31,6 +34,10 @@
       "semi": [
         2,
         "never"
+      ],
+      "indent": [
+        "error",
+        2
       ]
     },
     "ignorePatterns": [
@@ -38,13 +45,18 @@
     ]
   },
   "dependencies": {
+    "bootstrap": "^5.0.2",
+    "bootswatch": "^5.0.2",
     "preact": "^10.3.1",
+    "preact-helmet": "^4.0.0-alpha-3",
     "preact-render-to-string": "^5.1.4",
-    "preact-router": "^3.2.1"
+    "preact-router": "^3.2.1",
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.5",
     "@types/jest": "^26.0.8",
+    "@types/react-helmet": "^6.1.1",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "enzyme": "^3.11.0",
@@ -63,6 +75,9 @@
     "setupFiles": [
       "<rootDir>/tests/__mocks__/browserMocks.ts",
       "<rootDir>/tests/__mocks__/setupTests.ts"
+    ],
+    "coveragePathIgnorePatterns" : [
+      "<rootDir>/src/sw.js"
     ]
   }
 }

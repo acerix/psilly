@@ -1,17 +1,14 @@
 import { FunctionalComponent, h } from 'preact'
-import { useEffect } from 'preact/hooks'
-import style from './style.css'
+import Helmet from 'react-helmet'
 
 const Home: FunctionalComponent = () => {
-    useEffect(() => {
-      document.title = 'Welcome to Psilly!'
-    }, [])
-    return (
-        <div class={style.home}>
-            <h1>Welcome to psilly pspace</h1>
-            <p>Please enjoy your stay.</p>
-        </div>
-    )
+  return (
+    <section class="container py-5">
+      <Helmet title="Welcome!" />
+      <h1>Welcome to pSilly pSpace</h1>
+      <p>Hope you enjoy your stay!</p>
+    </section>
+  )
 }
 
 export default Home

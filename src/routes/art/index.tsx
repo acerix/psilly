@@ -1,23 +1,35 @@
 import { FunctionalComponent, h } from 'preact'
-import { useEffect } from 'preact/hooks'
-import style from './style.css'
+import Helmet from 'react-helmet'
 
 const Art: FunctionalComponent = () => {
-    useEffect(() => {
-      document.title = 'Digital Art Exhibits'
-    }, [])
-    return (
-        <div class={style.art}>
-            <h1>Digital Art Exhibits</h1>
-            <ul>
-                <li>
-                    <a href="/art/polygons">
-                        Polygons
-                    </a>
-                </li>
-            </ul>
+  return (
+    <section class="container py-5">
+      <Helmet title="Art" />
+      <h1>Psilly Digital Art Exhibition</h1>
+      <div class="row my-4">
+        <div class="col-sm-6 col-md-4 mb-4">
+          <div class="card">
+            <a href="/art/polygons">
+              <img src="/assets/art/thumbnails/polygons.png" class="card-img-top" alt="thumbnail" />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong>Dylan Ferris</strong> (b. 1985)
+              </h5>
+              <h5 class="card-title">
+                <strong><em>Polygons</em></strong>, 2021
+              </h5>
+              <p class="card-text"><strong>JavaScript on CanvasRenderingContext2D</strong></p>
+              <p class="card-text">Explores the Euclidean nature of linear geometry, from the point of view of a concious observer, emphasizing the dichotomy of transversal relationism in a post-reactist triptopia.</p>
+              <a href="/art/polygons" class="btn btn-primary">Experience</a>
+            </div>
+          </div>
         </div>
-    )
+      </div>
+      <h2>Artchive</h2>
+      <p>Older exhibits may be found in <a href="https://psilly.com/experiments/">experiments</a>.</p>
+    </section>
+  )
 }
 
 export default Art

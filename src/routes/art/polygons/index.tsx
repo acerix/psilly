@@ -1,16 +1,14 @@
 import { FunctionalComponent, h } from 'preact'
-import { useEffect } from 'preact/hooks'
+import Helmet from 'react-helmet'
 import style from './style.css'
 
 const Polygons: FunctionalComponent = () => {
-    useEffect(() => {
-      document.title = 'Polygons | Dylan Ferris 2021 | Digital Art Exhibit'
-    }, [])
-    return (
-        <div class={style.polygons}>
-            ⬡
-        </div>
-    )
+  return (
+    <section class={style.polygons}>
+      <Helmet title="Polygons" />
+      <div id="canvas">⬡</div>
+    </section>
+  )
 }
 
 export default Polygons

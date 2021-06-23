@@ -1,17 +1,16 @@
 import { FunctionalComponent, h } from 'preact'
-import style from './style.css'
-
-function getYear (): number {
-    return new Date().getFullYear()
-}
 
 const Footer: FunctionalComponent = () => {
-    return (
-        <footer class={style.footer}>
-            <p>© {getYear()} Psilly Corporation. Psilly™ is a trademark of Psilly Corporation. All Rights Reserved.</p>
-            <a target="_blank" rel="noreferrer" href="https://github.com/acerix/psilly">&lt;sauce/&gt;</a>
-        </footer>
-    )
+  return (
+    <footer class="footer text-muted py-3 mt-5">
+      <div class="container">
+        <p class="float-end mb-1">
+          <a target="_blank" rel="noreferrer" class="text-muted text-decoration-none" href="https://github.com/acerix/psilly">&lt;sauce/&gt;</a>
+        </p>
+        <p class="mb-1">© <time id="copyright-year">{new Date().getFullYear()}</time> <a class="text-muted text-decoration-none" href="https://psilly.com/">Psilly Corporation</a>. Psilly™ is a trademark of <a class="text-muted text-decoration-none" href="https://psilly.com/">Psilly Corporation</a>. All Rights Reserved.</p>
+      </div>
+    </footer>
+  )
 }
 
 export default Footer
