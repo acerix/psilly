@@ -5,7 +5,10 @@ import Helmet from 'react-helmet'
 import Home from '../routes/home'
 import About from '../routes/about'
 import Bylaws from '../routes/bylaws'
+import Join from '../routes/join'
+import Donate from '../routes/donate'
 import Contact from '../routes/contact'
+import High from '../routes/high'
 import Art from '../routes/art'
 import Polygons from '../routes/art/polygons'
 import NotFound from '../routes/not-found'
@@ -36,6 +39,11 @@ const App: FunctionalComponent = () => {
           <Route path="/about" component={About} />
           <Route path="/bylaws" component={Bylaws} />
           <Route path="/contact" component={Contact} />
+          <Route path="/join" component={Join} />
+          <Route path="/donate" component={Donate} />
+          <Route path="/high/sober" component={High} />
+          <Route path="/high" component={High} />
+          <Route path="/high/over" component={High} />
           <Route path="/art" component={Art} />
           <Route path="/art/polygons" component={Polygons} />
           <NotFound default />

@@ -5,6 +5,6 @@ import { shallow } from 'enzyme'
 describe('Test home page contents', () => {
   test('Home header is as expected', () => {
     const context = shallow(<Home />)
-    expect(context.find('h1').text()).toBe('Welcome to pSilly pSpace')
+    expect(context.find('h1').text()).toBe('🍄 Welcome to Psilly 🍄')
   })
 })
