@@ -16,11 +16,31 @@
 		"title": "Contact Psilly"
 	},
 	{
+		"url": "/join",
+		"title": "Become a Psilly Member"
+	},
+	{
+		"url": "/donate",
+		"title": "Donate to Psilly"
+	},
+	{
+		"url": "/high/sober",
+		"title": "Too Sober"
+	},
+	{
+		"url": "/high",
+		"title": "Just Right"
+	},
+	{
+		"url": "/high/over",
+		"title": "Too High"
+	},
+	{
 		"url": "/art",
 		"title": "Psilly Digital Art Exhibits"
 	},
 	{
-		"url": "/art",
+		"url": "/art/polygons",
 		"title": "Psilly Polygons Exhibit"
 	}
 ]
