@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{FA6U:function(e){e.exports={home:"home__MseGd"}},zXPN:function(e,o,t){"use strict";t.r(o);var n=t("hosL"),c=t("QRet"),s=t("FA6U"),l=t.n(s);o.default=function(){return Object(c.a)((function(){document.title="Welcome to Psilly!"}),[]),Object(n.h)("div",{class:l.a.home},Object(n.h)("h1",null,"Welcome to psilly pspace"),Object(n.h)("p",null,"Please enjoy your stay."))}}}]);
-//# sourceMappingURL=index.tsx.chunk.a17d7.js.map
