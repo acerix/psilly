@@ -9,7 +9,7 @@ const About: FunctionalComponent = () => {
       <h1>About Psilly</h1>
       <p>Psilly is an online community founded in 2006 which is dedicated to psychedelic research, therapy, harm-reduction, and advocacy.</p>
       <h2>Mission Statement</h2>
-      <p>At Psilly, out mission is to deliver peace of mind through exceptional care and avant-garde advocacy of psychotropic therapies.</p>
+      <p>Our mission is to deliver peace of mind through exceptional care and avant-garde advocacy of psychotropic therapies.</p>
       <h2>Non-profit</h2>
       <p>Psilly rejects our corporatocracy and the concept of profit. Any surplus is reinvested in our mission to turn on the World.</p>
       <h2>Governance</h2>
