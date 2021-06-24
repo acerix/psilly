@@ -1,11 +1,11 @@
 {
   "name": "Psilly",
-  "short_name": "psilly",
+  "short_name": "Psilly",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#fff",
-  "theme_color": "#673ab8",
+  "background_color": "#1a0933",
+  "theme_color": "#6f42c1",
   "icons": [
     {
       "src": "/assets/icons/android-chrome-192x192.png",
