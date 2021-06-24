@@ -6,7 +6,7 @@ const Polygons: FunctionalComponent = () => {
   return (
     <section class={style.polygons}>
       <Helmet title="Polygons" />
-      <div id="canvas">⬡</div>
+      <canvas id="canvas" />
     </section>
   )
 }

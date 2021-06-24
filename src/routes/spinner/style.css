@@ -1,0 +1,20 @@
+.spinner {
+  text-align: center;
+  font-size: 420px;
+}
+
+.spinner > div {
+  max-width: 666px;
+  max-height: 666px;
+  margin: auto;
+}
+
+.spinner > div > div {
+  animation: spin 6.666s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform:rotate(-360deg);
+  }
+}

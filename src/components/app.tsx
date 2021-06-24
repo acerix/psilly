@@ -13,6 +13,7 @@ import Page from '../routes/page'
 import Art from '../routes/art'
 import Polygons from '../routes/art/polygons'
 import Chat from '../routes/chat'
+import Spinner from '../routes/spinner'
 
 import NotFound from '../routes/not-found'
 import Header from './header'
@@ -51,6 +52,7 @@ const App: FunctionalComponent = () => {
           <Route path="/art" component={Art} />
           <Route path="/art/polygons" component={Polygons} />
           <Route path="/chat" component={Chat} />
+          <Route path="/spin" component={Spinner} />
           <NotFound default />
         </Router>
       </main>
