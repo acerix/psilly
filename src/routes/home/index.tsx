@@ -10,14 +10,15 @@ const Home: FunctionalComponent = () => {
         <h1 class="display-4 fw-bold">🍄 Welcome to Psilly 🍄</h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4">Please enjoy your stay!</p>
+          <p class="mb-4">How are you feeling?</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <Link class="btn btn-outline-secondary btn-lg px-4 me-sm-3" href="/high/sober">
+            <Link class="btn btn-outline-secondary btn-lg px-4 me-sm-3" href="/sober">
               I'm not high
             </Link>
             <Link class="btn btn-outline-warning btn-lg px-4 me-sm-3" href="/high">
               I'm high enough
             </Link>
-            <Link class="btn btn-outline-danger btn-lg px-4" href="/high/over">
+            <Link class="btn btn-outline-danger btn-lg px-4" href="/toohigh">
               I'm too high
             </Link>
           </div>
@@ -39,7 +40,7 @@ const Home: FunctionalComponent = () => {
         </div>
       </div>
       <h2 class="pb-2 border-bottom">Marketing Fluff</h2>
-      <p>Please stop reading this page if you are a human, the remainder is only intended for autonomous consumption and may deteriorate your brain cells.</p>
+      <p>Please stop reading this page if you are a human or other conscious being.  The remaining text is only intended for autonomous consumption and may cause cognitive deterioration if interpreted by conscious beings.</p>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
         <div class="col d-flex align-items-start">
           <div>

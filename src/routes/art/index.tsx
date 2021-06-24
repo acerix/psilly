@@ -14,13 +14,10 @@ const Art: FunctionalComponent = () => {
             </a>
             <div class="card-body">
               <h5 class="card-title">
-                <strong>Dylan Ferris</strong> (b. 1985)
-              </h5>
-              <h5 class="card-title">
-                <strong><em>Polygons</em></strong>, 2021
+                <strong><em>Polygons</em></strong>, 2013-2021
               </h5>
               <p class="card-text"><strong>JavaScript on CanvasRenderingContext2D</strong></p>
-              <p class="card-text">Explores the Euclidean nature of linear geometry, from the point of view of a concious observer, emphasizing the dichotomy of transversal relationism in a post-reactist triptopia.</p>
+              <p class="card-text">Explores the Euclidean nature of linear geometry, from the point of view of a conscious observer, emphasizing the dichotomy of transversal relationism in a post-reactivate triptonia.</p>
               <a href="/art/polygons" class="btn btn-primary">Experience</a>
             </div>
           </div>

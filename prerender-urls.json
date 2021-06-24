@@ -1,7 +1,8 @@
 [
 	{
 		"url": "/",
-		"title": "Psilly.com"
+		"title": "Psilly Corporation Corporate Homepage",
+		"photo": "/assets/art/thumbnails/polygons.png"
 	},
 	{
 		"url": "/about",
@@ -24,23 +25,48 @@
 		"title": "Donate to Psilly"
 	},
 	{
-		"url": "/high/sober",
+		"url": "/page/Time",
+		"title": "Time"
+	},
+	{
+		"url": "/page/talk",
+		"title": "Speak"
+	},
+	{
+		"url": "/page/listen",
+		"title": "Hear"
+	},
+	{
+		"url": "/page/white-rabbit",
+		"title": "White Rabbit"
+	},
+	{
+		"url": "/page/life",
+		"title": "What is life, and why should I care?"
+	},
+	{
+		"url": "/sober",
 		"title": "Too Sober"
 	},
 	{
 		"url": "/high",
-		"title": "Just Right"
+		"title": "Just Right High"
 	},
 	{
-		"url": "/high/over",
+		"url": "/toohigh",
 		"title": "Too High"
 	},
 	{
 		"url": "/art",
-		"title": "Psilly Digital Art Exhibits"
+		"title": "Digital Art Exhibition"
 	},
 	{
 		"url": "/art/polygons",
-		"title": "Psilly Polygons Exhibit"
+		"title": "Digital Art Exhibit | Polygons",
+		"photo": "/assets/art/thumbnails/polygons.png"
+	},
+	{
+		"url": "/chat",
+		"title": "Psilly Chattergate"
 	}
 ]

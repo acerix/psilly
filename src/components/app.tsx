@@ -5,12 +5,15 @@ import Helmet from 'react-helmet'
 import Home from '../routes/home'
 import About from '../routes/about'
 import Bylaws from '../routes/bylaws'
+import Contact from '../routes/contact'
 import Join from '../routes/join'
 import Donate from '../routes/donate'
-import Contact from '../routes/contact'
 import High from '../routes/high'
+import Page from '../routes/page'
 import Art from '../routes/art'
 import Polygons from '../routes/art/polygons'
+import Chat from '../routes/chat'
+
 import NotFound from '../routes/not-found'
 import Header from './header'
 import Footer from './footer'
@@ -41,11 +44,13 @@ const App: FunctionalComponent = () => {
           <Route path="/contact" component={Contact} />
           <Route path="/join" component={Join} />
           <Route path="/donate" component={Donate} />
-          <Route path="/high/sober" component={High} />
+          <Route path="/page/:page" component={Page} />
+          <Route path="/sober" component={High} />
           <Route path="/high" component={High} />
-          <Route path="/high/over" component={High} />
+          <Route path="/toohigh" component={High} />
           <Route path="/art" component={Art} />
           <Route path="/art/polygons" component={Polygons} />
+          <Route path="/chat" component={Chat} />
           <NotFound default />
         </Router>
       </main>

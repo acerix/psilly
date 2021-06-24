@@ -11,15 +11,17 @@ const About: FunctionalComponent = () => {
       <h2>Mission Statement</h2>
       <p>Our mission is to deliver peace of mind through exceptional care and avant-garde advocacy of psychotropic therapies.</p>
       <h2>Non-profit</h2>
-      <p>Psilly rejects our corporatocracy and the concept of profit. Any surplus is reinvested in our mission to turn on the World.</p>
+      <p>Psilly rejects our corporatocracy and the concept of profit. Any surplus is invested in our mission to turn on the World.</p>
       <h2>Governance</h2>
       <p>Psilly is managed by an elected Board of Directors, chosen by and from our membership. The Board meets monthly, and publishes agendas of upcoming meetings and minutes of past meetings publicly.</p>
-      <h2>Board of Directors</h2>
-      <p>Executive Director &mdash; Dylan Ferris (2006-present)</p>
       <h2>Corporate By-laws</h2>
+      <p>
       <Link href="/bylaws">
         Psilly By-laws
       </Link>
+      </p>
+      <h2>Is this psilly?</h2>
+      <p>Yes, this is most defiantly psilly. You either know what psilly is already or it cannot be explained to you with mere words. Psilly Simon may have an answer.</p>
     </section>
   )
 }
