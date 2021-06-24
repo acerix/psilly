@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{nRHp:function(n,e,s){"use strict";s.r(e);var t=s("hosL"),c=s("Hrl7");e.default=()=>Object(t.h)("section",{class:"container py-5"},Object(t.h)(c.a,{title:"Your Highness"}),Object(t.h)("h1",null,"Your Highness"),Object(t.h)("p",null,"High, I'm Dad"))}}]);
-//# sourceMappingURL=index.tsx.chunk.6c899.js.map
