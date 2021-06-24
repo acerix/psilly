@@ -12,7 +12,7 @@ const cms = {
   music: <Fragment><h1>The Music of Sound</h1><p>Listen to music.</p><p>Choose a musical path and enjoy the ride...</p><p><a href="//ice3.somafm.com/brfm-128-mp3">brfm</a></p></Fragment>,
   words: <Fragment><h1>Words</h1><p>A word in the brain is worth two in the mouth.</p><p>Listen to the words of those who have tread the path.</p><p>Don't look too close but go as deep as you can.<br />Beethoven<br />Listen the sound of silence.</p></Fragment>,
   sounds: <Fragment><h1>Sounds</h1><p>The sounds of the world.</p><p>Let sounds paint the picture in your mind.</p></Fragment>,
-  deep: <Fragment><h1>Deep</h1><p>Videos to take you to the next level.</p><p>Deep videos abroad.</p></Fragment>,
+  deep: <Fragment><h1>Deep</h1><p>Videos to take you to the next level.</p><p>Deep videos abroad. Turn on, tune in, drop out.</p></Fragment>,
   trippy: <Fragment><h1>Trippy</h1><p>Videos to help explore the psychedelic state.</p><div class="embed-responsive embed-responsive-16by9"><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0RXdd0pCJ9Q" /></div><p>Who's seeing this right now?</p></Fragment>,
   games: <Fragment><h1>Games</h1><p>Fun games ahead! Wanna play?</p></Fragment>,
   funny: <Fragment><h1>Funny</h1><p>Ready to laugh?</p><p>Warning: Hilarity may ensue.</p><div class="embed-responsive embed-responsive-16by9"><iframe height="315" src="https://www.youtube-nocookie.com/embed/yL_-1d9OSdk?rel=0" width="560" /></div></Fragment>,
@@ -37,7 +37,7 @@ const Page: FunctionalComponent<Props> = (props: Props) => {
   return (
     <section class="container py-5">
       <Helmet>
-        <title>Do { page }</title>
+        <title>Do { page.replace('-',' ') }</title>
       </Helmet>
       { cms[page] }
     </section>
