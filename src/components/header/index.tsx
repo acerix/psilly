@@ -4,25 +4,7 @@ import { Link } from 'preact-router/match'
 
 const Header: FunctionalComponent = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true)
-  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed)
-
-/*
-  constructor(props) {
-    super(props)
-    this.state = {
-      menu: false
-    }
-    this.toggleMenu = this.toggleMenu.bind(this)
-  }
-
-  toggleMenu() {
-    this.setState({ menu: !this.state.menu })
-  }
-
-  render() {
-  const show = (this.state.menu) ? "show" : ""
-
-*/
+  const handleNavCollapse = (): void => setIsNavCollapsed(!isNavCollapsed)
   return (
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -33,58 +15,58 @@ const Header: FunctionalComponent = () => {
           <span class="navbar-text">
             Relax, get psilly...
           </span>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded={!isNavCollapsed} aria-label="Toggle navigation" onClick={handleNavCollapse}>
             <span class="navbar-toggler-icon" />
           </button>
           <div class={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="nav-menu">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                <Link class="nav-link" href="/" activeClassName="active">
+                <Link class="nav-link" href="/" activeClassName="active" onClick={handleNavCollapse}>
                   Home
                 </Link>
               </li>
               <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                <Link class="nav-link" href="/art/" activeClassName="active">
+                <Link class="nav-link" href="/art/" activeClassName="active" onClick={handleNavCollapse}>
                   Art
                 </Link>
               </li>
               <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                <Link class="nav-link" href="/page/listen" activeClassName="active">
+                <Link class="nav-link" href="/page/listen" activeClassName="active" onClick={handleNavCollapse}>
                   Listen
                 </Link>
               </li>
               <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                <Link class="nav-link" href="/page/watch" activeClassName="active">
+                <Link class="nav-link" href="/page/watch" activeClassName="active" onClick={handleNavCollapse}>
                   Watch
                 </Link>
               </li>
               <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                <Link class="nav-link" href="/page/read" activeClassName="active">
+                <Link class="nav-link" href="/page/read" activeClassName="active" onClick={handleNavCollapse}>
                   Read
                 </Link>
               </li>
               <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                <Link class="nav-link" href="/page/play" activeClassName="active">
+                <Link class="nav-link" href="/page/play" activeClassName="active" onClick={handleNavCollapse}>
                   Play
                 </Link>
               </li>
               <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                <Link class="nav-link" href="/page/talk" activeClassName="active">
+                <Link class="nav-link" href="/page/talk" activeClassName="active" onClick={handleNavCollapse}>
                   Talk
                 </Link>
               </li>
               <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                <Link class="nav-link" href="/chat" activeClassName="active">
+                <Link class="nav-link" href="/chat" activeClassName="active" onClick={handleNavCollapse}>
                   Chat
                 </Link>
               </li>
               <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                <Link class="nav-link" href="/about" activeClassName="active">
+                <Link class="nav-link" href="/about" activeClassName="active" onClick={handleNavCollapse}>
                   About
                 </Link>
               </li>
               <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                <Link class="nav-link" href="/contact" activeClassName="active">
+                <Link class="nav-link" href="/contact" activeClassName="active" onClick={handleNavCollapse}>
                   Contact
                 </Link>
               </li>
