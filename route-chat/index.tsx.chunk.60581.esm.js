@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{XJdZ:function(e,t,n){"use strict";n.r(t);var o=n("hosL"),s=n("Hrl7");t.default=()=>Object(o.h)("section",{class:"container py-5"},Object(o.h)(s.a,{title:"Chatter"}),Object(o.h)("h1",null,"Psilly Chatter Next Generation"),Object(o.h)("p",null,"Looks like you found the new version of Psilly Chatter! It's coming soon, I swear!"))}}]);
-//# sourceMappingURL=index.tsx.chunk.60581.esm.js.map

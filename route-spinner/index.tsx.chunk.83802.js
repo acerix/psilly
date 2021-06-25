@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[13],{"/xRP":function(n,e,i){"use strict";i.r(e);var s=i("hosL"),t=i("Hrl7"),c=i("CGiZ"),l=i.n(c);e.default=()=>Object(s.h)("section",{class:l.a.spinner},Object(s.h)(t.a,{title:"Please wait while I load your desires..."}),Object(s.h)("div",null,Object(s.h)("div",null,"⬡")))},CGiZ:function(n){n.exports={spinner:"spinner__nSQm3",spin:"spin__Sh-K3"}}}]);
-//# sourceMappingURL=index.tsx.chunk.83802.js.map
