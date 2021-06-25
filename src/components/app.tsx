@@ -8,12 +8,13 @@ import Bylaws from '../routes/bylaws'
 import Contact from '../routes/contact'
 import Join from '../routes/join'
 import Donate from '../routes/donate'
-import High from '../routes/high'
+import Highness from '../routes/highness'
 import Page from '../routes/page'
 import Art from '../routes/art'
 import Polygons from '../routes/art/polygons'
 import Meld from '../routes/art/meld'
 import Circle from '../routes/art/circle'
+import GoldenAngleDonut from '../routes/art/golden-angle-donut'
 import Chat from '../routes/chat'
 import Spinner from '../routes/spinner'
 
@@ -59,13 +60,14 @@ const App: FunctionalComponent = () => {
           <Route path="/join" component={Join} />
           <Route path="/donate" component={Donate} />
           <Route path="/page/:page" component={Page} />
-          <Route path="/sober" component={High} />
-          <Route path="/high" component={High} />
-          <Route path="/toohigh" component={High} />
+          <Route path="/sober" component={Highness} highness="sober" />
+          <Route path="/high" component={Highness} highness="high" />
+          <Route path="/toohigh" component={Highness} highness="too high" />
           <Route path="/art" component={Art} />
           <Route path="/art/polygons" component={Polygons} />
           <Route path="/art/meld" component={Meld} />
           <Route path="/art/circle" component={Circle} />
+          <Route path="/art/golden-angle-donut" component={GoldenAngleDonut} />
           <Route path="/chat" component={Chat} />
           <Route path="/spin" component={Spinner} />
           <NotFound default />
