@@ -6,7 +6,7 @@ const High: FunctionalComponent = () => {
     <section class="container py-5">
       <Helmet title="Your Highness" />
       <h1>Your Highness</h1>
-      <p>High, I'm Dad</p>
+      <p>Hi High, I'm Dud</p>
     </section>
   )
 }
