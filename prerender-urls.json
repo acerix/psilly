@@ -66,6 +66,16 @@
 		"photo": "/assets/art/thumbnails/polygons.png"
 	},
 	{
+		"url": "/art/meld",
+		"title": "Digital Art Exhibit | Meld",
+		"photo": "/assets/art/thumbnails/meld.png"
+	},
+	{
+		"url": "/art/circle",
+		"title": "Digital Art Exhibit | Circle",
+		"photo": "/assets/art/thumbnails/circle.png"
+	},
+	{
 		"url": "/chat",
 		"title": "Psilly Chattergate"
 	},

@@ -45,13 +45,13 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Exploitable Gullibility</h3>
-            <p>97% of agents specializing in marketing will believe arbitrary statistics which could be totally just made up.</p>
+            <p>97% of agents specializing in marketing will believe arbitrary statistics which could totally just be made up.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Redundancy at it's Best</h3>
-            <p>Why <em>innovate</em> when you can <em>emulate</em>?<br />Let our team of plagiarizers "copy-pasta" your way to victory.</p>
+            <p>Why <em>innovate</em> when you can <em>emulate</em>?<br />Let our team of experienced plagiarizers "copy-pasta" your way to victory.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
