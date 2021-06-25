@@ -22,6 +22,36 @@ const Art: FunctionalComponent = () => {
             </div>
           </div>
         </div>
+        <div class="col-sm-6 col-md-4 mb-4">
+          <div class="card">
+            <a href="/art/meld">
+              <img src="/assets/art/thumbnails/meld.png" class="card-img-top" alt="thumbnail" />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong><em>Meld</em></strong>, 2016-2021
+              </h5>
+              <p class="card-text"><strong>JavaScript on WebGLRenderingContext</strong></p>
+              <p class="card-text">An examination of permatarian meldation.</p>
+              <a href="/art/meld" class="btn btn-primary">Experience</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 mb-4">
+          <div class="card">
+            <a href="/art/circle">
+              <img src="/assets/art/thumbnails/circle.png" class="card-img-top" alt="thumbnail" />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong><em>Circle</em></strong>, 2018-2021
+              </h5>
+              <p class="card-text"><strong>JavaScript on WebGLRenderingContext</strong></p>
+              <p class="card-text">A non-euclidean journey into the regular ellipse.</p>
+              <a href="/art/circle" class="btn btn-primary">Experience</a>
+            </div>
+          </div>
+        </div>
       </div>
       <h2>Artchive</h2>
       <p>Older exhibits may be found in <a href="https://psilly.com/experiments/">experiments</a>.</p>

@@ -8,7 +8,7 @@ const Polygons: FunctionalComponent = () => {
   return (
     <section class={style.polygons}>
       <Helmet title="Polygons" />
-      2
+      <iframe src="https://psilly.com/experiments/polygons.html" />
     </section>
   )
   /*

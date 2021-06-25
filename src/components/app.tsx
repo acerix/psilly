@@ -12,6 +12,8 @@ import High from '../routes/high'
 import Page from '../routes/page'
 import Art from '../routes/art'
 import Polygons from '../routes/art/polygons'
+import Meld from '../routes/art/meld'
+import Circle from '../routes/art/circle'
 import Chat from '../routes/chat'
 import Spinner from '../routes/spinner'
 
@@ -62,6 +64,8 @@ const App: FunctionalComponent = () => {
           <Route path="/toohigh" component={High} />
           <Route path="/art" component={Art} />
           <Route path="/art/polygons" component={Polygons} />
+          <Route path="/art/meld" component={Meld} />
+          <Route path="/art/circle" component={Circle} />
           <Route path="/chat" component={Chat} />
           <Route path="/spin" component={Spinner} />
           <NotFound default />
