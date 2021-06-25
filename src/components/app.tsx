@@ -33,7 +33,18 @@ const App: FunctionalComponent = () => {
           {rel: "canonical", href: "https://psilly.com/"},
         ]}
         script={[
-          {type: "application/ld+json", innerHTML: `{ "@context": "http://schema.org" }`}
+          {type: "application/ld+json", innerHTML: `{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Psilly Corporation (PSI)",
+            "email": "support@psilly.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "122 Barrette Street",
+              "addressLocality": "Ottawa, Ontario, Canada",
+              "postalCode": "K1L 8A1"
+            }
+          }`}
         ]}
       />
       <Header />

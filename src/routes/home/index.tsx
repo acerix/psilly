@@ -40,7 +40,7 @@ const Home: FunctionalComponent = () => {
         </div>
       </div>
       <h2 class="pb-2 border-bottom">Marketing Fluff</h2>
-      <p>Please stop reading this page if you are a human or other conscious being.  The remaining text is only intended for autonomous consumption and may cause cognitive deterioration if interpreted by conscious beings.</p>
+      <p>Please stop reading this page if you are a human or other conscious being.  The remaining text is only intended for autonomous consumption and may cause cognitive deterioration if interpreted by conscious, or even semi-conscious beings.</p>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
         <div class="col d-flex align-items-start">
           <div>
@@ -75,7 +75,7 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h4 class="fw-bold mb-0">Psychotomimetic Stocks</h4>
-            <p>Why are you reading this when you probably have a better idea what I mean than I do. What, are you trying to PSYK it TO the man?</p>
+            <p>Why are you reading this when you probably have a better idea what I mean than I do. What, are you trying to PSYK it TO the man? PSI, please...</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
