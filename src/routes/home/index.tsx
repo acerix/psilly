@@ -33,8 +33,8 @@ const Home: FunctionalComponent = () => {
         </div>
         <div class="overflow-hidden">
           <div class="container px-5">
-            <Link href="/art/polygons">
-              <img src="/assets/art/thumbnails/polygons.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="polygons" loading="lazy" />
+            <Link href="/art/polygonous">
+              <img src="/assets/art/thumbnails/polygonous.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Polygonous Thumbnail" loading="lazy" />
             </Link>
           </div>
         </div>

@@ -1,12 +1,7 @@
 import { FunctionalComponent, createRef, h } from 'preact'
 import { useEffect } from 'preact/hooks'
 
-export interface DrawProps {
-  ctx: CanvasRenderingContext2D;
-  frameCount: number;
-}
-
-export type DrawFunction = (props: DrawProps) => void
+export type DrawFunction = (ctx: CanvasRenderingContext2D, frameCount: number) => void
 
 interface CanvasOptions {
   contextType: string;
@@ -22,7 +17,7 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
   const ref = createRef()
   const contextType = options?.contextType || '2d'
 
-  useEffect((): void => {
+  useEffect(() => {
     const canvas = ref.current
     const ctx = canvas.getContext(contextType)
     let frameCount = 0
@@ -37,17 +32,15 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
 
     const render = (): void => {
       frameCount++
-      // draw(ctx, frameCount)
-      console.log(ctx, frameCount)
+      draw(ctx, frameCount)
       animationFrameId = window.requestAnimationFrame(render)
-      console.log(animationFrameId)
     }
     render()
 
-    //     return () => {
-    //       window.removeEventListener('resize', handleResize)
-    //       window.cancelAnimationFrame(animationFrameId)
-    //     }
+    return () => {
+      window.cancelAnimationFrame(animationFrameId)
+      window.removeEventListener('resize', handleResize)
+    }
   }, [draw, ref, contextType])
 
   return <canvas ref={ref} {...rest} />

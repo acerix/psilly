@@ -1,12 +1,11 @@
 import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
-import Canvas, { DrawFunction, DrawProps } from '../common/canvas'
+import Canvas from '../common/canvas'
 import style from '../canvas-template/style.css'
 
 const CanvasTemplate: FunctionalComponent = () => {
 
-  const draw: DrawFunction = ({ ctx, frameCount }: DrawProps) => {
-  //const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
+  const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.fillStyle = '#c00'
     ctx.beginPath()
