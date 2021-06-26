@@ -4,7 +4,7 @@ import Canvas from '../common/canvas'
 import style from '../canvas-template/style.css'
 
 const GoldenAngleDonut: FunctionalComponent = () => {
-  const LINE_LENGTH = 512
+  const LINE_LENGTH = 128
   const PHI = ( 1 + Math.sqrt(5) ) / 2
   const GOLDEN_ANGLE = 2*Math.PI / Math.pow(PHI, 2)
   const position = [0, 0]
@@ -12,8 +12,8 @@ const GoldenAngleDonut: FunctionalComponent = () => {
   // const color = 2^23
 
   const init = (ctx: CanvasRenderingContext2D): void => {
-    position[0] = (ctx.canvas.width - LINE_LENGTH) / 2
-    position[1] = (ctx.canvas.height - LINE_LENGTH/3) / 2
+    position[0] = ctx.canvas.width / 2 // (ctx.canvas.width - LINE_LENGTH) / 2
+    position[1] = ctx.canvas.height / 2 // (ctx.canvas.height - LINE_LENGTH/3) / 2
   }
 
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {

@@ -79,7 +79,7 @@ const Art: FunctionalComponent = () => {
         </div>
       </div>
       <h2>Artchive</h2>
-      <p>Older exhibits may be found in <a href="https://psilly.com/experiments/">experiments</a>.</p>
+      <p>Older art experiments are listed under <a href="/experiments/">experiments</a>.</p>
     </section>
   )
 }

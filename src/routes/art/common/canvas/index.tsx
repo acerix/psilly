@@ -23,6 +23,7 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
   useEffect(() => {
     const canvas = ref.current
     const ctx = canvas.getContext(contextType)
+    let paused = false
     let frameCount = 0
     let animationFrameId: number
 
@@ -33,9 +34,23 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
     window.addEventListener('resize', handleResize)
     handleResize()
 
+    const handleBlur = (): void => {
+      paused = true
+    }
+    window.addEventListener('blur', handleBlur)
+
+    const handleFocus = (): void => {
+      paused = false
+    }
+    window.addEventListener('focus', handleFocus)
+
     if (init) init(ctx)
 
     const render = (): void => {
+      if (paused) {
+        setTimeout(render, 128)
+        return
+      }
       frameCount++
       draw(ctx, frameCount)
       animationFrameId = window.requestAnimationFrame(render)

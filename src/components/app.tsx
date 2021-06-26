@@ -10,6 +10,7 @@ import Join from '../routes/join'
 import Donate from '../routes/donate'
 import Highness from '../routes/highness'
 import Page from '../routes/page'
+import Experiments from '../routes/experiments'
 import Art from '../routes/art'
 import CanvasTemplate from '../routes/art/canvas-template'
 import Polygonous from '../routes/art/polygonous'
@@ -63,7 +64,8 @@ const App: FunctionalComponent = () => {
           <Highness path="/sober" highness="sober" />
           <Highness path="/high" highness="high" />
           <Highness path="/toohigh" highness="too high" />
-          <Art path="/art" />
+          <Experiments path="/experiments/" />
+          <Art path="/art/" />
           <CanvasTemplate path="/art/canvas-template" />
           <Polygonous path="/art/polygonous" />
           <Meld path="/art/meld" />
