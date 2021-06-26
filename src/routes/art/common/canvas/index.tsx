@@ -1,6 +1,8 @@
 import { FunctionalComponent, createRef, h } from 'preact'
 import { useEffect } from 'preact/hooks'
 
+export type InitFunction = (ctx: CanvasRenderingContext2D) => void
+
 export type DrawFunction = (ctx: CanvasRenderingContext2D, frameCount: number) => void
 
 interface CanvasOptions {
@@ -8,12 +10,13 @@ interface CanvasOptions {
 }
 
 export interface CanvasProps {
+  init?: InitFunction;
   draw: DrawFunction;
   options?: CanvasOptions;
 }
 
 const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
-  const { draw, options, ...rest } = props
+  const { init, draw, options, ...rest } = props
   const ref = createRef()
   const contextType = options?.contextType || '2d'
 
@@ -30,6 +33,8 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
     window.addEventListener('resize', handleResize)
     handleResize()
 
+    if (init) init(ctx)
+
     const render = (): void => {
       frameCount++
       draw(ctx, frameCount)
@@ -41,7 +46,7 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
       window.cancelAnimationFrame(animationFrameId)
       window.removeEventListener('resize', handleResize)
     }
-  }, [draw, ref, contextType])
+  }, [init, draw, ref, contextType])
 
   return <canvas ref={ref} {...rest} />
 }

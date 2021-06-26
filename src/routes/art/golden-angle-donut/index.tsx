@@ -4,27 +4,32 @@ import Canvas from '../common/canvas'
 import style from '../canvas-template/style.css'
 
 const GoldenAngleDonut: FunctionalComponent = () => {
+  const LINE_LENGTH = 512
+  const PHI = ( 1 + Math.sqrt(5) ) / 2
+  const GOLDEN_ANGLE = 2*Math.PI / Math.pow(PHI, 2)
+  const position = [0, 0]
+  let direction = 0
+  // const color = 2^23
+
+  const init = (ctx: CanvasRenderingContext2D): void => {
+    position[0] = (ctx.canvas.width - LINE_LENGTH) / 2
+    position[1] = (ctx.canvas.height - LINE_LENGTH/3) / 2
+  }
 
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.fillStyle = '#c00'
     ctx.beginPath()
-    const canvasCenter = [ctx.canvas.width/2, ctx.canvas.height/2]
-    const maxRadius = Math.sqrt(canvasCenter[0]**2 + canvasCenter[1]**2)
-    ctx.arc(
-      canvasCenter[0],
-      canvasCenter[1],
-      maxRadius*Math.sin(frameCount*.01)**2,
-      0,
-      2*Math.PI
-    )
-    ctx.fill()
+    ctx.moveTo(position[0], position[1])
+    direction += GOLDEN_ANGLE
+    position[0] += LINE_LENGTH * Math.cos(direction + frameCount)
+    position[1] += LINE_LENGTH * Math.sin(direction)
+    ctx.lineTo(position[0], position[1])
+    ctx.stroke()
   }
 
   return (
     <section class={style.canvas_frame}>
       <Helmet title="Golden Angle Donut" />
-      <Canvas draw={draw} />
+      <Canvas init={init} draw={draw} />
     </section>
   )
 }

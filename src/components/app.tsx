@@ -15,6 +15,7 @@ import CanvasTemplate from '../routes/art/canvas-template'
 import Polygonous from '../routes/art/polygonous'
 import Meld from '../routes/art/meld'
 import Circle from '../routes/art/circle'
+import Scribble from '../routes/art/scribble'
 import GoldenAngleDonut from '../routes/art/golden-angle-donut'
 import Chat from '../routes/chat'
 import Spinner from '../routes/spinner'
@@ -52,24 +53,25 @@ const App: FunctionalComponent = () => {
       <Header />
       <main>
         <Router>
-          <Route path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/bylaws" component={Bylaws} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/join" component={Join} />
-          <Route path="/donate" component={Donate} />
+          <Home path="/" />
+          <About path="/about" />
+          <Bylaws path="/bylaws" />
+          <Contact path="/contact" />
+          <Join path="/join" />
+          <Donate path="/donate" />
           <Route path="/page/:page" component={Page} />
-          <Route path="/sober" component={Highness} highness="sober" />
-          <Route path="/high" component={Highness} highness="high" />
-          <Route path="/toohigh" component={Highness} highness="too high" />
-          <Route path="/art" component={Art} />
-          <Route path="/art/canvas-template" component={CanvasTemplate} />
-          <Route path="/art/polygonous" component={Polygonous} />
-          <Route path="/art/meld" component={Meld} />
-          <Route path="/art/circle" component={Circle} />
-          <Route path="/art/golden-angle-donut" component={GoldenAngleDonut} />
-          <Route path="/chat" component={Chat} />
-          <Route path="/spin" component={Spinner} />
+          <Highness path="/sober" highness="sober" />
+          <Highness path="/high" highness="high" />
+          <Highness path="/toohigh" highness="too high" />
+          <Art path="/art" />
+          <CanvasTemplate path="/art/canvas-template" />
+          <Polygonous path="/art/polygonous" />
+          <Meld path="/art/meld" />
+          <Circle path="/art/circle" />
+          <Scribble path="/art/scribble" />
+          <GoldenAngleDonut path="/art/golden-angle-donut" />
+          <Chat path="/chat" />
+          <Spinner path="/spin" />
           <NotFound default />
         </Router>
       </main>

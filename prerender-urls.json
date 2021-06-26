@@ -61,9 +61,9 @@
 		"title": "Digital Art Exhibition"
 	},
 	{
-		"url": "/art/polygons",
-		"title": "Digital Art Exhibit | Polygons",
-		"photo": "/assets/art/thumbnails/polygons.png"
+		"url": "/art/polygonous",
+		"title": "Digital Art Exhibit | Polygonous",
+		"photo": "/assets/art/thumbnails/polygonous.png"
 	},
 	{
 		"url": "/art/meld",
@@ -74,6 +74,15 @@
 		"url": "/art/circle",
 		"title": "Digital Art Exhibit | Circle",
 		"photo": "/assets/art/thumbnails/circle.png"
+	},
+	{
+		"url": "/art/scribble",
+		"title": "Digital Art Exhibit | Scribble"
+	},
+	{
+		"url": "/art/golden-angle-donut",
+		"title": "Digital Art Exhibit | Golden Angle Donut",
+		"photo": "/assets/art/thumbnails/golden-angle-donut.png"
 	},
 	{
 		"url": "/chat",
