@@ -25,6 +25,7 @@ section.container {
   right: 0;
   bottom: 0;
   left: 0;
+  overflow: hidden;
 }
 
 .canvas_frame__1E_4m iframe {
@@ -54,4 +55,4 @@ section.container {
 }
 
 
-/*# sourceMappingURL=ssr-bundle.90445.css.map*/
+/*# sourceMappingURL=ssr-bundle.98e66.css.map*/
