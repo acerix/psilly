@@ -3,9 +3,10 @@ import Helmet from 'react-helmet'
 import Canvas, { DrawFunction, DrawProps } from '../common/canvas'
 import style from '../canvas-template/style.css'
 
-const GoldenAngleDonut: FunctionalComponent = () => {
+const CanvasTemplate: FunctionalComponent = () => {
 
   const draw: DrawFunction = ({ ctx, frameCount }: DrawProps) => {
+  //const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.fillStyle = '#c00'
     ctx.beginPath()
@@ -23,10 +24,10 @@ const GoldenAngleDonut: FunctionalComponent = () => {
 
   return (
     <section class={style.canvas_frame}>
-      <Helmet title="Golden Angle Donut" />
+      <Helmet title="Canvas Template" />
       <Canvas draw={draw} />
     </section>
   )
 }
 
-export default GoldenAngleDonut
+export default CanvasTemplate

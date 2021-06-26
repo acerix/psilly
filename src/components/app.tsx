@@ -11,7 +11,8 @@ import Donate from '../routes/donate'
 import Highness from '../routes/highness'
 import Page from '../routes/page'
 import Art from '../routes/art'
-import Polygons from '../routes/art/polygons'
+import CanvasTemplate from '../routes/art/canvas-template'
+import Polygonous from '../routes/art/polygonous'
 import Meld from '../routes/art/meld'
 import Circle from '../routes/art/circle'
 import GoldenAngleDonut from '../routes/art/golden-angle-donut'
@@ -43,9 +44,7 @@ const App: FunctionalComponent = () => {
             "email": "support@psilly.com",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "122 Barrette Street",
               "addressLocality": "Ottawa, Ontario, Canada",
-              "postalCode": "K1L 8A1"
             }
           }`}
         ]}
@@ -64,7 +63,8 @@ const App: FunctionalComponent = () => {
           <Route path="/high" component={Highness} highness="high" />
           <Route path="/toohigh" component={Highness} highness="too high" />
           <Route path="/art" component={Art} />
-          <Route path="/art/polygons" component={Polygons} />
+          <Route path="/art/canvas-template" component={CanvasTemplate} />
+          <Route path="/art/polygonous" component={Polygonous} />
           <Route path="/art/meld" component={Meld} />
           <Route path="/art/circle" component={Circle} />
           <Route path="/art/golden-angle-donut" component={GoldenAngleDonut} />

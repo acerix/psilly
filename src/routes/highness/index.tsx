@@ -1,7 +1,11 @@
 import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
 
-const Highness: FunctionalComponent<Props> = (props: Props) => {
+interface HighnessProps {
+  highness: string;
+}
+
+const Highness: FunctionalComponent<HighnessProps> = (props: HighnessProps) => {
   const { highness } = props
   return (
     <section class="container py-5">

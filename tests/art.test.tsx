@@ -5,6 +5,6 @@ import { shallow } from 'enzyme'
 describe('Test art page contents', () => {
   test('Art header is as expected', () => {
     const context = shallow(<Art />)
-    expect(context.find('h1').text()).toBe('Psilly Digital Art Exhibition')
+    expect(context.find('h1').text()).toBe('Web Art')
   })
 })

@@ -1,39 +1,56 @@
-import { FunctionalComponent, h } from 'preact'
-import React, { useRef, useEffect } from 'react'
+import { FunctionalComponent, createRef, h } from 'preact'
+import { useEffect } from 'preact/hooks'
 
-const Canvas = props => {
+export interface DrawProps {
+  ctx: CanvasRenderingContext2D;
+  frameCount: number;
+}
 
-  const canvasRef = useRef(null)
+export type DrawFunction = (props: DrawProps) => void
 
-  const draw = (ctx, frameCount) => {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.fillStyle = '#000000'
-    ctx.beginPath()
-    ctx.arc(50, 100, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
-    ctx.fill()
-  }
+interface CanvasOptions {
+  contextType: string;
+}
 
-  useEffect(() => {
+export interface CanvasProps {
+  draw: DrawFunction;
+  options?: CanvasOptions;
+}
 
-    const canvas = canvasRef.current
-    const context = canvas.getContext('2d')
+const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
+  const { draw, options, ...rest } = props
+  const ref = createRef()
+  const contextType = options?.contextType || '2d'
+
+  useEffect((): void => {
+    const canvas = ref.current
+    const ctx = canvas.getContext(contextType)
     let frameCount = 0
-    let animationFrameId
+    let animationFrameId: number
 
-    //Our draw came here
-    const render = () => {
+    const handleResize = (): void => {
+      ctx.canvas.width = window.innerWidth
+      ctx.canvas.height = window.innerHeight
+    }
+    window.addEventListener('resize', handleResize)
+    handleResize()
+
+    const render = (): void => {
       frameCount++
-      draw(context, frameCount)
+      // draw(ctx, frameCount)
+      console.log(ctx, frameCount)
       animationFrameId = window.requestAnimationFrame(render)
+      console.log(animationFrameId)
     }
     render()
 
-    return () => {
-      window.cancelAnimationFrame(animationFrameId)
-    }
-  }, [draw])
+    //     return () => {
+    //       window.removeEventListener('resize', handleResize)
+    //       window.cancelAnimationFrame(animationFrameId)
+    //     }
+  }, [draw, ref, contextType])
 
-  return <canvas ref={canvasRef} {...props}/>
+  return <canvas ref={ref} {...rest} />
 }
 
 export default Canvas

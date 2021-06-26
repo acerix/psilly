@@ -2,14 +2,14 @@ import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
 import style from '../canvas-template/style.css'
 
-const Circle: FunctionalComponent = () => {
+const Polygonous: FunctionalComponent = () => {
 
   return (
     <section class={style.canvas_frame}>
-      <Helmet title="Circle" />
-      <iframe src="https://psilly.com/experiments/circle.html" />
+      <Helmet title="Polygonous" />
+      <iframe src="https://psilly.com/experiments/polygons.html" />
     </section>
   )
 }
 
-export default Circle
+export default Polygonous
