@@ -7,7 +7,7 @@ const CanvasTemplate: FunctionalComponent = () => {
 
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.fillStyle = '#c00'
+    ctx.fillStyle = 'purple'
     ctx.beginPath()
     const canvasCenter = [ctx.canvas.width/2, ctx.canvas.height/2]
     const maxRadius = Math.sqrt(canvasCenter[0]**2 + canvasCenter[1]**2)

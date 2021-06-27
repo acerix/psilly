@@ -16,7 +16,7 @@ import CanvasTemplate from '../routes/art/canvas-template'
 import Polygonous from '../routes/art/polygonous'
 import Meld from '../routes/art/meld'
 import Circle from '../routes/art/circle'
-import Scribble from '../routes/art/scribble'
+import Squibbo from '../routes/art/squibbo'
 import GoldenAngleDonut from '../routes/art/golden-angle-donut'
 import Chat from '../routes/chat'
 import Spinner from '../routes/spinner'
@@ -70,7 +70,7 @@ const App: FunctionalComponent = () => {
           <Polygonous path="/art/polygonous" />
           <Meld path="/art/meld" />
           <Circle path="/art/circle" />
-          <Scribble path="/art/scribble" />
+          <Squibbo path="/art/squibbo" />
           <GoldenAngleDonut path="/art/golden-angle-donut" />
           <Chat path="/chat" />
           <Spinner path="/spin" />

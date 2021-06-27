@@ -65,8 +65,22 @@ const Art: FunctionalComponent = () => {
         </div>
         <div class="col-sm-6 col-md-4 mb-4">
           <div class="card">
+            <a href="/art/squibbo">
+              <img src="/assets/art/thumbnails/squibbo.png" class="card-img-top" alt="thumbnail" />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong><em>Squibbo</em></strong>, 2021
+              </h5>
+              <p class="card-text"><strong>JavaScript on CanvasRenderingContext2D</strong></p>
+              <p class="card-text">A post-modern take on the classical interpretation of machine-assisted squibology.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 mb-4">
+          <div class="card">
             <a href="/art/canvas-template">
-              <img src="/assets/icons/maskable-icon.png" class="card-img-top" alt="thumbnail" />
+              <img src="/assets/art/thumbnails/canvas-template.png" class="card-img-top" alt="thumbnail" />
             </a>
             <div class="card-body">
               <h5 class="card-title">

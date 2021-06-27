@@ -1,19 +1,32 @@
 import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
+import ColorGenerator, { Color } from '../common/color-generator'
 import style from '../canvas-template/style.css'
 
-const Scribble: FunctionalComponent = () => {
-  const STROKES_PER_FRAME = 16
+const Squibbo: FunctionalComponent = () => {
+  const STROKES_PER_FRAME = 32
   const position = [0, 0]
-  // const color = 2^23
 
   const init = (ctx: CanvasRenderingContext2D): void => {
     position[0] = ctx.canvas.width / 2
     position[1] = ctx.canvas.height / 2
   }
+  const onResize = init
+
+  const colorGenerator = ColorGenerator({
+    mutate: (color: Color): void => {
+      for (let i=0; i<3; i++) {
+        if (Math.random() > .5) {
+          const d = 1 - 2 * Math.floor(Math.random()*2)
+          color[i] = (color[i] + 256 + d) % 256
+        }
+      }
+    }
+  })
 
   const draw = (ctx: CanvasRenderingContext2D): void => {
+    ctx.strokeStyle = colorGenerator.next().value
     ctx.beginPath()
     ctx.moveTo(position[0], position[1])
     for (let i=0; i<STROKES_PER_FRAME; i++) {
@@ -26,10 +39,10 @@ const Scribble: FunctionalComponent = () => {
 
   return (
     <section class={style.canvas_frame}>
-      <Helmet title="Scribble" />
-      <Canvas init={init} draw={draw} />
+      <Helmet title="Squibbo" />
+      <Canvas init={init} draw={draw} onResize={onResize} />
     </section>
   )
 }
 
-export default Scribble
+export default Squibbo

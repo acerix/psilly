@@ -15,7 +15,9 @@
     "deploy": "gh-pages -d build"
   },
   "browserslist": [
-    "> 1%"
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
   ],
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -45,15 +47,13 @@
     ]
   },
   "dependencies": {
-    "@types/three": "^0.129.1",
-    "bootstrap": "^5.0.2",
-    "bootswatch": "^5.0.2",
+    "core-js": "^3.15.1",
     "preact": "^10.3.1",
     "preact-helmet": "^4.0.0-alpha-3",
     "preact-render-to-string": "^5.1.4",
     "preact-router": "^3.2.1",
     "react-helmet": "^6.1.0",
-    "three": "^0.129.0"
+    "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.5",
@@ -70,7 +70,6 @@
     "jest-preset-preact": "^4.0.2",
     "preact-cli": "^0.1.0",
     "sirv-cli": "^1.0.0-next.3",
-    "three-elements": "^0.3.0",
     "typescript": "^3.7.5"
   },
   "jest": {

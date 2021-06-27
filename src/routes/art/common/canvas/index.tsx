@@ -1,35 +1,42 @@
 import { FunctionalComponent, createRef, h } from 'preact'
 import { useEffect } from 'preact/hooks'
 
-export type InitFunction = (ctx: CanvasRenderingContext2D) => void
+type InitFunction = (ctx: CanvasRenderingContext2D) => void
 
-export type DrawFunction = (ctx: CanvasRenderingContext2D, frameCount: number) => void
+type DrawFunction = (ctx: CanvasRenderingContext2D, frameCount: number) => void
+
+type ResizeFunction = (ctx: CanvasRenderingContext2D) => void
 
 interface CanvasOptions {
-  contextType: string;
+  contextType?: string;
+  framesPerSecond?: number;
 }
 
-export interface CanvasProps {
+interface CanvasProps {
   init?: InitFunction;
   draw: DrawFunction;
+  onResize?: ResizeFunction;
   options?: CanvasOptions;
+  framesPerSecond?: number;
 }
 
 const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
-  const { init, draw, options, ...rest } = props
+  const { init, draw, onResize, options, ...rest } = props
   const ref = createRef()
   const contextType = options?.contextType || '2d'
+  const frameMilliseconds = options?.framesPerSecond ? 1000 / options.framesPerSecond : undefined
 
   useEffect(() => {
     const canvas = ref.current
     const ctx = canvas.getContext(contextType)
     let paused = false
     let frameCount = 0
-    let animationFrameId: number
+    let renderCallbackID: number
 
     const handleResize = (): void => {
       ctx.canvas.width = window.innerWidth
       ctx.canvas.height = window.innerHeight
+      if (onResize) onResize(ctx)
     }
     window.addEventListener('resize', handleResize)
     handleResize()
@@ -53,15 +60,27 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
       }
       frameCount++
       draw(ctx, frameCount)
-      animationFrameId = window.requestAnimationFrame(render)
+      if (frameMilliseconds) {
+        renderCallbackID = window.setTimeout(render, frameMilliseconds)
+      }
+      else {
+        renderCallbackID = window.requestAnimationFrame(render)
+      }
     }
     render()
 
-    return () => {
-      window.cancelAnimationFrame(animationFrameId)
+    return (): void => {
+      if (frameMilliseconds) {
+        window.clearTimeout(renderCallbackID)
+      }
+      else {
+        window.cancelAnimationFrame(renderCallbackID)
+      }
       window.removeEventListener('resize', handleResize)
+      window.removeEventListener('blur', handleBlur)
+      window.removeEventListener('focus', handleFocus)
     }
-  }, [init, draw, ref, contextType])
+  }, [init, draw, onResize, ref, contextType, frameMilliseconds])
 
   return <canvas ref={ref} {...rest} />
 }
