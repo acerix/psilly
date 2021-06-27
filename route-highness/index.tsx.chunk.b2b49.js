@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{"u+W7":function(n,e,t){"use strict";t.r(e);var s=t("hosL"),u=t("Hrl7");e.default=function(n){var e=n.highness;return Object(s.h)("section",{class:"container py-5"},Object(s.h)(u.a,{title:"Your Highness"}),Object(s.h)("h1",null,"Your Highness"),"high"===e&&Object(s.h)("p",null,"Hi High, I'm Dud."),Object(s.h)("p",null,"I understand you identify as ",Object(s.h)("em",null,e)," and I fully support you in this endeavor."))}}}]);
+//# sourceMappingURL=index.tsx.chunk.b2b49.js.map
