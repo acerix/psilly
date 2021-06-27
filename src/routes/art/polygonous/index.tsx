@@ -1,62 +1,70 @@
 import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
-import ColorGenerator, {Color} from '../common/color-generator'
+import {Color, colorToCss} from '../common/color-generator'
 import style from '../canvas-template/style.css'
-
-// const PHI = ( 1 + Math.sqrt(5) ) / 2
-// const GOLDEN_ANGLE = 2*Math.PI / Math.pow(PHI, 2)
 
 const Polygonous: FunctionalComponent = () => {
   const sides = 7
+  const drawRecursions = 60
   let baseLength = 0
-  const drawRecursions = 64
-  const position = [0, 0]
+  let growPeriod = 0
   const center = [0, 0]
-  const colorPeriods: number[] = [Math.random(), Math.random(), Math.random()]
+  const color: Color = new Uint8Array([128, 128, 128])
+  const colorPeriods: number[] = [Math.random()/13, Math.random()/13, Math.random()/13]
+  const rotateIncrement = -0.598
+  const angle = Math.PI * 2 / sides
 
   const init = (ctx: CanvasRenderingContext2D): void => {
-    baseLength = Math.min(ctx.canvas.width, ctx.canvas.height) / sides * 8
-    position[0] = (ctx.canvas.width - baseLength) / 2
-    // const apothem = baseLength / 2 * Math.tan(Math.PI / sides)
-    const apothem = baseLength / Math.sin(Math.PI / sides) * Math.cos(Math.PI / sides)
-    position[1] = (ctx.canvas.height - apothem) / 2
+    baseLength = Math.min(ctx.canvas.width, ctx.canvas.height) / sides * 6
+    growPeriod = Math.round(baseLength / Math.cos(Math.PI/sides) / Math.cos(Math.PI/sides) - baseLength)
     center[0] = ctx.canvas.width / 2
     center[1] = ctx.canvas.height / 2
   }
   const onResize = init
 
-  const colorGenerator = ColorGenerator({
-    mutate: (color: Color, iterationCount: number): void => {
-      for (let i=0; i<3; i++) {
-        color[i] = 128 + 127*Math.sin(colorPeriods[i] * iterationCount * .1)
-      }
+  const drawBisectionals = (ctx: CanvasRenderingContext2D, sideLength: number, x: number, y: number, direction: number, frameCount: number, generation: number, recursionsLeft: number): void => {
+    const timePoint = frameCount + 4 * generation
+    for (let i=0; i<3; i++) {
+      color[i] = 128 + 127*Math.sin(timePoint * colorPeriods[i])
     }
-  })
-
-  const drawBisectionals = (ctx: CanvasRenderingContext2D, position: number[], direction: number, generation: number, recursionsLeft: number): void => {
-    const angle = Math.PI * 2 / sides
-    const length = baseLength / Math.pow(1 / Math.cos(Math.PI / sides), generation)
+    ctx.strokeStyle = colorToCss(color)
     ctx.beginPath()
-    ctx.moveTo(position[0], position[1])
+    ctx.moveTo(x, y)
     for (let i=0; i<sides; i++) {
-      position[0] += length * Math.cos(direction)
-      position[1] += length * Math.sin(direction)
-      ctx.lineTo(position[0], position[1])
+      x += sideLength * Math.cos(direction)
+      y += sideLength * Math.sin(direction)
+      ctx.lineTo(x, y)
       direction += angle
     }
     ctx.stroke()
-    position[0] += length / 2 * Math.cos(direction)
-    position[1] += length / 2 * Math.sin(direction)
-    if (recursionsLeft) drawBisectionals(ctx, position, direction+angle/2, generation+1, recursionsLeft-1)
+    x += sideLength / 2 * Math.cos(direction)
+    y += sideLength / 2 * Math.sin(direction)
+    if (recursionsLeft) {
+      drawBisectionals(
+        ctx,
+        sideLength*Math.cos(Math.PI/sides),
+        x,
+        y,
+        direction+angle/2,
+        frameCount,
+        generation+1,
+        recursionsLeft-1
+      )
+    }
   }
 
-  const draw = (ctx: CanvasRenderingContext2D): void => {
-    ctx.strokeStyle = colorGenerator.next().value as string
-    drawBisectionals(ctx, position.slice(), 0, 0, drawRecursions)
-    ctx.translate(center[0], center[1])
-    ctx.rotate(Math.PI / 256)
-    ctx.translate(-center[0], -center[1])
+  const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
+    const sideLength = baseLength + (frameCount % growPeriod)
+    const apothem = sideLength / ( 2 * Math.tan(Math.PI / sides) )
+    const x = (ctx.canvas.width - sideLength) / 2
+    const y = (ctx.canvas.height) / 2 - apothem
+    drawBisectionals(ctx, sideLength, x, y, 0, frameCount, 0, drawRecursions)
+    if (rotateIncrement) {
+      ctx.translate(center[0], center[1])
+      ctx.rotate(rotateIncrement)
+      ctx.translate(-center[0], -center[1])
+    }
   }
 
   return (

@@ -1,7 +1,7 @@
 import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
-import ColorGenerator, { Color } from '../common/color-generator'
+import ColorGenerator, {Color, colorToCss} from '../common/color-generator'
 import style from '../canvas-template/style.css'
 
 const STROKES_PER_FRAME = 32
@@ -27,7 +27,7 @@ const Squibbo: FunctionalComponent = () => {
   })
 
   const draw = (ctx: CanvasRenderingContext2D): void => {
-    ctx.strokeStyle = colorGenerator.next().value as string
+    ctx.strokeStyle = colorToCss(colorGenerator.next().value as Color)
     ctx.beginPath()
     ctx.moveTo(position[0], position[1])
     for (let i=0; i<STROKES_PER_FRAME; i++) {

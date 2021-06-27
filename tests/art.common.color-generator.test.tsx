@@ -1,4 +1,4 @@
-import ColorGenerator from '../src/routes/art/common/color-generator'
+import ColorGenerator, {Color, colorToCss} from '../src/routes/art/common/color-generator'
 
 describe('Test color generator', () => {
 
@@ -13,7 +13,7 @@ describe('Test color generator', () => {
 
   test('ColorGenerator initial colour is greyest', () => {
     const colorGenerator = ColorGenerator()
-    const initialColor = colorGenerator.next().value as string
+    const initialColor = colorToCss(colorGenerator.next().value as Color)
     expect(initialColor).toBe('rgb(128,128,128)')
   })
 
