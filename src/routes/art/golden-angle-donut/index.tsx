@@ -22,7 +22,7 @@ const GoldenAngleDonut: FunctionalComponent = () => {
   const onResize = init
 
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
-    ctx.strokeStyle = colorGenerator.next().value
+    ctx.strokeStyle = colorGenerator.next().value as string
     ctx.beginPath()
     ctx.moveTo(position[0], position[1])
     direction += GOLDEN_ANGLE

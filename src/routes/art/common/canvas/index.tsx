@@ -27,8 +27,8 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
   const frameMilliseconds = options?.framesPerSecond ? 1000 / options.framesPerSecond : undefined
 
   useEffect(() => {
-    const canvas = ref.current
-    const ctx = canvas.getContext(contextType)
+    const canvas = ref.current as HTMLCanvasElement
+    const ctx = canvas.getContext(contextType) as CanvasRenderingContext2D
     let paused = false
     let frameCount = 0
     let renderCallbackID: number

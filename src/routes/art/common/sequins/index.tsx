@@ -12,7 +12,7 @@ const Sequins: FunctionalComponent<SequinsProps> = (props: SequinsProps) => {
   const ref = createRef()
 
   useEffect(() => {
-    const element = ref.current
+    const element = ref.current as HTMLElement
     const sequins = props?.sequins || [38,38,40,40,37,39,37,39,66,65]
     const success = props?.success || function(element: HTMLElement): void {
       element.innerHTML = atob('PGRpdiBjbGFzcz0iYWxlcnQgYWxlcnQtc3VjY2VzcyB0ZXh0LWRhcmsiIHJvbGU9ImFsZXJ0Ij5Hb2QgbW9kZSBlbmFibGVkPC9kaXY+')

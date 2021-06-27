@@ -13,7 +13,7 @@ describe('Test color generator', () => {
 
   test('ColorGenerator initial colour is greyest', () => {
     const colorGenerator = ColorGenerator()
-    const initialColor = colorGenerator.next().value
+    const initialColor = colorGenerator.next().value as string
     expect(initialColor).toBe('rgb(128,128,128)')
   })
 

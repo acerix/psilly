@@ -26,7 +26,7 @@ const Squibbo: FunctionalComponent = () => {
   })
 
   const draw = (ctx: CanvasRenderingContext2D): void => {
-    ctx.strokeStyle = colorGenerator.next().value
+    ctx.strokeStyle = colorGenerator.next().value as string
     ctx.beginPath()
     ctx.moveTo(position[0], position[1])
     for (let i=0; i<STROKES_PER_FRAME; i++) {
