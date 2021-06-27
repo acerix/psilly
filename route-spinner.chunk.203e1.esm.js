@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[14],{pvpb:function(e,s,i){"use strict";i.r(s);var n=i("hosL"),t=i("Hrl7"),c="spinner__35ncf";s.default=()=>Object(n.h)("section",{class:c},Object(n.h)(t.a,{title:"Please wait while your desires are loaded..."}),Object(n.h)("div",null,Object(n.h)("div",null,"⬡")))}}]);
+//# sourceMappingURL=route-spinner.chunk.203e1.esm.js.map

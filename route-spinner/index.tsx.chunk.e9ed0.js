@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[14],{"/xRP":function(n,e,i){"use strict";i.r(e);var s=i("hosL"),t=i("Hrl7"),r=i("CGiZ"),c=i.n(r);e.default=function(){return Object(s.h)("section",{class:c.a.spinner},Object(s.h)(t.a,{title:"Please wait while your desires are loaded..."}),Object(s.h)("div",null,Object(s.h)("div",null,"⬡")))}},CGiZ:function(n){n.exports={spinner:"spinner__nSQm3",spin:"spin__Sh-K3"}}}]);
-//# sourceMappingURL=index.tsx.chunk.e9ed0.js.map
