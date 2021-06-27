@@ -33,6 +33,13 @@ section.container {
   height: 100%;
 }
 
+.parameter_panel_toggle_button__3GGN1 {
+  position: absolute;
+  padding: .5rem;
+  top: 15px;
+  right: 15px;
+}
+
 .spinner__35ncf {
   text-align: center;
   font-size: 420px;
@@ -64,4 +71,4 @@ section.container {
 }
 
 
-/*# sourceMappingURL=ssr-bundle.b1664.css.map*/
+/*# sourceMappingURL=ssr-bundle.c1e57.css.map*/
