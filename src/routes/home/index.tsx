@@ -6,7 +6,7 @@ import Sequins from '../art/common/sequins'
 const Home: FunctionalComponent = () => {
   return (
     <section class="container">
-      <Helmet title="Welcome!" />
+      <Helmet title="Psilly Belongs You" />
       <div class="px-4 pt-5 my-5 text-center border-bottom">
         <Sequins />
         <h1 class="display-6 fw-bold">🍄 Psilly Belongs You 🍄</h1>

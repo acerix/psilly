@@ -16,15 +16,15 @@ interface CanvasProps {
   init?: InitFunction;
   draw: DrawFunction;
   onResize?: ResizeFunction;
-  options?: CanvasOptions;
   framesPerSecond?: number;
+  options?: CanvasOptions;
 }
 
 const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
-  const { init, draw, onResize, options, ...rest } = props
+  const { init, draw, onResize, framesPerSecond, options, ...rest } = props
   const ref = createRef()
+  const frameMilliseconds = framesPerSecond ? 1000 / framesPerSecond : undefined
   const contextType = options?.contextType || '2d'
-  const frameMilliseconds = options?.framesPerSecond ? 1000 / options.framesPerSecond : undefined
 
   useEffect(() => {
     const canvas = ref.current as HTMLCanvasElement

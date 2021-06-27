@@ -14,7 +14,7 @@ const Art: FunctionalComponent = () => {
             </a>
             <div class="card-body">
               <h5 class="card-title">
-                <strong><em>Polygonous</em></strong>, 2013
+                <strong><em>Bisectional Polygonous Girations</em></strong>, 2013
               </h5>
               <p class="card-text"><strong>JavaScript on CanvasRenderingContext2D</strong></p>
               <p class="card-text">Explores the Euclidean nature of linear geometry, from the point of view of a conscious observer, emphasizing the dichotomy of transversal relationism in a post-reactivate triptonia.</p>

@@ -42,12 +42,18 @@ const App: FunctionalComponent = () => {
           {type: "application/ld+json", innerHTML: `{
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Psilly Corporation (PSI)",
-            "email": "support@psilly.com",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Ottawa, Ontario, Canada",
-            }
+            "name": "Psilly",
+            "legalName" : "Psilly Corporation",
+            "url": "https://psilly.com",
+            "logo": "https://psilly.com/assets/Psilly-logo.png",
+            "foundingDate": "2006",
+            "founders": [
+              {
+              "@type": "Person",
+              "name": "Dylan Ferris"
+              }
+            ],
+            "email": "support@psilly.com"
           }`}
         ]}
       />

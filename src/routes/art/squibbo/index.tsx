@@ -4,8 +4,9 @@ import Canvas from '../common/canvas'
 import ColorGenerator, { Color } from '../common/color-generator'
 import style from '../canvas-template/style.css'
 
+const STROKES_PER_FRAME = 32
+
 const Squibbo: FunctionalComponent = () => {
-  const STROKES_PER_FRAME = 32
   const position = [0, 0]
 
   const init = (ctx: CanvasRenderingContext2D): void => {
