@@ -8,3 +8,7 @@ declare module "preact-cli/sw/" {
     export function setupPrecaching(): void
     export function getFiles(): void
 }
+
+declare module "*.txt" {
+    export default Record
+}

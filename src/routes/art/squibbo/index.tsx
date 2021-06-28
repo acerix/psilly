@@ -13,7 +13,6 @@ const Squibbo: FunctionalComponent = () => {
     position[0] = ctx.canvas.width / 2
     position[1] = ctx.canvas.height / 2
   }
-  const onResize = init
 
   const colorGenerator = ColorGenerator({
     mutate: (color: Color): void => {
@@ -41,7 +40,7 @@ const Squibbo: FunctionalComponent = () => {
   return (
     <section class={style.canvas_frame}>
       <Helmet title="Squibbo" />
-      <Canvas init={init} draw={draw} onResize={onResize} />
+      <Canvas init={init} onResize={init} draw={draw} />
     </section>
   )
 }

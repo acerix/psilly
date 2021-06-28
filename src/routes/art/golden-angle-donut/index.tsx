@@ -1,6 +1,7 @@
 import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
+import ParameterPanel from '../common/parameter-panel'
 import ColorGenerator, {Color, colorToCss} from '../common/color-generator'
 import style from '../canvas-template/style.css'
 
@@ -37,8 +38,9 @@ const GoldenAngleDonut: FunctionalComponent = () => {
 
   return (
     <section class={style.canvas_frame}>
-      <Helmet title="Golden Angle Donut" />
       <Canvas init={init} draw={draw} onResize={onResize} />
+      <Helmet title="Golden Angle Donut" />
+      <ParameterPanel something={69} />
     </section>
   )
 }

@@ -21,7 +21,6 @@ const Polygonous: FunctionalComponent = () => {
     center[0] = ctx.canvas.width / 2
     center[1] = ctx.canvas.height / 2
   }
-  const onResize = init
 
   const drawBisectionals = (ctx: CanvasRenderingContext2D, sideLength: number, x: number, y: number, direction: number, frameCount: number, generation: number, recursionsLeft: number): void => {
     const timePoint = frameCount + 4 * generation
@@ -70,7 +69,7 @@ const Polygonous: FunctionalComponent = () => {
   return (
     <section class={style.canvas_frame}>
       <Helmet title="Bisectional Polygonous Girations" />
-      <Canvas init={init} draw={draw} onResize={onResize} />
+      <Canvas init={init} onResize={init} draw={draw} />
     </section>
   )
 }

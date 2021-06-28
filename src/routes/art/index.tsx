@@ -84,10 +84,24 @@ const Art: FunctionalComponent = () => {
             </a>
             <div class="card-body">
               <h5 class="card-title">
-                <strong><em>Template</em></strong>, 2021
+                <strong><em>2D Canvas Template</em></strong>, 2021
               </h5>
               <p class="card-text"><strong>JavaScript on CanvasRenderingContext2D</strong></p>
               <p class="card-text">May I be the spawn of many art projects.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 mb-4">
+          <div class="card">
+            <a href="/art/webgl-template">
+              <img src="/assets/art/thumbnails/canvas-template.png" class="card-img-top" alt="thumbnail" />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong><em>WebGL Canvas Template</em></strong>, 2021
+              </h5>
+              <p class="card-text"><strong>JavaScript on WebGLRenderingContext</strong></p>
+              <p class="card-text">Good luck!</p>
             </div>
           </div>
         </div>

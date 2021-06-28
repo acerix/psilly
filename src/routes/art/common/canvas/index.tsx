@@ -1,6 +1,8 @@
 import { FunctionalComponent, createRef, h } from 'preact'
 import { useEffect } from 'preact/hooks'
 
+type GetContextFunction = (canvas: HTMLCanvasElement) => CanvasRenderingContext2D
+
 type InitFunction = (ctx: CanvasRenderingContext2D) => void
 
 type DrawFunction = (ctx: CanvasRenderingContext2D, frameCount: number) => void
@@ -13,6 +15,7 @@ interface CanvasOptions {
 }
 
 interface CanvasProps {
+  getContext?: GetContextFunction;
   init?: InitFunction;
   draw: DrawFunction;
   onResize?: ResizeFunction;
@@ -21,17 +24,16 @@ interface CanvasProps {
 }
 
 const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
-  const { init, draw, onResize, framesPerSecond, options, ...rest } = props
+  const { getContext, init, draw, onResize, framesPerSecond, ...rest } = props
   const ref = createRef()
   const frameMilliseconds = framesPerSecond ? 1000 / framesPerSecond : undefined
-  const contextType = options?.contextType || '2d'
 
   useEffect(() => {
     const canvas = ref.current as HTMLCanvasElement
-    const ctx = canvas.getContext(contextType) as CanvasRenderingContext2D
     let paused = false
     let frameCount = 0
     let renderCallbackID: number
+    const ctx = getContext ? getContext(canvas) : canvas.getContext('2d') as CanvasRenderingContext2D
 
     const handleResize = (): void => {
       ctx.canvas.width = window.innerWidth
@@ -80,7 +82,7 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
       window.removeEventListener('blur', handleBlur)
       window.removeEventListener('focus', handleFocus)
     }
-  }, [init, draw, onResize, ref, contextType, frameMilliseconds])
+  }, [getContext, init, draw, onResize, ref, frameMilliseconds])
 
   return <canvas ref={ref} {...rest} />
 }

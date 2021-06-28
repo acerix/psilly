@@ -12,12 +12,13 @@ import Highness from '../routes/highness'
 import Page from '../routes/page'
 import Experiments from '../routes/experiments'
 import Art from '../routes/art'
-import CanvasTemplate from '../routes/art/canvas-template'
 import Polygonous from '../routes/art/polygonous'
 import Meld from '../routes/art/meld'
 import Circle from '../routes/art/circle'
 import Squibbo from '../routes/art/squibbo'
 import GoldenAngleDonut from '../routes/art/golden-angle-donut'
+import CanvasTemplate from '../routes/art/canvas-template'
+// import WebGLTemplate from '../routes/art/webgl-template'
 import Chat from '../routes/chat'
 import Spinner from '../routes/spinner'
 
@@ -72,12 +73,13 @@ const App: FunctionalComponent = () => {
           <Highness path="/toohigh" highness="too high" />
           <Experiments path="/experiments/" />
           <Art path="/art/" />
-          <CanvasTemplate path="/art/canvas-template" />
           <Polygonous path="/art/polygonous" />
           <Meld path="/art/meld" />
           <Circle path="/art/circle" />
           <Squibbo path="/art/squibbo" />
           <GoldenAngleDonut path="/art/golden-angle-donut" />
+          <CanvasTemplate path="/art/canvas-template" />
+          <CanvasTemplate path="/art/webgl-template" />
           <Chat path="/chat" />
           <Spinner path="/spin" />
           <NotFound default />
