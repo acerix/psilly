@@ -12,11 +12,11 @@ const ParameterPanel: FunctionalComponent<ParameterPanelProps> = (props: Paramet
   const handlePanelCollapse = (): void => setIsPanelCollapsed(!isPanelCollapsed)
 
   useEffect(() => {
-    const element = ref.current as HTMLElement
-    console.log(element)
+    // const element = ref.current as HTMLElement
+    console.log('ParameterPanel construct')
 
     return (): void => {
-      console.log('Goodbye')
+      console.log('ParameterPanel self-destruct')
     }
   }, [props, ref])
 

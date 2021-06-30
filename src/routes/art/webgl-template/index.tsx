@@ -2,6 +2,8 @@
 import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
+import {ArtPlaque, Artwork} from '../meta'
+import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
@@ -76,6 +78,7 @@ const WebGLTemplate: FunctionalComponent = () => {
     ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4)
   }
 
+  const art: Artwork = artworkLibrary['webgl-template']
   return (
     <section class={style.canvas_frame}>
       <Helmet title="WebGL Template" />

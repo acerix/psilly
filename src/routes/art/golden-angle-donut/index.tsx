@@ -3,6 +3,8 @@ import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
 import ParameterPanel from '../common/parameter-panel'
 import ColorGenerator, {Color, colorToCss} from '../common/color-generator'
+import {ArtPlaque, Artwork} from '../meta'
+import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 
 const STROKES_PER_FRAME = 8
@@ -36,10 +38,12 @@ const GoldenAngleDonut: FunctionalComponent = () => {
     ctx.stroke()
   }
 
+  const art: Artwork = artworkLibrary['golden-angle-donut']
   return (
     <section class={style.canvas_frame}>
       <Canvas init={init} draw={draw} onResize={onResize} />
-      <Helmet title="Golden Angle Donut" />
+      <Helmet><title>{art.title}</title></Helmet>
+      <div class="d-none"><ArtPlaque art={art} /></div>
       <ParameterPanel something={69} />
     </section>
   )

@@ -19,3 +19,8 @@
   text-align: center;
   display: none;
 }
+
+.chat input {
+  list-style: none;
+  padding: 0;
+}

@@ -60,14 +60,14 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
         setTimeout(render, 128)
         return
       }
-      frameCount++
-      draw(ctx, frameCount)
       if (frameMilliseconds) {
         renderCallbackID = window.setTimeout(render, frameMilliseconds)
       }
       else {
         renderCallbackID = window.requestAnimationFrame(render)
       }
+      frameCount++
+      draw(ctx, frameCount)
     }
     render()
 

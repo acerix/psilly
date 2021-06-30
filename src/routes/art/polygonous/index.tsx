@@ -2,6 +2,8 @@ import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
 import {Color, colorToCss} from '../common/color-generator'
+import {ArtPlaque, Artwork} from '../meta'
+import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 
 const Polygonous: FunctionalComponent = () => {
@@ -66,9 +68,11 @@ const Polygonous: FunctionalComponent = () => {
     }
   }
 
+  const art: Artwork = artworkLibrary['polygonous']
   return (
     <section class={style.canvas_frame}>
-      <Helmet title="Bisectional Polygonous Girations" />
+      <Helmet><title>{art.title}</title></Helmet>
+      <div class="d-none"><ArtPlaque art={art} /></div>
       <Canvas init={init} onResize={init} draw={draw} />
     </section>
   )

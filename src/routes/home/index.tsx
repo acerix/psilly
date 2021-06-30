@@ -15,13 +15,13 @@ const Home: FunctionalComponent = () => {
           <p class="mb-4">How are you feeling?</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
             <Link class="btn btn-outline-secondary btn-lg px-4 me-sm-3" href="/sober">
-              I'm not high
+              Not high
             </Link>
             <Link class="btn btn-outline-warning btn-lg px-4 me-sm-3" href="/high">
-              I'm high enough
+              High enough
             </Link>
             <Link class="btn btn-outline-danger btn-lg px-4" href="/toohigh">
-              I'm too high
+              Too high
             </Link>
           </div>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
@@ -82,7 +82,7 @@ const Home: FunctionalComponent = () => {
         </div>
         <div class="col d-flex align-items-start">
           <div>
-            <h3 class="fw-bold mb-0">Dimethyltryptamine, Darling</h3>
+            <h3 class="fw-bold mb-0 text-break">Dimethyltryptamine, Darling</h3>
             <p>A mystical experience that gives you a real, nourishing, and felt sense of the interconnectedness of life, and can be profoundly transformative.</p>
           </div>
         </div>

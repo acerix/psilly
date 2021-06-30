@@ -76,8 +76,8 @@
 		"photo": "/assets/art/thumbnails/circle.png"
 	},
 	{
-		"url": "/art/scribble",
-		"title": "Digital Art Exhibit | Scribble"
+		"url": "/art/squibbo",
+		"title": "Digital Art Exhibit | Squibbo"
 	},
 	{
 		"url": "/art/golden-angle-donut",
@@ -87,6 +87,10 @@
 	{
 		"url": "/chat",
 		"title": "Psilly Chattergate"
+	},
+	{
+		"url": "/jam",
+		"title": "Psilly Jams"
 	},
 	{
 		"url": "/spin",

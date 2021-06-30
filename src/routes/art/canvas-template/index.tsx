@@ -1,6 +1,8 @@
 import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
+import {ArtPlaque, Artwork} from '../meta'
+import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 
 const CanvasTemplate: FunctionalComponent = () => {
@@ -21,9 +23,11 @@ const CanvasTemplate: FunctionalComponent = () => {
     ctx.fill()
   }
 
+  const art: Artwork = artworkLibrary['canvas-template']
   return (
     <section class={style.canvas_frame}>
-      <Helmet title="Canvas Template" />
+      <Helmet><title>{art.title}</title></Helmet>
+      <div class="d-none"><ArtPlaque art={art} /></div>
       <Canvas draw={draw} />
     </section>
   )

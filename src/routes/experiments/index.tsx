@@ -18,7 +18,7 @@ const Experiments: FunctionalComponent = () => {
         <a class="list-group-item list-group-item-action" href="atoms.html">atoms.html</a>
         <a class="list-group-item list-group-item-action" href="bouncer.html">bouncer.html</a>
         <a class="list-group-item list-group-item-action" href="breathe.html">breathe.html</a>
-        <a class="list-group-item list-group-item-action" href="chatter.php">chatter.php</a>
+        <a class="list-group-item list-group-item-action" href="chatter.pill">chatter.pill</a>
         <a class="list-group-item list-group-item-action" href="circle.html">circle.html</a>
         <a class="list-group-item list-group-item-action" href="evolve.html">evolve.html</a>
         <a class="list-group-item list-group-item-action" href="evolve.oak.html">evolve.oak.html</a>

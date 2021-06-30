@@ -20,6 +20,7 @@ import GoldenAngleDonut from '../routes/art/golden-angle-donut'
 import CanvasTemplate from '../routes/art/canvas-template'
 // import WebGLTemplate from '../routes/art/webgl-template'
 import Chat from '../routes/chat'
+import Jam from '../routes/jam'
 import Spinner from '../routes/spinner'
 
 import NotFound from '../routes/not-found'
@@ -67,7 +68,7 @@ const App: FunctionalComponent = () => {
           <Contact path="/contact" />
           <Join path="/join" />
           <Donate path="/donate" />
-          <Route path="/page/:page" component={Page} />
+          <Route path="/page/:user" component={Page} />
           <Highness path="/sober" highness="sober" />
           <Highness path="/high" highness="high" />
           <Highness path="/toohigh" highness="too high" />
@@ -81,6 +82,7 @@ const App: FunctionalComponent = () => {
           <CanvasTemplate path="/art/canvas-template" />
           <CanvasTemplate path="/art/webgl-template" />
           <Chat path="/chat" />
+          <Jam path="/jam" />
           <Spinner path="/spin" />
           <NotFound default />
         </Router>
