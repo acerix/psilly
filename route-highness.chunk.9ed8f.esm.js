@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{RraE:function(n,e,s){"use strict";s.r(e);var t=s("hosL"),h=s("Hrl7");e.default=n=>{const{highness:e}=n;return Object(t.h)("section",{class:"container py-5"},Object(t.h)(h.a,{title:"Your Highness"}),Object(t.h)("h1",null,"Your Highness"),"high"===e&&Object(t.h)("p",null,"Hi High, I'm Dud."),Object(t.h)("p",null,"I understand you identify as ",Object(t.h)("em",null,e)," and I fully support you in this endeavor."))}}}]);
-//# sourceMappingURL=route-highness.chunk.9ed8f.esm.js.map
