@@ -9,34 +9,34 @@ const Home: FunctionalComponent = () => {
       <Helmet title="Psilly Belongs You" />
       <div class="px-4 pt-5 my-5 text-center border-bottom">
         <Sequins />
-        <h1 class="display-6 fw-bold">🍄 Psilly Belongs You 🍄</h1>
+        <h1 class="h4 fw-bold">🍄 Psilly Belongs You 🍄</h1>
         <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">Please enjoy your stay!</p>
+          <p class="lead mb-4">Enjoy your stay!</p>
           <p class="mb-4">How are you feeling?</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <Link class="btn btn-outline-secondary btn-lg px-4 me-sm-3" href="/sober">
+            <Link class="btn btn-outline-secondary btn-lg px-4 me-sm-3" href="/sober/">
               Not high
             </Link>
-            <Link class="btn btn-outline-warning btn-lg px-4 me-sm-3" href="/high">
+            <Link class="btn btn-outline-warning btn-lg px-4 me-sm-3" href="/high/">
               High enough
             </Link>
-            <Link class="btn btn-outline-danger btn-lg px-4" href="/toohigh">
+            <Link class="btn btn-outline-danger btn-lg px-4" href="/toohigh/">
               Too high
             </Link>
           </div>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <Link class="btn btn-outline-primary btn-lg px-4 me-sm-3" href="/join">
+            <Link class="btn btn-outline-primary btn-lg px-4 me-sm-3" href="/join/">
               Join
             </Link>
-            <Link class="btn btn-outline-success btn-lg px-4 me-sm-3" href="/donate">
+            <Link class="btn btn-outline-success btn-lg px-4 me-sm-3" href="/donate/">
               Donate
             </Link>
           </div>
         </div>
         <div class="overflow-hidden">
-          <div class="container px-5">
-            <Link href="/art/polygonous">
-              <img src="/assets/art/thumbnails/polygonous.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Polygonous Thumbnail" loading="lazy" />
+          <div class="container">
+            <Link href="/art/polygonous/">
+              <img src="/assets/art/thumbnails/polygonous.png" class="img-fluid border rounded-3 shadow-lg" alt="Polygonous Thumbnail" loading="lazy" />
             </Link>
           </div>
         </div>
@@ -59,13 +59,13 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Market Research</h3>
-            <p>Our teams of leading expert scientists and researchers have verified with over 99.89% probability that you should drop acid tonight.  Whoops, that was the acid talking.</p>
+            <p>Our teams of leading expert scientists and researchers have verified with over 98.89% probability that you should drop acid tonight.  Whoops, that was the <a href="/page/acid/">acid</a> talking.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Psychedelic Mushrooms</h3>
-            <p>If you are looking for information on cultivation or consumption of species like <em>psilocybe cubensis</em>, you've come to the wrong place!  Seriously, we are not some information resource, you should probably check out a reputable site like <a href="https://erowid.org/plants/mushrooms/mushrooms.shtml">Erowid</a>.</p>
+            <p>If you are looking for information on cultivation or consumption of species like <em>psilocybe cubensis</em>, you've come to the wrong place!  Seriously, we are not some <a href="/about/">information resource</a>, you should probably check out a reputable site like <a href="https://erowid.org/plants/mushrooms/mushrooms.shtml">Erowid</a>.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
@@ -77,13 +77,13 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Psychotomimetic Stocks</h3>
-            <p>Why are you reading this when you probably have a better idea what I mean than I do. What, are you trying to PSYK it TO the man? PSI, please...</p>
+            <p>Why are you <a href="/page/read/">reading</a> this when you probably have a better idea what I mean than I do. What, are you trying to PSYK it TO the man? PSI, please...</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0 text-break">Dimethyltryptamine, Darling</h3>
-            <p>A mystical experience that gives you a real, nourishing, and felt sense of the interconnectedness of life, and can be profoundly transformative.</p>
+            <p>A mystical experience that gives you a real, nourishing, and felt sense of the <a href="/page/life/">interconnectedness of life</a>, and can be profoundly transformative.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">

@@ -11,7 +11,8 @@ const JamulusStatus: FunctionalComponent = () => {
 
     const refresh = (): void => {
       fetch('https://psilly.com/jam/jamulus-status.html')
-        .then(data => setStatusHTML(data.toString() || 'Error fetching server status'))
+        .then(data => data.text())
+        .then(html => setStatusHTML(html || '<p>Error fetching server status</p>'))
         .catch((error: string) => {
           setStatusHTML(`<p>Error: ${error}</p>`)
         })

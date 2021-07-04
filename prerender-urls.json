@@ -9,91 +9,175 @@
 		"title": "About The Psilly Corporation"
 	},
 	{
-		"url": "/bylaws",
+		"url": "/bylaws/",
 		"title": "Psilly By-laws"
 	},
 	{
-		"url": "/contact",
+		"url": "/contact/",
 		"title": "Contact Psilly"
 	},
 	{
-		"url": "/join",
+		"url": "/join/",
 		"title": "Become a Psilly Member"
 	},
 	{
-		"url": "/donate",
+		"url": "/donate/",
 		"title": "Donate to Psilly"
 	},
 	{
-		"url": "/page/Time",
+		"url": "/page/time/",
 		"title": "Time"
 	},
 	{
-		"url": "/page/talk",
+		"url": "/page/talk/",
 		"title": "Speak"
 	},
 	{
-		"url": "/page/listen",
+		"url": "/page/listen/",
 		"title": "Hear"
 	},
 	{
-		"url": "/page/white-rabbit",
+		"url": "/page/watch/",
+		"title": "See"
+	},
+	{
+		"url": "/page/play/",
+		"title": "play"
+	},
+	{
+		"url": "/page/music/",
+		"title": "Harmonize"
+	},
+	{
+		"url": "/page/words/",
+		"title": "Linguization"
+	},
+	{
+		"url": "/page/sounds/",
+		"title": "Sound Effects"
+	},
+	{
+		"url": "/page/deep/",
+		"title": "Trip Ballz Deep"
+	},
+	{
+		"url": "/page/trippy/",
+		"title": "Tie Your Laces or Trip"
+	},
+	{
+		"url": "/page/games/",
+		"title": "Gamey McGamerface"
+	},
+	{
+		"url": "/page/funny/",
+		"title": "That's funny, I didn't ask"
+	},
+	{
+		"url": "/page/happy/",
+		"title": "Happiness is the tree less climbed"
+	},
+	{
+		"url": "/page/read/",
+		"title": "Is it pronounced read or read?"
+	},
+	{
+		"url": "/page/gaze/",
+		"title": "Unless you're shoe-gazing, gaze-TFO"
+	},
+	{
+		"url": "/page/white-rabbit/",
 		"title": "White Rabbit"
 	},
 	{
-		"url": "/page/life",
+		"url": "/page/life/",
 		"title": "What is life, and why should I care?"
 	},
 	{
-		"url": "/sober",
+		"url": "/page/see/",
+		"title": "See no evil"
+	},
+	{
+		"url": "/page/hear/",
+		"title": "Have you heard?"
+	},
+	{
+		"url": "/page/taste/",
+		"title": "Let my bad taste be how you remember me"
+	},
+	{
+		"url": "/page/smell/",
+		"title": "Ouu, ouu, that smell"
+	},
+	{
+		"url": "/page/feel/",
+		"title": "It's more than a feeling"
+	},
+	{
+		"url": "/sober/",
 		"title": "Too Sober"
 	},
 	{
-		"url": "/high",
+		"url": "/high/",
 		"title": "Just Right High"
 	},
 	{
-		"url": "/toohigh",
+		"url": "/toohigh/",
 		"title": "Too High"
 	},
 	{
-		"url": "/art",
+		"url": "/experiments/",
+		"title": "Experimental Experiments"
+	},
+	{
+		"url": "/art/",
 		"title": "Digital Art Exhibition"
 	},
 	{
-		"url": "/art/polygonous",
+		"url": "/art/polygonous/",
 		"title": "Digital Art Exhibit | Polygonous",
 		"photo": "/assets/art/thumbnails/polygonous.png"
 	},
 	{
-		"url": "/art/meld",
+		"url": "/art/meld/",
 		"title": "Digital Art Exhibit | Meld",
 		"photo": "/assets/art/thumbnails/meld.png"
 	},
 	{
-		"url": "/art/circle",
+		"url": "/art/circle/",
 		"title": "Digital Art Exhibit | Circle",
 		"photo": "/assets/art/thumbnails/circle.png"
 	},
 	{
-		"url": "/art/squibbo",
-		"title": "Digital Art Exhibit | Squibbo"
-	},
-	{
-		"url": "/art/golden-angle-donut",
+		"url": "/art/golden-angle-donut/",
 		"title": "Digital Art Exhibit | Golden Angle Donut",
 		"photo": "/assets/art/thumbnails/golden-angle-donut.png"
 	},
 	{
-		"url": "/chat",
+		"url": "/art/squibbo/",
+		"title": "Digital Art Exhibit | Squibbo"
+	},
+	{
+		"url": "/art/canvas-template/",
+		"title": "Digital Art Exhibit | 2D Canvas Template"
+	},
+	{
+		"url": "/art/webgl-template/",
+		"title": "Digital Art Exhibit | WebGL Canvas Template"
+	},
+	{
+		"url": "/chat/",
 		"title": "Psilly Chattergate"
 	},
 	{
-		"url": "/jam",
+		"url": "/jam/",
 		"title": "Psilly Jams"
 	},
 	{
-		"url": "/spin",
+		"url": "/spin/",
 		"title": "Pspinning round and round..."
+	},
+	{
+		"url": "/404/",
+		"title": "Page Not Found"
 	}
 ]

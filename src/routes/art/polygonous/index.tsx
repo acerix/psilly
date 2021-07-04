@@ -8,17 +8,18 @@ import style from '../canvas-template/style.css'
 
 const Polygonous: FunctionalComponent = () => {
   const sides = 7
-  const drawRecursions = 60
+  const drawRecursions = 8 + 8 * sides
+  const size = 4
   let baseLength = 0
   let growPeriod = 0
   const center = [0, 0]
   const color: Color = new Uint8Array([128, 128, 128])
   const colorPeriods: number[] = [Math.random()/13, Math.random()/13, Math.random()/13]
-  const rotateIncrement = -0.598
+  const rotateIncrement = 0 // -0.598
   const angle = Math.PI * 2 / sides
 
   const init = (ctx: CanvasRenderingContext2D): void => {
-    baseLength = Math.min(ctx.canvas.width, ctx.canvas.height) / sides * 6
+    baseLength = Math.round(Math.min(ctx.canvas.width, ctx.canvas.height) / sides * size)
     growPeriod = Math.round(baseLength / Math.cos(Math.PI/sides) / Math.cos(Math.PI/sides) - baseLength)
     center[0] = ctx.canvas.width / 2
     center[1] = ctx.canvas.height / 2

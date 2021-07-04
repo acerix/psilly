@@ -7,9 +7,9 @@ const NotFound: FunctionalComponent = () => {
     <section class="container py-5">
       <Helmet title="Page Not Found" />
       <h1>Page Not Found — Error 404</h1>
-      <p>Sorry, we couldn't find the page you're looking for.</p>
+      <p>Sorry, the thing you are looking for is not a thing.</p>
       <Link href="/">
-          Back to Home
+          Country roads, take me home
       </Link>
     </section>
   )

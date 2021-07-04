@@ -63,27 +63,28 @@ const App: FunctionalComponent = () => {
       <main>
         <Router>
           <Home path="/" />
-          <About path="/about" />
-          <Bylaws path="/bylaws" />
-          <Contact path="/contact" />
-          <Join path="/join" />
-          <Donate path="/donate" />
-          <Route path="/page/:user" component={Page} />
-          <Highness path="/sober" highness="sober" />
-          <Highness path="/high" highness="high" />
-          <Highness path="/toohigh" highness="too high" />
+          <About path="/about/" />
+          <Bylaws path="/bylaws/" />
+          <Contact path="/contact/" />
+          <Join path="/join/" />
+          <Donate path="/donate/" />
+          <Route path="/page/:page/" component={Page} />
+          <Highness path="/sober/" highness="sober" />
+          <Highness path="/high/" highness="high" />
+          <Highness path="/toohigh/" highness="too high" />
           <Experiments path="/experiments/" />
           <Art path="/art/" />
-          <Polygonous path="/art/polygonous" />
-          <Meld path="/art/meld" />
-          <Circle path="/art/circle" />
-          <Squibbo path="/art/squibbo" />
-          <GoldenAngleDonut path="/art/golden-angle-donut" />
-          <CanvasTemplate path="/art/canvas-template" />
-          <CanvasTemplate path="/art/webgl-template" />
-          <Chat path="/chat" />
-          <Jam path="/jam" />
-          <Spinner path="/spin" />
+          <Polygonous path="/art/polygonous/" />
+          <Meld path="/art/meld/" />
+          <Circle path="/art/circle/" />
+          <Squibbo path="/art/squibbo/" />
+          <GoldenAngleDonut path="/art/golden-angle-donut/" />
+          <CanvasTemplate path="/art/canvas-template/" />
+          <CanvasTemplate path="/art/webgl-template/" />
+          <Chat path="/chat/" />
+          <Jam path="/jam/" />
+          <Spinner path="/spin/" />
+          <NotFound path="/404/" />
           <NotFound default />
         </Router>
       </main>

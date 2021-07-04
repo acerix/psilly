@@ -16,7 +16,7 @@ const About: FunctionalComponent = () => {
       <p>Psilly is managed by an elected Board of Directors, chosen by and from our membership. The Board meets monthly, and publishes agendas of upcoming meetings and minutes of past meetings publicly.</p>
       <h2>Corporate By-laws</h2>
       <p>
-        <Link href="/bylaws">
+        <Link href="/bylaws/">
         Psilly By-laws
         </Link>
       </p>
