@@ -31,7 +31,7 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
   useEffect(() => {
     const canvas = ref.current as HTMLCanvasElement
     let paused = false
-    let frameCount = 0
+    let frameCount = -1
     let renderCallbackID: number
     const ctx = getContext ? getContext(canvas) : canvas.getContext('2d') as CanvasRenderingContext2D
 
@@ -60,13 +60,13 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
         setTimeout(render, 128)
         return
       }
+      frameCount++
       if (frameMilliseconds) {
         renderCallbackID = window.setTimeout(render, frameMilliseconds)
       }
       else {
         renderCallbackID = window.requestAnimationFrame(render)
       }
-      frameCount++
       draw(ctx, frameCount)
     }
     render()
