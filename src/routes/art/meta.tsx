@@ -22,7 +22,7 @@ interface ArtPlaqueProps {
 export const ArtPlaque: FunctionalComponent<ArtPlaqueProps> = (props: ArtPlaqueProps) => {
   const { art } = props
   const ref = createRef()
-  art.displayUrl = `/art/${art.path}`
+  art.displayUrl = `/art/${art.path}/`
   art.thumbnailUrl = `/assets/art/thumbnails/${art.path}.png`
   return <div class="card art_plaque" ref={ref}>
     <a href={art.displayUrl} aria-label="Experience">

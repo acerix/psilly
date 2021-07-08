@@ -20,8 +20,10 @@ const About: FunctionalComponent = () => {
         Psilly By-laws
         </Link>
       </p>
-      <h2>Is this psilly?</h2>
-      <p>Yes, this is most defiantly psilly. You either know what psilly is already or it cannot be explained to you with mere words. Psilly Simon may have an answer.</p>
+      <h2>Is this Psilly?</h2>
+      <p>This is most defiantly Psilly. You either know what Psilly is already or it can't be explained to you with mere words. <Link href="/page/shrooms/">Psilly Simon</Link> may have an answer.</p>
+      <h2>Become a Psillable</h2>
+      <p>There is no objective test for psillability, you will know when you are ready. It has little to do with rhyme, or even so-called reason, the main ingredient is 🌈. </p>
     </section>
   )
 }

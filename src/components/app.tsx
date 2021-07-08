@@ -17,6 +17,7 @@ import Meld from '../routes/art/meld'
 import Circle from '../routes/art/circle'
 import Squibbo from '../routes/art/squibbo'
 import GoldenAngleDonut from '../routes/art/golden-angle-donut'
+import Falls from '../routes/art/falls'
 import CanvasTemplate from '../routes/art/canvas-template'
 // import WebGLTemplate from '../routes/art/webgl-template'
 import Chat from '../routes/chat'
@@ -32,7 +33,7 @@ const App: FunctionalComponent = () => {
     <div>
       <Helmet
         htmlAttributes={{lang: "en-CA", amp: undefined}}
-        title="Untitled" titleTemplate="%s 🍄 Psilly"
+        title="A page with no name" titleTemplate="%s 🍄 Psilly"
         titleAttributes={{itemprop: "name", lang: "en-CA"}}
         meta={[
           {name: "description", content: "Psilly is an online community dedicated to psychedelic research, therapy, harm-reduction, and advocacy. We deliver peace of mind through exceptional care and avant-garde advocacy of psychotropic therapies."}
@@ -79,6 +80,7 @@ const App: FunctionalComponent = () => {
           <Circle path="/art/circle/" />
           <Squibbo path="/art/squibbo/" />
           <GoldenAngleDonut path="/art/golden-angle-donut/" />
+          <Falls path="/art/falls/" />
           <CanvasTemplate path="/art/canvas-template/" />
           <CanvasTemplate path="/art/webgl-template/" />
           <Chat path="/chat/" />
