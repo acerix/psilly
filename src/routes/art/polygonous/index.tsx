@@ -13,7 +13,7 @@ const randomColorPeriod = (): number => {
 }
 
 const Polygonous: FunctionalComponent = () => {
-  const sides = 8 // 7
+  const sides = 7
   const baseLength = 1/sides
   let drawRecursions = 0
   let animationFrames = 30
@@ -22,7 +22,7 @@ const Polygonous: FunctionalComponent = () => {
   const center = [0, 0]
   const color: Color = new Uint8Array([0, 0, 0])
   const colorPeriods: number[] = [randomColorPeriod(), randomColorPeriod(), randomColorPeriod()]
-  const rotateIncrement = 0 // -0.598
+  const rotateIncrement = -0.598
 
   const init = (ctx: CanvasRenderingContext2D): void => {
     center[0] = Math.floor(ctx.canvas.width / 2)
@@ -41,7 +41,7 @@ const Polygonous: FunctionalComponent = () => {
   }
 
   const drawBisectionators = (ctx: CanvasRenderingContext2D, sideLength: number, frameCount: number, generation: number, recursionsLeft: number): void => {
-    const timePoint = sideLength - frameCount
+    const timePoint = sideLength - frameCount // @todo why does the color jump each loop?
     let direction = generation%2 === 0 ? 0 : turnAngle/2
     let x = generation%2 === 0 ? center[0] - sideLength / 2 : center[0]
     const apothem = sideLength / ( 2*Math.tan(Math.PI/sides) )
@@ -49,7 +49,16 @@ const Polygonous: FunctionalComponent = () => {
     let y = generation%2 === 0 ? center[1] - apothem : center[1] - circumradius
     for (let i=0; i<3; i++) {
       color[i] = 128 + 127*Math.sin(timePoint * colorPeriods[i])
-    } 
+    }
+    if (recursionsLeft) {
+      drawBisectionators(
+        ctx,
+        sideLength / Math.cos(Math.PI/sides),
+        frameCount,
+        generation+1,
+        recursionsLeft-1
+      )
+    }
     ctx.strokeStyle = colorToCss(color)
     ctx.beginPath()
     ctx.moveTo(x, y)
@@ -60,28 +69,18 @@ const Polygonous: FunctionalComponent = () => {
       direction += turnAngle
     }
     ctx.stroke()
-    if (recursionsLeft) {
-      drawBisectionators(
-        ctx,
-        sideLength / Math.cos(Math.PI/sides),
-        frameCount,
-        generation+1,
-        recursionsLeft-1
-      )
-    }
   }
 
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
     const frameNumber = frameCount % animationFrames
     const sideLength = baseLength * Math.pow(growFactor, frameNumber)
-    // @todo fix aliasing issue, from drawing smaller before bigger?
     drawBisectionators(ctx, sideLength, frameCount, 0, drawRecursions)
-    // if (rotateIncrement) {
-    //   // @todo matrixify
-    //   ctx.translate(center[0], center[1])
-    //   ctx.rotate(rotateIncrement)
-    //   ctx.translate(-center[0], -center[1])
-    // }
+    if (rotateIncrement) {
+      // @todo matrixify
+      ctx.translate(center[0], center[1])
+      ctx.rotate(rotateIncrement)
+      ctx.translate(-center[0], -center[1])
+    }
   }
 
   const art: Artwork = artworkLibrary['polygonous']
