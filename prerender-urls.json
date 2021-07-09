@@ -154,15 +154,28 @@
 	},
 	{
 		"url": "/art/squibbo/",
-		"title": "Digital Art Exhibit | Squibbo"
+		"title": "Digital Art Exhibit | Squibbo",
+		"photo": "/assets/art/thumbnails/squibbo.png"
+	},
+	{
+		"url": "/art/falls/",
+		"title": "Digital Art Exhibit | Doge Falls",
+		"photo": "/assets/art/thumbnails/falls.png"
+	},
+	{
+		"url": "/art/chillbert/",
+		"title": "Digital Art Exhibit | Chillbert Pspace",
+		"photo": "/assets/art/thumbnails/chillbert.png"
 	},
 	{
 		"url": "/art/canvas-template/",
-		"title": "Digital Art Exhibit | 2D Canvas Template"
+		"title": "Digital Art Exhibit | 2D Canvas Template",
+		"photo": "/assets/art/thumbnails/canvas-template.png"
 	},
 	{
 		"url": "/art/webgl-template/",
-		"title": "Digital Art Exhibit | WebGL Canvas Template"
+		"title": "Digital Art Exhibit | WebGL Canvas Template",
+		"photo": "/assets/art/thumbnails/webgl-template.png"
 	},
 	{
 		"url": "/chat/",

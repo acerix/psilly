@@ -5,18 +5,18 @@ import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 
-const CanvasTemplate: FunctionalComponent = () => {
+const Chillbert: FunctionalComponent = () => {
 
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.fillStyle = 'purple'
+    ctx.fillStyle = 'green'
     ctx.beginPath()
     const canvasCenter = [ctx.canvas.width/2, ctx.canvas.height/2]
     const maxRadius = Math.sqrt(canvasCenter[0]**2 + canvasCenter[1]**2)
     ctx.arc(
       canvasCenter[0],
       canvasCenter[1],
-      maxRadius*Math.sin(frameCount/60)**2,
+      maxRadius*Math.sin(frameCount*.05)**2,
       0,
       2*Math.PI
     )
@@ -33,4 +33,4 @@ const CanvasTemplate: FunctionalComponent = () => {
   )
 }
 
-export default CanvasTemplate
+export default Chillbert

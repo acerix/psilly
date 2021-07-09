@@ -39,9 +39,16 @@ const artworkLibrary: ArtworkLibrary = {
   falls: {
     path: 'falls',
     title: 'Doge Falls',
-    year: 2015,
+    year: 2014,
     medium: 'JavaScript on WebGLRenderingContext',
     description: 'An exploration of the gap between quantum chromaticism and classical gravity from a Newtonian frame of doge.'
+  },
+  chillbert: {
+    path: 'chillbert',
+    title: 'Chillbert Pspace',
+    year: 2021,
+    medium: 'JavaScript on CanvasRenderingContext2D',
+    description: 'A pspace filler.'
   },
   'canvas-template': {
     path: 'canvas-template',

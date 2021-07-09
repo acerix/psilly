@@ -1,4 +1,6 @@
-# Psilly Experiments
+# Psilly is as Psilly does
+
+https://psilly.com/
 
 ## CLI Commands
 *   `yarn install`: Installs dependencies

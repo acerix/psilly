@@ -18,6 +18,7 @@ import Circle from '../routes/art/circle'
 import Squibbo from '../routes/art/squibbo'
 import GoldenAngleDonut from '../routes/art/golden-angle-donut'
 import Falls from '../routes/art/falls'
+import Chillbert from '../routes/art/chillbert'
 import CanvasTemplate from '../routes/art/canvas-template'
 // import WebGLTemplate from '../routes/art/webgl-template'
 import Chat from '../routes/chat'
@@ -81,6 +82,7 @@ const App: FunctionalComponent = () => {
           <Squibbo path="/art/squibbo/" />
           <GoldenAngleDonut path="/art/golden-angle-donut/" />
           <Falls path="/art/falls/" />
+          <Chillbert path="/art/chillbert/" />
           <CanvasTemplate path="/art/canvas-template/" />
           <CanvasTemplate path="/art/webgl-template/" />
           <Chat path="/chat/" />
