@@ -15,6 +15,11 @@ export const colorToCss = (color: Color): string => {
   return `rgb(${color.join(',')})`
 }
 
+export const randomColorPeriod = (): number => {
+  const x = .5 - Math.random()
+  return x**2
+}
+
 const SIN_FACTOR = Math.PI / 60 // forgive me
 
 function* ColorGenerator(props?: ColorGeneratorProps): Generator<Color> {

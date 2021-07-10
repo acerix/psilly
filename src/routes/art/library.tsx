@@ -50,6 +50,13 @@ const artworkLibrary: ArtworkLibrary = {
     medium: 'JavaScript on CanvasRenderingContext2D',
     description: 'A pspace filler.'
   },
+  develop: {
+    path: 'develop',
+    title: 'Developer of the Abstract',
+    year: 2021,
+    medium: 'JavaScript on CanvasRenderingContext2D',
+    description: 'Some paintings are veloped to look like real world things, others develop.'
+  },
   'canvas-template': {
     path: 'canvas-template',
     title: '2D Canvas Template',

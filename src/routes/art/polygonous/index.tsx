@@ -1,16 +1,10 @@
 import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
-import {Color, colorToCss} from '../common/color-generator'
+import {Color, colorToCss, randomColorPeriod} from '../common/color-generator'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
-import style 
-  from '../canvas-template/style.css'
-
-const randomColorPeriod = (): number => {
-  const x = .5 - Math.random()
-  return x**2
-}
+import style from '../canvas-template/style.css'
 
 const Polygonous: FunctionalComponent = () => {
   const sides = 7

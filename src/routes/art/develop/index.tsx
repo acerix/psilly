@@ -1,84 +1,35 @@
 import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
-import ColorGenerator, {Color, colorToCss, randomColorPeriod} from '../common/color-generator'
+import ColorGenerator, {Color, colorToCss} from '../common/color-generator'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
 import style from './style.css'
 
-// function hindex2xy(hindex: number, N: number) {
-//   const positions = [
-//   /* 0: */ [0, 0],
-//     /* 1: */ [0, 1],
-//     /* 2: */ [1, 1],
-//     /* 3: */ [1, 0]
-//   ]
-
-//   const tmp = positions[last2bits(hindex)]
-//   let t = 0
-//   hindex = (hindex >>> 2)
-
-//   let x = tmp[0]
-//   let y = tmp[1]
-
-//   for (let n = 4; n <= N; n *= 2) {
-//     const n2 = n / 2
-
-//     switch (last2bits(hindex)) {
-//     case 0: /* left-bottom */
-//       t = x; x = y; y = t
-//       break
-
-//     case 1: /* left-upper */
-//       // x = x
-//       y = y + n2
-//       break
-
-//     case 2: /* right-upper */
-//       x = x + n2
-//       y = y + n2
-//       break
-
-//     case 3: /* right-bottom */
-//       t = y
-//       y = (n2-1) - x
-//       x = (n2-1) - t
-//       x = x + n2
-//       break
-//     }
-
-//     hindex = (hindex >>> 2)
-//   }
-
-//   return [x, y]
-
-//   function last2bits(x: number) { return (x & 3) }
-// }
-
-class ChillbertSnake {
+class DevelopSnake {
   position = new Int16Array([0, 0])
   direction = 0
-  colorPeriods: number[] = [randomColorPeriod(), randomColorPeriod(), randomColorPeriod()]
   colorGenerator = ColorGenerator({
-    mutate: (color: Color, iterationCount: number): void => {
+    mutate: (color: Color): void => {
       for (let i=0; i<3; i++) {
-        color[i] = Math.round(128 + 127*Math.sin(iterationCount * this.colorPeriods[i]))
+        if (Math.random() > .5) {
+          const d = 1 - 2 * Math.floor(Math.random()*2)
+          color[i] = (color[i] + 256 + d) % 256
+        }
       }
     }
   })
 }
 
-const Chillbert: FunctionalComponent = () => {
-  const maxSnakes = 32
-  const snakeLength = 16
-  const snakes: ChillbertSnake[] = []
-  // let hilbertSize = 4
+const Develop: FunctionalComponent = () => {
+  const snakeLength = 1
+  const snakes: DevelopSnake[] = []
   
   const init = (ctx: CanvasRenderingContext2D): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.lineWidth = 8
+    const maxSnakes = 4 * Math.floor(Math.sqrt(ctx.canvas.width * ctx.canvas.height))
     while (maxSnakes > snakes.length) {
-      snakes.push(new ChillbertSnake())
+      snakes.push(new DevelopSnake())
     }
     for (const snake of snakes) {
       snake.position[0] = Math.floor(Math.random() * ctx.canvas.width)
@@ -113,7 +64,7 @@ const Chillbert: FunctionalComponent = () => {
     }
   }
 
-  const art: Artwork = artworkLibrary['chillbert']
+  const art: Artwork = artworkLibrary['develop']
   return (
     <section class={style.canvas_frame}>
       <Helmet><title>{art.title}</title></Helmet>
@@ -123,4 +74,4 @@ const Chillbert: FunctionalComponent = () => {
   )
 }
 
-export default Chillbert
+export default Develop

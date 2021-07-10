@@ -168,6 +168,11 @@
 		"photo": "/assets/art/thumbnails/chillbert.png"
 	},
 	{
+		"url": "/art/develop/",
+		"title": "Digital Art Exhibit | Developer of the Abstract",
+		"photo": "/assets/art/thumbnails/develop.png"
+	},
+	{
 		"url": "/art/canvas-template/",
 		"title": "Digital Art Exhibit | 2D Canvas Template",
 		"photo": "/assets/art/thumbnails/canvas-template.png"
