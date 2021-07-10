@@ -3,32 +3,32 @@ import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
-import style from '../canvas-template/style.css'
+import style from './style.css'
+
+class ChillbertSnake {
+  direction = 0
+}
 
 const Chillbert: FunctionalComponent = () => {
-
-  const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
+  const snakes = [ChillbertSnake]
+  
+  const init = (ctx: CanvasRenderingContext2D): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.fillStyle = 'green'
-    ctx.beginPath()
-    const canvasCenter = [ctx.canvas.width/2, ctx.canvas.height/2]
-    const maxRadius = Math.sqrt(canvasCenter[0]**2 + canvasCenter[1]**2)
-    ctx.arc(
-      canvasCenter[0],
-      canvasCenter[1],
-      maxRadius*Math.sin(frameCount*.05)**2,
-      0,
-      2*Math.PI
-    )
-    ctx.fill()
+    // snakes.push(new ChillbertSnake())
   }
 
-  const art: Artwork = artworkLibrary['canvas-template']
+  const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
+    for (const snake of snakes) {
+      console.log(ctx, frameCount, snake)
+    }
+  }
+
+  const art: Artwork = artworkLibrary['chillbert']
   return (
     <section class={style.canvas_frame}>
       <Helmet><title>{art.title}</title></Helmet>
       <div class="d-none"><ArtPlaque art={art} /></div>
-      <Canvas draw={draw} />
+      <Canvas init={init} draw={draw} />
     </section>
   )
 }

@@ -41,15 +41,12 @@ const Polygonous: FunctionalComponent = () => {
   }
 
   const drawBisectionators = (ctx: CanvasRenderingContext2D, sideLength: number, frameCount: number, generation: number, recursionsLeft: number): void => {
-    const timePoint = sideLength - frameCount // @todo why does the color jump each loop?
+    const timePoint = sideLength - frameCount
     let direction = generation%2 === 0 ? 0 : turnAngle/2
     let x = generation%2 === 0 ? center[0] - sideLength / 2 : center[0]
     const apothem = sideLength / ( 2*Math.tan(Math.PI/sides) )
     const circumradius = Math.sqrt(apothem**2 + (sideLength/2)**2)
     let y = generation%2 === 0 ? center[1] - apothem : center[1] - circumradius
-    for (let i=0; i<3; i++) {
-      color[i] = 128 + 127*Math.sin(timePoint * colorPeriods[i])
-    }
     if (recursionsLeft) {
       drawBisectionators(
         ctx,
@@ -58,6 +55,9 @@ const Polygonous: FunctionalComponent = () => {
         generation+1,
         recursionsLeft-1
       )
+    }
+    for (let i=0; i<3; i++) {
+      color[i] = Math.round(128 + 127*Math.sin(timePoint * colorPeriods[i]))
     }
     ctx.strokeStyle = colorToCss(color)
     ctx.beginPath()
