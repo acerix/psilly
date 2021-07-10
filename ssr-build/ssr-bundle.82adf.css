@@ -59,6 +59,21 @@ section.container {
   display: none;
 }
 
+.canvas_frame__2-Yzl {
+  background: #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+.art_plaque__wXG2e {
+  display: none;
+}
+
 .chat__whrty {
   background: url(/823f31b12be070211f5b71b926470ccb.png) repeat;
   width: 100%;
@@ -116,4 +131,4 @@ section.container {
 }
 
 
-/*# sourceMappingURL=ssr-bundle.dd76a.css.map*/
+/*# sourceMappingURL=ssr-bundle.82adf.css.map*/
