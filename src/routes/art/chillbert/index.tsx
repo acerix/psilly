@@ -17,16 +17,19 @@ const TPL: wtfIsTPL = {
   U: [[0, 1, 'R'], [0, 0, 'U'], [1, 0, 'U'], [1, 1, 'L']]
 }
 
-const hilbert = (rank: number, size: number, dx = 0, dy = 0, dir = 'U'): number[] => {
+const hilbert = (rank: number, size: number, dx = 0, dy = 0, dir = 'U'): Array<[number,number]> => {
   if (rank === 0) {
     return TPL[dir].map(p => [dx + p[0] * size, dy + p[1] * size])
   } 
-  const arr: number[] = []  
+  const arr: Array<[number,number]> = []
   const space = size / (Math.pow(2, rank + 1) - 1)
   const newSize = (size - space) / 2
   const d2 = newSize + space
   TPL[dir].forEach((t) => {
-    [].push.apply(arr, hilbert(rank - 1, newSize, dx + t[0] * d2, dy + t[1] * d2, t[2]))
+    // [].push.apply(arr, hilbert(rank - 1, newSize, dx + t[0] * d2, dy + t[1] * d2, t[2]))
+    for (const c of hilbert(rank - 1, newSize, dx + t[0] * d2, dy + t[1] * d2, t[2])) {
+      arr.push(c)
+    }
   })
   return arr
 }
@@ -47,7 +50,7 @@ class ChillbertSnake {
 
 const Chillbert: FunctionalComponent = () => {
   const snakes: ChillbertSnake[] = []
-  let hilbertSpace: number[] = []
+  let hilbertSpace: Array<[number,number]> = []
   const hilbertRank = 8
   
   const init = (ctx: CanvasRenderingContext2D): void => {
