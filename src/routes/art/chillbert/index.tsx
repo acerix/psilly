@@ -17,7 +17,7 @@ const TPL: wtfIsTPL = {
   U: [[0, 1, 'R'], [0, 0, 'U'], [1, 0, 'U'], [1, 1, 'L']]
 }
 
-const hilbert = (rank: number, size: number, dx = 0, dy = 0, dir = 'U'): Array<[number,number]> => {
+export const hilbert = (rank: number, size: number, dx = 0, dy = 0, dir = 'U'): Array<[number,number]> => {
   if (rank === 0) {
     return TPL[dir].map(p => [dx + p[0] * size, dy + p[1] * size])
   } 
