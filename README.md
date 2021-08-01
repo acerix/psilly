@@ -1,4 +1,4 @@
-# Psilly is as Psilly does
+# Psilly is as Psilly Docs
 
 https://psilly.com/
 
