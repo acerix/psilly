@@ -9,13 +9,13 @@ import style from './style.css'
 // Maps an integer t in space of size 2^n to a coordinate on the Hilbert Curve
 export const hilbertCoordinate = (t: number, n?: number): [number, number] => {
   if (n === undefined) n = Math.ceil(Math.log2(t+1)/2)
-  const s = [n%2===1, false]
+  const s = [(n&1)===1, false]
   const p: [number, number] = [0, 0]
 
   for (let i=n-1; i!==-1; i--) {
 
     // copy the current bits into [a, b]
-    const x = 1<<(2*i)
+    const x = 1<<(i<<1)
     const a = (t & (x<<1)) !== 0
     const b = (t & x) !== 0
 
