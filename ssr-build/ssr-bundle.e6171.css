@@ -77,29 +77,31 @@ section.container {
 .chat__whrty {
   background: url(/823f31b12be070211f5b71b926470ccb.png) repeat;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .chat__whrty input {
   color: #fff;
   font-size: 24px;
   border: none;
+  outline: none;
   background: none;
   width: 100%;
   text-align: center;
-  display: none;
 }
 
-.chat__whrty input {
+.chat__whrty ul {
   list-style: none;
   padding: 0;
+  text-align: center;
+  overflow-x: hidden;
 }
+
 .spinner__35ncf {
   text-align: center;
   font-size: 420px;
@@ -131,4 +133,4 @@ section.container {
 }
 
 
-/*# sourceMappingURL=ssr-bundle.91f73.css.map*/
+/*# sourceMappingURL=ssr-bundle.e6171.css.map*/
