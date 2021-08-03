@@ -75,9 +75,6 @@ const Chat: FunctionalComponent = () => {
         velocity = 0.06 * (position - g)
         acceleration = 0
       }
-      // c = e.clientY + o
-      // v = .06*(c-g);
-      // a = 0
       inputElement.focus()
       event.preventDefault()
       return false
