@@ -23,7 +23,7 @@ export const ArtPlaque: FunctionalComponent<ArtPlaqueProps> = (props: ArtPlaqueP
   const { art } = props
   const ref = createRef()
   art.displayUrl = `/art/${art.path}/`
-  art.thumbnailUrl = `/assets/art/thumbnails/${art.path}.png`
+  art.thumbnailUrl = `/assets/art/thumbnails/${art.path}.webp`
   return <div class="card art_plaque" ref={ref}>
     <a href={art.displayUrl} aria-label="Experience">
       <img src={art.thumbnailUrl} class="card-img-top" alt="View" />

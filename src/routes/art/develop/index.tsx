@@ -4,7 +4,7 @@ import Canvas from '../common/canvas'
 import ColorGenerator, {Color, colorToCss} from '../common/color-generator'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
-import style from './style.css'
+import style from '../canvas-template/style.css'
 
 class DevelopSnake {
   position = new Int16Array([0, 0])

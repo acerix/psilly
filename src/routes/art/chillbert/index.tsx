@@ -4,7 +4,8 @@ import Canvas from '../common/canvas'
 import ColorGenerator, {Color, randomColorPeriod} from '../common/color-generator'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
-import style from './style.css'
+import style from '../canvas-template/style.css'
+import LoadingScreen from '../common/loading-screen'
 
 // Maps an integer t in space of size 2^n to a coordinate on the Hilbert Curve
 export const hilbertCoordinate = (t: number, n?: number): [number, number] => {
@@ -102,6 +103,7 @@ const Chillbert: FunctionalComponent = () => {
     <section class={style.canvas_frame}>
       <Helmet><title>{art.title}</title></Helmet>
       <div class="d-none"><ArtPlaque art={art} /></div>
+      <LoadingScreen />
       <Canvas init={init} onResize={init} draw={draw} />
     </section>
   )

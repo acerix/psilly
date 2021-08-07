@@ -2,7 +2,7 @@
 	{
 		"url": "/",
 		"title": "Psilly Belongs You",
-		"photo": "/assets/art/thumbnails/polygons.png"
+		"photo": "/assets/art/thumbnails/polygons.webp"
 	},
 	{
 		"url": "/about",
@@ -135,52 +135,57 @@
 	{
 		"url": "/art/polygonous/",
 		"title": "Digital Art Exhibit | Polygonous",
-		"photo": "/assets/art/thumbnails/polygonous.png"
+		"photo": "/assets/art/thumbnails/polygonous.webp"
 	},
 	{
 		"url": "/art/meld/",
 		"title": "Digital Art Exhibit | Meld",
-		"photo": "/assets/art/thumbnails/meld.png"
+		"photo": "/assets/art/thumbnails/meld.webp"
 	},
 	{
 		"url": "/art/circle/",
 		"title": "Digital Art Exhibit | Circle",
-		"photo": "/assets/art/thumbnails/circle.png"
+		"photo": "/assets/art/thumbnails/circle.webp"
 	},
 	{
 		"url": "/art/golden-angle-donut/",
 		"title": "Digital Art Exhibit | Golden Angle Donut",
-		"photo": "/assets/art/thumbnails/golden-angle-donut.png"
+		"photo": "/assets/art/thumbnails/golden-angle-donut.webp"
 	},
 	{
 		"url": "/art/squibbo/",
 		"title": "Digital Art Exhibit | Squibbo",
-		"photo": "/assets/art/thumbnails/squibbo.png"
+		"photo": "/assets/art/thumbnails/squibbo.webp"
 	},
 	{
 		"url": "/art/falls/",
 		"title": "Digital Art Exhibit | Doge Falls",
-		"photo": "/assets/art/thumbnails/falls.png"
+		"photo": "/assets/art/thumbnails/falls.webp"
 	},
 	{
 		"url": "/art/chillbert/",
 		"title": "Digital Art Exhibit | Chillbert Pspace",
-		"photo": "/assets/art/thumbnails/chillbert.png"
+		"photo": "/assets/art/thumbnails/chillbert.webp"
 	},
 	{
 		"url": "/art/develop/",
 		"title": "Digital Art Exhibit | Developer of the Abstract",
-		"photo": "/assets/art/thumbnails/develop.png"
+		"photo": "/assets/art/thumbnails/develop.webp"
 	},
 	{
 		"url": "/art/canvas-template/",
 		"title": "Digital Art Exhibit | 2D Canvas Template",
-		"photo": "/assets/art/thumbnails/canvas-template.png"
+		"photo": "/assets/art/thumbnails/canvas-template.webp"
 	},
 	{
 		"url": "/art/webgl-template/",
 		"title": "Digital Art Exhibit | Web GL Canvas Template",
-		"photo": "/assets/art/thumbnails/webgl-template.png"
+		"photo": "/assets/art/thumbnails/webgl-template.webp"
+	},
+	{
+		"url": "/art/loading/",
+		"title": "Digital Art Exhibit | Loading...",
+		"photo": "/assets/art/thumbnails/loading.webp"
 	},
 	{
 		"url": "/chat/",

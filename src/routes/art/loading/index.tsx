@@ -6,22 +6,17 @@ import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 import LoadingScreen from '../common/loading-screen'
 
-const CanvasTemplate: FunctionalComponent = () => {
+const Loading: FunctionalComponent = () => {
 
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.fillStyle = 'purple'
-    ctx.beginPath()
-    const canvasCenter = [ctx.canvas.width/2, ctx.canvas.height/2]
-    const maxRadius = Math.sqrt(canvasCenter[0]**2 + canvasCenter[1]**2)
-    ctx.arc(
-      canvasCenter[0],
-      canvasCenter[1],
-      maxRadius*Math.sin(frameCount/60)**2,
-      0,
-      2*Math.PI
-    )
-    ctx.fill()
+    const leftMargin = 10
+    const fontSize = 64
+    const topMargin = Math.ceil(leftMargin/2 + fontSize)
+    ctx.font = `${fontSize}px sans`
+    ctx.fillStyle = 'brown'
+    ctx.fillText('Loading... is... done!', leftMargin, topMargin)
+    ctx.fillText(String(frameCount), leftMargin, topMargin+fontSize)
   }
 
   const art: Artwork = artworkLibrary['canvas-template']
@@ -35,4 +30,4 @@ const CanvasTemplate: FunctionalComponent = () => {
   )
 }
 
-export default CanvasTemplate
+export default Loading

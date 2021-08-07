@@ -71,6 +71,13 @@ const artworkLibrary: ArtworkLibrary = {
     medium: 'JavaScript on WebGLRenderingContext',
     description: 'Good luck!'
   },
+  loading: {
+    path: 'loading',
+    title: 'Loading...',
+    year: 2021,
+    medium: 'JavaScript on HTML',
+    description: 'Loading... is a loading screen testing framework. Did I say framework? I meant artwork. It also tests patience.'
+  },
 }
 
 export default artworkLibrary

@@ -3,34 +3,21 @@ import { useEffect, useState } from 'preact/hooks'
 import Helmet from 'react-helmet'
 import style from './style.css'
 
-// https://preactjs.com/repl/
-
-// type ChatMessage = {
-//   color: string;
-//   body: string;
-// }
-
 interface ChatItemProps {
   item: string;
 }
 
 const ChatItem: FunctionalComponent<ChatItemProps> = (props: ChatItemProps) => {
   const { item } = props
-  return (
-    <li>{item}</li>
-  )
-  /*
-  return (
-    <li>{inner.color} {inner.body}</li>
-  )
-  */
+  const color = item.substr(-6)
+  const message = item.substr(0, item.length-6)
+  return <li style={{color: `#${color}`}}>{message}</li>
 }
 
 const Chat: FunctionalComponent = () => {
   const ref = createRef<HTMLElement>()
   const inputRef = createRef<HTMLInputElement>()
   const statusRef = createRef<HTMLParagraphElement>()
-  //const [items, setItems] = useState<ChatMessage[]>([])
   const [items, setItems] = useState<string[]>([])
 
   useEffect(() => {
@@ -45,7 +32,7 @@ const Chat: FunctionalComponent = () => {
     let lastMessage = ''
     let renderCallbackID: number
     let position = 0
-    let velocity = 1
+    let velocity = 4
     let acceleration = 0
     
     const handleBlur = (): void => {
@@ -124,15 +111,13 @@ const Chat: FunctionalComponent = () => {
         setTimeout(update, 4096)
         return
       }
-      let params = ''
+      let params = '?r'
       if (lastMessage!==inputElement.value) {
-        params = `?s=${encodeURIComponent(inputElement.value)}`
+        params = `&s=${encodeURIComponent(inputElement.value)}`
         lastMessage = inputElement.value
       }
       fetch(`https://psilly.com/experiments/ajax/chatter_chat.pill${params}`)
         .then(res => res.json())
-        //.then(res => res.map((v: string) => {'color': v.slice(-6), 'body': v.slice(0, -6)}))
-        //.then(res => res.map((v: string) => [v.slice(-6), v.slice(0, -6)]))
         .then(data => setItems(data || []))
         .then(() => {
           if (!connected) {
@@ -147,7 +132,7 @@ const Chat: FunctionalComponent = () => {
           statusElement.innerText = err as string
           statusElement.style.display = 'block'
           console.error(err)
-          alert('Error connecting to server. Check that your connection is working and that you have some disabled cookies like some kind of heathen.')
+          alert('Error connecting to server.\nMaybe lost your internet connection, or maybe you just hate cookies.\nRefresh the page when online, with cookies enabled, to try again.')
           location.reload()
         })
     }

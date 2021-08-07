@@ -5,6 +5,8 @@ type GetContextFunction = (canvas: HTMLCanvasElement) => CanvasRenderingContext2
 
 type InitFunction = (ctx: CanvasRenderingContext2D) => void
 
+type ReadyFunction = (whenReady: VoidFunction) => void
+
 type DrawFunction = (ctx: CanvasRenderingContext2D, frameCount: number) => void
 
 type ResizeFunction = (ctx: CanvasRenderingContext2D) => void
@@ -17,6 +19,7 @@ interface CanvasOptions {
 interface CanvasProps {
   getContext?: GetContextFunction;
   init?: InitFunction;
+  ready?: ReadyFunction;
   draw: DrawFunction;
   onResize?: ResizeFunction;
   framesPerSecond?: number;
@@ -24,7 +27,7 @@ interface CanvasProps {
 }
 
 const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
-  const { getContext, init, draw, onResize, framesPerSecond, ...rest } = props
+  const { getContext, init, ready, draw, onResize, framesPerSecond, ...rest } = props
   const ref = createRef()
   const frameMilliseconds = framesPerSecond ? 1000 / framesPerSecond : undefined
 
@@ -69,7 +72,16 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
       }
       draw(ctx, frameCount)
     }
-    render()
+
+    const whenReady = (): void => {
+      // console.log('whenReady', onLoadingProgress)
+      // if (onLoadingProgress) onLoadingProgress(88)
+      // loadingScreenRef?.current?.base.remove()
+      setTimeout(render, 0)
+    }
+
+    if (ready===undefined) whenReady()
+    else ready(whenReady)
 
     return (): void => {
       if (frameMilliseconds) {
@@ -82,7 +94,8 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
       window.removeEventListener('blur', handleBlur)
       window.removeEventListener('focus', handleFocus)
     }
-  }, [getContext, init, draw, onResize, ref, frameMilliseconds])
+
+  }, [getContext, init, ready, draw, onResize, ref, frameMilliseconds])
 
   return <canvas ref={ref} {...rest} />
 }

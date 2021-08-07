@@ -22,6 +22,7 @@ import Chillbert from '../routes/art/chillbert'
 import Develop from '../routes/art/develop'
 import CanvasTemplate from '../routes/art/canvas-template'
 // import WebGLTemplate from '../routes/art/webgl-template'
+import Loading from '../routes/art/loading'
 import Chat from '../routes/chat'
 import Jam from '../routes/jam'
 import Spinner from '../routes/spinner'
@@ -29,6 +30,7 @@ import Spinner from '../routes/spinner'
 import NotFound from '../routes/not-found'
 import Header from './header'
 import Footer from './footer'
+import Sequins from '../routes/art/common/sequins'
 
 const App: FunctionalComponent = () => {
   return (
@@ -64,6 +66,7 @@ const App: FunctionalComponent = () => {
       />
       <Header />
       <main>
+        <Sequins />
         <Router>
           <Home path="/" />
           <About path="/about/" />
@@ -87,6 +90,7 @@ const App: FunctionalComponent = () => {
           <Develop path="/art/develop/" />
           <CanvasTemplate path="/art/canvas-template/" />
           <CanvasTemplate path="/art/webgl-template/" />
+          <Loading path="/art/loading/" />
           <Chat path="/chat/" />
           <Jam path="/jam/" />
           <Spinner path="/spin/" />
