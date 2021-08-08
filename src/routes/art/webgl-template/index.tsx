@@ -1,35 +1,47 @@
-/*
 import { FunctionalComponent, h } from 'preact'
 import Helmet from 'react-helmet'
-import Canvas from '../common/canvas'
+import WebGL2 from '../common/webgl2'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
+import LoadingScreen from '../common/loading-screen'
 
 
 export const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = gl.createShader(type)
+  if (!shader) {
+    throw 'Missing shader'
+  }
   gl.shaderSource(shader, source)
   gl.compileShader(shader)
   if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-    throw new Error(gl.getShaderInfoLog(shader))
+    throw gl.getShaderInfoLog(shader)
   }
   return shader
 }
 
 export const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
   const program = gl.createProgram()
-  const fragmentShaderSource = document.getElementById('fragmentShader').textContent
+  if (!program) {
+    throw 'Missing program'
+  }
+  const fragmentShaderSource = document.getElementById('fragmentShader')?.textContent
+  if (!fragmentShaderSource) {
+    throw 'Missing fragmentShaderSource'
+  }
   const fragmentShader = initShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource)
   gl.attachShader(program, fragmentShader)
-  const vertexShaderSource = document.getElementById('vertexShader').textContent
+  const vertexShaderSource = document.getElementById('vertexShader')?.textContent
+  if (!vertexShaderSource) {
+    throw 'Missing vertexShaderSource'
+  }
   const vertexShader = initShader(gl, gl.VERTEX_SHADER, vertexShaderSource)
   gl.attachShader(program, vertexShader)
   gl.linkProgram(program)
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-    throw new Error(gl.getProgramInfoLog(program))
+    throw gl.getProgramInfoLog(program)??'Error from getProgramParameter'
   }
   gl.useProgram(program)
   return program
@@ -54,23 +66,27 @@ export const bindBuffers = (gl: WebGL2RenderingContext, program: WebGLProgram): 
 const WebGLTemplate: FunctionalComponent = () => {
   let shaderProgram: WebGLProgram
 
-  const getContext = (canvas: HTMLCanvasElement): WebGL2RenderingContext => {
-    return canvas.getContext('webgl2', {
-      alpha: false,
-      depth: false,
-      preserveDrawingBuffer: true
-    })
-  }
+  // const getContext = (canvas: HTMLCanvasElement): WebGL2RenderingContext => {
+  //   const ctx = canvas.getContext('webgl2', {
+  //     alpha: false,
+  //     depth: false,
+  //     preserveDrawingBuffer: true
+  //   })
+  //   if (!ctx) {
+  //     throw 'Missing context'
+  //   }
+  //   return ctx
+  // }
 
-  const init = (ctx: WebGL2RenderingContext): void => {
-    shaderProgram = initProgram(ctx)
-    bindBuffers(ctx, shaderProgram)
-  }
+  // const init = (ctx: WebGL2RenderingContext): void => {
+  //   shaderProgram = initProgram(ctx)
+  //   bindBuffers(ctx, shaderProgram)
+  // }
 
-  const onResize = (ctx: WebGL2RenderingContext): void => {
-    ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.clear(ctx.COLOR_BUFFER_BIT)
-  }
+  // const onResize = (ctx: WebGL2RenderingContext): void => {
+  //   ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height)
+  //   ctx.clear(ctx.COLOR_BUFFER_BIT)
+  // }
 
   const draw = (ctx: WebGL2RenderingContext): void => {
     const randomLocation = ctx.getUniformLocation(shaderProgram, 'u_random')
@@ -81,7 +97,8 @@ const WebGLTemplate: FunctionalComponent = () => {
   const art: Artwork = artworkLibrary['webgl-template']
   return (
     <section class={style.canvas_frame}>
-      <Helmet title="WebGL Template" />
+      <Helmet><title>{art.title}</title></Helmet>
+      <div class="d-none"><ArtPlaque art={art} /></div>
       <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" id="shaders" aria-labelledby="shadersLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="shadersLabel">Shaders</h5>
@@ -91,19 +108,20 @@ const WebGLTemplate: FunctionalComponent = () => {
           <form>
             <div class="mb-3">
               <label for="vertexShader">Vertex Shader</label>
-              <textarea class="form-control" id="vertexShader" rows="6">{vertexShaderSource}</textarea>
+              <textarea class="form-control" id="vertexShader" rows={6}>{vertexShaderSource}</textarea>
             </div>
             <div class="mb-3">
               <label for="fragmentShader">Fragment Shader</label>
-              <textarea class="form-control" id="fragmentShader" rows="20">{fragmentShaderSource}</textarea>
+              <textarea class="form-control" id="fragmentShader" rows={20}>{fragmentShaderSource}</textarea>
             </div>
           </form>
         </div>
       </div>
-      <Canvas getContext={getContext} init={init} onResize={onResize} draw={draw} />
+      <LoadingScreen />
+      <WebGL2 draw={draw} />
     </section>
   )
 }
+// getContext={getContext} init={init} onResize={onResize}
 
 export default WebGLTemplate
-*/

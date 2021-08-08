@@ -27,6 +27,10 @@ const Develop: FunctionalComponent = () => {
   
   const init = (ctx: CanvasRenderingContext2D): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+    resize(ctx)
+  }
+
+  const resize = (ctx: CanvasRenderingContext2D): void => {
     const maxSnakes = 4 * Math.floor(Math.sqrt(ctx.canvas.width * ctx.canvas.height))
     while (maxSnakes > snakes.length) {
       snakes.push(new DevelopSnake())

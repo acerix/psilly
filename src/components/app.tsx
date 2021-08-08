@@ -21,7 +21,7 @@ import Falls from '../routes/art/falls'
 import Chillbert from '../routes/art/chillbert'
 import Develop from '../routes/art/develop'
 import CanvasTemplate from '../routes/art/canvas-template'
-// import WebGLTemplate from '../routes/art/webgl-template'
+import WebGLTemplate from '../routes/art/webgl-template'
 import Loading from '../routes/art/loading'
 import Chat from '../routes/chat'
 import Jam from '../routes/jam'
@@ -89,7 +89,7 @@ const App: FunctionalComponent = () => {
           <Chillbert path="/art/chillbert/" />
           <Develop path="/art/develop/" />
           <CanvasTemplate path="/art/canvas-template/" />
-          <CanvasTemplate path="/art/webgl-template/" />
+          <WebGLTemplate path="/art/webgl-template/" />
           <Loading path="/art/loading/" />
           <Chat path="/chat/" />
           <Jam path="/jam/" />
