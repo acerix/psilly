@@ -78,15 +78,15 @@ const WebGLTemplate: FunctionalComponent = () => {
   //   return ctx
   // }
 
-  // const init = (ctx: WebGL2RenderingContext): void => {
-  //   shaderProgram = initProgram(ctx)
-  //   bindBuffers(ctx, shaderProgram)
-  // }
+  const init = (ctx: WebGL2RenderingContext): void => {
+    shaderProgram = initProgram(ctx)
+    bindBuffers(ctx, shaderProgram)
+  }
 
-  // const onResize = (ctx: WebGL2RenderingContext): void => {
-  //   ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height)
-  //   ctx.clear(ctx.COLOR_BUFFER_BIT)
-  // }
+  const onResize = (ctx: WebGL2RenderingContext): void => {
+    ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height)
+    ctx.clear(ctx.COLOR_BUFFER_BIT)
+  }
 
   const draw = (ctx: WebGL2RenderingContext): void => {
     const randomLocation = ctx.getUniformLocation(shaderProgram, 'u_random')
@@ -118,10 +118,10 @@ const WebGLTemplate: FunctionalComponent = () => {
         </div>
       </div>
       <LoadingScreen />
-      <WebGL2 draw={draw} />
+      <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
   )
 }
-// getContext={getContext} init={init} onResize={onResize}
+// getContext={getContext} 
 
 export default WebGLTemplate

@@ -74,9 +74,6 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
     }
 
     const whenReady = (): void => {
-      // console.log('whenReady', onLoadingProgress)
-      // if (onLoadingProgress) onLoadingProgress(88)
-      // loadingScreenRef?.current?.base.remove()
       setTimeout(render, 0)
     }
 

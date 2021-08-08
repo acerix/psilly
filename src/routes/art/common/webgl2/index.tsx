@@ -26,6 +26,12 @@ interface WebGL2Props {
   options?: WebGL2Options;
 }
 
+const defaultContextOptions = {
+  alpha: false,
+  depth: false,
+  preserveDrawingBuffer: true
+}
+
 const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => {
   const { getContext, init, ready, draw, onResize, framesPerSecond, ...rest } = props
   const ref = createRef()
@@ -36,7 +42,7 @@ const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => {
     let paused = false
     let frameCount = -1
     let renderCallbackID: number
-    const ctx = getContext ? getContext(canvas) : canvas.getContext('webgl2') as WebGL2RenderingContext
+    const ctx = getContext ? getContext(canvas) : canvas.getContext('webgl2', defaultContextOptions) as WebGL2RenderingContext
 
     const handleResize = (): void => {
       ctx.canvas.width = window.innerWidth
@@ -74,9 +80,6 @@ const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => {
     }
 
     const whenReady = (): void => {
-      // console.log('whenReady', onLoadingProgress)
-      // if (onLoadingProgress) onLoadingProgress(88)
-      // loadingScreenRef?.current?.base.remove()
       setTimeout(render, 0)
     }
 
