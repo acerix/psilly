@@ -7,7 +7,7 @@ const Header: FunctionalComponent = () => {
   const handleNavCollapse = (): void => setIsNavCollapsed(!isNavCollapsed)
   return (
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav class="navbar navbar-expand-lg navbar bg-primary">
         <div class="container">
           <a class="navbar-brand" href="https://psilly.com/">
             Psilly.com 🍄
