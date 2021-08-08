@@ -2,7 +2,7 @@
   "private": true,
   "name": "psilly",
   "homepage": "https://psilly.com/",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "dev": "preact watch",
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "core-js": "*",
-    "dompurify": "^2.2.9",
+    "dompurify": "*",
     "preact": "*",
     "preact-render-to-string": "*",
     "preact-router": "*",
@@ -58,12 +58,13 @@
   "devDependencies": {
     "@babel/core": "*",
     "@babel/eslint-parser": "*",
-    "@types/dompurify": "^2.2.2",
+    "@types/dompurify": "*",
     "@types/enzyme": "*",
     "@types/jest": "*",
     "@types/react-helmet": "*",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
+    "critters-webpack-plugin": "*",
     "enzyme": "*",
     "enzyme-adapter-preact-pure": "*",
     "eslint": "*",

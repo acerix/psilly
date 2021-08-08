@@ -7,12 +7,12 @@ const Header: FunctionalComponent = () => {
   const handleNavCollapse = (): void => setIsNavCollapsed(!isNavCollapsed)
   return (
     <header>
-      <nav class="navbar navbar-expand-lg navbar bg-primary">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="https://psilly.com/">
             Psilly.com 🍄
           </a>
-          <span class="navbar-text">
+          <span class="navbar-text text-white">
             Relax, get psilly...
           </span>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded={!isNavCollapsed} aria-label="Toggle navigation" onClick={handleNavCollapse}>
