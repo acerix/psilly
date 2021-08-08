@@ -113,7 +113,7 @@ const Chat: FunctionalComponent = () => {
       }
       let params = '?r'
       if (lastMessage!==inputElement.value) {
-        params = `&s=${encodeURIComponent(inputElement.value)}`
+        params += `&s=${encodeURIComponent(inputElement.value)}`
         lastMessage = inputElement.value
       }
       fetch(`https://psilly.com/experiments/ajax/chatter_chat.pill${params}`)
