@@ -139,6 +139,7 @@ const Chat: FunctionalComponent = () => {
     update()
 
     statusElement.innerText = 'Connecting...'
+    inputElement.focus()
 
     return (): void => {
       window.cancelAnimationFrame(renderCallbackID)

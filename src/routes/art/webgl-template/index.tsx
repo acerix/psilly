@@ -8,7 +8,6 @@ import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
 import LoadingScreen from '../common/loading-screen'
 
-
 export const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = gl.createShader(type)
   if (!shader) {
@@ -50,10 +49,10 @@ export const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
 export const bindBuffers = (gl: WebGL2RenderingContext, program: WebGLProgram): void => {
   const positionLocation = gl.getAttribLocation(program, 'a_position')
   const vertices = new Float32Array([
-    1,  1,  0,
-    -1,  1,  0,
-    1, -1,  0,
-    -1, -1,  0
+    +1, +1, +0,
+    -1, +1, +0,
+    +1, -1, +0,
+    -1, -1, +0
   ])
   const vertexBuffer = gl.createBuffer()
   gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
@@ -117,11 +116,10 @@ const WebGLTemplate: FunctionalComponent = () => {
           </form>
         </div>
       </div>
-      <LoadingScreen />
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
   )
 }
-// getContext={getContext} 
+// <LoadingScreen />
 
 export default WebGLTemplate
