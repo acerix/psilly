@@ -4,11 +4,11 @@ import WebGL2 from '../common/webgl2'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
+import LoadingScreen from '../common/loading-screen'
 import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
-import LoadingScreen from '../common/loading-screen'
 
-export const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
+const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = gl.createShader(type)
   if (!shader) {
     throw 'Missing shader'
@@ -21,7 +21,7 @@ export const initShader = (gl: WebGL2RenderingContext, type: number, source: str
   return shader
 }
 
-export const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
+const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
   const program = gl.createProgram()
   if (!program) {
     throw 'Missing program'
@@ -46,38 +46,39 @@ export const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
   return program
 }
 
-export const bindBuffers = (gl: WebGL2RenderingContext, program: WebGLProgram): void => {
-  const positionLocation = gl.getAttribLocation(program, 'a_position')
-  const vertices = new Float32Array([
-    +1, +1, +0,
-    -1, +1, +0,
-    +1, -1, +0,
-    -1, -1, +0
-  ])
-  const vertexBuffer = gl.createBuffer()
-  gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
-  gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW)
-  gl.vertexAttribPointer(positionLocation, 3, gl.FLOAT, false, 0, 0)
-  gl.bindBuffer(gl.ARRAY_BUFFER, null) // unbind
-  gl.enableVertexAttribArray(positionLocation)
-}
-
 const WebGLTemplate: FunctionalComponent = () => {
   let shaderProgram: WebGLProgram
+  let timeUniform: WebGLUniformLocation|null
+  let translateUniform: WebGLUniformLocation|null
+  let scaleUniform: WebGLUniformLocation|null
+  const translate = [0, 0]
+  const scale = [1, 1]
+  let maxRadius = 1
 
-  // const getContext = (canvas: HTMLCanvasElement): WebGL2RenderingContext => {
-  //   const ctx = canvas.getContext('webgl2', {
-  //     alpha: false,
-  //     depth: false,
-  //     preserveDrawingBuffer: true
-  //   })
-  //   if (!ctx) {
-  //     throw 'Missing context'
-  //   }
-  //   return ctx
-  // }
-
+  const bindBuffers = (gl: WebGL2RenderingContext, program: WebGLProgram): void => {
+    const positionAttrib = gl.getAttribLocation(program, 'a_position')
+    const vertices = new Float32Array([
+      +1, +1, +0,
+      -1, +1, +0,
+      +1, -1, +0,
+      -1, -1, +0
+    ])
+    const vertexBuffer = gl.createBuffer()
+    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
+    gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW)
+    gl.vertexAttribPointer(positionAttrib, 3, gl.FLOAT, false, 0, 0)
+    gl.bindBuffer(gl.ARRAY_BUFFER, null) // unbind
+    gl.enableVertexAttribArray(positionAttrib)
+    timeUniform = gl.getUniformLocation(program, 'u_time')
+    translateUniform = gl.getUniformLocation(program, 'u_translate')
+    scaleUniform = gl.getUniformLocation(program, 'u_scale')
+  }
+  
   const init = (ctx: WebGL2RenderingContext): void => {
+    maxRadius = Math.sqrt(ctx.canvas.width**2 + ctx.canvas.height**2)
+    translate[0] = -ctx.canvas.width/2
+    translate[1] = -ctx.canvas.height/2
+    scale[0] = scale[1] = 2/maxRadius
     shaderProgram = initProgram(ctx)
     bindBuffers(ctx, shaderProgram)
   }
@@ -85,11 +86,13 @@ const WebGLTemplate: FunctionalComponent = () => {
   const onResize = (ctx: WebGL2RenderingContext): void => {
     ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.clear(ctx.COLOR_BUFFER_BIT)
+    init(ctx)
   }
 
-  const draw = (ctx: WebGL2RenderingContext): void => {
-    const randomLocation = ctx.getUniformLocation(shaderProgram, 'u_random')
-    ctx.uniform1f(randomLocation, Math.random())
+  const draw = (ctx: WebGL2RenderingContext, frameCount: number): void => {
+    ctx.uniform1f(timeUniform, frameCount)
+    ctx.uniform2f(translateUniform, translate[0], translate[1])
+    ctx.uniform2f(scaleUniform, scale[0], scale[1])
     ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4)
   }
 
@@ -116,10 +119,10 @@ const WebGLTemplate: FunctionalComponent = () => {
           </form>
         </div>
       </div>
+      <LoadingScreen />
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
   )
 }
-// <LoadingScreen />
 
 export default WebGLTemplate

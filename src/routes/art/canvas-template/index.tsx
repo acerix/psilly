@@ -7,13 +7,20 @@ import style from '../canvas-template/style.css'
 import LoadingScreen from '../common/loading-screen'
 
 const CanvasTemplate: FunctionalComponent = () => {
+  const canvasCenter = [0, 0]
+  let maxRadius = 1
+
+  const init = (ctx: CanvasRenderingContext2D): void => {
+    ctx.fillStyle = 'purple'
+    canvasCenter[0] = ctx.canvas.width/2
+    canvasCenter[1] = ctx.canvas.height/2
+    maxRadius = Math.sqrt(canvasCenter[0]**2 + canvasCenter[1]**2)
+  }
 
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.fillStyle = 'purple'
     ctx.beginPath()
-    const canvasCenter = [ctx.canvas.width/2, ctx.canvas.height/2]
-    const maxRadius = Math.sqrt(canvasCenter[0]**2 + canvasCenter[1]**2)
     ctx.arc(
       canvasCenter[0],
       canvasCenter[1],
@@ -30,7 +37,7 @@ const CanvasTemplate: FunctionalComponent = () => {
       <Helmet><title>{art.title}</title></Helmet>
       <div class="d-none"><ArtPlaque art={art} /></div>
       <LoadingScreen />
-      <Canvas draw={draw} />
+      <Canvas init={init} onResize={init} draw={draw} />
     </section>
   )
 }
