@@ -1,7 +1,6 @@
 export default `#version 300 es
 precision lowp float;
 uniform float u_time;
-uniform float u_radius;
 uniform vec2 u_translate;
 uniform vec2 u_scale;
 out vec4 fragmentColor;
