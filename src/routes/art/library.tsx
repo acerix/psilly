@@ -57,6 +57,13 @@ const artworkLibrary: ArtworkLibrary = {
     medium: 'JavaScript on CanvasRenderingContext2D',
     description: 'Some paintings are veloped to look like real world things, others develop.'
   },
+  quadingle: {
+    path: 'quadingle',
+    title: 'Quadingle',
+    year: 2021,
+    medium: 'JavaScript on WebGLRenderingContext',
+    description: 'A personalized data stream mapped to a four-way hilbert curve from the centre.'
+  },
   'canvas-template': {
     path: 'canvas-template',
     title: '2D Canvas Template',

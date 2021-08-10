@@ -173,6 +173,11 @@
 		"photo": "/assets/art/thumbnails/develop.webp"
 	},
 	{
+		"url": "/art/quadingle/",
+		"title": "Digital Art Exhibit | Quadingle",
+		"photo": "/assets/art/thumbnails/quadingle.webp"
+	},
+	{
 		"url": "/art/canvas-template/",
 		"title": "Digital Art Exhibit | 2D Canvas Template",
 		"photo": "/assets/art/thumbnails/canvas-template.webp"
