@@ -8,13 +8,13 @@ import LoadingScreen from '../common/loading-screen'
 
 const CanvasTemplate: FunctionalComponent = () => {
   const canvasCenter = [0, 0]
-  let maxRadius = 1
+  let maxRadiusSquared = 1
 
   const init = (ctx: CanvasRenderingContext2D): void => {
     ctx.fillStyle = 'purple'
     canvasCenter[0] = ctx.canvas.width/2
     canvasCenter[1] = ctx.canvas.height/2
-    maxRadius = Math.sqrt(canvasCenter[0]**2 + canvasCenter[1]**2)
+    maxRadiusSquared = canvasCenter[0]**2 + canvasCenter[1]**2
   }
 
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
@@ -24,7 +24,7 @@ const CanvasTemplate: FunctionalComponent = () => {
     ctx.arc(
       canvasCenter[0],
       canvasCenter[1],
-      maxRadius*Math.sin(frameCount/60)**2,
+      Math.sqrt(maxRadiusSquared * Math.sin(frameCount/60)**2),
       0,
       2*Math.PI
     )
