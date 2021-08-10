@@ -1,9 +1,10 @@
 # Creating Art
 
 1. Copy existing art, eg. "canvas-template"
+1. Add entry to /routes/art/library.tsx
+1. Update Artwork in index.tsx
 1. Make it your own
 1. Save a screenshot in /assets/art/thumbnails/
-1. Add entry to /routes/art/library.tsx
 1. Hit the bong
 1. Add entry to /src/component/apps.tsx
 1. Add entry to /prerender-urls.json

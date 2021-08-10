@@ -41,7 +41,7 @@ const App: FunctionalComponent = () => {
         title="A page with no name" titleTemplate="%s 🍄 Psilly"
         titleAttributes={{itemprop: "name", lang: "en-CA"}}
         meta={[
-          {name: "description", content: "Psilly is an online community dedicated to psychedelic research, therapy, harm-reduction, and advocacy. We deliver peace of mind through exceptional care and avant-garde advocacy of psychotropic therapies."}
+          {name: "description", content: "Psilly (PSI) is an online community dedicated to psychedelic research, therapy, harm-reduction, and advocacy. We deliver peace of mind through exceptional care and avant-garde advocacy of psychotropic therapies."}
         ]}
         link={[
           {rel: "canonical", href: "https://psilly.com/"},

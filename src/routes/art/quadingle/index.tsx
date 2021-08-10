@@ -4,7 +4,6 @@ import WebGL2 from '../common/webgl2'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
-import LoadingScreen from '../common/loading-screen'
 import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
 
@@ -49,11 +48,10 @@ const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
 const Quadingle: FunctionalComponent = () => {
   let shaderProgram: WebGLProgram
   let timeUniform: WebGLUniformLocation|null
-  let translateUniform: WebGLUniformLocation|null
-  let scaleUniform: WebGLUniformLocation|null
-  const translate = [0, 0]
-  const scale = [1, 1]
-  let maxRadius = 1
+  // let translateUniform: WebGLUniformLocation|null
+  // let scaleUniform: WebGLUniformLocation|null
+  // const translate = [0, 0]
+  // const scale = [1, 1]
 
   const bindBuffers = (gl: WebGL2RenderingContext, program: WebGLProgram): void => {
     const positionAttrib = gl.getAttribLocation(program, 'a_position')
@@ -70,15 +68,14 @@ const Quadingle: FunctionalComponent = () => {
     gl.bindBuffer(gl.ARRAY_BUFFER, null) // unbind
     gl.enableVertexAttribArray(positionAttrib)
     timeUniform = gl.getUniformLocation(program, 'u_time')
-    translateUniform = gl.getUniformLocation(program, 'u_translate')
-    scaleUniform = gl.getUniformLocation(program, 'u_scale')
+    // translateUniform = gl.getUniformLocation(program, 'u_translate')
+    // scaleUniform = gl.getUniformLocation(program, 'u_scale')
   }
   
   const init = (ctx: WebGL2RenderingContext): void => {
-    maxRadius = Math.sqrt(ctx.canvas.width**2 + ctx.canvas.height**2)
-    translate[0] = -ctx.canvas.width/2
-    translate[1] = -ctx.canvas.height/2
-    scale[0] = scale[1] = 2/maxRadius
+    // translate[0] = -ctx.canvas.width/2
+    // translate[1] = -ctx.canvas.height/2
+    // scale[0] = scale[1] = 2/maxRadius
     shaderProgram = initProgram(ctx)
     bindBuffers(ctx, shaderProgram)
   }
@@ -91,12 +88,12 @@ const Quadingle: FunctionalComponent = () => {
 
   const draw = (ctx: WebGL2RenderingContext, frameCount: number): void => {
     ctx.uniform1f(timeUniform, frameCount)
-    ctx.uniform2f(translateUniform, translate[0], translate[1])
-    ctx.uniform2f(scaleUniform, scale[0], scale[1])
+    // ctx.uniform2f(translateUniform, translate[0], translate[1])
+    // ctx.uniform2f(scaleUniform, scale[0], scale[1])
     ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4)
   }
 
-  const art: Artwork = artworkLibrary['webgl-template']
+  const art: Artwork = artworkLibrary['quadingle']
   return (
     <section class={style.canvas_frame}>
       <Helmet><title>{art.title}</title></Helmet>
@@ -119,7 +116,6 @@ const Quadingle: FunctionalComponent = () => {
           </form>
         </div>
       </div>
-      <LoadingScreen />
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
   )
