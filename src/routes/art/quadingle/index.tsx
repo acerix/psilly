@@ -6,22 +6,23 @@ import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
+import { hilbertCurve } from '../chillbert'
 
-const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
-  const shader = gl.createShader(type)
+const initShader = (ctx: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
+  const shader = ctx.createShader(type)
   if (!shader) {
     throw 'Missing shader'
   }
-  gl.shaderSource(shader, source)
-  gl.compileShader(shader)
-  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-    throw gl.getShaderInfoLog(shader)
+  ctx.shaderSource(shader, source)
+  ctx.compileShader(shader)
+  if (!ctx.getShaderParameter(shader, ctx.COMPILE_STATUS)) {
+    throw ctx.getShaderInfoLog(shader)
   }
   return shader
 }
 
-const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
-  const program = gl.createProgram()
+const initProgram = (ctx: WebGL2RenderingContext): WebGLProgram => {
+  const program = ctx.createProgram()
   if (!program) {
     throw 'Missing program'
   }
@@ -29,20 +30,33 @@ const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
   if (!fragmentShaderSource) {
     throw 'Missing fragmentShaderSource'
   }
-  const fragmentShader = initShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource)
-  gl.attachShader(program, fragmentShader)
+  const fragmentShader = initShader(ctx, ctx.FRAGMENT_SHADER, fragmentShaderSource)
+  ctx.attachShader(program, fragmentShader)
   const vertexShaderSource = document.getElementById('vertexShader')?.textContent
   if (!vertexShaderSource) {
     throw 'Missing vertexShaderSource'
   }
-  const vertexShader = initShader(gl, gl.VERTEX_SHADER, vertexShaderSource)
-  gl.attachShader(program, vertexShader)
-  gl.linkProgram(program)
-  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-    throw gl.getProgramInfoLog(program)??'Error from getProgramParameter'
+  const vertexShader = initShader(ctx, ctx.VERTEX_SHADER, vertexShaderSource)
+  ctx.attachShader(program, vertexShader)
+  ctx.linkProgram(program)
+  if (!ctx.getProgramParameter(program, ctx.LINK_STATUS)) {
+    throw ctx.getProgramInfoLog(program)??'Error from getProgramParameter'
   }
-  gl.useProgram(program)
+  ctx.useProgram(program)
   return program
+}
+
+const hillbertTexture = (ctx: WebGL2RenderingContext, hilbertRank: number): WebGLTexture => {
+  const hilbertSpace = hilbertCurve(hilbertRank)
+  const pixel = new Uint8Array([0, 0, 255, 255])
+  const texture = ctx.createTexture()
+  if (!texture) throw 'Error creating texture'
+  ctx.bindTexture(ctx.TEXTURE_2D, texture)
+  ctx.texImage2D(ctx.TEXTURE_2D, 0, ctx.RGBA, 1, 1, 0, ctx.RGBA, ctx.UNSIGNED_BYTE, pixel)
+  ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.NEAREST)
+  ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.NEAREST)
+  console.log(hilbertSpace, texture)
+  return texture
 }
 
 const Quadingle: FunctionalComponent = () => {
@@ -51,30 +65,49 @@ const Quadingle: FunctionalComponent = () => {
   let translateUniform: WebGLUniformLocation|null
   const translate = [0, 0]
 
-  const bindBuffers = (gl: WebGL2RenderingContext, program: WebGLProgram): void => {
-    const positionAttrib = gl.getAttribLocation(program, 'a_position')
+  const bindBuffers = (ctx: WebGL2RenderingContext, program: WebGLProgram): void => {
+    const positionAttrib = ctx.getAttribLocation(program, 'a_position')
     const vertices = new Float32Array([
       +1, +1, +0,
       -1, +1, +0,
       +1, -1, +0,
       -1, -1, +0
     ])
-    const vertexBuffer = gl.createBuffer()
-    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
-    gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW)
-    gl.vertexAttribPointer(positionAttrib, 3, gl.FLOAT, false, 0, 0)
-    gl.bindBuffer(gl.ARRAY_BUFFER, null) // unbind
-    gl.enableVertexAttribArray(positionAttrib)
-    timeUniform = gl.getUniformLocation(program, 'u_time')
-    translateUniform = gl.getUniformLocation(program, 'u_translate')
+    const vertexBuffer = ctx.createBuffer()
+    ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer)
+    ctx.bufferData(ctx.ARRAY_BUFFER, vertices, ctx.STATIC_DRAW)
+    ctx.vertexAttribPointer(positionAttrib, 3, ctx.FLOAT, false, 0, 0)
+    ctx.bindBuffer(ctx.ARRAY_BUFFER, null) // unbind
+    ctx.enableVertexAttribArray(positionAttrib)
+    timeUniform = ctx.getUniformLocation(program, 'u_time')
+    translateUniform = ctx.getUniformLocation(program, 'u_translate')
+    const texture = new Float32Array([
+      +1, +1, +0,
+      -1, +1, +0,
+      +1, -1, +0,
+      -1, -1, +0
+    ])
+    const textureBuffer = ctx.createBuffer()
+    ctx.bindBuffer(ctx.ARRAY_BUFFER, textureBuffer)
+    ctx.bufferData(ctx.ARRAY_BUFFER, texture, ctx.STATIC_DRAW)
   }
   
   const init = (ctx: WebGL2RenderingContext): void => {
     translate[0] = -ctx.canvas.width/2
     translate[1] = -ctx.canvas.height/2
-    // scale[0] = scale[1] = 2/maxRadius
     shaderProgram = initProgram(ctx)
     bindBuffers(ctx, shaderProgram)
+
+    const spaceSize = Math.max(ctx.canvas.width, ctx.canvas.height) / 2
+    const hilbertRank = Math.ceil(Math.log2(spaceSize))
+
+    const texture = hillbertTexture(ctx, hilbertRank)
+    console.log(texture)
+
+    // create a texture to fill bottom right corner
+    // rotate to fill other 3 quads
+    // hilbert index is encoded in  pixel colours
+    // const texture = ctx.createTexture()
   }
 
   const onResize = (ctx: WebGL2RenderingContext): void => {
