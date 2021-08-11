@@ -1,4 +1,4 @@
-import {hilbertCurve, hilbertCoordinate} from '../src/routes/art/chillbert'
+import {hilbertCurve, hilbertCoordinate, hilbertIndex} from '../src/routes/art/chillbert'
 
 describe('Test art exhibit page contents', () => {
   test('Art exhibit canvas is as expected', () => {
@@ -76,6 +76,14 @@ describe('Test hilbert curve coordinates', () => {
 
   test('Hilbert coordinate (t=6, n=9)', () => {
     expect(hilbertCoordinate(6, 9)).toStrictEqual([1, 3])
+  })
+
+  test('Hilbert coordinate (t=6)', () => {
+    expect(hilbertCoordinate(6)).toStrictEqual([1, 3])
+  })
+
+  test('Hilbert index (p=[1, 3])', () => {
+    expect(hilbertIndex([1, 3])).toBe(6)
   })
 
   test('Hilbert curves (n=[0, 10])', () => {

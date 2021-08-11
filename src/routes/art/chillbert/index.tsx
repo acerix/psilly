@@ -43,6 +43,23 @@ export const hilbertCurve = (n: number): Array<[number, number]> => {
   return points
 }
 
+export function* HilbertCurveGenerator(): Generator<[number, number]> {
+  for (let i=0;; i++) {
+    yield hilbertCoordinate(i)
+  }
+}
+
+// Maps a coordinate on the Hilbert Curve back to it's integer index
+export const hilbertIndex = (p: [number, number]): number => {
+  // a very naive approach for now; just iterate until found
+  // @todo we can be better!
+  const g = HilbertCurveGenerator()
+  for (let i=0;; i++) {
+    const t = g.next().value as [number, number]
+    if (t[0]===p[0]&&t[1]===p[1]) return i
+  }
+}
+
 class ChillbertSnake {
   position = 0
   negative = Math.random() < 0.5

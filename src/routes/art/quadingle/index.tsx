@@ -48,10 +48,8 @@ const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
 const Quadingle: FunctionalComponent = () => {
   let shaderProgram: WebGLProgram
   let timeUniform: WebGLUniformLocation|null
-  // let translateUniform: WebGLUniformLocation|null
-  // let scaleUniform: WebGLUniformLocation|null
-  // const translate = [0, 0]
-  // const scale = [1, 1]
+  let translateUniform: WebGLUniformLocation|null
+  const translate = [0, 0]
 
   const bindBuffers = (gl: WebGL2RenderingContext, program: WebGLProgram): void => {
     const positionAttrib = gl.getAttribLocation(program, 'a_position')
@@ -68,13 +66,12 @@ const Quadingle: FunctionalComponent = () => {
     gl.bindBuffer(gl.ARRAY_BUFFER, null) // unbind
     gl.enableVertexAttribArray(positionAttrib)
     timeUniform = gl.getUniformLocation(program, 'u_time')
-    // translateUniform = gl.getUniformLocation(program, 'u_translate')
-    // scaleUniform = gl.getUniformLocation(program, 'u_scale')
+    translateUniform = gl.getUniformLocation(program, 'u_translate')
   }
   
   const init = (ctx: WebGL2RenderingContext): void => {
-    // translate[0] = -ctx.canvas.width/2
-    // translate[1] = -ctx.canvas.height/2
+    translate[0] = -ctx.canvas.width/2
+    translate[1] = -ctx.canvas.height/2
     // scale[0] = scale[1] = 2/maxRadius
     shaderProgram = initProgram(ctx)
     bindBuffers(ctx, shaderProgram)
@@ -88,8 +85,7 @@ const Quadingle: FunctionalComponent = () => {
 
   const draw = (ctx: WebGL2RenderingContext, frameCount: number): void => {
     ctx.uniform1f(timeUniform, frameCount)
-    // ctx.uniform2f(translateUniform, translate[0], translate[1])
-    // ctx.uniform2f(scaleUniform, scale[0], scale[1])
+    ctx.uniform2f(translateUniform, translate[0], translate[1])
     ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4)
   }
 

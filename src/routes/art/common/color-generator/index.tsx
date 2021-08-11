@@ -23,7 +23,6 @@ export const randomColorPeriod = (): number => {
 const SIN_FACTOR = Math.PI / 60 // forgive me
 
 function* ColorGenerator(props?: ColorGeneratorProps): Generator<Color> {
-// const *ColorGenerator = (props?: ColorGeneratorProps): Generator<Color> {
   const options = props ?? {}
   const color: Color = options.initialColor ?? new Uint8Array([128, 128, 128])
   const mutate = options.mutate ?? function(color: Color, iterationCount: number): void {
