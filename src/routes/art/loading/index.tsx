@@ -11,7 +11,7 @@ const Loading: FunctionalComponent = () => {
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     const leftMargin = 10
-    const fontSize = 64
+    const fontSize = ctx.canvas.width >> 4
     const topMargin = Math.ceil(leftMargin/2 + fontSize)
     ctx.font = `${fontSize}px sans`
     ctx.fillStyle = 'brown'

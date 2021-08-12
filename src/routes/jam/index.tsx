@@ -10,9 +10,10 @@ const Jam: FunctionalComponent = () => {
       <p>I wanna jam it with you!</p><p>Get an instrument hooked up and join our <a href="https://jamulus.io/">Jamulus</a> server. The server is in Montréal, so for best results, live near here. N'est-ce pas?</p>
       <pre>Psilly (psilly.com) on anygenre1.jamulus.io:22124</pre>
       <h2>Who's Jammin' Now?</h2>
-      <JamulusStatus />
+      <div class="mb-2">
+        <JamulusStatus />
+      </div>
       <h2>Server Status</h2>
-      <p>How the server's doing and who's online.</p>
       <div class="list-group mb-3">
         <a class="list-group-item list-group-item-action" href="/jam/jamulus-status.html" target="_blank">HTML status</a>
         <a class="list-group-item list-group-item-action" href="https://explorer.jamulus.io/servers.php?query=psilly.com" target="_blank" rel="noreferrer">Jamulus.io Explorer Status</a>

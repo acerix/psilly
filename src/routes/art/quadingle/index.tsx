@@ -47,15 +47,36 @@ const initProgram = (ctx: WebGL2RenderingContext): WebGLProgram => {
 }
 
 const hillbertTexture = (ctx: WebGL2RenderingContext, hilbertRank: number): WebGLTexture => {
-  const hilbertSpace = hilbertCurve(hilbertRank)
-  const pixel = new Uint8Array([0, 0, 255, 255])
+  const size = 1<<(2*hilbertRank)
+
   const texture = ctx.createTexture()
   if (!texture) throw 'Error creating texture'
   ctx.bindTexture(ctx.TEXTURE_2D, texture)
-  ctx.texImage2D(ctx.TEXTURE_2D, 0, ctx.RGBA, 1, 1, 0, ctx.RGBA, ctx.UNSIGNED_BYTE, pixel)
-  ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.NEAREST)
+  ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_S, ctx.REPEAT)
+  ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_T, ctx.REPEAT)
   ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.NEAREST)
-  console.log(hilbertSpace, texture)
+  ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.NEAREST)
+  ctx.texImage2D(ctx.TEXTURE_2D, 0, ctx.RGBA, size, size, 0, ctx.RGBA, ctx.UNSIGNED_BYTE, null)
+
+  const hilbertSpace = hilbertCurve(hilbertRank)
+  console.log('size=', size, 'hilbertSpace=', hilbertSpace)
+  const state = new Uint32Array(size)
+  for (let i=1; i<size; i++) {
+    state[i] = +(Math.random() > 0.5)
+  }
+  // let i = 0
+  // for (const n of hilbertSpace) {
+  //   i++
+  //   texture
+  // }
+  const rgba = new Uint8Array(size * size * 4)
+  for (let i = 0; i < state.length; i++) {
+    const ii = i * 4
+    rgba[ii + 0] = rgba[ii + 1] = rgba[ii + 2] = state[i] ? 255 : 0
+    rgba[ii + 3] = 255
+  }
+  ctx.texSubImage2D(ctx.TEXTURE_2D, 0, 0, 0, size, size, ctx.RGBA, ctx.UNSIGNED_BYTE, rgba)
+
   return texture
 }
 
@@ -81,15 +102,6 @@ const Quadingle: FunctionalComponent = () => {
     ctx.enableVertexAttribArray(positionAttrib)
     timeUniform = ctx.getUniformLocation(program, 'u_time')
     translateUniform = ctx.getUniformLocation(program, 'u_translate')
-    const texture = new Float32Array([
-      +1, +1, +0,
-      -1, +1, +0,
-      +1, -1, +0,
-      -1, -1, +0
-    ])
-    const textureBuffer = ctx.createBuffer()
-    ctx.bindBuffer(ctx.ARRAY_BUFFER, textureBuffer)
-    ctx.bufferData(ctx.ARRAY_BUFFER, texture, ctx.STATIC_DRAW)
   }
   
   const init = (ctx: WebGL2RenderingContext): void => {
@@ -99,15 +111,14 @@ const Quadingle: FunctionalComponent = () => {
     bindBuffers(ctx, shaderProgram)
 
     const spaceSize = Math.max(ctx.canvas.width, ctx.canvas.height) / 2
-    const hilbertRank = Math.ceil(Math.log2(spaceSize))
+    const hilbertRank = 2 // Math.ceil(Math.log2(spaceSize))
+    console.log('desired spaceSize=', spaceSize, 'r=', hilbertRank, Math.ceil(Math.log2(spaceSize)))
 
-    const texture = hillbertTexture(ctx, hilbertRank)
-    console.log(texture)
+    // const texture = hillbertTexture(ctx, hilbertRank)
+    // const textureBuffer = ctx.createBuffer()
+    // ctx.bindBuffer(ctx.ARRAY_BUFFER, textureBuffer)
+    // ctx.bufferData(ctx.ARRAY_BUFFER, texture, ctx.STATIC_DRAW)
 
-    // create a texture to fill bottom right corner
-    // rotate to fill other 3 quads
-    // hilbert index is encoded in  pixel colours
-    // const texture = ctx.createTexture()
   }
 
   const onResize = (ctx: WebGL2RenderingContext): void => {

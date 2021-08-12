@@ -52,7 +52,7 @@ export function* HilbertCurveGenerator(): Generator<[number, number]> {
 // Maps a coordinate on the Hilbert Curve back to it's integer index
 export const hilbertIndex = (p: [number, number]): number => {
   // a very naive approach for now; just iterate until found
-  // @todo we can be better!
+  // @todo can do better!
   const g = HilbertCurveGenerator()
   for (let i=0;; i++) {
     const t = g.next().value as [number, number]
