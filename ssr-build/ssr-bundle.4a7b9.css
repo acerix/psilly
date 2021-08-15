@@ -20,6 +20,13 @@ main {
   margin-bottom: 20px;
 }
 
+.parameter_panel_toggle_button__quq00 {
+  position: absolute;
+  padding: .5rem;
+  top: 15px;
+  right: 15px;
+}
+
 .canvas_frame__3GAb_ {
   background: #000;
   width: 100%;
@@ -112,4 +119,4 @@ main {
 }
 
 
-/*# sourceMappingURL=ssr-bundle.2aefb.css.map*/
+/*# sourceMappingURL=ssr-bundle.4a7b9.css.map*/
