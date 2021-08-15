@@ -82,6 +82,13 @@ describe('Test hilbert curve coordinates', () => {
     expect(hilbertCoordinate(6)).toStrictEqual([1, 3])
   })
 
+  test('All hilbert coordinates at n=10', () => {
+    let i = 0
+    for (const p of hilbertCurve(8)) {
+      expect(hilbertCoordinate(i++)).toStrictEqual(p)
+    }
+  })
+
   test('Hilbert index (p=[1, 3])', () => {
     expect(hilbertIndex([1, 3])).toBe(6)
   })

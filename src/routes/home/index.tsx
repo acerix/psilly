@@ -63,13 +63,13 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Psychedelic Mushrooms</h3>
-            <p>If you are looking for information on cultivation or consumption of species like <em>psilocybe cubensis</em>, you've come to the wrong place!  Seriously, we are not some <a href="/about/">information resource</a>, you should probably check out a reputable site like <a href="https://erowid.org/plants/mushrooms/mushrooms.shtml">Erowid</a>.</p>
+            <p>If you are looking for information on cultivation or consumption of species like <em>psilocybe cubensis</em>, this ain't the place!  Seriously, we are not some kind of <a href="https://erowid.org/plants/mushrooms/mushrooms.shtml">reputable psychedelic information resource</a>.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Psychotropic Science</h3>
-            <p>Psilly is a non-profit research and educational organization that develops medical, legal, and cultural contexts for people to benefit from the careful uses of psychedelics.</p>
+            <p>Psilly is a non-profit research and educational organization dedicated to developing medical, legal, and cultural contexts for people to benefit from the careful uses of psychedelics, as well as plain-'ol getting high.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">

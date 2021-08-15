@@ -118,9 +118,7 @@ const LoadingWidget = (props: LoadingWidgetProps) => {
 
 const LoadingScreen: FunctionalComponent = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
-
-  // const updateProgress = (): void => { }
-
+  
   useEffect(() => {
     const timeout = setTimeout(() => {
       dispatch({type: 'update', arg: state.progress})

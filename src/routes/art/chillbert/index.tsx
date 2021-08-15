@@ -8,6 +8,7 @@ import style from '../canvas-template/style.css'
 import LoadingScreen from '../common/loading-screen'
 
 // Maps an integer t in space of size 2^n to a coordinate on the Hilbert Curve
+// @todo "mortonToHilbert"? http://threadlocalmutex.com/?p=205
 export const hilbertCoordinate = (t: number, n?: number): [number, number] => {
   if (n === undefined) n = Math.ceil(Math.log2(t+1)/2)
   const s = [(n&1)===1, false]
@@ -51,13 +52,31 @@ export function* HilbertCurveGenerator(): Generator<[number, number]> {
 
 // Maps a coordinate on the Hilbert Curve back to it's integer index
 export const hilbertIndex = (p: [number, number]): number => {
-  // a very naive approach for now; just iterate until found
-  // @todo can do better!
+
+  // a very naive approach; just iterate until found
   const g = HilbertCurveGenerator()
   for (let i=0;; i++) {
     const t = g.next().value as [number, number]
     if (t[0]===p[0]&&t[1]===p[1]) return i
   }
+
+  // @todo something like https://people.sc.fsu.edu/~jburkardt/c_src/hilbert_curve/hilbert_curve.c
+
+  // const n = 2**m
+  // const m = 4
+  // const d = 0
+  // let rx = false
+  // let ry = false
+
+  // for (let s=n/2; s>0; s/=2) {
+  //   rx = ( p[0] & s ) > 0
+  //   ry = ( p[1] & s ) > 0
+  //   d = d + s * s * ( ( 3 * rx ) ^ ry )
+  //   rot ( s, p[0], p[1], rx, ry )
+  // }
+
+  // return d
+
 }
 
 class ChillbertSnake {
@@ -76,21 +95,22 @@ class ChillbertSnake {
 
 const Chillbert: FunctionalComponent = () => {
   const snakes: ChillbertSnake[] = []
-  let hilbertSpace: Array<[number, number]> = []
+  let coodinates: Array<[number, number]> = []
   let pixel: ImageData
-  
+
   const init = (ctx: CanvasRenderingContext2D): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     // ctx.lineWidth = 2
     const spaceSize = Math.max(ctx.canvas.width, ctx.canvas.height)
     const hilbertRank = Math.ceil(Math.log2(spaceSize))
-    hilbertSpace = hilbertCurve(hilbertRank)
+    coodinates = hilbertCurve(hilbertRank)
     const maxSnakes = Math.floor(Math.sqrt(ctx.canvas.width * ctx.canvas.height) / 16)
+    snakes.length = 0
     while (maxSnakes > snakes.length) {
       snakes.push(new ChillbertSnake())
     }
     for (const snake of snakes) {
-      snake.position = Math.floor(Math.random() * hilbertSpace.length)
+      snake.position = Math.floor(Math.random() * coodinates.length)
     }
     pixel = ctx.createImageData(1, 1)
     pixel.data[3] = 255
@@ -107,9 +127,9 @@ const Chillbert: FunctionalComponent = () => {
       pixel.data[2] = color[2]
       for (let i=0; i<snake.speed; i++) {
         snake.position = snake.position + (snake.negative ? -1 : 1)
-        snake.position &= hilbertSpace.length - 1
+        snake.position &= coodinates.length - 1
         // ctx.lineTo(...hilbertSpace[snake.position & (hilbertSpace.length-1)])
-        ctx.putImageData(pixel, ...hilbertSpace[snake.position & (hilbertSpace.length-1)])
+        ctx.putImageData(pixel, ...coodinates[snake.position & (coodinates.length-1)])
       }
       // ctx.stroke()
     }

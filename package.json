@@ -2,7 +2,7 @@
   "private": true,
   "name": "psilly",
   "homepage": "https://psilly.com/",
-  "version": "0.0.2",
+  "version": "0.0.42",
   "license": "MIT",
   "scripts": {
     "dev": "preact watch",
@@ -53,7 +53,8 @@
     "preact-render-to-string": "*",
     "preact-router": "*",
     "react-helmet": "*",
-    "regenerator-runtime": "*"
+    "regenerator-runtime": "*",
+    "use-hash-state": "*"
   },
   "devDependencies": {
     "@babel/core": "*",
@@ -70,7 +71,7 @@
     "eslint": "*",
     "eslint-config-preact": "*",
     "gh-pages": "*",
-    "jest": "^26",
+    "jest": "*",
     "jest-preset-preact": "*",
     "preact-cli": "*",
     "sirv-cli": "*",

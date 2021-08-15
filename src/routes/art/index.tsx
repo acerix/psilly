@@ -9,7 +9,7 @@ const Art: FunctionalComponent = () => {
       <h1>Web Art</h1>
       <ArtIndex />
       <h2>Artchive</h2>
-      <p>Older art experiments are listed under <a href="/experiments/">experiments</a>.</p>
+      <p>Older art experiments are under <a href="/experiments/">experiments</a>.</p>
     </section>
   )
 }

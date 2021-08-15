@@ -26,7 +26,7 @@ export const ArtPlaque: FunctionalComponent<ArtPlaqueProps> = (props: ArtPlaqueP
   art.thumbnailUrl = `/assets/art/thumbnails/${art.path}.webp`
   return <div class="card art_plaque" ref={ref}>
     <a href={art.displayUrl} aria-label="Experience">
-      <img src={art.thumbnailUrl} class="card-img-top" alt="Preview" />
+      <img src={art.thumbnailUrl} class="card-img-top" alt="Preview of {art.title}" />
     </a>
     <div class="card-body">
       <h5 class="card-title">

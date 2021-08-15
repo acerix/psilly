@@ -70,12 +70,14 @@ const hillbertTexture = (ctx: WebGL2RenderingContext, hilbertRank: number): WebG
   //   texture
   // }
   const rgba = new Uint8Array(size * size * 4)
-  for (let i = 0; i < state.length; i++) {
+  for (let i=0; i<state.length; i++) {
     const ii = i * 4
-    rgba[ii + 0] = rgba[ii + 1] = rgba[ii + 2] = state[i] ? 255 : 0
+    // rgba[ii + 0] = rgba[ii + 1] = rgba[ii + 2] = state[i] ? 255 : 0
+    rgba[ii + 0] = rgba[ii + 1] = rgba[ii + 2] = Math.random()>0.5 ? 255 : 0
     rgba[ii + 3] = 255
   }
   ctx.texSubImage2D(ctx.TEXTURE_2D, 0, 0, 0, size, size, ctx.RGBA, ctx.UNSIGNED_BYTE, rgba)
+  // console.log(rgba)
 
   return texture
 }
@@ -84,6 +86,7 @@ const Quadingle: FunctionalComponent = () => {
   let shaderProgram: WebGLProgram
   let timeUniform: WebGLUniformLocation|null
   let translateUniform: WebGLUniformLocation|null
+  let hilbertUniform: WebGLUniformLocation|null
   const translate = [0, 0]
 
   const bindBuffers = (ctx: WebGL2RenderingContext, program: WebGLProgram): void => {
@@ -102,6 +105,7 @@ const Quadingle: FunctionalComponent = () => {
     ctx.enableVertexAttribArray(positionAttrib)
     timeUniform = ctx.getUniformLocation(program, 'u_time')
     translateUniform = ctx.getUniformLocation(program, 'u_translate')
+    hilbertUniform = ctx.getUniformLocation(program, 'u_hilbert')
   }
   
   const init = (ctx: WebGL2RenderingContext): void => {
@@ -114,11 +118,10 @@ const Quadingle: FunctionalComponent = () => {
     const hilbertRank = 2 // Math.ceil(Math.log2(spaceSize))
     console.log('desired spaceSize=', spaceSize, 'r=', hilbertRank, Math.ceil(Math.log2(spaceSize)))
 
-    // const texture = hillbertTexture(ctx, hilbertRank)
+    hillbertTexture(ctx, hilbertRank)
     // const textureBuffer = ctx.createBuffer()
     // ctx.bindBuffer(ctx.ARRAY_BUFFER, textureBuffer)
     // ctx.bufferData(ctx.ARRAY_BUFFER, texture, ctx.STATIC_DRAW)
-
   }
 
   const onResize = (ctx: WebGL2RenderingContext): void => {
@@ -130,6 +133,7 @@ const Quadingle: FunctionalComponent = () => {
   const draw = (ctx: WebGL2RenderingContext, frameCount: number): void => {
     ctx.uniform1f(timeUniform, frameCount)
     ctx.uniform2f(translateUniform, translate[0], translate[1])
+    ctx.uniform2f(hilbertUniform, translate[0], translate[1])
     ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4)
   }
 
