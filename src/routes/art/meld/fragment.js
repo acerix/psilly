@@ -1,12 +1,14 @@
-// @from https://github.com/stegu/webgl-noise/blob/master/src/psrdnoise2D.glsl
-// Copyright (c) 2016 Stefan Gustavson. All rights reserved.
-// Distributed under the MIT license. See LICENSE file.
-// https://github.com/stegu/webgl-noise
-
 export default `#version 300 es
 precision lowp float;
 uniform float u_time;
 out vec4 fragmentColor;
+
+/*
+  Based on https://github.com/stegu/webgl-noise/blob/master/src/psrdnoise2D.glsl
+  Copyright (c) 2016 Stefan Gustavson. All rights reserved.
+  Distributed under the MIT license. See LICENSE file.
+  https://github.com/stegu/webgl-noise
+*/
 
 // Modulo 289, optimizes to code without divisions
 vec3 mod289(vec3 x) {
