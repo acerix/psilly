@@ -178,6 +178,11 @@
 		"photo": "/assets/art/thumbnails/quadingle.webp"
 	},
 	{
+		"url": "/art/oh-bezier/",
+		"title": "Digital Art Exhibit | Oh, Bézier!",
+		"photo": "/assets/art/thumbnails/oh-bézier.webp"
+	},
+	{
 		"url": "/art/canvas-template/",
 		"title": "Digital Art Exhibit | 2D Canvas Template",
 		"photo": "/assets/art/thumbnails/canvas-template.webp"

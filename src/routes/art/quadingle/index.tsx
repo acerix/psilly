@@ -6,7 +6,7 @@ import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
-import { hilbertCurve } from '../chillbert'
+// import { hilbertCurve } from '../chillbert'
 
 const initShader = (ctx: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = ctx.createShader(type)
@@ -58,8 +58,8 @@ const hillbertTexture = (ctx: WebGL2RenderingContext, hilbertRank: number): WebG
   ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.NEAREST)
   ctx.texImage2D(ctx.TEXTURE_2D, 0, ctx.RGBA, size, size, 0, ctx.RGBA, ctx.UNSIGNED_BYTE, null)
 
-  const hilbertSpace = hilbertCurve(hilbertRank)
-  console.log('size=', size, 'hilbertSpace=', hilbertSpace)
+  // const hilbertSpace = hilbertCurve(hilbertRank)
+  // console.log('size=', size, 'hilbertSpace=', hilbertSpace)
   const state = new Uint32Array(size)
   for (let i=1; i<size; i++) {
     state[i] = +(Math.random() > 0.5)
@@ -86,11 +86,12 @@ const Quadingle: FunctionalComponent = () => {
   let shaderProgram: WebGLProgram
   let timeUniform: WebGLUniformLocation|null
   let translateUniform: WebGLUniformLocation|null
-  let hilbertUniform: WebGLUniformLocation|null
   const translate = [0, 0]
 
   const bindBuffers = (ctx: WebGL2RenderingContext, program: WebGLProgram): void => {
     const positionAttrib = ctx.getAttribLocation(program, 'a_position')
+    // const curveAttrib = ctx.getAttribLocation(program, 'a_curve')
+
     const vertices = new Float32Array([
       +1, +1, +0,
       -1, +1, +0,
@@ -103,25 +104,35 @@ const Quadingle: FunctionalComponent = () => {
     ctx.vertexAttribPointer(positionAttrib, 3, ctx.FLOAT, false, 0, 0)
     ctx.bindBuffer(ctx.ARRAY_BUFFER, null) // unbind
     ctx.enableVertexAttribArray(positionAttrib)
+
+    // const curveData = new Uint8Array([
+    //   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+    // ])
+    // const curveBuffer = ctx.createBuffer()
+    // ctx.bindBuffer(ctx.ARRAY_BUFFER, curveBuffer)
+    // ctx.bufferData(ctx.ARRAY_BUFFER, curveData, ctx.STATIC_DRAW)
+    // ctx.vertexAttribPointer(curveAttrib, 3, ctx.FLOAT, false, 12, 0)
+    // ctx.bindBuffer(ctx.ARRAY_BUFFER, null) // unbind
+    // ctx.enableVertexAttribArray(curveAttrib)
+
     timeUniform = ctx.getUniformLocation(program, 'u_time')
     translateUniform = ctx.getUniformLocation(program, 'u_translate')
-    hilbertUniform = ctx.getUniformLocation(program, 'u_hilbert')
+
+    // const hilbertRank = 4
+    // const texture = hillbertTexture(ctx, hilbertRank)
+    // console.log(texture)
   }
   
   const init = (ctx: WebGL2RenderingContext): void => {
+    if (hillbertTexture.length===3) console.log(hillbertTexture)
     translate[0] = -ctx.canvas.width/2
     translate[1] = -ctx.canvas.height/2
     shaderProgram = initProgram(ctx)
     bindBuffers(ctx, shaderProgram)
 
-    const spaceSize = Math.max(ctx.canvas.width, ctx.canvas.height) / 2
-    const hilbertRank = 2 // Math.ceil(Math.log2(spaceSize))
-    console.log('desired spaceSize=', spaceSize, 'r=', hilbertRank, Math.ceil(Math.log2(spaceSize)))
-
-    hillbertTexture(ctx, hilbertRank)
-    // const textureBuffer = ctx.createBuffer()
-    // ctx.bindBuffer(ctx.ARRAY_BUFFER, textureBuffer)
-    // ctx.bufferData(ctx.ARRAY_BUFFER, texture, ctx.STATIC_DRAW)
+    // const spaceSize = Math.max(ctx.canvas.width, ctx.canvas.height) / 2
+    // const hilbertRank = 2 // Math.ceil(Math.log2(spaceSize))
+    // console.log('desired spaceSize=', spaceSize, 'r=', hilbertRank, Math.ceil(Math.log2(spaceSi
   }
 
   const onResize = (ctx: WebGL2RenderingContext): void => {
@@ -131,9 +142,8 @@ const Quadingle: FunctionalComponent = () => {
   }
 
   const draw = (ctx: WebGL2RenderingContext, frameCount: number): void => {
-    ctx.uniform1f(timeUniform, frameCount)
+    ctx.uniform1i(timeUniform, frameCount)
     ctx.uniform2f(translateUniform, translate[0], translate[1])
-    ctx.uniform2f(hilbertUniform, translate[0], translate[1])
     ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4)
   }
 

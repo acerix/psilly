@@ -21,6 +21,7 @@ import Falls from '../routes/art/falls'
 import Chillbert from '../routes/art/chillbert'
 import Develop from '../routes/art/develop'
 import Quadingle from '../routes/art/quadingle'
+import OhBézier from '../routes/art/oh-bezier'
 import CanvasTemplate from '../routes/art/canvas-template'
 import WebGLTemplate from '../routes/art/webgl-template'
 import Loading from '../routes/art/loading'
@@ -90,6 +91,7 @@ const App: FunctionalComponent = () => {
           <Chillbert path="/art/chillbert/" />
           <Develop path="/art/develop/" />
           <Quadingle path="/art/quadingle/" />
+          <OhBézier path="/art/oh-bezier/" />
           <CanvasTemplate path="/art/canvas-template/" />
           <WebGLTemplate path="/art/webgl-template/" />
           <Loading path="/art/loading/" />

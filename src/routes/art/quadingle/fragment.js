@@ -2,38 +2,22 @@ export default `#version 300 es
 precision lowp float;
 uniform float u_time;
 uniform vec2 u_translate;
-uniform sampler2D state;
+uniform sampler2D a_curve;
 out vec4 fragmentColor;
 
 void main() {
-  // float m_0 = gl_FragCoord.x + u_translate.x;
-  // float m_1 = gl_FragCoord.y + u_translate.y;
-  // float t = m_0 / 1024.0;
-  // // fragmentColor.r = fragmentColor.b = (m_0*m_0 + m_1*m_1) / 536.0;
-  // fragmentColor.r = fragmentColor.b = t;
+  float m_0 = gl_FragCoord.x + u_translate.x;
+  float m_1 = gl_FragCoord.y + u_translate.y;
 
-  
-  float test = 1.0;
-  float t = 0.0;
-  if (test > 0.0) {
-    t = 255.0;
-  }
-  fragmentColor.r = fragmentColor.b = t;
+  fragmentColor.r = ((m_0*m_0)+(m_1*m_1))/123456.7;
 
+  // fragmentColor.r = texture(u_hilbert, gl_FragCoord.xy);
 
-  // float m_0 = gl_FragCoord.x + u_translate.x;
-  // float m_1 = gl_FragCoord.y + u_translate.y;
-  // float t = m_0 / 1024.0;
-  // // fragmentColor.r = fragmentColor.b = (m_0*m_0 + m_1*m_1) / 536.0;
-  // fragmentColor.r = fragmentColor.b = t;
-  // int test = int(texture2D(u_hilbert, gl_FragCoord.xy).r);
-  // float test = texture2D(u_hilbert, gl_FragCoord.xy);
-  // float t = 0.0;
-  // if (test > 0.0) {
-  //   t = 255.0;
+  // if (m_0 > 20.0 && m_1 > 10.0) {
+  //   fragmentColor.r = 0.8;
   // }
-  // fragmentColor.r = fragmentColor.b = t;
-  // fragmentColor = texture2D(u_hilbert, gl_FragCoord.xy);
-  // fragmentColor = vec4(2.0, 99.0, 233.0, 255.0);
+
+  // fragmentColor.r = ((m_0*m_0)+(m_1*m_1))/123456.7;
+
 }
 `

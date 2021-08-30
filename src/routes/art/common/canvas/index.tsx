@@ -11,12 +11,12 @@ type DrawFunction = (ctx: CanvasRenderingContext2D, frameCount: number) => void
 
 type ResizeFunction = (ctx: CanvasRenderingContext2D) => void
 
-interface CanvasOptions {
+export interface CanvasOptions {
   contextType?: string;
   framesPerSecond?: number;
 }
 
-interface CanvasProps {
+export interface CanvasProps {
   getContext?: GetContextFunction;
   init?: InitFunction;
   ready?: ReadyFunction;
@@ -26,7 +26,7 @@ interface CanvasProps {
   options?: CanvasOptions;
 }
 
-const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
+export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
   const { getContext, init, ready, draw, onResize, framesPerSecond, ...rest } = props
   const ref = createRef()
   const frameMilliseconds = framesPerSecond ? 1000 / framesPerSecond : undefined
@@ -59,8 +59,8 @@ const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
     const setFullscreen = (): void => {
       if (!document.fullscreenElement) {
         canvas.requestFullscreen().catch(err => {
-          console.log('No full!', err)
-          // alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`)
+          console.error('Fullscreen fail:', err)
+          // console.error(`Fullscreen fail: ${err.message} (${err.name})`)
         })
       }
     }

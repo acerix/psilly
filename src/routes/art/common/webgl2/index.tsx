@@ -32,7 +32,7 @@ const defaultContextOptions = {
   preserveDrawingBuffer: true
 }
 
-const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => {
+export const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => {
   const { getContext, init, ready, draw, onResize, framesPerSecond, ...rest } = props
   const ref = createRef()
   const frameMilliseconds = framesPerSecond ? 1000 / framesPerSecond : undefined
@@ -62,15 +62,14 @@ const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => {
     }
     window.addEventListener('focus', handleFocus)
 
-    const setFullscreen = (): void => {
-      if (!document.fullscreenElement) {
-        canvas.requestFullscreen().catch(err => {
-          console.log('No full!', err)
-          // alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`)
-        })
-      }
-    }
-    window.addEventListener('click', setFullscreen)
+    // const setFullscreen = (): void => {
+    //   if (!document.fullscreenElement) {
+    //     canvas.requestFullscreen().catch(err => {
+    //       console.error('Fullscreen fail:', err)
+    //     })
+    //   }
+    // }
+    // window.addEventListener('click', setFullscreen)
 
     if (init) init(ctx)
 
@@ -106,7 +105,7 @@ const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => {
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('blur', handleBlur)
       window.removeEventListener('focus', handleFocus)
-      window.removeEventListener('click', setFullscreen)
+      // window.removeEventListener('click', setFullscreen)
     }
 
   }, [getContext, init, ready, draw, onResize, ref, frameMilliseconds])

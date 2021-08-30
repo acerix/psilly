@@ -64,6 +64,13 @@ const artworkLibrary: ArtworkLibrary = {
     medium: 'JavaScript on WebGLRenderingContext',
     description: 'A personalized data stream mapped to a four-way hilbert curve from the centre.'
   },
+  'oh-bezier': {
+    path: 'oh-bezier',
+    title: 'Oh, Bézier!',
+    year: 2021,
+    medium: 'JavaScript on WebGLRenderingContext',
+    description: 'Undescribed.'
+  },
   'canvas-template': {
     path: 'canvas-template',
     title: '2D Canvas Template',
@@ -83,7 +90,7 @@ const artworkLibrary: ArtworkLibrary = {
     title: 'Loading...',
     year: 2021,
     medium: 'JavaScript on HTML',
-    description: 'Loading... is a loading screen testing framework. Did I say framework? I meant artwork. It also tests patience.'
+    description: 'Loading... is a loading screen testing framework. Did I say framework? I meant artwork. Also tests patience.'
   },
 }
 

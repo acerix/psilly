@@ -20,7 +20,7 @@ export const hilbertCoordinate = (t: number, n?: number): [number, number] => {
     const x = 1<<(i<<1)
     const a = (t & (x<<1)) !== 0
     const b = (t & x) !== 0
-
+    
     // update position
     const d = a !== s[+!b]
     const m = 1<<i
