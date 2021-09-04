@@ -9,15 +9,14 @@ void main() {
   float m_0 = gl_FragCoord.x + u_translate.x;
   float m_1 = gl_FragCoord.y + u_translate.y;
 
-  fragmentColor.r = ((m_0*m_0)+(m_1*m_1))/123456.7;
+  // fragmentColor.r = (m_0*m_0+m_1*m_1)/1024.0;
 
-  // fragmentColor.r = texture(u_hilbert, gl_FragCoord.xy);
+  // fragmentColor = texture(a_curve, gl_FragCoord.xy);
 
-  // if (m_0 > 20.0 && m_1 > 10.0) {
-  //   fragmentColor.r = 0.8;
-  // }
+  vec2 tex = vec2(m_0, m_1);
+  fragmentColor = texture(a_curve, tex);
 
-  // fragmentColor.r = ((m_0*m_0)+(m_1*m_1))/123456.7;
-
+  fragmentColor.g = 0.3;
+  fragmentColor.r = (m_0*m_0+m_1*m_1)/1024.0;
 }
 `

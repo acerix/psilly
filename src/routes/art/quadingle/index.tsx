@@ -90,30 +90,36 @@ const Quadingle: FunctionalComponent = () => {
 
   const bindBuffers = (ctx: WebGL2RenderingContext, program: WebGLProgram): void => {
     const positionAttrib = ctx.getAttribLocation(program, 'a_position')
-    // const curveAttrib = ctx.getAttribLocation(program, 'a_curve')
+    const curveAttrib = ctx.getAttribLocation(program, 'a_curve')
 
     const vertices = new Float32Array([
-      +1, +1, +0,
-      -1, +1, +0,
-      +1, -1, +0,
-      -1, -1, +0
+      +1, +1,
+      -1, +1,
+      +1, -1,
+      -1, -1
     ])
     const vertexBuffer = ctx.createBuffer()
     ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer)
     ctx.bufferData(ctx.ARRAY_BUFFER, vertices, ctx.STATIC_DRAW)
-    ctx.vertexAttribPointer(positionAttrib, 3, ctx.FLOAT, false, 0, 0)
+    ctx.vertexAttribPointer(positionAttrib, 2, ctx.FLOAT, false, 0, 0)
     ctx.bindBuffer(ctx.ARRAY_BUFFER, null) // unbind
     ctx.enableVertexAttribArray(positionAttrib)
 
+    const curveData = new Float32Array([
+      +1, +1,
+      -1, +1,
+      +1, -1,
+      -1, -1
+    ])
     // const curveData = new Uint8Array([
     //   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
     // ])
-    // const curveBuffer = ctx.createBuffer()
-    // ctx.bindBuffer(ctx.ARRAY_BUFFER, curveBuffer)
-    // ctx.bufferData(ctx.ARRAY_BUFFER, curveData, ctx.STATIC_DRAW)
-    // ctx.vertexAttribPointer(curveAttrib, 3, ctx.FLOAT, false, 12, 0)
-    // ctx.bindBuffer(ctx.ARRAY_BUFFER, null) // unbind
-    // ctx.enableVertexAttribArray(curveAttrib)
+    const curveBuffer = ctx.createBuffer()
+    ctx.bindBuffer(ctx.ARRAY_BUFFER, curveBuffer)
+    ctx.bufferData(ctx.ARRAY_BUFFER, curveData, ctx.STATIC_DRAW)
+    ctx.vertexAttribPointer(curveAttrib, 2, ctx.FLOAT, false, 0, 0)
+    ctx.bindBuffer(ctx.ARRAY_BUFFER, null) // unbind
+    ctx.enableVertexAttribArray(curveAttrib)
 
     timeUniform = ctx.getUniformLocation(program, 'u_time')
     translateUniform = ctx.getUniformLocation(program, 'u_translate')
