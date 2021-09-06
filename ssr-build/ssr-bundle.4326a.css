@@ -60,6 +60,15 @@ main {
   padding-top: 42vh;
 }
 
+.grid_overlay__3dMnR {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
 .chat__whrty {
   background: url(/823f31b12be070211f5b71b926470ccb.png) repeat;
   width: 100%;
@@ -119,4 +128,4 @@ main {
 }
 
 
-/*# sourceMappingURL=ssr-bundle.4a7b9.css.map*/
+/*# sourceMappingURL=ssr-bundle.4326a.css.map*/
