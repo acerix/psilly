@@ -105,15 +105,21 @@ const Quadingle: FunctionalComponent = () => {
     ctx.bindBuffer(ctx.ARRAY_BUFFER, null) // unbind
     ctx.enableVertexAttribArray(positionAttrib)
 
-    const curveData = new Float32Array([
-      +1, +1,
-      -1, +1,
-      +1, -1,
-      -1, -1
-    ])
+    // const curveData = new Float32Array([
+    //   +1, +1,
+    //   -1, +1,
+    //   +1, -1,
+    //   -1, -1
+    // ])
     // const curveData = new Uint8Array([
     //   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
     // ])
+    const curveData = new Float32Array([
+      1, 0,
+      0, 255,
+      255, 255,
+      255, 0
+    ])
     const curveBuffer = ctx.createBuffer()
     ctx.bindBuffer(ctx.ARRAY_BUFFER, curveBuffer)
     ctx.bufferData(ctx.ARRAY_BUFFER, curveData, ctx.STATIC_DRAW)

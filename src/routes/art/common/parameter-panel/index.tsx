@@ -16,7 +16,7 @@ const ParameterPanel: FunctionalComponent<ParameterPanelProps> = (props: Paramet
     console.log('ParameterPanel construct')
 
     return (): void => {
-      console.log('ParameterPanel self-destruct')
+      console.log('ParameterPanel destruct')
     }
   }, [props, ref])
 

@@ -5,6 +5,7 @@ enum ArtworkTypes {
   Art,
   Template,
   Test,
+  WIP,
 }
 
 export type Artwork = {

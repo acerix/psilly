@@ -11,5 +11,6 @@ void main() {
   float radiusSquared = pow(sin(u_time/60.0), 2.0);
   bool inside = m_0*m_0 + m_1*m_1 < radiusSquared;
   fragmentColor.r = fragmentColor.b = inside ? 0.5 : 0.0;
+  fragmentColor.r = fragmentColor.g = fragmentColor.b = 1.0;
 }
 `

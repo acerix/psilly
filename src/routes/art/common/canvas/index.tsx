@@ -58,13 +58,13 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
 
     const setFullscreen = (): void => {
       if (!document.fullscreenElement) {
-        canvas.requestFullscreen().catch(err => {
+        document.body.requestFullscreen().catch(err => {
           console.error('Fullscreen fail:', err)
           // console.error(`Fullscreen fail: ${err.message} (${err.name})`)
         })
       }
     }
-    window.addEventListener('click', setFullscreen)
+    // window.addEventListener('click', setFullscreen)
 
     if (init) init(ctx)
 

@@ -67,7 +67,7 @@ const artworkLibrary: ArtworkLibrary = {
   },
   quadingle: {
     path: 'quadingle',
-    type: 'Art',
+    type: 'WIP',
     title: 'Quadingle',
     created: '2021',
     medium: 'JavaScript on WebGLRenderingContext',
@@ -75,7 +75,7 @@ const artworkLibrary: ArtworkLibrary = {
   },
   'oh-bezier': {
     path: 'oh-bezier',
-    type: 'Art',
+    type: 'WIP',
     title: 'Oh, Bézier!',
     created: '2021',
     medium: 'JavaScript on WebGLRenderingContext',
