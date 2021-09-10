@@ -24,11 +24,26 @@ const GridOverlay: FunctionalComponent = () => {
 
     const x = -translate[0]
     const y = -translate[1]
+    const s = 64
+
     ctx.beginPath()
+
+    // x-axis (y=0)
     ctx.moveTo(x, 0)
     ctx.lineTo(x, ctx.canvas.height)
+
+    // y-axis (x=0)
     ctx.moveTo(0, y)
     ctx.lineTo(ctx.canvas.width, y)
+
+    // y=1
+    ctx.moveTo(x + s, 0)
+    ctx.lineTo(x + s, ctx.canvas.height)
+
+    // x=1
+    ctx.moveTo(0, y - s)
+    ctx.lineTo(ctx.canvas.width, y - s)
+
     ctx.stroke()
    
     //   if(i == x_axis_distance_grid_lines) 
