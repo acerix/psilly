@@ -99,7 +99,7 @@ const GridTestTemplate: FunctionalComponent = () => {
   return (
     <section ref={ref} class={style.canvas_frame}>
       <Helmet><title>{art.title}</title></Helmet>
-      <div class="d-nonex"><ArtPlaque art={art} /></div>
+      <div class="d-none"><ArtPlaque art={art} /></div>
       <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" id="shaders" aria-labelledby="shadersLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="shadersLabel">Shaders</h5>
