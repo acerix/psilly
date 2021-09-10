@@ -9,7 +9,7 @@ const Home: FunctionalComponent = () => {
       <div class="px-4 pt-5 my-5 text-center border-bottom">
         <h1 class="h4 fw-bold">🍄 Psilly Belongs You 🍄</h1>
         <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">Enjoy your stay!</p>
+          <p class="lead mb-4">Enjoy your pstay!</p>
           <p class="mb-4">How are you feeling?</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
             <Link class="btn btn-outline-secondary btn-lg px-4 me-sm-3" href="/sober/">

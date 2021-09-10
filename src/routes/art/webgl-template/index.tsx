@@ -7,6 +7,7 @@ import style from '../canvas-template/style.css'
 import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
 import GridOverlay from '../common/grid-overlay'
+import LoadingScreen from '../common/loading-screen'
 
 const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = gl.createShader(type)
@@ -120,6 +121,7 @@ const WebGLTemplate: FunctionalComponent = () => {
           </form>
         </div>
       </div>
+      <LoadingScreen />
       <GridOverlay />
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
