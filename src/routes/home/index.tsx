@@ -63,18 +63,18 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Psychedelic Mushrooms</h3>
-            <p>If you are looking for information on cultivation or consumption of species like <em>psilocybe cubensis</em>, this ain't the place!  Seriously, we are not some kind of <a href="https://erowid.org/plants/mushrooms/mushrooms.shtml">reputable psychedelic information resource</a>.</p>
+            <p>If you are looking for information on cultivation or consumption of species like <em>psilocybe cubensis</em>, this ain't the place!  Seriously, we are not some kind of <a href="https://erowid.org/plants/mushrooms/mushrooms.shtml">reputable psychedelic information resource</a>. Also, chocolate.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
           <div>
-            <h3 class="fw-bold mb-0">Psychotropic Science</h3>
-            <p>Psilly is a non-profit research and educational organization dedicated to developing medical, legal, and cultural contexts for people to benefit from the careful uses of psychedelics, as well as plain-'ol getting high.</p>
+            <h3 class="fw-bold mb-0">Psychotropic Pscience</h3>
+            <p>Psilly is a non-profit research and educational organization dedicated to developing medical, legal, and cultural contexts for people to benefit from the careful uses of psychedelics, as well as plain-ol' gettin' high.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
           <div>
-            <h3 class="fw-bold mb-0">Psychotomimetic Stocks</h3>
+            <h3 class="fw-bold mb-0">Psychotomimetic Pstocks</h3>
             <p>Why are you <a href="/page/read/">reading</a> this when you probably have a better idea what I mean than I do. What, are you trying to PSYK it TO the man? PSI, please...</p>
           </div>
         </div>

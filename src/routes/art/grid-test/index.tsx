@@ -46,7 +46,7 @@ const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
   return program
 }
 
-const WebGLTemplate: FunctionalComponent = () => {
+const GridTestTemplate: FunctionalComponent = () => {
   const ref = createRef<HTMLElement>()
   let shaderProgram: WebGLProgram
   let timeUniform: WebGLUniformLocation|null
@@ -54,7 +54,6 @@ const WebGLTemplate: FunctionalComponent = () => {
   let scaleUniform: WebGLUniformLocation|null
   const translate = [0, 0]
   const scale = [1, 1]
-  let maxRadius = 1
 
   const bindBuffers = (gl: WebGL2RenderingContext, program: WebGLProgram): void => {
     const positionAttrib = gl.getAttribLocation(program, 'a_position')
@@ -76,10 +75,9 @@ const WebGLTemplate: FunctionalComponent = () => {
   }
   
   const init = (ctx: WebGL2RenderingContext): void => {
-    maxRadius = Math.sqrt(ctx.canvas.width**2 + ctx.canvas.height**2)
     translate[0] = -ctx.canvas.width/2
     translate[1] = -ctx.canvas.height/2
-    scale[0] = scale[1] = 2/maxRadius
+    scale[0] = scale[1] = 1/64
     shaderProgram = initProgram(ctx)
     bindBuffers(ctx, shaderProgram)
   }
@@ -97,11 +95,11 @@ const WebGLTemplate: FunctionalComponent = () => {
     ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4)
   }
 
-  const art: Artwork = artworkLibrary['webgl-template']
+  const art: Artwork = artworkLibrary['grid-test']
   return (
     <section ref={ref} class={style.canvas_frame}>
       <Helmet><title>{art.title}</title></Helmet>
-      <div class="d-none"><ArtPlaque art={art} /></div>
+      <div class="d-nonex"><ArtPlaque art={art} /></div>
       <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" id="shaders" aria-labelledby="shadersLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="shadersLabel">Shaders</h5>
@@ -126,4 +124,4 @@ const WebGLTemplate: FunctionalComponent = () => {
   )
 }
 
-export default WebGLTemplate
+export default GridTestTemplate

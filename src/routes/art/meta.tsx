@@ -34,7 +34,7 @@ export const ArtPlaque: FunctionalComponent<ArtPlaqueProps> = (props: ArtPlaqueP
   art.thumbnailUrl = `/assets/art/thumbnails/${art.path}.webp`
   return <div class="card art_plaque" ref={ref}>
     <a href={art.displayUrl} aria-label="Experience">
-      <img src={art.thumbnailUrl} class="card-img-top" alt="Preview of {art.title}" />
+      <img src={art.thumbnailUrl} class="card-img-top" alt={`Preview of ${art.title}`} />
     </a>
     <div class="card-body">
       <h5 class="card-title">
@@ -42,6 +42,7 @@ export const ArtPlaque: FunctionalComponent<ArtPlaqueProps> = (props: ArtPlaqueP
       </h5>
       <p class="card-text"><strong>{art.medium}</strong></p>
       <p class="card-text">{art.description}</p>
+      <p class="card-text"><a href={`//github.com/acerix/psilly/tree/main/src/routes/art/${art.path}`}>Source Code</a></p>
     </div>
     <noscript><p>This art requires JavaScript.</p></noscript>
   </div>

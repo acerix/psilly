@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import Home from '../routes/home'
 import About from '../routes/about'
 import Bylaws from '../routes/bylaws'
+import FAQ from '../routes/faq'
 import Contact from '../routes/contact'
 import Join from '../routes/join'
 import Donate from '../routes/donate'
@@ -25,6 +26,7 @@ import OhBézier from '../routes/art/oh-bezier'
 import CanvasTemplate from '../routes/art/canvas-template'
 import WebGLTemplate from '../routes/art/webgl-template'
 import Loading from '../routes/art/loading'
+import GridTest from '../routes/art/grid-test'
 import Chat from '../routes/chat'
 import Jam from '../routes/jam'
 import Spinner from '../routes/spinner'
@@ -73,6 +75,7 @@ const App: FunctionalComponent = () => {
           <Home path="/" />
           <About path="/about/" />
           <Bylaws path="/bylaws/" />
+          <FAQ path="/faq/" />
           <Contact path="/contact/" />
           <Join path="/join/" />
           <Donate path="/donate/" />
@@ -95,6 +98,7 @@ const App: FunctionalComponent = () => {
           <CanvasTemplate path="/art/canvas-template/" />
           <WebGLTemplate path="/art/webgl-template/" />
           <Loading path="/art/loading/" />
+          <GridTest path="/art/grid-test/" />
           <Chat path="/chat/" />
           <Jam path="/jam/" />
           <Spinner path="/spin/" />

@@ -33,7 +33,7 @@ const cms = {
   see: <Fragment><h1>See</h1><p>Seeing is believing, or so they say...</p></Fragment>,
   hear: <Fragment><h1>Hear</h1><p>Hear ye, hear ye!</p><p>What sayeth ye?</p><p>Ye sayeth as ye doeth.</p><p>Then what doeth ye?</p><p>Ye doeth as was proclaimed.</p><p>Ah, so ye hideth behind nomological determinism?</p><p><a href="/page/music/">Hear ye, hear ye!</a></p></Fragment>,
   taste: <Fragment><h1>Taste</h1><p>If it leaves a bad taste in your mouth, imagine what it does to the universe.</p></Fragment>,
-  smell: <Fragment><h1>Smell</h1><p>Oouoooh, that smell!</p></Fragment>,
+  smell: <Fragment><h1>Smell</h1><p>Oou-ooou, that smell!</p></Fragment>,
   feel: <Fragment><h1>Feel</h1><p>You may feel this, but can you feel that?</p></Fragment>,
 }
 

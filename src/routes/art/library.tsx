@@ -104,6 +104,14 @@ const artworkLibrary: ArtworkLibrary = {
     created: '2021',
     medium: 'JavaScript on HTML',
     description: 'Loading... is a loading screen testing framework. Did I say framework? I mean artwork. Also tests patience.'
+  },
+  'grid-test': {
+    path: 'grid-test',
+    type: 'Test',
+    title: 'Grid Overlay Test',
+    created: '2021',
+    medium: 'JavaScript on CanvasRenderingContext2D over JavaScript on WebGLRenderingContext',
+    description: 'Where my grids at?'
   }
 }
 

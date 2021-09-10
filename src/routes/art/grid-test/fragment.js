@@ -8,8 +8,7 @@ out vec4 fragmentColor;
 void main() {
   float m_0 = ( gl_FragCoord.x + u_translate.x ) * u_scale.x;
   float m_1 = ( gl_FragCoord.y + u_translate.y ) * u_scale.y;
-  float radiusSquared = pow(sin(u_time/60.0), 2.0);
-  bool inside = m_0*m_0 + m_1*m_1 < radiusSquared;
-  fragmentColor.r = fragmentColor.b = inside ? 0.5 : 0.0;
+  float radius_squared = m_0*m_0 + m_1*m_1;
+  fragmentColor.r = fragmentColor.g = fragmentColor.b = radius_squared < 1.0 ? radius_squared : 1.0 / radius_squared;
 }
 `

@@ -198,6 +198,11 @@
 		"photo": "/assets/art/thumbnails/loading.webp"
 	},
 	{
+		"url": "/art/grid-test/",
+		"title": "Digital Art Exhibit | Grid Overlay Test",
+		"photo": "/assets/art/thumbnails/grid-test.webp"
+	},
+	{
 		"url": "/chat/",
 		"title": "Psilly Chattergate"
 	},

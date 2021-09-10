@@ -2,7 +2,6 @@ import { FunctionalComponent, h } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
 // import DOMPurify from 'dompurify'
 
-
 const JamulusStatus: FunctionalComponent = () => {
   const [statusHTML, setStatusHTML] = useState<string>('Loading...')
 
