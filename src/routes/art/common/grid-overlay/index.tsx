@@ -57,15 +57,21 @@ const GridOverlay: FunctionalComponent = () => {
     }
     ctx.stroke()
 
+    // fudge for maximized devs window
+    const offsetX = 15
+    const offsetY = 7
+
     // label axis
     for (let d=0; d<ctx.canvas.width; d+=s) {
       ctx.textAlign = 'center'
-      const label = axisLabelFormat(d, n)
+      const v = d / s - offsetX
+      const label = axisLabelFormat(v, n)
       ctx.fillText(label, firstX+d, y+24)
     }
     for (let d=0; d<ctx.canvas.height; d+=s) {
       ctx.textAlign = 'right'
-      const label = axisLabelFormat(d, n)
+      const v = -d / s + offsetY
+      const label = axisLabelFormat(v, n)
       ctx.fillText(label, x-12, firstY+d+6)
     }
 
