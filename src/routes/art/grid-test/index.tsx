@@ -88,6 +88,10 @@ const GridTestTemplate: FunctionalComponent = () => {
     init(ctx)
   }
 
+  const onTranslate = (ctx: WebGL2RenderingContext): void => {
+    console.log('trans, baby', ctx)
+  }
+
   const draw = (ctx: WebGL2RenderingContext, frameCount: number): void => {
     ctx.uniform1f(timeUniform, frameCount)
     ctx.uniform2f(translateUniform, translate[0], translate[1])
@@ -118,7 +122,7 @@ const GridTestTemplate: FunctionalComponent = () => {
           </form>
         </div>
       </div>
-      <GridOverlay />
+      <GridOverlay onTranslate={onTranslate} />
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
   )

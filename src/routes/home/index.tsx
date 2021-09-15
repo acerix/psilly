@@ -87,7 +87,7 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Quantum Psychedelics</h3>
-            <p>And a new philosophy emerged called quantum physics, which suggest that the individual's function is to inform and be informed. You really exist only when you're in a field sharing and exchanging information. You create the realities you inhabit.</p>
+            <p>And a new philosophy emerged called quantum physics, which suggests that the individual's function is to inform and be informed. You really exist only when you're in a field sharing and exchanging information. You create the realities you inhabit.</p>
           </div>
         </div>
       </div>

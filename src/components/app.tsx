@@ -40,7 +40,7 @@ const App: FunctionalComponent = () => {
   return (
     <div>
       <Helmet
-        htmlAttributes={{lang: "en-CA", amp: undefined}}
+        htmlAttributes={{lang: "en-CA"}}
         title="A page with no name" titleTemplate="%s 🍄 Psilly"
         titleAttributes={{itemprop: "name", lang: "en-CA"}}
         meta={[
