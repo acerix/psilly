@@ -13,5 +13,11 @@ section.container {
 }
 
 main {
-  min-height: 69vh;
+  min-height: 32vh;
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    min-height: 64vh;
+  }
 }
