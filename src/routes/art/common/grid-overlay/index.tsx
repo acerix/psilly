@@ -1,4 +1,4 @@
-import { createRef, FunctionalComponent, h } from 'preact'
+import { FunctionalComponent, h } from 'preact'
 import { useEffect } from 'preact/hooks'
 import Canvas from '../../common/canvas'
 import style from './style.css'
