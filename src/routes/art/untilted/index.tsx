@@ -149,7 +149,7 @@ const Untilted: FunctionalComponent = () => {
         </div>
       </div>
       <GridOverlay setTranslate={setTranslate} setScale={setScale} />
-      <Out log={log} />
+      <Out />
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
   )
