@@ -7,6 +7,8 @@ import style from '../canvas-template/style.css'
 import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
 import GridOverlay from '../common/grid-overlay'
+import { useEffect } from 'preact/hooks'
+import Out from '../common/out'
 
 const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = gl.createShader(type)
@@ -46,7 +48,7 @@ const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
   return program
 }
 
-const GridTestTemplate: FunctionalComponent = () => {
+const Untilted: FunctionalComponent = () => {
   const ref = createRef<HTMLElement>()
   let shaderProgram: WebGLProgram
   let timeUniform: WebGLUniformLocation|null
@@ -86,7 +88,6 @@ const GridTestTemplate: FunctionalComponent = () => {
     ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.clear(ctx.COLOR_BUFFER_BIT)
     init(ctx)
-    draw(ctx, -1)
   }
 
   const setTranslate = (x: number, y: number): void => {
@@ -97,7 +98,6 @@ const GridTestTemplate: FunctionalComponent = () => {
   const setScale = (x: number, y: number): void => {
     scale[0] = x
     scale[1] = y
-    setTranslate(0, 0)
   }
 
   const draw = (ctx: WebGL2RenderingContext, frameCount: number): void => {
@@ -107,7 +107,25 @@ const GridTestTemplate: FunctionalComponent = () => {
     ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4)
   }
 
-  const art: Artwork = artworkLibrary['grid-test']
+  const log = (message: string): void => {
+    console.log(message)
+  }
+
+  useEffect(() => {
+    const handleDeviceOrientation = (event: DeviceOrientationEvent): boolean => {
+      log(`orient ${69}`)
+      event.preventDefault()
+      return false
+    }
+    window.addEventListener('deviceorientation', handleDeviceOrientation)
+
+    return (): void => {
+      window.removeEventListener('deviceorientation', handleDeviceOrientation)
+    }
+
+  }, [])
+
+  const art: Artwork = artworkLibrary['untilted']
   return (
     <section ref={ref} class={style.canvas_frame}>
       <Helmet><title>{art.title}</title></Helmet>
@@ -131,9 +149,10 @@ const GridTestTemplate: FunctionalComponent = () => {
         </div>
       </div>
       <GridOverlay setTranslate={setTranslate} setScale={setScale} />
+      <Out log={log} />
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
   )
 }
 
-export default GridTestTemplate
+export default Untilted

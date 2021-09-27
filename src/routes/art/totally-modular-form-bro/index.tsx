@@ -8,6 +8,29 @@ import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
 import GridOverlay from '../common/grid-overlay'
 
+export class ModularForm {
+  // test case https://www.lmfdb.org/ModularForm/GL2/Q/holomorphic/1/12/a/a/1/1/
+  // Level 1 → Weight 12 → Character orbit a → Newform orbit a → Embedding 1.1
+  level = 1n
+  weight = 0n
+
+  // SL2Z
+  S = [ 0, -1,  1,  0]
+  U = [ 0,  1, -1,  0]
+  R = [ 1, -1,  0,  1]
+  T = [ 1,  1,  0,  1]
+  E = [ 1,  0,  0,  1]
+  I = [-1,  0,  0, -1]
+
+  constructor(weight: bigint) {
+    this.weight = weight
+  }
+  get label(): string {
+    // https://www.lmfdb.org/ModularForm/GL2/Q/holomorphic/Labels
+    return `${this.level}.${this.weight}.a.a.1.1`
+  }
+}
+
 const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = gl.createShader(type)
   if (!shader) {
@@ -46,7 +69,14 @@ const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
   return program
 }
 
-const GridTestTemplate: FunctionalComponent = () => {
+// https://davidlowryduda.com/static/Talks/Bowdoin19/visualizing_modular_forms.pdf
+// https://maths.tcd.ie/~fellerc/2018-internship/docs/caelen-feller-report.pdf
+// https://pdf.sciencedirectassets.com/272313/1-s2.0-S0747717111X0010X/1-s2.0-S0747717111001258/main.pdf
+// https://github.com/mmasdeu/modularforms/blob/master/main.pdf
+// http://www.few.vu.nl/~sdn249/modularforms16/SageMathIntro.pdf
+// https://eclass.uoa.gr/modules/document/file.php/MATH154/%CE%A3%CE%B5%CE%BC%CE%B9%CE%BD%CE%AC%CF%81%CE%B9%CE%BF%202011/kulkarni-1991.pdf
+// https://github.com/sagemath/sage/blob/824f9cccaf76f9e1d5009f2ec3edcd96d0111191/src/sage/modular/arithgroup/farey_symbol.pyx#L966
+const TotallyModularFormBro: FunctionalComponent = () => {
   const ref = createRef<HTMLElement>()
   let shaderProgram: WebGLProgram
   let timeUniform: WebGLUniformLocation|null
@@ -80,13 +110,16 @@ const GridTestTemplate: FunctionalComponent = () => {
     scale[0] = scale[1] = 1/64
     shaderProgram = initProgram(ctx)
     bindBuffers(ctx, shaderProgram)
+
+    const mf = new ModularForm(12n)
+    console.log(mf.label)
+
   }
 
   const onResize = (ctx: WebGL2RenderingContext): void => {
     ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.clear(ctx.COLOR_BUFFER_BIT)
     init(ctx)
-    draw(ctx, -1)
   }
 
   const setTranslate = (x: number, y: number): void => {
@@ -97,7 +130,6 @@ const GridTestTemplate: FunctionalComponent = () => {
   const setScale = (x: number, y: number): void => {
     scale[0] = x
     scale[1] = y
-    setTranslate(0, 0)
   }
 
   const draw = (ctx: WebGL2RenderingContext, frameCount: number): void => {
@@ -107,7 +139,7 @@ const GridTestTemplate: FunctionalComponent = () => {
     ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4)
   }
 
-  const art: Artwork = artworkLibrary['grid-test']
+  const art: Artwork = artworkLibrary['totally-modular-form-bro']
   return (
     <section ref={ref} class={style.canvas_frame}>
       <Helmet><title>{art.title}</title></Helmet>
@@ -136,4 +168,4 @@ const GridTestTemplate: FunctionalComponent = () => {
   )
 }
 
-export default GridTestTemplate
+export default TotallyModularFormBro

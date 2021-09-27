@@ -11,9 +11,15 @@ type DrawFunction = (ctx: CanvasRenderingContext2D, frameCount: number) => void
 
 type ResizeFunction = (ctx: CanvasRenderingContext2D) => void
 
+type RenderFunction = () => void
+
 export interface CanvasOptions {
   contextType?: string;
   framesPerSecond?: number;
+}
+
+export interface CanvasMethods {
+  render: RenderFunction;
 }
 
 export interface CanvasProps {
@@ -22,12 +28,14 @@ export interface CanvasProps {
   ready?: ReadyFunction;
   draw: DrawFunction;
   onResize?: ResizeFunction;
+  animate?: boolean;
   framesPerSecond?: number;
   options?: CanvasOptions;
+  canvasMethodRefs?: CanvasMethods;
 }
 
 export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
-  const { getContext, init, ready, draw, onResize, framesPerSecond, ...rest } = props
+  const { getContext, init, ready, draw, onResize, animate, framesPerSecond, ...rest } = props
   const ref = createRef()
   const frameMilliseconds = framesPerSecond ? 1000 / framesPerSecond : undefined
 
@@ -35,7 +43,7 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
     const canvas = ref.current as HTMLCanvasElement
     let paused = false
     let frameCount = -1
-    let renderCallbackID: number
+    let loopCallbackID: number
     const ctx = getContext ? getContext(canvas) : canvas.getContext('2d') as CanvasRenderingContext2D
 
     const handleResize = (): void => {
@@ -69,22 +77,37 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
     if (init) init(ctx)
 
     const render = (): void => {
+      draw(ctx, frameCount++)
+    }
+
+    const loop = (): void => {
       if (paused) {
-        setTimeout(render, 128)
+        setTimeout(loop, 128)
         return
       }
       frameCount++
       if (frameMilliseconds) {
-        renderCallbackID = window.setTimeout(render, frameMilliseconds)
+        loopCallbackID = window.setTimeout(loop, frameMilliseconds)
       }
       else {
-        renderCallbackID = window.requestAnimationFrame(render)
+        loopCallbackID = window.requestAnimationFrame(loop)
       }
       draw(ctx, frameCount)
     }
 
+    // expose methods to parent
+    // @todo seems parents calling their children's methods is react antipattern, better way?
+    if (props.canvasMethodRefs) {
+      props.canvasMethodRefs.render = render
+    }
+
     const whenReady = (): void => {
-      setTimeout(render, 0)
+      if (animate===false) {
+        setTimeout(render)
+      }
+      else {
+        setTimeout(loop)
+      }
     }
 
     if (ready===undefined) whenReady()
@@ -92,10 +115,10 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
 
     return (): void => {
       if (frameMilliseconds) {
-        window.clearTimeout(renderCallbackID)
+        window.clearTimeout(loopCallbackID)
       }
       else {
-        window.cancelAnimationFrame(renderCallbackID)
+        window.cancelAnimationFrame(loopCallbackID)
       }
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('blur', handleBlur)
@@ -103,7 +126,7 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
       window.removeEventListener('click', setFullscreen)
     }
 
-  }, [getContext, init, ready, draw, onResize, ref, frameMilliseconds])
+  }, [getContext, init, ready, draw, onResize, ref, props.canvasMethodRefs, animate, frameMilliseconds])
 
   return <canvas ref={ref} {...rest} />
 }

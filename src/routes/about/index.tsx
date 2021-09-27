@@ -22,6 +22,7 @@ const About: FunctionalComponent = () => {
       </p>
       <h2>Become a Psillable</h2>
       <p>There is no objective test for psillability, you will know when you are ready. It has little to do with rhyme, or even so-called reason, the main ingredient is 🌈. </p>
+      <p><a href="/join/">Join</a></p>
     </section>
   )
 }

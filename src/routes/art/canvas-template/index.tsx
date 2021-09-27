@@ -11,15 +11,14 @@ const CanvasTemplate: FunctionalComponent = () => {
   let maxRadiusSquared = 1
 
   const init = (ctx: CanvasRenderingContext2D): void => {
-    ctx.fillStyle = 'purple'
     canvasCenter[0] = ctx.canvas.width/2
     canvasCenter[1] = ctx.canvas.height/2
     maxRadiusSquared = canvasCenter[0]**2 + canvasCenter[1]**2
+    ctx.fillStyle = 'purple'
   }
 
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.fillStyle = 'purple'
     ctx.beginPath()
     ctx.arc(
       canvasCenter[0],

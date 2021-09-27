@@ -134,72 +134,82 @@
 	},
 	{
 		"url": "/art/polygonous/",
-		"title": "Digital Art Exhibit | Polygonous",
+		"title": "Polygonous",
 		"photo": "/assets/art/thumbnails/polygonous.webp"
 	},
 	{
 		"url": "/art/meld/",
-		"title": "Digital Art Exhibit | Meld",
+		"title": "Meld",
 		"photo": "/assets/art/thumbnails/meld.webp"
 	},
 	{
 		"url": "/art/circle/",
-		"title": "Digital Art Exhibit | Circle",
+		"title": "Circle",
 		"photo": "/assets/art/thumbnails/circle.webp"
 	},
 	{
 		"url": "/art/golden-angle-donut/",
-		"title": "Digital Art Exhibit | Golden Angle Donut",
+		"title": "Golden Angle Donut",
 		"photo": "/assets/art/thumbnails/golden-angle-donut.webp"
 	},
 	{
 		"url": "/art/squibbo/",
-		"title": "Digital Art Exhibit | Squibbo",
+		"title": "Squibbo",
 		"photo": "/assets/art/thumbnails/squibbo.webp"
 	},
 	{
 		"url": "/art/falls/",
-		"title": "Digital Art Exhibit | Doge Falls",
+		"title": "Doge Falls",
 		"photo": "/assets/art/thumbnails/falls.webp"
 	},
 	{
 		"url": "/art/chillbert/",
-		"title": "Digital Art Exhibit | Chillbert Pspace",
+		"title": "Chillbert Pspace",
 		"photo": "/assets/art/thumbnails/chillbert.webp"
 	},
 	{
 		"url": "/art/develop/",
-		"title": "Digital Art Exhibit | Developer of the Abstract",
+		"title": "Developer of the Abstract",
 		"photo": "/assets/art/thumbnails/develop.webp"
 	},
 	{
 		"url": "/art/quadingle/",
-		"title": "Digital Art Exhibit | Quadingle",
+		"title": "Quadingle",
 		"photo": "/assets/art/thumbnails/quadingle.webp"
 	},
 	{
 		"url": "/art/oh-bezier/",
-		"title": "Digital Art Exhibit | Oh, Bézier!",
+		"title": "Oh, Bézier!",
 		"photo": "/assets/art/thumbnails/oh-bézier.webp"
 	},
 	{
+		"url": "/art/totally-modular-form-bro/",
+		"title": "Totally modular form, bro!",
+		"photo": "/assets/art/thumbnails/quadingle.webp"
+	},
+	{
+		"url": "/art/untilted/",
+		"title": "Untilted",
+		"photo": "/assets/art/thumbnails/untilted.webp"
+	},
+	{
 		"url": "/art/canvas-template/",
-		"title": "Digital Art Exhibit | 2D Canvas Template",
+		"title": "2D Canvas Template",
 		"photo": "/assets/art/thumbnails/canvas-template.webp"
 	},
 	{
 		"url": "/art/webgl-template/",
-		"title": "Digital Art Exhibit | Web GL Canvas Template",
+		"title": "Web GL Canvas Template",
 		"photo": "/assets/art/thumbnails/webgl-template.webp"
 	},
 	{
 		"url": "/art/loading/",
-		"title": "Digital Art Exhibit | Loading...",
+		"title": "Loading...",
 		"photo": "/assets/art/thumbnails/loading.webp"
 	},
 	{
 		"url": "/art/grid-test/",
-		"title": "Digital Art Exhibit | Grid Overlay Test",
+		"title": "Grid Overlay Test",
 		"photo": "/assets/art/thumbnails/grid-test.webp"
 	},
 	{

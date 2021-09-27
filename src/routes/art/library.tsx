@@ -81,6 +81,22 @@ const artworkLibrary: ArtworkLibrary = {
     medium: 'JavaScript on WebGLRenderingContext',
     description: 'Undescribed.'
   },
+  'totally-modular-form-bro': {
+    path: 'totally-modular-form-bro',
+    type: 'WIP',
+    title: 'Totally modular form, bro!',
+    created: '2021',
+    medium: 'JavaScript on WebGLRenderingContext',
+    description: 'Undescribed.'
+  },
+  untilted: {
+    path: 'untilted',
+    type: 'WIP',
+    title: 'Untilted',
+    created: '2021',
+    medium: 'JavaScript on WebGLRenderingContext',
+    description: 'Ceci n\'est pas tiltré.'
+  },
   'canvas-template': {
     path: 'canvas-template',
     type: 'Template',

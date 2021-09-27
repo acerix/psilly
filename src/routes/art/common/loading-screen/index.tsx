@@ -41,7 +41,6 @@ const statusMessages: string[] = [
   'Gravitizing anti-gravitons',
   'Ratcheting crackers',
   'Revolving revolvers',
-  'Denigrating polins',
   'Rolling rocks of roll into roll-rocks to be rocked by rollers',
   'Cawwing cowards',
   'Tickling dangleberries',
@@ -82,9 +81,9 @@ export const reducer = (state: LoadingState, action: { type: string, arg?: numbe
       statusMessage: 'Done!'
     }
   case 'update':
-    if (state.progress>=100) {
-      
-    }
+    // if (state.progress>=100) {
+    //   console.log('100%')
+    // }
     return {
       ...state,
       isLoading: state.progress<100,

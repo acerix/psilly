@@ -23,6 +23,8 @@ import Chillbert from '../routes/art/chillbert'
 import Develop from '../routes/art/develop'
 import Quadingle from '../routes/art/quadingle'
 import OhBézier from '../routes/art/oh-bezier'
+import TotallyModularFormBro from '../routes/art/totally-modular-form-bro'
+import Untilted from '../routes/art/untilted'
 import CanvasTemplate from '../routes/art/canvas-template'
 import WebGLTemplate from '../routes/art/webgl-template'
 import Loading from '../routes/art/loading'
@@ -95,6 +97,8 @@ const App: FunctionalComponent = () => {
           <Develop path="/art/develop/" />
           <Quadingle path="/art/quadingle/" />
           <OhBézier path="/art/oh-bezier/" />
+          <TotallyModularFormBro path="/art/totally-modular-form-bro/" />
+          <Untilted path="/art/untilted/" />
           <CanvasTemplate path="/art/canvas-template/" />
           <WebGLTemplate path="/art/webgl-template/" />
           <Loading path="/art/loading/" />
