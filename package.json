@@ -8,8 +8,9 @@
     "dev": "preact watch",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx,mjs}' 'tests/**/*.{js,jsx,ts,tsx,mjs}'",
     "test": "jest ./tests",
-    "build": "preact build",
     "clean": "rm -rf build coverage",
+    "build": "preact build",
+    "postbuild": "node ./src/generate-sitemap.mjs",
     "serve": "sirv build --port 8080 --cors --single",
     "predeploy": "yarn clean && yarn lint && yarn test --watchAll=false --coverage && yarn build",
     "deploy": "gh-pages -d build"
@@ -25,7 +26,8 @@
       "tsconfigRootDir": ".",
       "project": [
         "./tsconfig.json"
-      ]
+      ],
+      "extraFileExtensions": [".mjs"]
     },
     "extends": [
       "preact",
@@ -71,9 +73,11 @@
     "eslint": "*",
     "eslint-config-preact": "*",
     "gh-pages": "*",
+    "globby": "*",
     "jest": "*",
     "jest-preset-preact": "*",
     "preact-cli": "*",
+    "prettier": "^2.4.1",
     "sirv-cli": "*",
     "typescript": "*"
   },

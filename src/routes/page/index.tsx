@@ -34,6 +34,7 @@ const cms = {
   fun: <Fragment><h1>What is fun?</h1><p><a href="/page/funny/">Funny</a> you asked!</p></Fragment>,
   is: <Fragment><h1>Is</h1><h2>Who is is?</h2><p>Is is the becomer of the self; the isness of the is, if you will.</p><h2>What is is?</h2><p>Is is the becoming of the self; one is is when is is is, and is is one when is is one is.</p><h2>When is is?</h2><p>Is is always now. Except when is is then.</p><h2>Where is is?</h2><p>Some is is here, some is is there, some is is not meant to be found.</p><h2>Why is is?</h2><p>Is is because without is there would be no is.</p></Fragment>,
   see: <Fragment><h1>See</h1><p>Seeing is believing, or so they say...</p></Fragment>,
+  page: <Fragment><h1>Page</h1><p>A youth of noble birth who leaves home at an early age to serve an apprenticeship in the duties of chivalry in the family of some person of rank.</p></Fragment>,
   peace: <Fragment><h1>Peace Sanctuary</h1><p>Pieces of the mind, talking for the first time; at peace with their mindingings and their mindingingings.</p></Fragment>,
   war: <Fragment><h1>War, and Everything it's Good For</h1><p /></Fragment>,
   hear: <Fragment><h1>Hear</h1><p>Hear ye, hear ye!</p><p>What sayeth ye?</p><p>Ye sayeth as ye doeth.</p><p>Then what doeth ye?</p><p>Ye doeth as was proclaimed.</p><p>Ah, so ye hideth behind nomological determinism?</p><p><a href="/page/music/">Hear ye, hear ye!</a></p></Fragment>,
@@ -48,6 +49,7 @@ interface Props {
 
 const Page: FunctionalComponent<Props> = (props: Props) => {
   const { page } = props
+  
   return (
     <section class="container py-5">
       <Helmet>

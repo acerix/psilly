@@ -34,7 +34,7 @@ const Home: FunctionalComponent = () => {
         <div class="overflow-hidden">
           <div class="container">
             <Link href="/art/polygonous/">
-              <img src="/assets/art/thumbnails/polygonous.webp" width={300} height={185} class="img-fluid border rounded-3 shadow-lg" alt="Polygonous Thumbnail" loading="lazy" />
+              <img src="/assets/art/thumbnails/polygonous.webp" width={300} height={185} class="img-fluid border rounded-3 shadow-lg" alt="Polygonous thumbnail" loading="lazy" />
             </Link>
           </div>
         </div>
@@ -57,7 +57,7 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Market Research</h3>
-            <p>Our teams of leading expert scientists and researchers have verified with over 98.89% probability that you should drop acid tonight.  Whoops, that was the <a href="/page/acid/">acid</a> talking.</p>
+            <p>Our teams of leading expert scientists, researchers, engineers, and advocats, have verified with over 98.89% probability that you should drop acid tonight.  Whoops, that was the <a href="/page/acid/">acid</a> talking.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">

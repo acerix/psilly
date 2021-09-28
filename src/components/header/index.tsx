@@ -10,7 +10,7 @@ const Header: FunctionalComponent = () => {
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="https://psilly.com/">
-            Psilly.com 🍄
+            Psilly.com <span role="img" aria-label="psychedelic mushroom">🍄</span>
           </a>
           <span class="navbar-text text-white">
             Relax, get psilly...

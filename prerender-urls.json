@@ -25,6 +25,10 @@
 		"title": "Donate to Psilly"
 	},
 	{
+		"url": "/blog/hi/",
+		"title": "Hi!"
+	},
+	{
 		"url": "/page/time/",
 		"title": "Time"
 	},
@@ -91,6 +95,10 @@
 	{
 		"url": "/page/life/",
 		"title": "What is life, and why should I care?"
+	},
+	{
+		"url": "/page/page/",
+		"title": "Page"
 	},
 	{
 		"url": "/page/see/",

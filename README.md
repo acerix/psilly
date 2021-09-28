@@ -11,9 +11,9 @@ https://psilly.com/
 
 *   `yarn test`: Run Jest and Enzyme tests
 
-*   `yarn build`: Production-ready build
-
 *   `yarn clean`: Delete previous build
+
+*   `yarn build`: Production-ready build
 
 *   `yarn serve`: Start a server with the production build
 

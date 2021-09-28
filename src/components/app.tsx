@@ -10,7 +10,6 @@ import Contact from '../routes/contact'
 import Join from '../routes/join'
 import Donate from '../routes/donate'
 import Highness from '../routes/highness'
-import Page from '../routes/page'
 import Experiments from '../routes/experiments'
 import Art from '../routes/art'
 import Polygonous from '../routes/art/polygonous'
@@ -31,6 +30,8 @@ import Loading from '../routes/art/loading'
 import GridTest from '../routes/art/grid-test'
 import Chat from '../routes/chat'
 import Jam from '../routes/jam'
+import Page from '../routes/page'
+import Blog from '../routes/blog'
 import Spinner from '../routes/spinner'
 
 import NotFound from '../routes/not-found'
@@ -46,7 +47,7 @@ const App: FunctionalComponent = () => {
         title="A page with no name" titleTemplate="%s 🍄 Psilly"
         titleAttributes={{itemprop: "name", lang: "en-CA"}}
         meta={[
-          {name: "description", content: "Psilly (PSI) is an online community dedicated to psychedelic research, therapy, harm-reduction, and advocacy. We deliver peace of mind through exceptional care and avant-garde advocacy of psychotropic therapies."}
+          {name: "description", content: "Psilly is an online community dedicated to psychedelic research, therapy, harm-reduction, and advocacy. We deliver peace of mind through exceptional care and avant-garde advocacy of psychotropic therapies."}
         ]}
         link={[
           {rel: "canonical", href: "https://psilly.com/"},
@@ -81,7 +82,6 @@ const App: FunctionalComponent = () => {
           <Contact path="/contact/" />
           <Join path="/join/" />
           <Donate path="/donate/" />
-          <Route path="/page/:page/" component={Page} />
           <Highness path="/sober/" highness="sober" />
           <Highness path="/high/" highness="high" />
           <Highness path="/toohigh/" highness="too high" />
@@ -106,6 +106,8 @@ const App: FunctionalComponent = () => {
           <Chat path="/chat/" />
           <Jam path="/jam/" />
           <Spinner path="/spin/" />
+          <Route path="/page/:page/" component={Page} />
+          <Route path="/blog/:post/" component={Blog} />
           <NotFound path="/404/" />
           <NotFound default />
         </Router>
