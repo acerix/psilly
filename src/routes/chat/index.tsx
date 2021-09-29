@@ -37,7 +37,7 @@ const Chat: FunctionalComponent = () => {
     let renderTimeoutID: ReturnType<typeof setTimeout>
     let updateTimeoutID: ReturnType<typeof setTimeout>
     let position = 0
-    let velocity = 4
+    let velocity = 0
     let acceleration = 0
     
     const handleBlur = (): void => {
@@ -64,7 +64,7 @@ const Chat: FunctionalComponent = () => {
       mouseDown ^= (1<<event.button)
       if (event.button===0) {
         position = event.clientY + mouseLeftDownY
-        velocity = 0.06 * (position - g)
+        // velocity = 0.06 * (position - g)
         acceleration = 0
       }
       inputElement.focus()

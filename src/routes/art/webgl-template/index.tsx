@@ -91,6 +91,17 @@ const WebGLTemplate: FunctionalComponent = () => {
     init(ctx)
   }
 
+  const setTranslate = (x: number, y: number): void => {
+    translate[0] = x
+    translate[1] = y
+  }
+
+  const setScale = (x: number, y: number): void => {
+    scale[0] = x
+    scale[1] = y
+    setTranslate(0, 0)
+  }
+
   const draw = (ctx: WebGL2RenderingContext, frameCount: number): void => {
     ctx.uniform1f(timeUniform, frameCount)
     ctx.uniform2f(translateUniform, translate[0], translate[1])
@@ -122,7 +133,7 @@ const WebGLTemplate: FunctionalComponent = () => {
         </div>
       </div>
       <LoadingScreen />
-      <GridOverlay />
+      <GridOverlay setTranslate={setTranslate} setScale={setScale} />
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
   )
