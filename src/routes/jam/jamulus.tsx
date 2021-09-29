@@ -7,26 +7,35 @@ const JamulusStatus: FunctionalComponent = () => {
   const statusFetchAborter = new AbortController()
 
   useEffect(() => {
-    let timeoutID: NodeJS.Timeout
+    let alive = true
+    let timeoutID: ReturnType<typeof setTimeout>
 
     const refresh = (): void => {
+      if (!alive) return
       fetch(
         'https://psilly.com/jam/jamulus-status.html',
         statusFetchAborter
       )
-        .then(data => data.text())
-        .then(html => setStatusHTML(html || '<p>Error fetching server status</p>'))
-        .catch((error: string) => {
-          setStatusHTML(`<p>Error: ${error}</p>`)
+        .then(data => alive ? data.text() : 'ded')
+        .then(html => {
+          if (alive) {
+            setStatusHTML(html || '<p>Error fetching server status</p>')
+            timeoutID = setTimeout(refresh, 1<<14)
+          }
         })
-      timeoutID = setTimeout(refresh, 1<<14)
+        .catch((error: string) => {
+          if (alive) setStatusHTML(`<p>Error: ${error}</p>`)
+        })
     }
     refresh()
 
     return (): void => {
-      window.clearTimeout(timeoutID)
+      alive = false
       statusFetchAborter.abort()
+      window.clearTimeout(timeoutID)
     }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   //__html: DOMPurify.sanitize(statusHTML)
