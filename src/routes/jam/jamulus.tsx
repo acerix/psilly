@@ -1,6 +1,6 @@
 import { FunctionalComponent, h } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
-// import DOMPurify from 'dompurify'
+import { PreactHTMLConverter } from 'preact-html-converter'
 
 const JamulusStatus: FunctionalComponent = () => {
   const [statusHTML, setStatusHTML] = useState<string>('Loading...')
@@ -38,10 +38,11 @@ const JamulusStatus: FunctionalComponent = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  //__html: DOMPurify.sanitize(statusHTML)
-  return <div dangerouslySetInnerHTML={{
-    __html: statusHTML
-  }} />
+  return (
+    <div class="jamulus-status">
+      {PreactHTMLConverter().convert(statusHTML)}
+    </div>
+  )
 }
 
 export default JamulusStatus

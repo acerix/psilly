@@ -52,8 +52,8 @@
   },
   "dependencies": {
     "core-js": "*",
-    "dompurify": "*",
     "preact": "*",
+    "preact-html-converter": "*",
     "preact-render-to-string": "*",
     "preact-router": "*",
     "react-helmet": "*",
