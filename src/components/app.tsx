@@ -106,6 +106,7 @@ const App: FunctionalComponent = () => {
           <Chat path="/chat/" />
           <Jam path="/jam/" />
           <Spinner path="/spin/" />
+          <Route path="/page/" component={Page} page="page" />
           <Route path="/page/:page/" component={Page} />
           <Route path="/blog/:post/" component={Blog} />
           <NotFound path="/404/" />

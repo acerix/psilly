@@ -19,11 +19,15 @@ const Chat: FunctionalComponent = () => {
   const inputRef = createRef<HTMLInputElement>()
   const statusRef = createRef<HTMLParagraphElement>()
   const [items, setItems] = useState<string[]>([])
+  const chatFetchAborter = new AbortController()
+  // const { abortSignal } = aborter
 
   useEffect(() => {
     const element = ref.current as HTMLElement
     const inputElement = inputRef.current as HTMLInputElement
     const statusElement = statusRef.current as HTMLParagraphElement
+    const refreshMs = 256
+    let alive = true
     let paused = false
     let connected = false
     let mouseDown = 0
@@ -31,6 +35,8 @@ const Chat: FunctionalComponent = () => {
     let g = 0
     let lastMessage = ''
     let renderCallbackID: number
+    let renderTimeoutID: ReturnType<typeof setTimeout>
+    let updateTimeoutID: ReturnType<typeof setTimeout>
     let position = 0
     let velocity = 4
     let acceleration = 0
@@ -98,17 +104,18 @@ const Chat: FunctionalComponent = () => {
 
     const render = (): void => {
       if (paused) {
-        setTimeout(render, 128)
-        return
+        renderTimeoutID = setTimeout(render, 512)
       }
-      renderCallbackID = window.requestAnimationFrame(render)
-      draw()
+      else {
+        renderCallbackID = window.requestAnimationFrame(render)
+        draw()
+      }
     }
     render()
 
     const update = (): void => {
       if (paused) {
-        setTimeout(update, 4096)
+        if (alive) updateTimeoutID = setTimeout(update, refreshMs)
         return
       }
       let params = '?r'
@@ -116,23 +123,30 @@ const Chat: FunctionalComponent = () => {
         params += `&s=${encodeURIComponent(inputElement.value)}`
         lastMessage = inputElement.value
       }
-      fetch(`https://psilly.com/experiments/ajax/chatter_chat.pill${params}`)
+      fetch(
+        `https://psilly.com/experiments/ajax/chatter_chat.pill${params}`,
+        chatFetchAborter
+      )
         .then(res => res.json())
         .then(data => setItems(data || []))
         .then(() => {
+          if (!alive) return
           if (!connected) {
             connected = true
             statusElement.innerText = ''
             statusElement.style.display = 'none'
           }
         })
-        .then(() => setTimeout(update, 128))
+        .then(() => {
+          if (alive) updateTimeoutID = setTimeout(update, 1028)
+        })
         .catch(err => {
+          if (!alive) return
           connected = false
           statusElement.innerText = err as string
           statusElement.style.display = 'block'
           console.error(err)
-          alert('Error connecting to server.\nMaybe lost your internet connection, or maybe you just hate cookies.\nRefresh the page when online, with cookies enabled, to try again.')
+          alert('Error connecting to server.\nMaybe you lost your connection or maybe you just don\'t like cookies.\nRefresh the page, with cookies enabled, to try again.')
           location.reload()
         })
     }
@@ -142,7 +156,11 @@ const Chat: FunctionalComponent = () => {
     inputElement.focus()
 
     return (): void => {
+      alive = false
       window.cancelAnimationFrame(renderCallbackID)
+      chatFetchAborter.abort()
+      clearTimeout(renderTimeoutID)
+      clearTimeout(updateTimeoutID)
       window.removeEventListener('blur', handleBlur)
       window.removeEventListener('focus', handleFocus)
       window.removeEventListener('mousedown', handleMouseDown)

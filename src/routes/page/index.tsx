@@ -33,6 +33,7 @@ const cms = {
   dreams: <Fragment><h1>Dreams</h1><p>If you build it, they will come.</p></Fragment>,
   fun: <Fragment><h1>What is fun?</h1><p><a href="/page/funny/">Funny</a> you asked!</p></Fragment>,
   is: <Fragment><h1>Is</h1><h2>Who is is?</h2><p>Is is the becomer of the self; the isness of the is, if you will.</p><h2>What is is?</h2><p>Is is the becoming of the self; one is is when is is is, and is is one when is is one is.</p><h2>When is is?</h2><p>Is is always now. Except when is is then.</p><h2>Where is is?</h2><p>Some is is here, some is is there, some is is not meant to be found.</p><h2>Why is is?</h2><p>Is is because without is there would be no is.</p></Fragment>,
+  goose: <Fragment><h1>Psilly Goose's Den</h1><h2>Goose Sanctuary</h2><p>This is a den for geese. Are you a goose?</p><h2>Honk honk</h2><p>Honk honk honk honk honk. Honk honk honk. Honk honk honk honk honk, honk honk honk. Honk honk honk honk honk honk honk. Honk honk! Honk honk honk honk, honk honk, honk honk honk honk. Honk honk honk honk honk. Honk honk.</p></Fragment>,
   see: <Fragment><h1>See</h1><p>Seeing is believing, or so they say...</p></Fragment>,
   page: <Fragment><h1>Page</h1><p>A youth of noble birth who leaves home at an early age to serve an apprenticeship in the duties of chivalry in the family of some person of rank.</p></Fragment>,
   peace: <Fragment><h1>Peace Sanctuary</h1><p>Pieces of the mind, talking for the first time; at peace with their mindingings and their mindingingings.</p></Fragment>,

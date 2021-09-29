@@ -8,7 +8,7 @@ const Jam: FunctionalComponent = () => {
       <Helmet title="Jam" />
       <h1>Psilly Jams</h1>
       <p>I wanna jam it with you!</p><p>Get an instrument hooked up and join our <a href="https://jamulus.io/">Jamulus</a> server. The server is in Montréal, so for best results, live near here. N'est-ce pas?</p>
-      <pre>Psilly (psilly.com) on anygenre1.jamulus.io:22124</pre>
+      <pre>Psilly (psilly.com:22124) on the "Any Genre 1" directory (anygenre1.jamulus.io:22124)</pre>
       <h2>Who's Jammin' Now?</h2>
       <div class="mb-2">
         <JamulusStatus />

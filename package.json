@@ -77,7 +77,7 @@
     "jest": "*",
     "jest-preset-preact": "*",
     "preact-cli": "*",
-    "prettier": "^2.4.1",
+    "prettier": "*",
     "sirv-cli": "*",
     "typescript": "*"
   },
