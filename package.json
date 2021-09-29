@@ -27,7 +27,9 @@
       "project": [
         "./tsconfig.json"
       ],
-      "extraFileExtensions": [".mjs"]
+      "extraFileExtensions": [
+        ".mjs"
+      ]
     },
     "extends": [
       "preact",
