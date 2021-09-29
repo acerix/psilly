@@ -29,6 +29,10 @@
 		"title": "Hi!"
 	},
 	{
+		"url": "/page/",
+		"title": "Page"
+	},
+	{
 		"url": "/page/time/",
 		"title": "Time"
 	},
