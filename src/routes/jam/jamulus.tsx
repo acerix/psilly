@@ -4,12 +4,16 @@ import { useEffect, useState } from 'preact/hooks'
 
 const JamulusStatus: FunctionalComponent = () => {
   const [statusHTML, setStatusHTML] = useState<string>('Loading...')
+  const statusFetchAborter = new AbortController()
 
   useEffect(() => {
     let timeoutID: NodeJS.Timeout
 
     const refresh = (): void => {
-      fetch('https://psilly.com/jam/jamulus-status.html')
+      fetch(
+        'https://psilly.com/jam/jamulus-status.html',
+        statusFetchAborter
+      )
         .then(data => data.text())
         .then(html => setStatusHTML(html || '<p>Error fetching server status</p>'))
         .catch((error: string) => {
@@ -21,6 +25,7 @@ const JamulusStatus: FunctionalComponent = () => {
 
     return (): void => {
       window.clearTimeout(timeoutID)
+      statusFetchAborter.abort()
     }
   }, [])
 

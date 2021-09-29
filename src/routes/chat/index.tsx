@@ -20,7 +20,6 @@ const Chat: FunctionalComponent = () => {
   const statusRef = createRef<HTMLParagraphElement>()
   const [items, setItems] = useState<string[]>([])
   const chatFetchAborter = new AbortController()
-  // const { abortSignal } = aborter
 
   useEffect(() => {
     const element = ref.current as HTMLElement
