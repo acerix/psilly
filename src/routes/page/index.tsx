@@ -2,6 +2,7 @@ import { FunctionalComponent, h, Fragment } from 'preact'
 import Helmet from 'react-helmet'
 import whiteRabbit from './white-rabbit.js'
 import Now from '../art/common/now'
+import Unfinity from '../art/unfinity'
 
 const cms = {
   talk: <Fragment><h1>Urging to speak?</h1><p>Leave a message in the <a href="/chat/">chatter</a> or drop one in the <a href="https://mindmeet.space/">mind meet space</a>.</p></Fragment>,
@@ -29,12 +30,14 @@ const cms = {
   'white-rabbit': <Fragment><h1>White Rabbit</h1><p>Do you already know the risks of staring into abyss?</p><pre>{atob(whiteRabbit)}</pre></Fragment>,
   'rabbit-hole': <Fragment><h1>Rabbit Hole</h1><p>Congratulations on finding your way this far down the rabbit hole! You must be very persistant, or perhaps you just cheated by reading the source code.</p><p>Either way, congratulations, and {atob('ZnVjayB5b3U=')}!</p></Fragment>,
   life: <Fragment><h1>What is life?</h1><p>The life equation is the antidote to the anti-life equation.</p><p>The equation is mathematical proof that life is worth living, just as the anti-life.</p><p>The equation is mathematical proof that life is meaningless.</p><p>Theorize. Life is precious. And <a href="/page/time/">time</a> is on your side.</p></Fragment>,
-  time: <Fragment><h1>What is time?</h1><p>Time is the measure of negative entropy in a system. Sapiens, homos in particular, have devised countless arbitrary systems for counting time, the least insane being "unix time"; the number of seconds since they realized time is not defined by astronomy, also known as their Epoch. <Now /> seconds have passed since then. I can count this forever since I have no <a href="/page/life/">life</a>.</p></Fragment>,
+  time: <Fragment><h1>What is time?</h1><p>Time is the measure of negative entropy in a system. Sapiens, homos in particular, have devised countless arbitrary systems for counting time, the least insane being "unix time"; an absolute measure of time since they realized time is not defined by astronomy, based in a unit defined by the rotation around their own axis in reference to their nearest luminous celestial body. This number is also known as their Epoch. <Now /> human seconds have passed since then. I can count this forever since I have no <a href="/page/life/">life</a>.</p><h2>What is time without consciousness?</h2><p><a href="/page/infinity/">∞</a></p></Fragment>,
   dreams: <Fragment><h1>Dreams</h1><p>If you build it, they will come.</p></Fragment>,
   fun: <Fragment><h1>What is fun?</h1><p><a href="/page/funny/">Funny</a> you asked!</p></Fragment>,
   is: <Fragment><h1>Is</h1><h2>Who is is?</h2><p>Is is the becomer of the self; the isness of the is, if you will.</p><h2>What is is?</h2><p>Is is the becoming of the self; one is is when is is is, and is is one when is is one is.</p><h2>When is is?</h2><p>Is is always now. Except when is is then.</p><h2>Where is is?</h2><p>Some is is here, some is is there, some is is not meant to be found.</p><h2>Why is is?</h2><p>Is is because without is there would be no is.</p></Fragment>,
+  infinity: <Fragment><h1><abbr title="The Infinite">∞</abbr></h1><h2>What is infinity?</h2><Unfinity /></Fragment>,
   goose: <Fragment><h1>Psilly Goose's Den</h1><h2>Goose Sanctuary</h2><p>This is a den for geese. Are you a goose?</p><h2>Honk honk</h2><p>Honk honk honk honk honk. Honk honk honk. Honk honk honk honk honk, honk honk honk. Honk honk honk honk honk honk honk. Honk honk! Honk honk honk honk, honk honk, honk honk honk honk. Honk honk honk honk honk. Honk honk.</p></Fragment>,
   see: <Fragment><h1>See</h1><p>Seeing is believing, or so they say...</p></Fragment>,
+  end: <Fragment><h1>The End</h1><p>This is the end, my friend.</p></Fragment>,
   page: <Fragment><h1>Page</h1><p>A youth of noble birth who leaves home at an early age to serve an apprenticeship in the duties of chivalry in the family of some person of rank.</p></Fragment>,
   peace: <Fragment><h1>Peace Sanctuary</h1><p>Pieces of the mind, talking for the first time; at peace with their mindingings and their mindingingings.</p></Fragment>,
   war: <Fragment><h1>War, and Everything it's Good For</h1><p /></Fragment>,
