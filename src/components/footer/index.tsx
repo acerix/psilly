@@ -6,7 +6,7 @@ const Footer: FunctionalComponent = () => {
       <div class="container">
         <div class="row">
           <div class="col-sm-9 col-md-10">
-            <p class="mb-2">© <time id="copyright-year">{new Date().getFullYear()}</time> <a class="text-muted text-decoration-none" href="https://psilly.com/">Psilly Corporation</a>. Psilly™ is a trademark of <a class="text-muted text-decoration-none" href="https://psilly.com/">Psilly Corporation</a>. All Rights Reserved.</p>
+            <p class="mb-2">© <time id="copyright-year">{new Date().getFullYear()}</time> <a class="text-muted text-decoration-none" href="https://psilly.com/">Psilly Corporation</a>. Psilly™ is a trademark of <a class="text-muted text-decoration-none" href="https://psilly.com/">Psilly Corporation</a>. All rights reserved.</p>
           </div>
           <div class="col-sm-5 col-md-2">
             <p class="float-end mb-2">

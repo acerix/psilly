@@ -126,13 +126,14 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     const offsetX = Math.floor(x / spacingX)
     const offsetY = Math.floor((ctx.canvas.height - y + 16) / spacingY)
 
-    // label axes
+    // axis labels
     for (let d=0; d<ctx.canvas.width; d+=spacingX) {
       ctx.textAlign = 'center'
       const v = d / spacingX - offsetX
       const label = axisLabelFormat(v, powerX)
       const positionX = firstX+d+labelXOffset[0]
       const positionY = ctx.canvas.height-y+labelXOffset[1]
+      // const positionY = ctx.canvas.height-yMiddleLine 
       ctx.fillText(label, positionX, positionY)
     }
     for (let d=0; d<ctx.canvas.height; d+=spacingY) {
@@ -140,6 +141,7 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
       const v = -d / spacingY + offsetY
       const label = axisLabelFormat(v, powerY)
       const positionX = x+labelYOffset[0]
+      // const positionX = xMiddleLine
       const positionY = firstY+d+labelYOffset[1]
       ctx.fillText(label, positionX, positionY)
     }

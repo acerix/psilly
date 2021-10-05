@@ -25,20 +25,20 @@ const Chat: FunctionalComponent = () => {
     const element = ref.current as HTMLElement
     const inputElement = inputRef.current as HTMLInputElement
     const statusElement = statusRef.current as HTMLParagraphElement
-    const refreshMs = 256
+    const refreshMs = 128
     let alive = true
     let paused = false
     let connected = false
     let mouseDown = 0
     let mouseLeftDownY = 0
-    let g = 0
     let lastMessage = ''
     let renderCallbackID: number
     let renderTimeoutID: ReturnType<typeof setTimeout>
     let updateTimeoutID: ReturnType<typeof setTimeout>
     let position = 0
-    let velocity = 0
-    let acceleration = 0
+    let velocity = 4 - 8 * Math.random()
+    let acceleration = 8 - 16 * Math.random()
+    let free = true
     
     const handleBlur = (): void => {
       paused = true
@@ -63,9 +63,8 @@ const Chat: FunctionalComponent = () => {
     const handleMouseUp = (event: MouseEvent): boolean => {
       mouseDown ^= (1<<event.button)
       if (event.button===0) {
-        position = event.clientY + mouseLeftDownY
-        // velocity = 0.06 * (position - g)
         acceleration = 0
+        velocity *= 2 // flick
       }
       inputElement.focus()
       event.preventDefault()
@@ -81,23 +80,56 @@ const Chat: FunctionalComponent = () => {
 
     const handleMouseMove = (event: MouseEvent): void => {
       if (mouseDown&1) {
-        const position = event.clientY + mouseLeftDownY
+        velocity = event.clientY - mouseLeftDownY
+        mouseLeftDownY = event.clientY
+        position += velocity
         element.style.backgroundPosition = `0 ${position}px`
       }
     }
     window.addEventListener('mousemove', handleMouseMove)
 
-    const draw = (): void => {
-      if (!(mouseDown&1)) {
-        velocity += acceleration
+    const handleTouchDown = (event: TouchEvent): boolean => {
+      void(event)
+      free = false
+      mouseLeftDownY = event.touches[0].pageY
+      return false
+    }
+    window.addEventListener('touchstart', handleTouchDown)
+
+    const handleTouchUp = (event: TouchEvent): boolean => {
+      void(event)
+      free = true
+      acceleration = 0
+      velocity *= 2 // flick
+      return false
+    }
+    window.addEventListener('touchend', handleTouchUp)
+
+    const handleTouchMove = (event: TouchEvent): void => {
+      if (event.touches.length===1) {
+        velocity = event.touches[0].pageY - mouseLeftDownY
+        mouseLeftDownY = event.touches[0].pageY 
         position += velocity
-        if (Math.abs(velocity) > 32 && velocity * acceleration >= 0) {
-          acceleration =  -velocity * Math.random() / 128
-        }
         element.style.backgroundPosition = `0 ${position}px`
       }
+      else if (event.touches.length===2) {
+        console.log(event.touches)
+      }
       else {
-        g = mouseLeftDownY
+        console.error('Insufficient holes')
+      }
+    }
+    window.addEventListener('touchmove', handleTouchMove)
+
+    const draw = (): void => {
+      if (!(mouseDown&1)&&free) {
+        velocity += acceleration
+        position += velocity
+        // dampen
+        if (Math.abs(velocity) > 32 && velocity * acceleration >= 0) {
+          acceleration = -velocity * Math.random() / 128
+        }
+        element.style.backgroundPosition = `0 ${position}px`
       }
     }
 
@@ -145,7 +177,7 @@ const Chat: FunctionalComponent = () => {
           statusElement.innerText = err as string
           statusElement.style.display = 'block'
           console.error(err)
-          alert('Error connecting to server.\nMaybe you lost your connection or maybe you just don\'t like cookies.\nRefresh the page, with cookies enabled, to try again.')
+          alert('Error connecting to server.\nYou may have lost your connection, or perhaps you dislike cookies?\nRefresh the page, with cookies enabled, to try again.')
           location.reload()
         })
     }
@@ -166,6 +198,9 @@ const Chat: FunctionalComponent = () => {
       window.removeEventListener('mouseup', handleMouseUp)
       window.removeEventListener('contextmenu', handleContextMenu)
       window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('touchstart', handleTouchDown)
+      window.removeEventListener('touchend', handleTouchUp)
+      window.removeEventListener('touchmove', handleTouchMove)
     }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
