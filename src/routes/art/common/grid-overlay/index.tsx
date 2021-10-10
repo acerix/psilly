@@ -32,6 +32,7 @@ let free = true
 export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOverlayProps) => {
   const { setTranslate, setScale, ...rest } = props
   const canvasMethodRefs = {render() {console.log('canvasMethodRefs.render()')}}
+  const canvasCenter = [0, 0]
   const translate = [0, 0]
   const scale = [1, 1]
   const velocity = [0, 0]
@@ -48,8 +49,10 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     ctx.lineWidth = 1
     ctx.font = `${fontSize}px monospace`
     contextHeight = ctx.canvas.height
-    translate[0] = -ctx.canvas.width/2
-    translate[1] = -ctx.canvas.height/2
+    canvasCenter[0] = ctx.canvas.width/2
+    canvasCenter[1] = ctx.canvas.height/2
+    translate[0] = -canvasCenter[0]
+    translate[1] = -canvasCenter[1]
     scale[0] = scale[1] = 1/32
     if (setScale) {
       setScale(scale[0], scale[1])
@@ -141,6 +144,8 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     let mouseDown = 0
     let renderCallbackID: number
     const lastMousePosition = [0, 0]
+    const lastTouch1Position = [-1, -1]
+    const lastTouch2Position = [-1, -1]
 
     const handleMouseDown = (event: MouseEvent): boolean => {
       mouseDown |= (1<<event.button)
@@ -224,8 +229,8 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     window.addEventListener('mousemove', handleMouseMove)
 
     const handleTouchDown = (event: TouchEvent): boolean => {
-      lastMousePosition[0] = event.touches[0].pageX
-      lastMousePosition[1] = event.touches[0].pageY
+      lastTouch1Position[0] = event.touches[0].pageX
+      lastTouch1Position[1] = event.touches[0].pageY
       velocity[0] = velocity[1] = 0
       free = false
       return false
@@ -234,32 +239,70 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
 
     const handleTouchUp = (event: TouchEvent): boolean => {
       void(event)
+      lastTouch1Position[0] = lastTouch1Position[1] = -1
       free = true
       return false
     }
     window.addEventListener('touchend', handleTouchUp)
 
     const handleTouchMove = (event: TouchEvent): void => {
-      if (event.touches.length===1) {
-        const dx = lastMousePosition[0] - event.touches[0].pageX
-        const dy = lastMousePosition[1] - event.touches[0].pageY
-        velocity[0] = dx
-        velocity[1] = dy
-        translate[0] += dx
-        translate[1] -= dy
-        if (setTranslate) {
-          setTranslate(translate[0], translate[1])
-          render()
+      if (lastTouch1Position[0] > -1) {
+        if (event.touches.length===1) {
+          const dx = lastTouch1Position[0] - event.touches[0].pageX
+          const dy = lastTouch1Position[1] - event.touches[0].pageY
+          velocity[0] = dx
+          velocity[1] = dy
+          translate[0] += dx
+          translate[1] -= dy
+          lastTouch2Position[0] = lastTouch2Position[1] = -1
+          if (setTranslate) {
+            setTranslate(translate[0], translate[1])
+            render()
+          }
         }
-        lastMousePosition[0] = event.touches[0].pageX
-        lastMousePosition[1] = event.touches[0].pageY
+        else {
+          if (lastTouch2Position[0] > -1) {
+            const x1 = event.touches[0].pageX
+            const y1 = event.touches[0].pageY
+            const x2 = event.touches[1].pageX
+            const y2 = event.touches[1].pageY
+            const q1 = (lastTouch1Position[0] - lastTouch2Position[0])**2 + (lastTouch1Position[1] - lastTouch2Position[1])**2
+            const q2 = (x1 - x2)**2 + (y1 - y2)**2
+            const zoomModifier = q1 / q2
+            const touchMidpoint = [
+              (x1 + x2) / 2,
+              (y1 + y2) / 2
+            ]
+            const zoomTo = [
+              (touchMidpoint[0] + translate[0]) * scale[0],
+              (contextHeight - touchMidpoint[1] + translate[1]) * scale[1]
+            ]
+            const zoomLastPosition = [
+              zoomTo[0] / scale[0] - translate[0],
+              zoomTo[1] / scale[1] - translate[1]
+            ]
+            scale[0] *= zoomModifier
+            scale[1] *= zoomModifier
+            if (setScale) {
+              setScale(scale[0], scale[1])
+            }
+            const zoomToPosition = [
+              zoomTo[0] / scale[0] - translate[0],
+              zoomTo[1] / scale[1] - translate[1]
+            ]
+            translate[0] -= zoomLastPosition[0] - zoomToPosition[0]
+            translate[1] += zoomToPosition[1] - zoomLastPosition[1]
+            if (setTranslate) {
+              setTranslate(translate[0], translate[1])
+            }
+            render()
+          }
+          lastTouch2Position[0] = event.touches[1].pageX
+          lastTouch2Position[1] = event.touches[1].pageY
+        }
       }
-      else if (event.touches.length===2) {
-        console.log(event.touches)
-      }
-      else {
-        console.error('Insufficient holes')
-      }
+      lastTouch1Position[0] = event.touches[0].pageX
+      lastTouch1Position[1] = event.touches[0].pageY
     }
     window.addEventListener('touchmove', handleTouchMove)
 
@@ -338,8 +381,8 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
         } 
         break
   
-      default:
-        console.log(`keydown(${event.code})`)
+      // default:
+      //   console.log(`keydown(${event.code})`)
       
       }
     }
