@@ -4,7 +4,6 @@ import Canvas, { CanvasMethods } from '../../common/canvas'
 import style from './style.css'
 
 export const axisLabelFormat = (d: number, n: number): string => {
-  d = Math.round(d) // @todo shouldn't need to round!
   if (d === 0) return '0'
   if (n > -1 && n < 4) {
     return `${d}${'0'.repeat(n)}`
@@ -25,26 +24,33 @@ export interface GridOverlayProps {
 const logBase = 10
 const zoomFactor = logBase**(1/13)
 const microZoomFactor = zoomFactor**(1/32)
-const minimumGridSpacing = 64
-const μ = .96
+const minimumGridSpacing = 24
+const μ = .9
 let free = true
 
 export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOverlayProps) => {
   const { setTranslate, setScale, ...rest } = props
-  const canvasMethodRefs = {render() {console.log('rndr?')}}
+  const canvasMethodRefs = {render() {console.log('canvasMethodRefs.render()')}}
   const translate = [0, 0]
   const scale = [1, 1]
   const velocity = [0, 0]
-  const fontSize = 16
+  const fontSize = 12
+  const axisLabelMargin = 4
+  const xLabelOffset = [-axisLabelMargin, fontSize+axisLabelMargin]
+  const yLabelOffset = [-axisLabelMargin, -axisLabelMargin]
 
   const init = (ctx: CanvasRenderingContext2D): void => {
     ctx.strokeStyle = '#999' // lines
     ctx.fillStyle = '#ccc' // text
+    ctx.textAlign = 'right'
     ctx.lineWidth = 1
     ctx.font = `${fontSize}px monospace`
     translate[0] = -ctx.canvas.width/2
     translate[1] = -ctx.canvas.height/2
-    scale[0] = scale[1] = 1/64
+    scale[0] = scale[1] = 1/32
+    if (setScale) {
+      setScale(scale[0], scale[1])
+    } 
     draw(ctx)
   }
 
@@ -66,85 +72,61 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
       translate[0] += velocity[0]
       translate[1] -= velocity[1]
     }
-
+    
     // exponent for axis labels ⏨(n+x)
-    let powerX = 0
-    let powerY = 0
+    const powerX = Math.ceil(Math.log10(minimumGridSpacing * scale[0]))
+    const powerY = Math.ceil(Math.log10(minimumGridSpacing * scale[1]))
+    const factorX = 10**powerX
+    const factorY = 10**powerY
 
-    // space between grid lines in pixes
-    let spacingX = minimumGridSpacing
-    while (spacingX < minimumGridSpacing) {
-      spacingX *= logBase
-      powerX++
-    }
-    while (spacingX > minimumGridSpacing * logBase) {
-      spacingX /= logBase
-      powerX--
-    }
-    let spacingY = minimumGridSpacing
-    while (spacingY < minimumGridSpacing) {
-      spacingY *= logBase
-      powerY++
-    }
-    while (spacingY > minimumGridSpacing * logBase) {
-      spacingY /= logBase
-      powerY--
-    }
-  
-    // starting point
-    const fX = scale[0] * 64
-    const fY = scale[1] * 64
-    const x = -translate[0] * fX
-    const y = -translate[1] * fY
-    spacingX *= fX
-    spacingY *= fY
+    // set space between lines
+    const spaceX = factorX / scale[0]
+    const spaceY = factorY / scale[1]
 
-    const xLineCount = Math.floor(x / spacingX)
-    const yLineCount = Math.floor(y / spacingY)
-    const firstX = fX * ( x - (xLineCount * spacingX))
-    const firstY = fY * (-y + (yLineCount * spacingY))
-    // const xMiddleLine = Math.floor(xLineCount / 2) * spacingX
-    // const yMiddleLine = Math.floor(yLineCount / 2) * spacingY
+    // get first lines by rounding up
+    const xIndexOffset = Math.ceil(translate[0] * scale[0] / factorX)
+    const yIndexOffset = Math.ceil(translate[1] * scale[1] / factorY) 
+    const firstXValue = xIndexOffset * factorX
+    const firstYValue = yIndexOffset * factorY
+    const firstXPosition = firstXValue / scale[0] - translate[0]
+    const firstYPosition = translate[1] - firstYValue / scale[1]
+    
+    // lines to write labels on
+    const xLineCount = Math.floor(ctx.canvas.width / spaceX)
+    const yLineCount = Math.floor(ctx.canvas.height / spaceY)
+    const xMiddleLineIndex = Math.floor(xLineCount / 2)
+    const yMiddleLineIndex = Math.floor(yLineCount / 2)
 
-    // draw grid
     ctx.beginPath()
-    for (let d=0; d<ctx.canvas.width; d+=spacingX) {
-      const tX = firstX+d
-      ctx.moveTo(tX, 0)
-      ctx.lineTo(tX, ctx.canvas.height)
+    // draw x-axis grid lines
+    for (let i=0; i<=xLineCount; i++) {
+      const x = firstXPosition + i * spaceX
+      ctx.moveTo(x, 0)
+      ctx.lineTo(x, ctx.canvas.height)
+      // draw y-axis labels up the middle line
+      if (i === xMiddleLineIndex) {
+        for (let j=0; j<=yLineCount; j++) {
+          const label = axisLabelFormat(j + yIndexOffset, powerY)
+          const y = firstYPosition + ctx.canvas.height - j * spaceY
+          ctx.fillText(label, x + yLabelOffset[0], y + yLabelOffset[1])
+        }
+      }
     }
-    for (let d=ctx.canvas.height; d>=spacingY; d-=spacingY) {
-      const tY = firstY+d
-      ctx.moveTo(0, tY)
-      ctx.lineTo(ctx.canvas.width, tY)
+    // draw y-axis grid lines
+    for (let i=0; i<=yLineCount; i++) {
+      const y = firstYPosition + ctx.canvas.height - i * spaceY
+      ctx.moveTo(0, y)
+      ctx.lineTo(ctx.canvas.width, y)
+      // draw x-axis labels below the middle line
+      if (i === yMiddleLineIndex) {
+        for (let j=0; j<=xLineCount; j++) {
+          const label = axisLabelFormat(j + xIndexOffset, powerX)
+          const x = firstXPosition + j * spaceX
+          ctx.fillText(label, x + xLabelOffset[0], y + xLabelOffset[1])
+        }
+      }
     }
     ctx.stroke()
-
-    const labelXOffset = [0, 18]
-    const labelYOffset = [-6, 60]
-
-    const offsetX = Math.floor(x / spacingX)
-    const offsetY = Math.floor((ctx.canvas.height - y + 16) / spacingY)
-
-    // axis labels
-    for (let d=0; d<ctx.canvas.width; d+=spacingX) {
-      ctx.textAlign = 'center'
-      const v = d / spacingX - offsetX
-      const label = axisLabelFormat(v, powerX)
-      const positionX = firstX+d+labelXOffset[0]
-      const positionY = ctx.canvas.height-y+labelXOffset[1]
-      // const positionY = ctx.canvas.height-yMiddleLine 
-      ctx.fillText(label, positionX, positionY)
-    }
-    for (let d=0; d<ctx.canvas.height; d+=spacingY) {
-      ctx.textAlign = 'right'
-      const v = -d / spacingY + offsetY
-      const label = axisLabelFormat(v, powerY)
-      const positionX = x+labelYOffset[0]
-      // const positionX = xMiddleLine
-      const positionY = firstY+d+labelYOffset[1]
-      ctx.fillText(label, positionX, positionY)
-    }
 
     // update position of main canvas
     if (setTranslate) {

@@ -77,7 +77,6 @@ const GridTestTemplate: FunctionalComponent = () => {
   const init = (ctx: WebGL2RenderingContext): void => {
     translate[0] = -ctx.canvas.width/2
     translate[1] = -ctx.canvas.height/2
-    scale[0] = scale[1] = 1/64
     shaderProgram = initProgram(ctx)
     bindBuffers(ctx, shaderProgram)
   }
