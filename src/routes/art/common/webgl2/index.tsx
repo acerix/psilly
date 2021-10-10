@@ -62,6 +62,15 @@ export const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => 
     }
     window.addEventListener('focus', handleFocus)
 
+    const setFullscreen = (): void => {
+      if (!document.fullscreenElement) {
+        document.body.requestFullscreen().catch(err => {
+          console.error('Fullscreen fail:', err)
+        })
+      }
+    }
+    window.addEventListener('click', setFullscreen)
+
     if (init) init(ctx)
 
     const render = (): void => {
@@ -96,6 +105,7 @@ export const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => 
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('blur', handleBlur)
       window.removeEventListener('focus', handleFocus)
+      window.removeEventListener('click', setFullscreen)
     }
 
   }, [getContext, init, ready, draw, onResize, ref, frameMilliseconds])

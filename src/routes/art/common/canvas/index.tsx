@@ -72,7 +72,7 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
         })
       }
     }
-    // window.addEventListener('click', setFullscreen)
+    window.addEventListener('click', setFullscreen)
 
     if (init) init(ctx)
 
