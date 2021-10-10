@@ -97,6 +97,14 @@ const artworkLibrary: ArtworkLibrary = {
     medium: 'JavaScript on WebGLRenderingContext',
     description: 'Ceci n\'est pas tiltré.'
   },
+  lemnisgo: {
+    path: 'lemnisgo',
+    type: 'Art',
+    title: 'Lemnisgo',
+    created: '2021',
+    medium: 'JavaScript on WebGLRenderingContext',
+    description: 'Lem nis skate or lem nis go!'
+  },
   'canvas-template': {
     path: 'canvas-template',
     type: 'Template',

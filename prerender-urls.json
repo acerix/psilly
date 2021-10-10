@@ -213,6 +213,11 @@
 		"photo": "/assets/art/thumbnails/untilted.webp"
 	},
 	{
+		"url": "/art/lemnisgo/",
+		"title": "Lemnisgo",
+		"photo": "/assets/art/thumbnails/lemnisgo.webp"
+	},
+	{
 		"url": "/art/canvas-template/",
 		"title": "2D Canvas Template",
 		"photo": "/assets/art/thumbnails/canvas-template.webp"
