@@ -53,7 +53,7 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     canvasCenter[1] = ctx.canvas.height/2
     translate[0] = -canvasCenter[0]
     translate[1] = -canvasCenter[1]
-    scale[0] = scale[1] = 4/ctx.canvas.width
+    scale[0] = scale[1] = 64/ctx.canvas.width
     if (setScale) {
       setScale(scale[0], scale[1])
     } 
