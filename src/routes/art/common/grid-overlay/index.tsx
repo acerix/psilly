@@ -26,6 +26,7 @@ const zoomFactor = logBase**(1/13)
 const microZoomFactor = zoomFactor**(1/32)
 const minimumGridSpacing = 24
 const μ = .9
+const translateFactor = 16
 let free = true
 
 export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOverlayProps) => {
@@ -290,10 +291,35 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     }
     window.addEventListener('wheel', handleWheel)
 
-    const handleKeyPress = (event: KeyboardEvent): void => {
-      switch (event.key) {
-
-      case '-':
+    const handleKeyDown = (event: KeyboardEvent): void => {
+      switch (event.code) {
+  
+      case 'KeyW':
+      case 'ArrowUp':
+      case 'Numpad8':
+        translate[1] -= translateFactor * zoomFactor
+        break
+            
+      case 'KeyS':
+      case 'ArrowDown':
+      case 'Numpad2':
+        translate[1] += translateFactor * zoomFactor
+        break
+             
+      case 'KeyA':
+      case 'ArrowLeft':
+      case 'Numpad4':
+        translate[0] += translateFactor * zoomFactor
+        break
+            
+      case 'KeyD':
+      case 'ArrowRight':
+      case 'Numpad6':
+        translate[0] -= translateFactor * zoomFactor
+        break
+ 
+      case 'NumpadSubtract':
+      case 'Minus':
         scale[0] *= zoomFactor
         scale[1] *= zoomFactor
         if (setScale) {
@@ -302,7 +328,8 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
         } 
         break
  
-      case '+':
+      case 'NumpadAdd':
+      case 'Equal':
         scale[0] /= zoomFactor
         scale[1] /= zoomFactor
         if (setScale) {
@@ -310,10 +337,13 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
           render()
         } 
         break
-   
+  
+      default:
+        console.log(`keydown(${event.code})`)
+      
       }
     }
-    window.addEventListener('keypress', handleKeyPress)
+    window.addEventListener('keydown', handleKeyDown)
 
     return (): void => {
       window.cancelAnimationFrame(renderCallbackID)
@@ -324,7 +354,7 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
       window.removeEventListener('touchstart', handleTouchDown)
       window.removeEventListener('touchend', handleTouchUp)
       window.removeEventListener('touchmove', handleTouchMove)
-      window.removeEventListener('keypress', handleKeyPress)
+      window.removeEventListener('keypress', handleKeyDown)
     }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
