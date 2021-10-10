@@ -38,6 +38,7 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
   const axisLabelMargin = 4
   const xLabelOffset = [-axisLabelMargin, fontSize+axisLabelMargin]
   const yLabelOffset = [-axisLabelMargin, -axisLabelMargin]
+  let contextHeight = 0
 
   const init = (ctx: CanvasRenderingContext2D): void => {
     ctx.strokeStyle = '#999' // lines
@@ -45,6 +46,7 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     ctx.textAlign = 'right'
     ctx.lineWidth = 1
     ctx.font = `${fontSize}px monospace`
+    contextHeight = ctx.canvas.height
     translate[0] = -ctx.canvas.width/2
     translate[1] = -ctx.canvas.height/2
     scale[0] = scale[1] = 1/32
@@ -164,14 +166,6 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     }
     window.addEventListener('contextmenu', handleContextMenu)
 
-    // @todo interactions:
-    // mousewheel zoom, position under cursor does not move
-    // hold right click, drag to zoom axis
-    // touch drag to translate
-    // arrow keys translate, +- zoom, pgup/dwn big zoom?, esc params, home [0,0], a
-
-    // @todo polynumber showcase: like art index but polys
-
     const handleMouseMove = (event: MouseEvent): void => {
       const dx = lastMousePosition[0] - event.clientX
       const dy = lastMousePosition[1] - event.clientY
@@ -253,48 +247,58 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
 
     const handleWheel = (event: WheelEvent): void => {
       const zoomModifier = event.deltaY > 0 ? zoomFactor : 1/zoomFactor
-      // const zoomTo = [
-      //   (lastMousePosition[0] + translate[0]) * scale[0],
-      //   (lastMousePosition[1] + translate[1]) * scale[1]
-      // ]
+      const zoomTo = [
+        (lastMousePosition[0] + translate[0]) * scale[0],
+        (contextHeight - lastMousePosition[1] + translate[1]) * scale[1]
+      ]
+      const zoomLastPosition = [
+        zoomTo[0] / scale[0] - translate[0],
+        zoomTo[1] / scale[1] - translate[1]
+      ]
       scale[0] *= zoomModifier
       scale[1] *= zoomModifier
       if (setScale) {
         setScale(scale[0], scale[1])
-        render()
-      } 
-      // if (setTranslate) {
-      //   setTranslate(
-      //     (zoomTo[0] / scale[0]) - translate[0],
-      //     (zoomTo[1] / scale[1]) - translate[1]
-      //   )
-      // }
+      }
+      const zoomToPosition = [
+        zoomTo[0] / scale[0] - translate[0],
+        zoomTo[1] / scale[1] - translate[1]
+      ]
+      const dx = zoomLastPosition[0] - zoomToPosition[0]
+      const dy = zoomToPosition[1] - zoomLastPosition[1]
+      translate[0] -= dx
+      translate[1] += dy
+      if (setTranslate) {
+        setTranslate(translate[0], translate[1])
+      }
+      render()
     }
     window.addEventListener('wheel', handleWheel)
 
-    // const draw = (): void => {
-    //   if (!(mouseDown&1)) {
-    //     velocity += acceleration
-    //     position += velocity
-    //     if (Math.abs(velocity) > 32 && velocity * acceleration >= 0) {
-    //       acceleration =  -velocity * Math.random() / 128
-    //     }
-    //     element.style.backgroundPosition = `0 ${position}px`
-    //   }
-    //   else {
-    //     g = mouseLeftDownY
-    //   }
-    // }
+    const handleKeyPress = (event: KeyboardEvent): void => {
+      switch (event.key) {
 
-    // const render = (): void => {
-    //   if (paused) {
-    //     setTimeout(render, 128)
-    //     return
-    //   }
-    //   renderCallbackID = window.requestAnimationFrame(render)
-    //   draw()
-    // }
-    // render()
+      case '-':
+        scale[0] *= zoomFactor
+        scale[1] *= zoomFactor
+        if (setScale) {
+          setScale(scale[0], scale[1])
+          render()
+        } 
+        break
+ 
+      case '+':
+        scale[0] /= zoomFactor
+        scale[1] /= zoomFactor
+        if (setScale) {
+          setScale(scale[0], scale[1])
+          render()
+        } 
+        break
+   
+      }
+    }
+    window.addEventListener('keypress', handleKeyPress)
 
     return (): void => {
       window.cancelAnimationFrame(renderCallbackID)
@@ -305,6 +309,7 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
       window.removeEventListener('touchstart', handleTouchDown)
       window.removeEventListener('touchend', handleTouchUp)
       window.removeEventListener('touchmove', handleTouchMove)
+      window.removeEventListener('keypress', handleKeyPress)
     }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
