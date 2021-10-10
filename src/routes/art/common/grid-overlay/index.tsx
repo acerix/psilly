@@ -183,7 +183,7 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
       }
       // middle-clicked, scale all axes
       if (mouseDown&2) {
-        const f = dx + dy > 0 ? microZoomFactor : 1 / microZoomFactor
+        const f = microZoomFactor**-dy
         scale[0] *= f
         scale[1] *= f
         if (setScale) {
@@ -193,12 +193,29 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
       }
       // right-clicked, scale individual axes
       if (mouseDown&4) {
-        if (dx) scale[0] *= dx > 0 ? microZoomFactor : 1 / microZoomFactor
-        if (dy) scale[1] *= dy > 0 ? microZoomFactor : 1 / microZoomFactor
+        const zoomTo = [
+          (lastMousePosition[0] + translate[0]) * scale[0],
+          (contextHeight - lastMousePosition[1] + translate[1]) * scale[1]
+        ]
+        const zoomLastPosition = [
+          zoomTo[0] / scale[0] - translate[0],
+          zoomTo[1] / scale[1] - translate[1]
+        ]
+        scale[0] *= microZoomFactor**dx
+        scale[1] *= microZoomFactor**-dy
         if (setScale) {
           setScale(scale[0], scale[1])
-          render()
-        } 
+        }
+        const zoomToPosition = [
+          zoomTo[0] / scale[0] - translate[0],
+          zoomTo[1] / scale[1] - translate[1]
+        ]
+        translate[0] -= zoomLastPosition[0] - zoomToPosition[0] - dx
+        translate[1] += zoomToPosition[1] - zoomLastPosition[1] - dy
+        if (setTranslate) {
+          setTranslate(translate[0], translate[1])
+        }
+        render()
       }
       lastMousePosition[0] = event.clientX
       lastMousePosition[1] = event.clientY
@@ -264,10 +281,8 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
         zoomTo[0] / scale[0] - translate[0],
         zoomTo[1] / scale[1] - translate[1]
       ]
-      const dx = zoomLastPosition[0] - zoomToPosition[0]
-      const dy = zoomToPosition[1] - zoomLastPosition[1]
-      translate[0] -= dx
-      translate[1] += dy
+      translate[0] -= zoomLastPosition[0] - zoomToPosition[0]
+      translate[1] += zoomToPosition[1] - zoomLastPosition[1]
       if (setTranslate) {
         setTranslate(translate[0], translate[1])
       }
