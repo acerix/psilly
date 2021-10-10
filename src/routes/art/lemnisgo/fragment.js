@@ -1,5 +1,5 @@
 export default `#version 300 es
-precision lowp float;
+precision highp float;
 uniform float u_time;
 uniform vec2 u_translate;
 uniform vec2 u_scale;
@@ -9,14 +9,11 @@ void main() {
   float m_0 = ( gl_FragCoord.x + u_translate.x ) * u_scale.x;
   float m_1 = ( gl_FragCoord.y + u_translate.y ) * u_scale.y;
 
-  // circle
-  // float z = m_0*m_0 + m_1*m_1;
-
   // lemniscate of bernoulli (0 = -2x² + x⁴ + 2y² + 2x²y² + y⁴)
   float z = -2.0*m_0*m_0 + m_0*m_0*m_0*m_0 + 2.0*m_1*m_1 + 2.0*m_0*m_0*m_1*m_1 + m_1*m_1*m_1*m_1;
 
   fragmentColor.g = z < 1.0 ? z : 1.0 / z;
-  fragmentColor.r = mod(z + u_time * 0.013, 1.0);
+  fragmentColor.r = mod(z + u_time * 0.007, 1.0);
   fragmentColor.b = mod(z - u_time * 0.011, 1.0);
 }
 `

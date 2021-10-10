@@ -1,5 +1,5 @@
 export default `#version 300 es
-precision lowp float;
+precision highp float;
 uniform float u_time;
 out vec4 fragmentColor;
 

@@ -1,5 +1,5 @@
 export default `#version 300 es
-precision lowp float;
+precision highp float;
 uniform float u_time;
 uniform vec2 u_translate;
 uniform sampler2D a_curve;

@@ -100,10 +100,10 @@ const artworkLibrary: ArtworkLibrary = {
   lemnisgo: {
     path: 'lemnisgo',
     type: 'Art',
-    title: 'Lemnisgo',
+    title: 'Lem nis go!',
     created: '2021',
     medium: 'JavaScript on WebGLRenderingContext',
-    description: 'Lem nis skate or lem nis go!'
+    description: 'Sometimes lemn is moiré. Lem nis skate or lem nis go!'
   },
   'canvas-template': {
     path: 'canvas-template',
