@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "core-js": "*",
+    "postcss": "<8",
     "preact": "*",
     "preact-html-converter": "*",
     "preact-render-to-string": "*",
@@ -69,10 +70,10 @@
     "@types/react-helmet": "*",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
-    "critters-webpack-plugin": "*",
+    "critters": "*",
     "enzyme": "*",
     "enzyme-adapter-preact-pure": "*",
-    "eslint": "*",
+    "eslint": "<8",
     "eslint-config-preact": "*",
     "gh-pages": "*",
     "globby": "*",
@@ -82,6 +83,9 @@
     "prettier": "*",
     "sirv-cli": "*",
     "typescript": "*"
+  },
+  "peerDependencies": {
+    "parse5": "*"
   },
   "jest": {
     "preset": "jest-preset-preact",
