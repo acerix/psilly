@@ -19,6 +19,7 @@ export interface GridOverlayProps {
   canvasMethodRefs?: CanvasMethods;
   setTranslate?: TranslateFunction;
   setScale?: ScaleFunction;
+  initialScale?: number;
 }
 
 const logBase = 10
@@ -53,7 +54,8 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     canvasCenter[1] = ctx.canvas.height/2
     translate[0] = -canvasCenter[0]
     translate[1] = -canvasCenter[1]
-    scale[0] = scale[1] = 64/ctx.canvas.width
+    const initialScale = rest.initialScale ?? 64/ctx.canvas.width
+    scale[0] = scale[1] = initialScale
     if (setScale) {
       setScale(scale[0], scale[1])
     } 

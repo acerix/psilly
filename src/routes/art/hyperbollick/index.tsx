@@ -130,7 +130,7 @@ const Hyperbollick: FunctionalComponent = () => {
         </div>
       </div>
       <div style="display:none;">
-        <GridOverlay setTranslate={setTranslate} setScale={setScale} />
+        <GridOverlay setTranslate={setTranslate} setScale={setScale} initialScale={.77} />
       </div>
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
