@@ -5,8 +5,14 @@ void main(void) {
     gl_Position = vec4(a_position, 1.0);
 }
 </textarea></div><div class="mb-3"><label for="fragmentShader">Fragment Shader</label><textarea class="form-control" id="fragmentShader" rows="20">#version 300 es
+#ifdef GL_FRAGMENT_PRECISION_HIGH
 precision highp float;
+#else
+precision mediump float;
+#endif
+
 uniform float u_time;
+uniform vec2 u_translate;
 out vec4 fragmentColor;
 
 /*
@@ -419,10 +425,11 @@ float snoise(vec2 pos) {
 }
 
 void main() {
-    float t = u_time / 64.0;
-    float a = snoise(gl_FragCoord.xy - 0.5 * cos(t / 3.923));
-    float b = snoise(gl_FragCoord.xy - 0.5 * cos(t / 2.329));
-    float c = snoise(gl_FragCoord.xy - 0.5 * cos(t / 1.123));
-    fragmentColor = vec4(0.5 + 0.5 * vec3(a, b, c), 1.0);
+  vec2 xy = gl_FragCoord.xy + u_translate.xy;
+  float t = u_time / 64.0;
+  float a = snoise(xy - 0.5 * cos(t / 3.923));
+  float b = snoise(xy - 0.5 * cos(t / 2.329));
+  float c = snoise(xy - 0.5 * cos(t / 1.123));
+  fragmentColor = vec4(0.5 + 0.5 * vec3(a, b, c), 1.0);
 }
-</textarea></div></form></div></div><canvas></canvas></section></main><footer class="footer text-muted py-3 mt-5"><div class="container"><div class="row"><div class="col-sm-9 col-md-10"><p class="mb-2">© <time id="copyright-year">2021</time> <a class="text-muted text-decoration-none" href="https://psilly.com/">Psilly Corporation</a>. Psilly™ is a trademark of <a class="text-muted text-decoration-none" href="https://psilly.com/">Psilly Corporation</a>. All rights reserved.</p></div><div class="col-sm-5 col-md-2"><p class="float-end mb-2"><a class="text-muted text-decoration-none me-2" href="https://github.com/acerix/psilly" target="_blank" rel="noreferrer" title="Source Code on GitHub" role="img" aria-label="Cat face in HTML source code tag">&lt;🐱/&gt;</a><a class="text-muted text-decoration-none me-2" href="https://www.reddit.com/r/psilly/" target="_blank" rel="noreferrer" title="/r/psilly on Reddit" role="img" aria-label="Extraterrestrial being">👽</a><a class="text-muted text-decoration-none" href="https://www.youtube.com/channel/UCNYwYcc65kItw98wcqU0-Gg" target="_blank" rel="noreferrer" title="Psilly on YouTube" role="img" aria-label="A day-dream stimulation">📺</a></p></div></div></div></footer></div><script type="__PREACT_CLI_DATA__">%7B%22preRenderData%22:%7B%22url%22:%22/art/meld/%22,%22photo%22:%22/assets/art/thumbnails/meld.webp%22%7D%7D</script><script crossorigin="anonymous" src="/bundle.eedab.esm.js" type="module"></script><script nomodule="" src="/polyfills.7c007.js"></script><script nomodule="" defer="defer" src="/bundle.e5f02.js"></script></body></html>
+</textarea></div></form></div></div><canvas></canvas></section></main><footer class="footer text-muted py-3 mt-5"><div class="container"><div class="row"><div class="col-sm-9 col-md-10"><p class="mb-2">© <time id="copyright-year">2021</time> <a class="text-muted text-decoration-none" href="https://psilly.com/">Psilly Corporation</a>. Psilly™ is a trademark of <a class="text-muted text-decoration-none" href="https://psilly.com/">Psilly Corporation</a>. All rights reserved.</p></div><div class="col-sm-5 col-md-2"><p class="float-end mb-2"><a class="text-muted text-decoration-none me-2" href="https://github.com/acerix/psilly" target="_blank" rel="noreferrer" title="Source Code on GitHub" role="img" aria-label="Cat face in HTML source code tag">&lt;🐱/&gt;</a><a class="text-muted text-decoration-none me-2" href="https://www.reddit.com/r/psilly/" target="_blank" rel="noreferrer" title="/r/psilly on Reddit" role="img" aria-label="Extraterrestrial being">👽</a><a class="text-muted text-decoration-none" href="https://www.youtube.com/channel/UCNYwYcc65kItw98wcqU0-Gg" target="_blank" rel="noreferrer" title="Psilly on YouTube" role="img" aria-label="A day-dream stimulation">📺</a></p></div></div></div></footer></div><script type="__PREACT_CLI_DATA__">%7B%22preRenderData%22:%7B%22url%22:%22/art/meld/%22,%22photo%22:%22/assets/art/thumbnails/meld.webp%22%7D%7D</script><script crossorigin="anonymous" src="/bundle.497ea.esm.js" type="module"></script><script nomodule="" src="/polyfills.7c007.js"></script><script nomodule="" defer="defer" src="/bundle.dbdd2.js"></script></body></html>
