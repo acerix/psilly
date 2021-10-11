@@ -105,6 +105,14 @@ const artworkLibrary: ArtworkLibrary = {
     medium: 'JavaScript on WebGLRenderingContext',
     description: 'Sometimes lemn is moiré. Lem nis skate or lem nis go!'
   },
+  hyperbollick: {
+    path: 'hyperbollick',
+    type: 'Art',
+    title: 'Hyper Ball Lick',
+    created: '2021',
+    medium: 'JavaScript on WebGLRenderingContext',
+    description: 'Tall tales of extreme bollock privation.'
+  },
   'canvas-template': {
     path: 'canvas-template',
     type: 'Template',

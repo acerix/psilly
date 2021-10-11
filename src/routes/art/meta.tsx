@@ -17,6 +17,7 @@ export type Artwork = {
   description: string;
   displayUrl?: string;
   thumbnailUrl?: string;
+  thumbnailLegacyUrl?: string;
 }
 
 export type ArtworkLibrary = {
@@ -32,9 +33,14 @@ export const ArtPlaque: FunctionalComponent<ArtPlaqueProps> = (props: ArtPlaqueP
   const ref = createRef()
   art.displayUrl = `/art/${art.path}/`
   art.thumbnailUrl = `/assets/art/thumbnails/${art.path}.webp`
+  art.thumbnailLegacyUrl = `/assets/art/thumbnails/${art.path}.png`
   return <div class="card art_plaque" ref={ref}>
     <a href={art.displayUrl} aria-label="Experience">
-      <img src={art.thumbnailUrl} class="card-img-top" alt={`Preview of ${art.title}`} />
+      <picture>
+        <source srcset={art.thumbnailUrl} type="image/webp" />
+        <source srcset={art.thumbnailLegacyUrl} type="image/png" /> 
+        <img src={art.thumbnailLegacyUrl} class="card-img-top" alt={`Preview of ${art.title}`} />
+      </picture>
     </a>
     <div class="card-body">
       <h5 class="card-title">

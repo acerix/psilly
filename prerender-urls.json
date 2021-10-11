@@ -218,6 +218,11 @@
 		"photo": "/assets/art/thumbnails/lemnisgo.webp"
 	},
 	{
+		"url": "/art/hyperbollick/",
+		"title": "Hyperbollick",
+		"photo": "/assets/art/thumbnails/hyperbollick.webp"
+	},
+	{
 		"url": "/art/canvas-template/",
 		"title": "2D Canvas Template",
 		"photo": "/assets/art/thumbnails/canvas-template.webp"

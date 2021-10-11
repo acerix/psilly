@@ -25,6 +25,7 @@ import OhBézier from '../routes/art/oh-bezier'
 import TotallyModularFormBro from '../routes/art/totally-modular-form-bro'
 import Untilted from '../routes/art/untilted'
 import Lemnisgo from '../routes/art/lemnisgo'
+import Hyperbollick from '../routes/art/hyperbollick'
 import CanvasTemplate from '../routes/art/canvas-template'
 import WebGLTemplate from '../routes/art/webgl-template'
 import Loading from '../routes/art/loading'
@@ -101,6 +102,7 @@ const App: FunctionalComponent = () => {
           <TotallyModularFormBro path="/art/totally-modular-form-bro/" />
           <Untilted path="/art/untilted/" />
           <Lemnisgo path="/art/lemnisgo/" />
+          <Hyperbollick path="/art/hyperbollick/" />
           <CanvasTemplate path="/art/canvas-template/" />
           <WebGLTemplate path="/art/webgl-template/" />
           <Loading path="/art/loading/" />
