@@ -127,7 +127,7 @@ const Untilted: FunctionalComponent = () => {
     window.addEventListener('deviceorientation', handleDeviceOrientation)
 
     const handleDeviceMotion = (event: DeviceMotionEvent): boolean => {
-      log(`(${event.acceleration?event.acceleration.x??'?':'?'}, ${event.accelerationIncludingGravity?event.accelerationIncludingGravity.x??'?':'?'}, ${event.interval}, ${event.rotationRate??'?'})`)
+      log(`(${event.acceleration?event.acceleration.x??'?':'?'}, ${event.accelerationIncludingGravity?event.accelerationIncludingGravity.x??'?':'?'}, ${event.interval}, ${event.rotationRate?event.rotationRate.alpha??'?':'?'})`)
       event.preventDefault()
       return false
     }
