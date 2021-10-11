@@ -1,6 +1,12 @@
 export default `#version 300 es
+#ifdef GL_FRAGMENT_PRECISION_HIGH
 precision highp float;
+#else
+precision mediump float;
+#endif
+
 uniform float u_time;
+uniform vec2 u_translate;
 out vec4 fragmentColor;
 
 /*
@@ -413,10 +419,11 @@ float snoise(vec2 pos) {
 }
 
 void main() {
-    float t = u_time / 64.0;
-    float a = snoise(gl_FragCoord.xy - 0.5 * cos(t / 3.923));
-    float b = snoise(gl_FragCoord.xy - 0.5 * cos(t / 2.329));
-    float c = snoise(gl_FragCoord.xy - 0.5 * cos(t / 1.123));
-    fragmentColor = vec4(0.5 + 0.5 * vec3(a, b, c), 1.0);
+  vec2 xy = gl_FragCoord.xy + u_translate.xy;
+  float t = u_time / 64.0;
+  float a = snoise(xy - 0.5 * cos(t / 3.923));
+  float b = snoise(xy - 0.5 * cos(t / 2.329));
+  float c = snoise(xy - 0.5 * cos(t / 1.123));
+  fragmentColor = vec4(0.5 + 0.5 * vec3(a, b, c), 1.0);
 }
 `

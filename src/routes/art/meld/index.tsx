@@ -6,6 +6,7 @@ import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
+import { useEffect } from 'preact/hooks'
 
 const initShader = (ctx: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = ctx.createShader(type)
@@ -48,7 +49,9 @@ const initProgram = (ctx: WebGL2RenderingContext): WebGLProgram => {
 const Meld: FunctionalComponent = () => {
   let shaderProgram: WebGLProgram
   let timeUniform: WebGLUniformLocation|null
+  let translateUniform: WebGLUniformLocation|null
   const translate = [0, 0]
+  let frameOffset = 0
 
   const bindBuffers = (ctx: WebGL2RenderingContext, program: WebGLProgram): void => {
     const positionAttrib = ctx.getAttribLocation(program, 'a_position')
@@ -65,6 +68,7 @@ const Meld: FunctionalComponent = () => {
     ctx.bindBuffer(ctx.ARRAY_BUFFER, null) // unbind
     ctx.enableVertexAttribArray(positionAttrib)
     timeUniform = ctx.getUniformLocation(program, 'u_time')
+    translateUniform = ctx.getUniformLocation(program, 'u_translate')
   }
   
   const init = (ctx: WebGL2RenderingContext): void => {
@@ -81,9 +85,49 @@ const Meld: FunctionalComponent = () => {
   }
 
   const draw = (ctx: WebGL2RenderingContext, frameCount: number): void => {
-    ctx.uniform1f(timeUniform, frameCount)
+    ctx.uniform1f(timeUniform, frameCount + frameOffset)
+    ctx.uniform2f(translateUniform, translate[0], translate[1])
     ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4)
   }
+
+  useEffect(() => {
+    const lastMousePosition = [-1, -1]
+    const lastTouch1Position = [-1, -1]
+
+    const handleMouseMove = (event: MouseEvent): void => {
+      if (lastMousePosition[0] > -1) {
+        const dx = lastMousePosition[0] - event.clientX
+        const dy = lastMousePosition[1] - event.clientY
+        translate[0] += dx
+        translate[1] -= dy
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        frameOffset += dy
+      }
+      lastMousePosition[0] = event.clientX
+      lastMousePosition[1] = event.clientY
+    }
+    window.addEventListener('mousemove', handleMouseMove)
+
+    const handleTouchMove = (event: TouchEvent): void => {
+      if (lastTouch1Position[0] > -1) {
+        const dx = lastTouch1Position[0] - event.touches[0].pageX
+        const dy = lastTouch1Position[1] - event.touches[0].pageY
+        translate[0] += dx
+        translate[1] -= dy
+        frameOffset += dy
+      }
+      lastTouch1Position[0] = event.touches[0].pageX
+      lastTouch1Position[1] = event.touches[0].pageY
+    }
+    window.addEventListener('touchmove', handleTouchMove)
+
+    return (): void => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('touchmove', handleTouchMove)
+    }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const art: Artwork = artworkLibrary['meld']
   return (
