@@ -133,7 +133,9 @@ const WebGLTemplate: FunctionalComponent = () => {
         </div>
       </div>
       <LoadingScreen />
-      <GridOverlay setTranslate={setTranslate} setScale={setScale} />
+      <div style="display:none;">
+        <GridOverlay setTranslate={setTranslate} setScale={setScale} />
+      </div>
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
   )
