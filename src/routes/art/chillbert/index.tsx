@@ -36,11 +36,18 @@ export const hilbertCoordinate = (t: number, n?: number): [number, number] => {
   return p
 }
 
+type MemoizedHilbertCurves = {
+  [key:number]: Array<[number, number]>;
+}
+const memoizedHilbertCurves: MemoizedHilbertCurves = {}
+
 export const hilbertCurve = (n: number): Array<[number, number]> => {
+  if (n in memoizedHilbertCurves) return memoizedHilbertCurves[n]
   const points: Array<[number, number]> = []
   for (let i=0; i<1<<2*n; ++i) {
     points.push(hilbertCoordinate(i, n))
   }
+  memoizedHilbertCurves[n] = points
   return points
 }
 
