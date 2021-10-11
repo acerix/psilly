@@ -10,8 +10,8 @@ import GridOverlay from '../common/grid-overlay'
 import { useEffect } from 'preact/hooks'
 import Out from '../common/out'
 
-const motionSupport = !!window.DeviceMotionEvent
-const orientationSupport = !!window.DeviceOrientationEvent
+const motionSupport = window && !!window.DeviceMotionEvent
+const orientationSupport = window && !!window.DeviceOrientationEvent
 
 const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = gl.createShader(type)
