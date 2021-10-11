@@ -10,6 +10,9 @@ import GridOverlay from '../common/grid-overlay'
 import { useEffect } from 'preact/hooks'
 import Out from '../common/out'
 
+const motionSupport = !!window.DeviceMotionEvent
+const orientationSupport = !!window.DeviceOrientationEvent
+
 const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = gl.createShader(type)
   if (!shader) {
@@ -50,6 +53,7 @@ const initProgram = (gl: WebGL2RenderingContext): WebGLProgram => {
 
 const Untilted: FunctionalComponent = () => {
   const ref = createRef<HTMLElement>()
+  const outRef = createRef<HTMLPreElement>()
   let shaderProgram: WebGLProgram
   let timeUniform: WebGLUniformLocation|null
   let translateUniform: WebGLUniformLocation|null
@@ -107,22 +111,39 @@ const Untilted: FunctionalComponent = () => {
     ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4)
   }
 
-  const log = (message: string): void => {
-    console.log(message)
-  }
-
   useEffect(() => {
+    const outElement = outRef.current as HTMLElement
+
+    const log = (...stuff: string[]): void => {
+      console.log(...stuff)
+      outElement.innerHTML = `${stuff.join(' ')}\n`
+    }
+
     const handleDeviceOrientation = (event: DeviceOrientationEvent): boolean => {
-      log(`orient ${69}`)
+      log(`(${+event.absolute}, ${event.alpha??'?'}, ${event.beta??'?'}, ${event.gamma??'?'})`)
       event.preventDefault()
       return false
     }
     window.addEventListener('deviceorientation', handleDeviceOrientation)
 
+    const handleDeviceMotion = (event: DeviceMotionEvent): boolean => {
+      log(`(${event.acceleration?event.acceleration.x??'?':'?'}, ${event.accelerationIncludingGravity?event.accelerationIncludingGravity.x??'?':'?'}, ${event.interval}, ${event.rotationRate??'?'})`)
+      event.preventDefault()
+      return false
+    }
+    window.addEventListener('devicemotion', handleDeviceMotion)
+
+    log(`init ➜ ${Math.random()}`)
+
+    if (!motionSupport) alert('Error: Motion not available')
+    if (!orientationSupport) alert('Error: Orientation not available')
+
     return (): void => {
       window.removeEventListener('deviceorientation', handleDeviceOrientation)
+      window.removeEventListener('devicemotion', handleDeviceMotion)
     }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const art: Artwork = artworkLibrary['untilted']
@@ -148,8 +169,10 @@ const Untilted: FunctionalComponent = () => {
           </form>
         </div>
       </div>
-      <GridOverlay setTranslate={setTranslate} setScale={setScale} />
-      <Out />
+      <div style="display:none;">
+        <GridOverlay setTranslate={setTranslate} setScale={setScale} />
+      </div>
+      <Out outRef={outRef} />
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>
   )
