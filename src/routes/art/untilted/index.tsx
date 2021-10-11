@@ -10,8 +10,9 @@ import GridOverlay from '../common/grid-overlay'
 import { useEffect } from 'preact/hooks'
 import Out from '../common/out'
 
-const motionSupport = window && !!window.DeviceMotionEvent
-const orientationSupport = window && !!window.DeviceOrientationEvent
+const windowSupport = typeof window !== 'undefined'
+const motionSupport = windowSupport && !!window.DeviceMotionEvent
+const orientationSupport = windowSupport && !!window.DeviceOrientationEvent
 
 const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = gl.createShader(type)
@@ -112,6 +113,8 @@ const Untilted: FunctionalComponent = () => {
   }
 
   useEffect(() => {
+    if (!windowSupport) return
+
     const outElement = outRef.current as HTMLElement
 
     const log = (...stuff: string[]): void => {
