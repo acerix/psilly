@@ -159,6 +159,7 @@ const Chat: FunctionalComponent = () => {
         chatFetchAborter
       )
         .then(res => res.json())
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         .then(data => setItems(data || []))
         .then(() => {
           if (!alive) return
