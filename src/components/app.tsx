@@ -78,42 +78,44 @@ const App: FunctionalComponent = () => {
         <Sequins />
         <Router>
           <Home path="/" />
-          <About path="/about/" />
-          <Bylaws path="/bylaws/" />
-          <FAQ path="/faq/" />
-          <Contact path="/contact/" />
-          <Join path="/join/" />
-          <Donate path="/donate/" />
-          <Highness path="/sober/" highness="sober" />
-          <Highness path="/high/" highness="high" />
-          <Highness path="/toohigh/" highness="too high" />
-          <Experiments path="/experiments/" />
-          <Art path="/art/" />
-          <Polygonous path="/art/polygonous/" />
-          <Meld path="/art/meld/" />
-          <Circle path="/art/circle/" />
-          <Squibbo path="/art/squibbo/" />
-          <GoldenAngleDonut path="/art/golden-angle-donut/" />
-          <Falls path="/art/falls/" />
-          <Chillbert path="/art/chillbert/" />
-          <Develop path="/art/develop/" />
-          <Quadingle path="/art/quadingle/" />
-          <OhBézier path="/art/oh-bezier/" />
-          <TotallyModularFormBro path="/art/totally-modular-form-bro/" />
-          <Untilted path="/art/untilted/" />
-          <Lemnisgo path="/art/lemnisgo/" />
-          <Hyperbollick path="/art/hyperbollick/" />
-          <CanvasTemplate path="/art/canvas-template/" />
-          <WebGLTemplate path="/art/webgl-template/" />
-          <Loading path="/art/loading/" />
-          <GridTest path="/art/grid-test/" />
-          <Chat path="/chat/" />
-          <Jam path="/jam/" />
-          <Spinner path="/spin/" />
-          <Route path="/page/" component={Page} page="page" />
-          <Route path="/page/:page/" component={Page} />
-          <Route path="/blog/:post/" component={Blog} />
-          <NotFound path="/404/" />
+          <About path="/about" />
+          <Bylaws path="/bylaws" />
+          <FAQ path="/faq" />
+          <Contact path="/contact" />
+          <Join path="/join" />
+          <Donate path="/donate" />
+          <Highness path="/sober" highness="sober" />
+          <Highness path="/high" highness="high" />
+          <Highness path="/toohigh" highness="too high" />
+          <Experiments path="/experiments" />
+          <Art path="/art" />
+          <Polygonous path="/art/polygonous" />
+          <Meld path="/art/meld" />
+          <Circle path="/art/circle" />
+          <Squibbo path="/art/squibbo" />
+          <GoldenAngleDonut path="/art/golden-angle-donut" />
+          <Falls path="/art/falls" />
+          <Chillbert path="/art/chillbert" />
+          <Develop path="/art/develop" />
+          <Quadingle path="/art/quadingle" />
+          <OhBézier path="/art/oh-bezier" />
+          <TotallyModularFormBro path="/art/totally-modular-form-bro" />
+          <Untilted path="/art/untilted" />
+          <Lemnisgo path="/art/lemnisgo" />
+          <Hyperbollick path="/art/hyperbollick" />
+          <Hyperbollick path="/art/eye-of-newt" />
+          <CanvasTemplate path="/art/canvas-template" />
+          <WebGLTemplate path="/art/webgl-template" />
+          <Loading path="/art/loading" />
+          <GridTest path="/art/grid-test" />
+          <Chat path="/chat" />
+          <Jam path="/jam" />
+          <Spinner path="/spin" />
+          <Route path="/page" component={Page} page="page" />
+          <NotFound path="/404" />
+          <Route path="/blog/:post" component={Blog} />
+          <Route path="/page/:page" component={Page} />
+          <Route path="/:page" component={Page} />
           <NotFound default />
         </Router>
       </main>

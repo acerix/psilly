@@ -64,7 +64,7 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Market Research</h3>
-            <p>Our teams of leading expert scientists, researchers, engineers, and advocats, have verified with over 98.89% probability that you should drop acid tonight.  Whoops, that was the <a href="/page/acid/">acid</a> talking.</p>
+            <p>Our teams of leading expert scientists, researchers, engineers, and advocats, have verified with over 98.89% probability that you should drop acid tonight.  Whoops, that was the <a href="/acid">acid</a> talking.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
@@ -82,13 +82,13 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Psychotomimetic Pstocks</h3>
-            <p>Why are you <a href="/page/read/">reading</a> this when you probably have a better idea what I mean than I do. What, are you trying to PSYK it TO the man? PSI, please...</p>
+            <p>Why are you <a href="/read/">reading</a> this when you probably have a better idea what I mean than I do. What, are you trying to PSYK it TO the man? PSI, please...</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0 text-break">Dimethyltryptamine, Darling</h3>
-            <p>A mystical experience that gives you a real, nourishing, and felt sense of the <a href="/page/life/">interconnectedness of life</a>, and can be profoundly transformative.</p>
+            <p>A mystical experience that gives you a real, nourishing, and felt sense of the <a href="/life">interconnectedness of life</a>, and can be profoundly transformative.</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
