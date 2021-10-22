@@ -26,6 +26,7 @@ const Chat: FunctionalComponent = () => {
     const inputElement = inputRef.current as HTMLInputElement
     const statusElement = statusRef.current as HTMLParagraphElement
     const refreshMs = 128
+    const terminalVelocity = 256
     let alive = true
     let paused = false
     let connected = false
@@ -36,8 +37,8 @@ const Chat: FunctionalComponent = () => {
     let renderTimeoutID: ReturnType<typeof setTimeout>
     let updateTimeoutID: ReturnType<typeof setTimeout>
     let position = 0
-    let velocity = 4 - 8 * Math.random()
-    let acceleration = 8 - 16 * Math.random()
+    let velocity = .5 - Math.random()
+    let acceleration = (.5 - Math.random()) / 8
     let free = true
     
     const handleBlur = (): void => {
@@ -112,12 +113,6 @@ const Chat: FunctionalComponent = () => {
         position += velocity
         element.style.backgroundPosition = `0 ${position}px`
       }
-      else if (event.touches.length===2) {
-        console.log(event.touches)
-      }
-      else {
-        console.error('Insufficient holes')
-      }
     }
     window.addEventListener('touchmove', handleTouchMove)
 
@@ -126,7 +121,7 @@ const Chat: FunctionalComponent = () => {
         velocity += acceleration
         position += velocity
         // dampen
-        if (Math.abs(velocity) > 32 && velocity * acceleration >= 0) {
+        if (Math.abs(velocity) > terminalVelocity && velocity * acceleration >= 0) {
           acceleration = -velocity * Math.random() / 128
         }
         element.style.backgroundPosition = `0 ${position}px`
