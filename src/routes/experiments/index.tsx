@@ -6,7 +6,7 @@ const Experiments: FunctionalComponent = () => {
     <section class="container py-5">
       <Helmet title="Psilly Experiments" />
       <h1>Experiments</h1>
-      <p>Index of archived art experiments, newer stuff is under <a href="/art/">art</a>.</p>
+      <p>Index of archived art experiments, newer stuff is under <a href="/art">art</a>.</p>
       <h2>Index of /experiments/</h2>
       <div class="list-group">
         <a class="list-group-item list-group-item-action" href="../">../</a>
