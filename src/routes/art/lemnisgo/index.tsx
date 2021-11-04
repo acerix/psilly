@@ -84,7 +84,6 @@ const Leminsgo: FunctionalComponent = () => {
   const onResize = (ctx: WebGL2RenderingContext): void => {
     ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.clear(ctx.COLOR_BUFFER_BIT)
-    init(ctx)
     draw(ctx, -1)
   }
 

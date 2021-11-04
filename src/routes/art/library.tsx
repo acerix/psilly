@@ -105,6 +105,14 @@ const artworkLibrary: ArtworkLibrary = {
     medium: 'JavaScript on WebGLRenderingContext',
     description: 'Sometimes lemn is moiré. Lem nis skate or lem nis go!'
   },
+  'eye-of-newt': {
+    path: 'eye-of-newt',
+    type: 'WIP',
+    title: 'Oculus Newtonius',
+    created: '2021',
+    medium: 'JavaScript on WebGLRenderingContext',
+    description: 'Booty is in the thigh of the buttholder.'
+  },
   hyperbollick: {
     path: 'hyperbollick',
     type: 'Art',

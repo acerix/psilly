@@ -88,7 +88,6 @@ const WebGLTemplate: FunctionalComponent = () => {
   const onResize = (ctx: WebGL2RenderingContext): void => {
     ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.clear(ctx.COLOR_BUFFER_BIT)
-    init(ctx)
   }
 
   const setTranslate = (x: number, y: number): void => {

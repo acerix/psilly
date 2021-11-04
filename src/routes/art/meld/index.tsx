@@ -81,7 +81,6 @@ const Meld: FunctionalComponent = () => {
   const onResize = (ctx: WebGL2RenderingContext): void => {
     ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.clear(ctx.COLOR_BUFFER_BIT)
-    init(ctx)
   }
 
   const draw = (ctx: WebGL2RenderingContext, frameCount: number): void => {
