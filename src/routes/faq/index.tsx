@@ -12,7 +12,7 @@ const About: FunctionalComponent = () => {
       <h2>How Much to Buy Psilly?</h2>
       <p>The Psilly™ brand name, psilly.com domain name, and the Psilly Corporation itself are <strong>not for sale</strong>.</p>
       <h2>How Can I Join?</h2>
-      <p><a href="/join/">Become a Member</a></p>
+      <p><a href="/join">Become a Member</a></p>
       <h2>How is pɛˈsɪli Pronounced?</h2>
       <p>Yes.</p>
     </section>

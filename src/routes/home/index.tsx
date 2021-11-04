@@ -12,20 +12,20 @@ const Home: FunctionalComponent = () => {
           <p class="lead mb-4">Enjoy your pstay!</p>
           <p class="mb-4">How are you feeling?</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <Link class="btn btn-outline-secondary btn-lg px-4 me-sm-3" href="/sober/">
+            <Link class="btn btn-outline-secondary btn-lg px-4 me-sm-3" href="/sober">
               Not high
             </Link>
-            <Link class="btn btn-outline-warning btn-lg px-4 me-sm-3" href="/high/">
+            <Link class="btn btn-outline-warning btn-lg px-4 me-sm-3" href="/high">
               High enough
             </Link>
-            <Link class="btn btn-outline-danger btn-lg px-4" href="/toohigh/">
+            <Link class="btn btn-outline-danger btn-lg px-4" href="/toohigh">
               Too high
             </Link>
           </div>
         </div>
         <div class="overflow-hidden">
           <div class="container">
-            <Link href="/art/polygonous/">
+            <Link href="/art/polygonous">
               <picture>
                 <source srcset="/assets/art/thumbnails/polygonous.webp" type="image/webp" />
                 <source srcset="/assets/art/thumbnails/polygonous.png" type="image/png" /> 
@@ -37,10 +37,10 @@ const Home: FunctionalComponent = () => {
         <div class="col-lg-6 mx-auto mt-4">
           <p class="lead mb-4">Support Psychedelia</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <Link class="btn btn-outline-primary btn-lg px-4 me-sm-3" href="/join/">
+            <Link class="btn btn-outline-primary btn-lg px-4 me-sm-3" href="/join">
               Join
             </Link>
-            <Link class="btn btn-outline-success btn-lg px-4 me-sm-3" href="/donate/">
+            <Link class="btn btn-outline-success btn-lg px-4 me-sm-3" href="/donate">
               Donate
             </Link>
           </div>
@@ -82,7 +82,7 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Psychotomimetic Pstocks</h3>
-            <p>Why are you <a href="/read/">reading</a> this when you probably have a better idea what I mean than I do. What, are you trying to PSYK it TO the man? PSI, please...</p>
+            <p>Why are you <a href="/read">reading</a> this when you probably have a better idea what I mean than I do. What, are you trying to PSYK it TO the man? PSI, please...</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">
