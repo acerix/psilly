@@ -20,6 +20,8 @@ const Jam: FunctionalComponent = () => {
       </div>
       <h2>Issues</h2>
       <p>Let me know of any trouble you have with the server, my email is <a href="mailto:dylan@psilly.com">dylan@psilly.com</a>.</p>
+      <h2>Psilly Confiture</h2>
+      <p>Psilly Jams are not neccesarily preparations made by preserving psilocybe mushrooms with sugar; jam or marmalade, but they are <em>not neccesarily not</em> as well.</p>
     </section>
   )
 }
