@@ -37,6 +37,7 @@ const cms = {
   is: <Fragment><h1>Is</h1><h2>Who is is?</h2><p>Is is the becomer of the self; the isness of the is, if you will.</p><h2>What is is?</h2><p>Is is the becoming of the self; one is is when is is is, and is is one when is is one is.</p><h2>When is is?</h2><p>Is is always now. Except when is is then.</p><h2>Where is is?</h2><p>Some is is here, some is is there, some is is not meant to be found.</p><h2>Why is is?</h2><p>Is is because without is there would be no is.</p></Fragment>,
   infinity: <Fragment><h1><abbr title="The Infinite">∞</abbr></h1><h2>What is infinity?</h2><Unfinity /></Fragment>,
   psilosophy: <Fragment><h1>Psilosophy</h1><h2>Psilosophy</h2><h3>Psilosophy</h3><h4>Psilosophy</h4><h5>Psilosophy</h5><p>Psilosophy.</p></Fragment>,
+  silly: <Fragment><h1>Silly, Not Silly</h1><h2>The Beginning of Silly</h2><p>The beginning of silly is the end.</p></Fragment>,
   goose: <Fragment><h1>Psilly Goose's Den</h1><h2>Goose Sanctuary</h2><p>This is a den for geese. Are you a goose?</p><h2>Honk honk</h2><p>Honk honk honk honk honk. Honk honk honk. Honk honk honk honk honk, honk honk honk. Honk honk honk honk honk honk honk. Honk honk! Honk honk honk honk, honk honk, honk honk honk honk. Honk honk honk honk honk. Honk honk.</p></Fragment>,
   see: <Fragment><h1>See</h1><p>Seeing is believing, or so they say...</p></Fragment>,
   end: <Fragment><h1>The End</h1><p>This is the end, my friend.</p></Fragment>,

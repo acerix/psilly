@@ -81,9 +81,8 @@
     "jest-preset-preact": "*",
     "parse5": "*",
     "preact-cli": "*",
-    "preact-compat": "^3.19.0",
     "prettier": "*",
-    "react-helmet": "^6.1.0",
+    "react-helmet": "*",
     "sirv-cli": "*",
     "typescript": "*"
   },
