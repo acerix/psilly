@@ -1,6 +1,6 @@
 import { FunctionalComponent, h } from 'preact'
 import { Route, Router } from 'preact-router'
-import Helmet from 'preact-helmet'
+import Helmet from 'react-helmet'
 
 import Home from '../routes/home'
 import About from '../routes/about'

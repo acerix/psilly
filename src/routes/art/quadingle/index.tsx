@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from 'preact'
-import Helmet from 'preact-helmet'
+import Helmet from 'react-helmet'
 import WebGL2 from '../common/webgl2'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'

@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from 'preact'
-import Helmet from 'preact-helmet'
+import Helmet from 'react-helmet'
 import style from './style.css'
 
 const Bylaws: FunctionalComponent = () => {

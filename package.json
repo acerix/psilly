@@ -55,7 +55,6 @@
     "jrid": "*",
     "postcss": "<8",
     "preact": "*",
-    "preact-helmet": "4.0.0-alpha-3",
     "preact-html-converter": "*",
     "preact-render-to-string": "*",
     "preact-router": "*",
@@ -82,7 +81,9 @@
     "jest-preset-preact": "*",
     "parse5": "*",
     "preact-cli": "*",
+    "preact-compat": "^3.19.0",
     "prettier": "*",
+    "react-helmet": "^6.1.0",
     "sirv-cli": "*",
     "typescript": "*"
   },

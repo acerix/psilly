@@ -1,4 +1,4 @@
-declare module "preact-helmet" {
+declare module "react-helmet" {
     import { ComponentType, JSX } from "preact"
   
     /**

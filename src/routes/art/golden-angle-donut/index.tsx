@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from 'preact'
-import Helmet from 'preact-helmet'
+import Helmet from 'react-helmet'
 import Canvas from '../common/canvas'
 import ParameterPanel from '../common/parameter-panel'
 import ColorGenerator, {Color, colorToCss} from '../common/color-generator'

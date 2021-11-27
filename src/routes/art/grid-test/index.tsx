@@ -1,5 +1,5 @@
 import {createRef, FunctionalComponent, h} from 'preact'
-import Helmet from 'preact-helmet'
+import Helmet from 'react-helmet'
 import { useEffect } from 'preact/hooks'
 // import {JridOverlay} from 'jrid'
 // import {JridOverlay} from '../../../../node_modules/jrid/src/jrid'
