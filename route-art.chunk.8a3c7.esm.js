@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{gZd1:function(e,t,n){"use strict";n.r(t);var c=n("hosL"),r=n("9DLV"),h=n.n(r),i=n("sRXP");t.default=()=>Object(c.h)("section",{class:"container py-5"},Object(c.h)(h.a,{title:"Web Art Exhibition"}),Object(c.h)("h1",null,"Web Art"),Object(c.h)(i.a,null),Object(c.h)("h2",null,"Artchive"),Object(c.h)("p",null,"Older art experiments are under ",Object(c.h)("a",{href:"/experiments/"},"experiments"),"."))}}]);
+//# sourceMappingURL=route-art.chunk.8a3c7.esm.js.map

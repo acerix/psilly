@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{gZd1:function(e,t,n){"use strict";n.r(t);var r=n("hosL"),c=n("9DLV"),i=n.n(c),h=n("sRXP");t.default=function(){return Object(r.h)("section",{class:"container py-5"},Object(r.h)(i.a,{title:"Web Art Exhibition"}),Object(r.h)("h1",null,"Web Art"),Object(r.h)(h.a,null),Object(r.h)("h2",null,"Artchive"),Object(r.h)("p",null,"Older art experiments are under ",Object(r.h)("a",{href:"/experiments/"},"experiments"),"."))}}}]);
+//# sourceMappingURL=route-art.chunk.b0f4e.js.map
