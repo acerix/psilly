@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from 'preact'
-import Helmet from 'react-helmet'
+import Helmet from 'preact-helmet'
 import { ArtIndex } from './meta'
 
 const Art: FunctionalComponent = () => {

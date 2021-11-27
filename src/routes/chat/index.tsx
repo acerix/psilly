@@ -1,6 +1,6 @@
 import { FunctionalComponent, createRef, h } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
-import Helmet from 'react-helmet'
+import Helmet from 'preact-helmet'
 import style from './style.css'
 
 interface ChatItemProps {

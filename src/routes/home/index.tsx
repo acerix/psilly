@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from 'preact'
-import Helmet from 'react-helmet'
+import Helmet from 'preact-helmet'
 import { Link } from 'preact-router/match'
 
 const Home: FunctionalComponent = () => {
@@ -76,7 +76,7 @@ const Home: FunctionalComponent = () => {
         <div class="col d-flex align-items-start">
           <div>
             <h3 class="fw-bold mb-0">Psychotropic Pscience</h3>
-            <p>Psilly is a non-profit research and educational organization dedicated to developing medical, legal, and cultural contexts for people to benefit from the careful uses of psychedelics, as well as plain-ol' gettin' high.</p>
+            <p>Psilly is a non-profit research and educational organization dedicated to developing medical, legal, and cultural contexts for people to benefit from the careful uses of psychedelics, as well as plain-ol' gettin' high. Don't just get <em>silly</em>, silly, get <em>Psilly</em>™... or die!</p>
           </div>
         </div>
         <div class="col d-flex align-items-start">

@@ -1,5 +1,5 @@
 import { FunctionalComponent, h, Fragment } from 'preact'
-import Helmet from 'react-helmet'
+import Helmet from 'preact-helmet'
 import whiteRabbit from './white-rabbit.js'
 import Now from '../art/common/now'
 import Unfinity from '../art/unfinity'

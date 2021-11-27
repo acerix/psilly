@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from 'preact'
-import Helmet from 'react-helmet'
+import Helmet from 'preact-helmet'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'

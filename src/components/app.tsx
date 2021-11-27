@@ -1,6 +1,6 @@
 import { FunctionalComponent, h } from 'preact'
 import { Route, Router } from 'preact-router'
-import Helmet from 'react-helmet'
+import Helmet from 'preact-helmet'
 
 import Home from '../routes/home'
 import About from '../routes/about'
@@ -47,30 +47,12 @@ const App: FunctionalComponent = () => {
       <Helmet
         htmlAttributes={{lang: "en-CA"}}
         title="A page with no name" titleTemplate="%s 🍄 Psilly"
-        titleAttributes={{itemprop: "name", lang: "en-CA"}}
+        titleAttributes={{itemProp: "name", lang: "en-CA"}}
         meta={[
           {name: "description", content: "Psilly is an online community dedicated to psychedelic research, therapy, harm-reduction, and advocacy. We deliver peace of mind through exceptional care and avant-garde advocacy of psychotropic therapies."}
         ]}
         link={[
           {rel: "canonical", href: "https://psilly.com/"},
-        ]}
-        script={[
-          {type: "application/ld+json", innerHTML: `{
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Psilly",
-            "legalName" : "Psilly Corporation",
-            "url": "https://psilly.com",
-            "logo": "https://psilly.com/assets/Psilly-logo.png",
-            "foundingDate": "2006",
-            "founders": [
-              {
-              "@type": "Person",
-              "name": "Dylan Ferris"
-              }
-            ],
-            "email": "support@psilly.com"
-          }`}
         ]}
       />
       <Header />

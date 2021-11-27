@@ -36,18 +36,21 @@ export const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => 
   const { getContext, init, ready, draw, onResize, framesPerSecond, ...rest } = props
   const ref = createRef()
   const frameMilliseconds = framesPerSecond ? 1000 / framesPerSecond : undefined
-
+  
   useEffect(() => {
     const canvas = ref.current as HTMLCanvasElement
     let paused = false
     let frameCount = -1
     let renderCallbackID: number
+
     const ctx = getContext ? getContext(canvas) : canvas.getContext('webgl2', defaultContextOptions) as WebGL2RenderingContext
     if (!ctx) {
       alert('Error getting context. WebGL2 is required.')
       window.location.href='https://get.webgl.org/webgl2/'
       return
     }
+
+    if (init) init(ctx)
 
     const handleResize = (): void => {
       ctx.canvas.width = window.innerWidth
@@ -74,10 +77,8 @@ export const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => 
         })
       }
     }
+
     window.addEventListener('click', setFullscreen)
-
-    if (init) init(ctx)
-
     const render = (): void => {
       if (paused) {
         setTimeout(render, 128)

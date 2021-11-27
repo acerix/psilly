@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from 'preact'
-import Helmet from 'react-helmet'
+import Helmet from 'preact-helmet'
 import JamulusStatus from './jamulus'
 
 const Jam: FunctionalComponent = () => {
@@ -21,7 +21,7 @@ const Jam: FunctionalComponent = () => {
       <h2>Issues</h2>
       <p>Let me know of any trouble you have with the server, my email is <a href="mailto:dylan@psilly.com">dylan@psilly.com</a>.</p>
       <h2>Psilly Confiture</h2>
-      <p>Psilly Jams are not neccesarily preparations made by preserving psilocybe mushrooms with sugar; jam or marmalade, but they are <em>not neccesarily not</em> as well.</p>
+      <p>Psilly Jams are not necessarily preparations made by preserving psilocybe mushrooms with sugar; jam or marmalade, but they are <em>not necessarily not</em> as well.</p>
     </section>
   )
 }

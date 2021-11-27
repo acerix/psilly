@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from 'preact'
-import Helmet from 'react-helmet'
+import Helmet from 'preact-helmet'
 import Canvas from '../common/canvas'
 import ColorGenerator, {Color, randomColorPeriod} from '../common/color-generator'
 import {ArtPlaque, Artwork} from '../meta'
