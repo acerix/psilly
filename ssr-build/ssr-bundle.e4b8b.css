@@ -124,14 +124,23 @@ main {
 }
 
 .spinner__w\+4Qm > div > div {
-  animation: spin__weuJr 6.666s linear infinite;
+  -webkit-animation: spin__weuJr 6.666s linear infinite;
+          animation: spin__weuJr 6.666s linear infinite;
+}
+
+@-webkit-keyframes spin__weuJr {
+  100% {
+    -webkit-transform:rotate(-360deg);
+            transform:rotate(-360deg);
+  }
 }
 
 @keyframes spin__weuJr {
   100% {
-    transform:rotate(-360deg);
+    -webkit-transform:rotate(-360deg);
+            transform:rotate(-360deg);
   }
 }
 
 
-/*# sourceMappingURL=ssr-bundle.f0267.css.map*/
+/*# sourceMappingURL=ssr-bundle.e4b8b.css.map*/
