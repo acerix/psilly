@@ -17,5 +17,6 @@ void main() {
   // unit circle (0 = x² + y²)
   float radius_squared = m_0*m_0 + m_1*m_1;
   fragmentColor.r = fragmentColor.g = fragmentColor.b = radius_squared < 1.0 ? radius_squared : 1.0 / radius_squared;
+  fragmentColor.r = 1.0;
 }
 `

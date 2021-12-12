@@ -3,7 +3,7 @@
   "name": "psilly",
   "homepage": "https://psilly.com/",
   "version": "0.0.42",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "scripts": {
     "dev": "preact watch",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx,mjs}' 'tests/**/*.{js,jsx,ts,tsx,mjs}'",

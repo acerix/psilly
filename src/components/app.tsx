@@ -4,6 +4,8 @@ import Helmet from 'react-helmet'
 
 import Home from '../routes/home'
 import About from '../routes/about'
+import Privacy from '../routes/privacy'
+import Terms from '../routes/terms'
 import Bylaws from '../routes/bylaws'
 import FAQ from '../routes/faq'
 import Contact from '../routes/contact'
@@ -61,6 +63,8 @@ const App: FunctionalComponent = () => {
         <Router>
           <Home path="/" />
           <About path="/about" />
+          <Privacy path="/privacy" />
+          <Terms path="/terms" />
           <Bylaws path="/bylaws" />
           <FAQ path="/faq" />
           <Contact path="/contact" />

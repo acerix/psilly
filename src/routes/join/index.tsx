@@ -8,7 +8,7 @@ const Join: FunctionalComponent = () => {
       <h1>Become a Member</h1>
       <p>Psilly is a non-profit which relies on it's membership for support. Join us today and become a part of the psychedelic revolution.</p>
       <h2>Join</h2>
-      <p>We have not opened online registration for membership yet, please email <a href="mailto:membership@psilly.com">membership@psilly.com</a> if you would like to become a member.</p>
+      <p><a href="https://puff.psilly.com/apps/registration/">Membership Application</a></p>
     </section>
   )
 }

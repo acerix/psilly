@@ -9,6 +9,14 @@
 		"title": "About The Psilly Corporation"
 	},
 	{
+		"url": "/privacy",
+		"title": "Privacy Policy"
+	},
+	{
+		"url": "/terms",
+		"title": "Website Terms of Use"
+	},
+	{
 		"url": "/bylaws",
 		"title": "Psilly By-laws"
 	},
