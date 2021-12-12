@@ -6,7 +6,7 @@ import Unfinity from '../art/unfinity'
 import NotFound from '../not-found'
 
 const cms = {
-  talk: <Fragment><h1>Urging to speak?</h1><p>Leave a message in the <a href="/chat">chatter</a> or drop one in the <a href="https://mindmeet.space/">mind meet space</a>.</p></Fragment>,
+  talk: <Fragment><h1>Urging to speak?</h1><p>Leave a message in the <a href="/chat">chatter</a> or drop one in the <a href="https://mindmeet.space/">mind meet space</a>.</p><h2>Phormalize</h2><p>Get connected with other psillables in the <a href="https://phorum.psilly.com/">Psilly Phorum</a>.</p></Fragment>,
   listen: <Fragment><h1>Hear</h1><p>Looking for something to listen to?</p><p>Listen to <a href="/music">music</a>, <a href="/words">words</a>, or <a href="/sounds">other sounds</a>.</p></Fragment>,
   watch: <Fragment><h1>Visual Stimulation</h1><p>Things you can watch.</p><p>Watch some videos to make you <a href="/funny">laugh</a>, <a href="/happy">smile</a>, <a href="/trippy">trip</a>, or <a href="/deep">think</a>.</p></Fragment>,
   play: <Fragment><h1>Play</h1><p>Have phun!</p><p>When in doubt, <a href="/games">play the game</a>.</p><p>Or <a href="/jam">play music</a>.</p><p>If all else fails, get a <a href="/life">life</a>.</p><p><a href="https://ludotune.com/" target="_blank" rel="noreferrer">ludotune</a>.</p></Fragment>,
