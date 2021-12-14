@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[18],{pvpb:function(e,n,t){"use strict";t.r(n);var i=t("hosL"),s=t("Hrl7"),c="spinner__w+4Qm";n.default=function(){return Object(i.h)("section",{class:c},Object(i.h)(s.a,{title:"Please wait while your desires are loaded..."}),Object(i.h)("div",null,Object(i.h)("div",null,"𓂸")))}}}]);
+//# sourceMappingURL=route-spinner.chunk.afa32.js.map
