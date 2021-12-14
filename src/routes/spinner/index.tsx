@@ -6,7 +6,7 @@ const Spinner: FunctionalComponent = () => {
   return (
     <section class={style.spinner}>
       <Helmet title="Please wait while your desires are loaded..." />
-      <div><div>⬡</div></div>
+      <div><div>𓂸</div></div>
     </section>
   )
 }
