@@ -20,7 +20,8 @@ const Contact: FunctionalComponent = () => {
     <section class="container py-5">
       <Helmet title="Contact Psilly" />
       <h1>Contact Psilly</h1>
-      <p>Got an idea for psilly? A qualm? Whatever it is, I'd love to hear it! Reach out at <a href="mailto:dylan@psilly.com">dylan@psilly.com</a>.</p>
+      <p>Got a funky idea for psilly? Reach out at <a href="mailto:dylan@psilly.com">dylan@psilly.com</a>.</p>
+      <p>Note: Psilly is not for sale and does not participate in business partnerships, any such inquiries will be ignored.</p>
       <h2>Please Guard Paranoia</h2>
       <p>Encryption's cool.</p>
       <pre class="font-monospace mb-3" id="pgp">{PGPKey}</pre>

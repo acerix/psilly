@@ -6,7 +6,7 @@ import Unfinity from '../art/unfinity'
 import NotFound from '../not-found'
 
 const cms = {
-  talk: <Fragment><h1>Urging to speak?</h1><p>Leave a message in the <a href="/chat">chatter</a> or drop one in the <a href="https://mindmeet.space/">mind meet space</a>.</p><h2>Phormalize</h2><p>Get connected with other psillables in the <a href="https://phorum.psilly.com/">Psilly Phorum</a>.</p></Fragment>,
+  talk: <Fragment><h1>Urging to speak?</h1><p>Leave a message in the <a href="/chat">chatter</a> or drop one in the <a href="https://mindmeet.space/">mind meet space</a>.</p><h2>Phormalize</h2><p>Get connected with other psillables in the <a href="https://puff.psilly.com/call/iguss3fp">Psilly Hangout.</a>.</p></Fragment>,
   listen: <Fragment><h1>Hear</h1><p>Looking for something to listen to?</p><p>Listen to <a href="/music">music</a>, <a href="/words">words</a>, or <a href="/sounds">other sounds</a>.</p></Fragment>,
   watch: <Fragment><h1>Visual Stimulation</h1><p>Things you can watch.</p><p>Watch some videos to make you <a href="/funny">laugh</a>, <a href="/happy">smile</a>, <a href="/trippy">trip</a>, or <a href="/deep">think</a>.</p></Fragment>,
   play: <Fragment><h1>Play</h1><p>Have phun!</p><p>When in doubt, <a href="/games">play the game</a>.</p><p>Or <a href="/jam">play music</a>.</p><p>If all else fails, get a <a href="/life">life</a>.</p><p><a href="https://ludotune.com/" target="_blank" rel="noreferrer">ludotune</a>.</p></Fragment>,
@@ -36,6 +36,7 @@ const cms = {
   time: <Fragment><h1>What is time?</h1><p>Time is the measure of negative entropy in a system. Sapiens, homos in particular, have devised countless arbitrary systems for counting time, the least insane being "unix time"; an absolute measure of time since they realized time is not defined by astronomy, based in a unit defined by the rotation around their own axis in reference to their nearest luminous celestial body. This number is also known as their Epoch. <Now /> human seconds have passed since then. I can count this forever since I have no <a href="/life">life</a>.</p><h2>What is time without consciousness?</h2><p><a href="/infinity">∞</a></p></Fragment>,
   dreams: <Fragment><h1>Dreams</h1><p>If you build it, they will come.</p></Fragment>,
   fun: <Fragment><h1>What is fun?</h1><p><a href="/funny">Funny</a> you asked!</p></Fragment>,
+  hang: <Fragment><h1>Psilly Hangout</h1><p>Come <a href="https://puff.psilly.com/call/iguss3fp">hang</a>!</p></Fragment>,  
   is: <Fragment><h1>Is</h1><h2>Who is is?</h2><p>Is is the becomer of the self; the isness of the is, if you will.</p><h2>What is is?</h2><p>Is is the becoming of the self; one is is when is is is, and is is one when is is one is.</p><h2>When is is?</h2><p>Is is always now. Except when is is then.</p><h2>Where is is?</h2><p>Some is is here, some is is there, some is is not meant to be found.</p><h2>Why is is?</h2><p>Is is because without is there would be no is.</p></Fragment>,
   infinity: <Fragment><h1><abbr title="The Infinite">∞</abbr></h1><h2>What is infinity?</h2><Unfinity /></Fragment>,
   psilosophy: <Fragment><h1>Psilosophy</h1><h2>Psilosophy</h2><h3>Psilosophy</h3><h4>Psilosophy</h4><h5>Psilosophy</h5><p>Psilosophy.</p></Fragment>,

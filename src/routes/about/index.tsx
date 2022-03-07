@@ -32,12 +32,6 @@ const About: FunctionalComponent = () => {
       </p>
       <h2>Governance</h2>
       <p>Psilly is managed by an elected Board of Directors, chosen by and from our membership. The Board meets monthly, and publishes agendas of upcoming meetings and minutes of past meetings publicly.</p>
-      <h2>Corporate By-laws</h2>
-      <p>
-        <Link href="/bylaws">
-        Psilly By-laws
-        </Link>
-      </p>
       <h2>Become a Psillable</h2>
       <p>There is no objective test for psillability, you will know when you are ready. It has little to do with rhyme, or even so-called reason, the main ingredient is 🌈.</p>
       <p><a href="/join">Join</a></p>
