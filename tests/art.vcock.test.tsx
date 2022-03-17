@@ -5,7 +5,7 @@ describe('Test SpectrumGenerator', () => {
     const generator = SpectrumGenerator()
     const sample: string[] = []
     for (let i=0; i<90; i++) {
-      const x = generator.next().value
+      const x = generator.next().value as Uint8Array
       sample.push(`${x[0].toString(16).padStart(2,'0')}${x[1].toString(16).padStart(2,'0')}${x[2].toString(16).padStart(2,'0')}`)
     }
     expect(sample).toStrictEqual([
