@@ -28,6 +28,7 @@ import TotallyModularFormBro from '../routes/art/totally-modular-form-bro'
 import Untilted from '../routes/art/untilted'
 import Lemnisgo from '../routes/art/lemnisgo'
 import Hyperbollick from '../routes/art/hyperbollick'
+import Vcock from '../routes/art/vcock'
 import CanvasTemplate from '../routes/art/canvas-template'
 import WebGLTemplate from '../routes/art/webgl-template'
 import Loading from '../routes/art/loading'
@@ -42,6 +43,7 @@ import NotFound from '../routes/not-found'
 import Header from './header'
 import Footer from './footer'
 import Sequins from '../routes/art/common/sequins'
+import EyeOfNewt from '../routes/art/eye-of-newt'
 
 const App: FunctionalComponent = () => {
   return (
@@ -89,7 +91,8 @@ const App: FunctionalComponent = () => {
           <Untilted path="/art/untilted" />
           <Lemnisgo path="/art/lemnisgo" />
           <Hyperbollick path="/art/hyperbollick" />
-          <Hyperbollick path="/art/eye-of-newt" />
+          <Vcock path="/art/vcock" />
+          <EyeOfNewt path="/art/eye-of-newt" />
           <CanvasTemplate path="/art/canvas-template" />
           <WebGLTemplate path="/art/webgl-template" />
           <Loading path="/art/loading" />

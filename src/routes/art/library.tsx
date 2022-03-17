@@ -121,6 +121,14 @@ const artworkLibrary: ArtworkLibrary = {
     medium: 'JavaScript on WebGLRenderingContext',
     description: 'Tall tales of extreme bollock privation.'
   },
+  vcock: {
+    path: 'vcock',
+    type: 'Art',
+    title: 'Vcock',
+    created: '2022',
+    medium: 'JavaScript on WebGLRenderingContext',
+    description: 'A colourful veacock in balls.'
+  },
   'canvas-template': {
     path: 'canvas-template',
     type: 'Template',
