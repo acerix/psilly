@@ -82,7 +82,9 @@ const Vcock: FunctionalComponent = () => {
     console.log('beep')
     //playBeepSequence(new BeepSequence([new Beep()]))
   }
-  window.addEventListener('click', beep)
+  if (typeof window !== "undefined") {
+    window.addEventListener('click', beep)
+  }
 
   const art: Artwork = artworkLibrary['vcock']
   return (
