@@ -5,7 +5,7 @@ import {Color, colorToCss} from '../common/color-generator'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
-import { Beep, BeepSequence, playBeepSequence } from 'beepody'
+// import { Beep, BeepSequence, playBeepSequence } from 'beepody'
 // inspired by https://www.reddit.com/r/woahdude/comments/tbdjqx/eltit_gnitseretni_na/
 
 const BALL_COUNT = 90
@@ -79,7 +79,8 @@ const Vcock: FunctionalComponent = () => {
   }
 
   const beep = (): void => {
-    playBeepSequence(new BeepSequence([new Beep()]))
+    console.log('beep')
+    //playBeepSequence(new BeepSequence([new Beep()]))
   }
   window.addEventListener('click', beep)
 
