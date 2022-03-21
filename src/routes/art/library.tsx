@@ -126,7 +126,7 @@ const artworkLibrary: ArtworkLibrary = {
     type: 'Art',
     title: 'Vcock',
     created: '2022',
-    medium: 'JavaScript on WebGLRenderingContext',
+    medium: 'JavaScript on CanvasRenderingContext2D',
     description: 'A colourful veacock in balls.'
   },
   'canvas-template': {
