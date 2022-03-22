@@ -77,7 +77,7 @@ const Vcock: FunctionalComponent = () => {
     
   }
 
-  var beeping = false
+  let beeping = false
   const beepTimers: NodeJS.Timer[] = []
   const beep = (): void => {
     if (beeping) {
