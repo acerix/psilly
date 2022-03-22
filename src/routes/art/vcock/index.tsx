@@ -5,8 +5,7 @@ import {Color, colorToCss} from '../common/color-generator'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
-// import { Beep, BeepSequence, playBeepSequence } from 'beepody'
-// inspired by https://www.reddit.com/r/woahdude/comments/tbdjqx/eltit_gnitseretni_na/
+import { Beep, BeepSequence, playBeepSequence } from 'beepody/dist/tsc/beepody'
 
 const BALL_COUNT = 90
 const BALL_RADIUS = 16
@@ -67,7 +66,7 @@ const Vcock: FunctionalComponent = () => {
     for (let i=0; i<BALL_COUNT; i++) {
       ctx.fillStyle = ballColors[i]
       ctx.beginPath()
-      const p = frameCount * (i + 128) / 4096
+      const p = frameCount / 60 * TAU * (i + BALL_COUNT) / BALL_COUNT
       const s = -Math.cos(p)
       const v = BALL_RADIUS * i * BALL_SPACE
       const y = ctx.canvas.height - v - (2 * BALL_RADIUS / Math.SQRT2) - Math.abs(Math.sin(p) * 16 * Math.sqrt(i + 8))
@@ -78,11 +77,27 @@ const Vcock: FunctionalComponent = () => {
     
   }
 
+  var beeping = false
+  const beepTimers: NodeJS.Timer[] = []
   const beep = (): void => {
-    console.log('beep')
-    //playBeepSequence(new BeepSequence([new Beep()]))
+    if (beeping) {
+      for (const t of beepTimers) {
+        clearInterval(t)
+      }
+    }
+    else {
+      // const time = 0
+      for (let i=0; i<BALL_COUNT; i++) {
+        const bs = new BeepSequence([new Beep()])
+        const p = i * 1000 + 2000
+        beepTimers.push(
+          setInterval(() => playBeepSequence(bs), p)
+        )
+      }
+    }
+    beeping = !beeping
   }
-  if (typeof window !== "undefined") {
+  if (typeof window !== 'undefined') {
     window.addEventListener('click', beep)
   }
 

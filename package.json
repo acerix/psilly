@@ -51,6 +51,7 @@
     ]
   },
   "dependencies": {
+    "beepody": "*",
     "core-js": "*",
     "jrid": "*",
     "postcss": "<8",

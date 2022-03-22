@@ -124,7 +124,7 @@ const artworkLibrary: ArtworkLibrary = {
   vcock: {
     path: 'vcock',
     type: 'Art',
-    title: 'Vcock',
+    title: 'Veacock',
     created: '2022',
     medium: 'JavaScript on CanvasRenderingContext2D',
     description: 'A colourful veacock in balls.'
