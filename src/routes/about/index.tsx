@@ -14,19 +14,19 @@ const About: FunctionalComponent = () => {
       <p>Psilly rejects our corporatocracy and the concept of profit. Any surplus is invested in our mission to turn on the World.</p>
       <h2>Privacy Policy</h2>
       <p>
-        <Link href="/privacy">
+        <Link href="/privacy/">
         Psilly Privacy Policy
         </Link>
       </p>
       <h2>Terms of Use Agreement</h2>
       <p>
-        <Link href="/terms">
+        <Link href="/terms/">
         Psilly Terms of Use Agreement
         </Link>
       </p>
       <h2>Corporate By-laws</h2>
       <p>
-        <Link href="/bylaws">
+        <Link href="/bylaws/">
         Psilly By-laws
         </Link>
       </p>
@@ -34,7 +34,7 @@ const About: FunctionalComponent = () => {
       <p>Psilly is managed by an elected Board of Directors, chosen by and from our membership. The Board meets monthly, and publishes agendas of upcoming meetings and minutes of past meetings publicly.</p>
       <h2>Become a Psillable</h2>
       <p>There is no objective test for psillability, you will know when you are ready. It has little to do with rhyme, or even so-called reason, the main ingredient is 🌈.</p>
-      <p><a href="/join">Join</a></p>
+      <p><a href="/join/">Join</a></p>
     </section>
   )
 }

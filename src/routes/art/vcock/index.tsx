@@ -6,6 +6,7 @@ import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 import { Beep, BeepSequence, playBeepSequence } from 'beepody/dist/tsc/beepody'
+import { useReducer } from 'preact/hooks'
 
 const BALL_COUNT = 90
 const BALL_RADIUS = 16
@@ -39,7 +40,33 @@ export function* SpectrumGenerator(): Generator<Color> {
   }
 }
 
+export interface VCockState {
+  animate: boolean;
+}
+
+export const initialState: VCockState = {
+  animate: false,
+}
+
+export const reducer = (state: VCockState, action: { type: string }): VCockState => {
+  switch (action.type) {
+  case 'start':
+    return {
+      ...state,
+      animate: true,
+    }
+  case 'stop':
+    return {
+      ...state,
+      animate: false,
+    }
+  default:
+    throw `Undefined action "action.type"`
+  }
+}
+
 const Vcock: FunctionalComponent = () => {
+  const [state, dispatch] = useReducer(reducer, initialState)
   const colorGenerator = SpectrumGenerator()
   const ballColors: string[] = []
 
@@ -81,11 +108,13 @@ const Vcock: FunctionalComponent = () => {
   const beepTimers: NodeJS.Timer[] = []
   const beep = (): void => {
     if (beeping) {
+      dispatch({type: 'stop'})
       for (const t of beepTimers) {
         clearInterval(t)
       }
     }
     else {
+      dispatch({type: 'start'})
       // const time = 0
       for (let i=0; i<BALL_COUNT; i++) {
         const bs = new BeepSequence([new Beep()])
@@ -106,7 +135,7 @@ const Vcock: FunctionalComponent = () => {
     <section class={style.canvas_frame}>
       <Helmet><title>{art.title}</title></Helmet>
       <div class="d-none"><ArtPlaque art={art} /></div>
-      <Canvas draw={draw} />
+      <Canvas draw={draw} animate={state.animate} />
     </section>
   )
 }
