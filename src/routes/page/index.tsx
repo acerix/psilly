@@ -51,6 +51,7 @@ const cms = {
   taste: <Fragment><h1>Taste</h1><p>If it leaves a bad taste in your mouth, imagine what it does to the universe.</p></Fragment>,
   smell: <Fragment><h1>Smell</h1><p>Oou-ooou, that smell!</p></Fragment>,
   feel: <Fragment><h1>Feel</h1><p>You may feel this, but can you feel that?</p></Fragment>,
+  blog: <Fragment><h1>Psilly Blog</h1><p>News and announcements for all things <a href="https://psilly.com/">Psilly</a>, including nootropics, <a href="https://puff.psilly.com/">Psilly Community Updates</a>, and <a href="https://blog.psilly.com/">Psilly News</a>.</p><ul class="row d-lg-flex list-unstyled image-block justify-content-center px-lg-0 mx-lg-0"><li class="col-lg-4 col-md-5 image-block full-width p-3"><div class="image-block-inner"><a class="mh-100" href="/blog/hi/"><img src="/assets/art/thumbnails/polygonous.webp" alt="Polygonous" class="img-responsive w-100" /></a><h4 class="mt-3"><a href="/blog/hi/">Hello Blog</a></h4><p>If I had something to say...</p><a href="/blog/hi/" class="read-more">Read more</a></div></li></ul></Fragment>,
 }
 
 interface Props {
