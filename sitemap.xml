@@ -1,8 +1,259 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Worst, sitemap, ever. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://psilly.com/</loc>
-    <lastmod>1970-01-01</lastmod>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/about/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/privacy/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/terms/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/bylaws/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/faq/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/contact/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/join/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/donate/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/sober/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/high/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/toohigh/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/experiments/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/chat/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/jam/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/spin/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/404/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/polygonous/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/meld/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/circle/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/golden-angle-donut/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/squibbo/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/falls/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/chillbert/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/develop/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/quadingle/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/oh-bezier/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/totally-modular-form-bro/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/untilted/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/lemnisgo/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/eye-of-newt/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/hyperbollick/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/vcock/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/canvas-template/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/webgl-template/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/loading/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/art/grid-test/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/talk/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/listen/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/watch/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/play/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/music/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/words/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/sounds/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/deep/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/trippy/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/psiblings/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/games/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/funny/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/happy/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/read/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/gaze/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/acid/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/lsd/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/shrooms/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/k/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/ibogaine/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/ecstasy/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/dmt/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/dxm/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/blow/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/white-rabbit/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/rabbit-hole/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/life/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/time/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/dreams/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/fun/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/hang/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/is/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/infinity/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/psilosophy/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/silly/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/goose/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/see/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/end/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/page/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/peace/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/war/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/hear/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/taste/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/smell/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/feel/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/blog/</loc>
+    <lastmod>2022-02-22</lastmod> </url
+  ><url>
+    <loc>https://psilly.com/blog/hi/</loc>
+    <lastmod>2022-02-22</lastmod>
   </url>
 </urlset>
