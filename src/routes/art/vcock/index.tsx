@@ -119,9 +119,10 @@ const Vcock: FunctionalComponent = () => {
       for (let i=0; i<BALL_COUNT; i++) {
         const bs = new BeepSequence([new Beep()])
         const p = i * 1000 + 2000
-        beepTimers.push(
-          setInterval(() => playBeepSequence(bs), p)
-        )
+        console.log(bs, p)
+        // beepTimers.push(
+        //   setInterval(() => playBeepSequence(bs), p)
+        // )
       }
     }
     beeping = !beeping

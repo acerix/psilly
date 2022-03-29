@@ -1,5 +1,5 @@
 import { FunctionalComponent, createRef, h } from 'preact'
-import { useEffect } from 'preact/hooks'
+import { useEffect, useState } from 'preact/hooks'
 
 type GetContextFunction = (canvas: HTMLCanvasElement) => CanvasRenderingContext2D
 
@@ -36,16 +36,31 @@ export interface CanvasProps {
 
 export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
   const { getContext, init, ready, draw, onResize, animate, framesPerSecond, ...rest } = props
-  const ref = createRef()
   const frameMilliseconds = framesPerSecond ? 1000 / framesPerSecond : undefined
+  const ref = createRef()
+  let paused = false
+  let frame = 0
+  
+  // Pause animation when window is not focused
+  useEffect(() => {
+    const handleBlur = (): void => {
+      paused = true
+    }
+    window.addEventListener('blur', handleBlur)
+    const handleFocus = (): void => {
+      paused = false
+    }
+    window.addEventListener('focus', handleFocus)
+    return (): void => {
+      window.removeEventListener('blur', handleBlur)
+      window.removeEventListener('focus', handleFocus)
+    }
+  }, [])
 
+  // Update canvas dimensions when window is resized
   useEffect(() => {
     const canvas = ref.current as HTMLCanvasElement
-    let paused = false
-    let frameCount = -1
-    let loopCallbackID: number
     const ctx = getContext ? getContext(canvas) : canvas.getContext('2d') as CanvasRenderingContext2D
-
     const handleResize = (): void => {
       ctx.canvas.width = window.innerWidth
       ctx.canvas.height = window.innerHeight
@@ -53,48 +68,52 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
     }
     window.addEventListener('resize', handleResize)
     handleResize()
-
-    const handleBlur = (): void => {
-      paused = true
+    return (): void => {
+      window.removeEventListener('resize', handleResize)
     }
-    window.addEventListener('blur', handleBlur)
+  }, [ref])
 
-    const handleFocus = (): void => {
-      paused = false
-    }
-    window.addEventListener('focus', handleFocus)
-
+  // Set fullscreen on click
+  useEffect(() => {
     const setFullscreen = (): void => {
       if (!document.fullscreenElement) {
         document.body.requestFullscreen().catch(err => {
-          console.error('Fullscreen fail:', err)
-          // console.error(`Fullscreen fail: ${err.message} (${err.name})`)
+          console.error('Fullscreen fail', err)
         })
       }
     }
     window.addEventListener('click', setFullscreen)
+    return (): void => {
+      window.removeEventListener('click', setFullscreen)
+    }
+  }, [ref])
+
+  // Start render loop
+  useEffect(() => {
+    const canvas = ref.current as HTMLCanvasElement
+    const ctx = getContext ? getContext(canvas) : canvas.getContext('2d') as CanvasRenderingContext2D
+    let loopCallbackID: number
 
     if (init) init(ctx)
 
     const render = (): void => {
-      draw(ctx, frameCount++)
+      draw(ctx, frame++)
     }
 
     const loop = (): void => {
       if (paused) {
-        setTimeout(loop, 128)
+        loopCallbackID = window.setTimeout(loop, 128)
         return
       }
-      frameCount++
       if (frameMilliseconds) {
         loopCallbackID = window.setTimeout(loop, frameMilliseconds)
       }
       else {
-        loopCallbackID = window.requestAnimationFrame(loop)
+        loopCallbackID = requestAnimationFrame(loop)
       }
-      draw(ctx, frameCount)
+      draw(ctx, frame++)
     }
-
+    
     // expose methods to parent
     // @todo seems parents calling their children's methods is react antipattern, better way?
     if (props.canvasMethodRefs) {
@@ -103,10 +122,10 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
 
     const whenReady = (): void => {
       if (animate===false) {
-        setTimeout(render)
+        loopCallbackID = window.setTimeout(render)
       }
       else {
-        setTimeout(loop)
+        loopCallbackID = window.setTimeout(loop)
       }
     }
 
@@ -118,15 +137,10 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
         window.clearTimeout(loopCallbackID)
       }
       else {
-        window.cancelAnimationFrame(loopCallbackID)
+        cancelAnimationFrame(loopCallbackID)
       }
-      window.removeEventListener('resize', handleResize)
-      window.removeEventListener('blur', handleBlur)
-      window.removeEventListener('focus', handleFocus)
-      window.removeEventListener('click', setFullscreen)
     }
-
-  }, [getContext, init, ready, draw, onResize, ref, props.canvasMethodRefs, animate, frameMilliseconds])
+  }, [ref])
 
   return <canvas ref={ref} {...rest} />
 }
