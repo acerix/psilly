@@ -1,5 +1,5 @@
 import { FunctionalComponent, createRef, h } from 'preact'
-import { useEffect, useState } from 'preact/hooks'
+import { useEffect } from 'preact/hooks'
 
 type GetContextFunction = (canvas: HTMLCanvasElement) => CanvasRenderingContext2D
 
