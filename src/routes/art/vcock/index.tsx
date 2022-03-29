@@ -5,7 +5,7 @@ import {Color, colorToCss} from '../common/color-generator'
 import {ArtPlaque, Artwork} from '../meta'
 import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
-import { Beep, BeepSequence, playBeepSequence } from 'beepody/dist/tsc/beepody'
+import { Beep, BeepSequence } from 'beepody/dist/tsc/beepody'
 import { useReducer } from 'preact/hooks'
 
 const BALL_COUNT = 90
