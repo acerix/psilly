@@ -50,18 +50,6 @@
       "build/"
     ]
   },
-  "dependencies": {
-    "beepody": "*",
-    "core-js": "*",
-    "jrid": "*",
-    "postcss": "<8",
-    "preact": "*",
-    "preact-html-converter": "*",
-    "preact-render-to-string": "*",
-    "preact-router": "*",
-    "regenerator-runtime": "*",
-    "use-hash-state": "*"
-  },
   "devDependencies": {
     "@babel/core": "*",
     "@babel/eslint-parser": "*",
@@ -71,21 +59,31 @@
     "@types/react-helmet": "*",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
+    "beepody": "*",
+    "core-js": "*",
     "critters": "*",
     "enzyme": "*",
     "enzyme-adapter-preact-pure": "*",
-    "eslint": "<8",
+    "eslint": "*",
     "eslint-config-preact": "*",
     "gh-pages": "*",
     "globby": "*",
     "jest": "*",
     "jest-preset-preact": "*",
+    "jrid": "*",
     "parse5": "*",
+    "postcss": "",
+    "preact": "*",
     "preact-cli": "*",
+    "preact-html-converter": "*",
+    "preact-render-to-string": "*",
+    "preact-router": "*",
     "prettier": "*",
     "react-helmet": "*",
+    "regenerator-runtime": "*",
     "sirv-cli": "*",
-    "typescript": "*"
+    "typescript": "*",
+    "use-hash-state": "*"
   },
   "peerDependencies": {
     "parse5": "*"

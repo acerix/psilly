@@ -65,7 +65,10 @@ export const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => 
       if (onResize) onResize(ctx)
     }
     window.addEventListener('resize', handleResize)
-    handleResize()
+    setTimeout(
+      handleResize,
+      128
+    )
     return (): void => {
       window.removeEventListener('resize', handleResize)
     }

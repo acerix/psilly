@@ -4,5 +4,4 @@
 1. Update Artwork in the new ./index.tsx to the new path
 1. Add to /routes/art/library.tsx
 1. Add to /src/components/app.tsx
-1. Add to /prerender-urls.json
 1. Save screenshot in /assets/art/thumbnails/

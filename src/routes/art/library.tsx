@@ -129,6 +129,14 @@ const artworkLibrary: ArtworkLibrary = {
     medium: 'JavaScript on CanvasRenderingContext2D',
     description: 'A colourful veacock in balls.'
   },
+  gravity: {
+    path: 'gravity',
+    type: 'Art',
+    title: 'Gravity',
+    created: '2022',
+    medium: 'JavaScript on WebGLRenderingContext',
+    description: 'I hope you understand the gravity of this situation.'
+  },
   'canvas-template': {
     path: 'canvas-template',
     type: 'Template',
