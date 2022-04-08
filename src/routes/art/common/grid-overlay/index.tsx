@@ -144,7 +144,6 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
 
   useEffect(() => {
     let mouseDown = 0
-    let renderCallbackID: number
     const lastMousePosition = [0, 0]
     const lastTouch1Position = [-1, -1]
     const lastTouch2Position = [-1, -1]
@@ -391,7 +390,6 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     window.addEventListener('keydown', handleKeyDown)
 
     return (): void => {
-      window.cancelAnimationFrame(renderCallbackID)
       window.removeEventListener('mousedown', handleMouseDown)
       window.removeEventListener('mouseup', handleMouseUp)
       window.removeEventListener('contextmenu', handleContextMenu)

@@ -1,5 +1,5 @@
 import { FunctionalComponent, createRef, h } from 'preact'
-import { useEffect } from 'preact/hooks'
+import { useEffect, useRef } from 'preact/hooks'
 
 type GetContextFunction = (canvas: HTMLCanvasElement) => CanvasRenderingContext2D
 
@@ -38,17 +38,17 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
   const { getContext, init, ready, draw, onResize, animate, framesPerSecond, ...rest } = props
   const frameMilliseconds = framesPerSecond ? 1000 / framesPerSecond : undefined
   const ref = createRef()
-  let paused = false
+  const pausedRef = useRef(false)
   let frame = 0
   
   // Pause animation when window is not focused
   useEffect(() => {
     const handleBlur = (): void => {
-      paused = true
+      pausedRef.current = true
     }
     window.addEventListener('blur', handleBlur)
     const handleFocus = (): void => {
-      paused = false
+      pausedRef.current = false
     }
     window.addEventListener('focus', handleFocus)
     return (): void => {
@@ -71,7 +71,7 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
     return (): void => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [ref])
+  }, [ref, getContext, onResize])
 
   // Set fullscreen on click
   useEffect(() => {
@@ -101,7 +101,7 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
     }
 
     const loop = (): void => {
-      if (paused) {
+      if (pausedRef.current) {
         loopCallbackID = window.setTimeout(loop, 128)
         return
       }
@@ -140,7 +140,7 @@ export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => 
         cancelAnimationFrame(loopCallbackID)
       }
     }
-  }, [ref])
+  }, [ref, getContext, onResize, animate, draw, frame, frameMilliseconds, init, props.canvasMethodRefs, ready])
 
   return <canvas ref={ref} {...rest} />
 }

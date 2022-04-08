@@ -194,7 +194,6 @@ export const JridOverlay: FunctionalComponent<JridOverlayProps> = (props: JridOv
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     const canvasEl = ref.current.base as HTMLCanvasElement
     let mouseDown = 0
-    let renderCallbackID: number
     const lastMousePosition = [0, 0]
     const lastTouch1Position = [-1, -1]
     const lastTouch2Position = [-1, -1]
@@ -511,7 +510,6 @@ export const JridOverlay: FunctionalComponent<JridOverlayProps> = (props: JridOv
     window.addEventListener('keydown', handleKeyDown)
 
     return (): void => {
-      window.cancelAnimationFrame(renderCallbackID)
       canvasEl.removeEventListener('mousedown', handleMouseDown)
       canvasEl.removeEventListener('mouseup', handleMouseUp)
       canvasEl.removeEventListener('contextmenu', handleContextMenu)

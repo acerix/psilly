@@ -30,6 +30,7 @@ import Lemnisgo from '../routes/art/lemnisgo'
 import Hyperbollick from '../routes/art/hyperbollick'
 import Vcock from '../routes/art/vcock'
 import Gravity from '../routes/art/gravity'
+import IBall from '../routes/art/iball'
 import CanvasTemplate from '../routes/art/canvas-template'
 import WebGLTemplate from '../routes/art/webgl-template'
 import Loading from '../routes/art/loading'
@@ -94,6 +95,7 @@ const App: FunctionalComponent = () => {
           <Hyperbollick path="/art/hyperbollick/" />
           <Vcock path="/art/vcock/" />
           <Gravity path="/art/gravity/" />
+          <IBall path="/art/iball/" />
           <EyeOfNewt path="/art/eye-of-newt/" />
           <CanvasTemplate path="/art/canvas-template/" />
           <WebGLTemplate path="/art/webgl-template/" />

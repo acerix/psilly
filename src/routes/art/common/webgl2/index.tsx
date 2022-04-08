@@ -1,5 +1,5 @@
 import { FunctionalComponent, createRef, h } from 'preact'
-import { useEffect } from 'preact/hooks'
+import { useEffect, useRef } from 'preact/hooks'
 
 type GetContextFunction = (webGL2: HTMLCanvasElement) => WebGL2RenderingContext
 
@@ -36,17 +36,17 @@ export const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => 
   const { getContext, init, ready, draw, onResize, framesPerSecond, ...rest } = props
   const frameMilliseconds = framesPerSecond ? 1000 / framesPerSecond : undefined
   const ref = createRef()
-  let paused = false
+  const pausedRef = useRef(false)
   let frame = 0
   
   // Pause animation when window is not focused
   useEffect(() => {
     const handleBlur = (): void => {
-      paused = true
+      pausedRef.current = true
     }
     window.addEventListener('blur', handleBlur)
     const handleFocus = (): void => {
-      paused = false
+      pausedRef.current = false
     }
     window.addEventListener('focus', handleFocus)
     return (): void => {
@@ -72,7 +72,7 @@ export const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => 
     return (): void => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [ref])
+  }, [ref, getContext, onResize])
 
   // Set fullscreen on click
   useEffect(() => {
@@ -104,7 +104,7 @@ export const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => 
     if (init) init(ctx)
 
     const render = (): void => {
-      if (paused) {
+      if (pausedRef.current) {
         loopCallbackID = window.setTimeout(render, 128)
         return
       }
@@ -134,7 +134,7 @@ export const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => 
       }
     }
 
-  }, [ref])
+  }, [ref, draw, frame, frameMilliseconds, getContext, init, ready])
 
   return <canvas ref={ref} {...rest} />
 }
