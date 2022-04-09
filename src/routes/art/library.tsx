@@ -131,7 +131,7 @@ const artworkLibrary: ArtworkLibrary = {
   },
   gravity: {
     path: 'gravity',
-    type: 'Art',
+    type: 'WIP',
     title: 'Gravity',
     created: '2022',
     medium: 'JavaScript on WebGLRenderingContext',
