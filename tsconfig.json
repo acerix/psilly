@@ -23,7 +23,10 @@
       "experimentalDecorators": true,
       "sourceMap": true,
       "removeComments": true,
-      "outDir": "./dist/tsc/"
+      "outDir": "./dist/tsc/",
+      "plugins": [
+        { "transform": "typescript-transform-react-jsx-source" }
+      ],
     },
     "include": ["src/**/*", "tests/**/*"],
     "exclude": ["node_modules"]

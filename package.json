@@ -53,6 +53,9 @@
   "devDependencies": {
     "@babel/core": "*",
     "@babel/eslint-parser": "*",
+    "@babel/plugin-transform-react-jsx-source": "*",
+    "@babel/preset-env": "*",
+    "@babel/preset-react": "*",
     "@types/dompurify": "*",
     "@types/enzyme": "*",
     "@types/jest": "*",
@@ -102,6 +105,11 @@
       "^react-dom/test-utils$": "preact/test-utils",
       "^react-dom$": "preact/compat",
       "^react/jsx-runtime$": "preact/jsx-runtime"
+    },
+    "globals": {
+      "ts-jest": {
+        "compiler": "ttypescript"
+      }
     }
   }
 }

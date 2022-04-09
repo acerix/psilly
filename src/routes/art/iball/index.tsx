@@ -122,6 +122,7 @@ const IBall: FunctionalComponent = () => {
       // lastMousePosition[0] = event.clientX
       // lastMousePosition[1] = event.clientY
     }
+    console.log(canvasEl)
     canvasEl.addEventListener('mousemove', handleMouseMove)
 
     const handleTouchMove = (event: TouchEvent): void => {
@@ -198,7 +199,7 @@ const IBall: FunctionalComponent = () => {
     <section class={style.canvas_frame}>
       <Helmet><title>{art.title}</title></Helmet>
       <div class="d-none"><ArtPlaque art={art} /></div>
-      <LoadingScreen />
+      {process.env.NODE_ENV === 'production' && <LoadingScreen />}
       <Canvas ref={ref} init={init} onResize={init} draw={draw} />
     </section>
   )
