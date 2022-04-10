@@ -148,7 +148,7 @@ const IBall: FunctionalComponent = () => {
     const detectFace = async () => {
       const result = await faceapi.detectSingleFace(cam, faceapiOptions)
       if (typeof result !== 'undefined') {
-        attractorZDiv = 2
+        attractorZDiv = 65536/result.box.area
         eyeAttracter[0] = (canvasCenter[0] - result.box.x / CAMERA_WIDTH * canvasCenter[0]) * 2
         eyeAttracter[1] = result.box.y / CAMERA_HEIGHT * canvasCenter[1] * 2
       }
