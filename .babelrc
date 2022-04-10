@@ -1,8 +1,5 @@
 {
     "presets": [ 
         "preact-cli/babel"
-    ],
-    "plugins": [ 
-        "@babel/plugin-transform-react-jsx-source"
     ]
 }

@@ -206,6 +206,22 @@ module.exports = async function () {
       medium: 'JavaScript on CanvasRenderingContext2D',
       description: 'A colourful veacock in balls.'
     },
+    gravity: {
+      path: 'gravity',
+      type: 'WIP',
+      title: 'Gravity',
+      created: '2022',
+      medium: 'JavaScript on WebGLRenderingContext',
+      description: 'I hope you understand the gravity of this situation.'
+    },
+    iball: {
+      path: 'iball',
+      type: 'Art',
+      title: 'iBall',
+      created: '2022',
+      medium: 'JavaScript on WebGLRenderingContext',
+      description: 'Beauty is in the I of the ball holder.'
+    },
     'canvas-template': {
       path: 'canvas-template',
       type: 'Template',

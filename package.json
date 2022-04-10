@@ -53,9 +53,7 @@
   "devDependencies": {
     "@babel/core": "*",
     "@babel/eslint-parser": "*",
-    "@babel/plugin-transform-react-jsx-source": "*",
-    "@babel/preset-env": "*",
-    "@babel/preset-react": "*",
+    "@tensorflow/tfjs-core": "*",
     "@types/dompurify": "*",
     "@types/enzyme": "*",
     "@types/jest": "*",
@@ -65,6 +63,7 @@
     "beepody": "*",
     "core-js": "*",
     "critters": "*",
+    "encoding": "*",
     "enzyme": "*",
     "enzyme-adapter-preact-pure": "*",
     "eslint": "*",
@@ -111,5 +110,13 @@
         "compiler": "ttypescript"
       }
     }
+  },
+  "dependencies": {
+    "face-api.js": "*"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

@@ -69,31 +69,31 @@ const Gravity: FunctionalComponent = () => {
     const vertexPositions = []
 
     for (let latNumber=0; latNumber <= latitudeBands; latNumber++) {
-        const theta = latNumber * Math.PI / latitudeBands
-        const sinTheta = Math.sin(theta)
-        const cosTheta = Math.cos(theta)
+      const theta = latNumber * Math.PI / latitudeBands
+      const sinTheta = Math.sin(theta)
+      const cosTheta = Math.cos(theta)
 
-        for (let longNumber=0; longNumber <= longitudeBands; longNumber++) {
-            const phi = longNumber * 2 * Math.PI / longitudeBands
-            const sinPhi = Math.sin(phi)
-            const cosPhi = Math.cos(phi)
+      for (let longNumber=0; longNumber <= longitudeBands; longNumber++) {
+        const phi = longNumber * 2 * Math.PI / longitudeBands
+        const sinPhi = Math.sin(phi)
+        const cosPhi = Math.cos(phi)
 
-            const x = cosPhi * sinTheta
-            const y = cosTheta
-            const z = sinPhi * sinTheta
-            const u = 1 - (longNumber / longitudeBands)
-            const v = 1 - (latNumber / latitudeBands)
+        const x = cosPhi * sinTheta
+        const y = cosTheta
+        const z = sinPhi * sinTheta
+        const u = 1 - (longNumber / longitudeBands)
+        const v = 1 - (latNumber / latitudeBands)
 
-            normals.push(x)
-            normals.push(y)
-            normals.push(z)
-            textureCoords.push(u)
-            textureCoords.push(v)
-            vertexPositions.push(radius * x)
-            vertexPositions.push(radius * y)
-            vertexPositions.push(radius * z)
+        normals.push(x)
+        normals.push(y)
+        normals.push(z)
+        textureCoords.push(u)
+        textureCoords.push(v)
+        vertexPositions.push(radius * x)
+        vertexPositions.push(radius * y)
+        vertexPositions.push(radius * z)
 
-        }
+      }
     }
 
     const vertexTextureCoordBuffer = gl.createBuffer()
@@ -103,7 +103,7 @@ const Gravity: FunctionalComponent = () => {
     // vertexTextureCoordBuffer.numItems = textureCoords.length / 2
 
     //const vertexPositionBuffer = gl.createBuffer()
-    gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositions)
+    // gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositions)
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexPositions), gl.STATIC_DRAW)
     // vertexPositionBuffer.itemSize = 3
     // vertexPositionBuffer.numItems = vertexPositions.length / 3

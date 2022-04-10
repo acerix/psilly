@@ -6,14 +6,16 @@ import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 import LoadingScreen from '../common/loading-screen'
 import { useEffect } from 'preact/hooks'
+//import * as faceapi from 'face-api.js'
 
-const SCLERA_RADIUS = 16
-const PUPIL_RADIUS = 12
-const PUPIL_TRAVEL_DISTANCE = SCLERA_RADIUS - PUPIL_RADIUS
+const SCLERA_RADIUS = 32
+const PUPIL_RADIUS = 24
+const PUPIL_TRAVEL_DISTANCE = 6
 const TAU = 2*Math.PI
 
 const IBall: FunctionalComponent = () => {
   const ref = createRef()
+  const videoRef = createRef()
   const canvasCenter = [0, 0]
   const eyeAttracter = [0, 0]
   const resolution = [19, 10]
@@ -35,7 +37,7 @@ const IBall: FunctionalComponent = () => {
     }
   }
 
-  const draw = (ctx: CanvasRenderingContext2D, frameCount: number): void => {
+  const draw = (ctx: CanvasRenderingContext2D): void => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     for (const [x, y] of eyes) {
       const p = [
@@ -80,6 +82,7 @@ const IBall: FunctionalComponent = () => {
   }
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     const canvasEl = ref.current.base as HTMLCanvasElement
 
     const handleMouseMove = (event: MouseEvent): void => {
@@ -89,7 +92,6 @@ const IBall: FunctionalComponent = () => {
     canvasEl.addEventListener('mousemove', handleMouseMove)
 
     const handleTouchMove = (event: TouchEvent): void => {
-
       eyeAttracter[0] = event.touches[0].pageX
       eyeAttracter[1] = event.touches[0].pageY
     }
@@ -100,7 +102,56 @@ const IBall: FunctionalComponent = () => {
       canvasEl.removeEventListener('touchmove', handleTouchMove)
     }
 
-  }, [ref])
+  }, [ref]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  /*
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    const cam = videoRef.current as HTMLVideoElement
+    if (typeof window === 'undefined') return
+
+    const faceapiOptions = new faceapi.TinyFaceDetectorOptions({ inputSize: 160, scoreThreshold: 0.5 })
+    const detectionNet = faceapi.nets.tinyFaceDetector
+    const FACE_WEIGHTS_PATH = 'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+    const CAMERA_WIDTH = 640
+    const CAMERA_HEIGHT = 480
+    
+    const loadNet = async () => {
+      await detectionNet.load(FACE_WEIGHTS_PATH)
+      return detectionNet
+    }
+
+    const initCamera = async (width: number, height: number) => {
+      cam.width = width
+      cam.height = height
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {
+          facingMode: 'user',
+          width: width,
+          height: height
+        }
+      })
+      cam.srcObject = stream
+      return new Promise((resolve) => {
+        cam.onloadedmetadata = () => {
+          resolve(cam)
+        }
+      })
+    }
+
+    const detectFace = async () => {
+      const result = await faceapi.detectSingleFace(cam, faceapiOptions)
+      if (typeof result !== 'undefined') {
+        eyeAttracter[0] = (canvasCenter[0] - result.box.x / CAMERA_WIDTH * canvasCenter[0]) * 2
+        eyeAttracter[1] = result.box.y / CAMERA_HEIGHT * canvasCenter[1] * 2
+      }
+      detectFace()
+    }
+
+    loadNet().then(() => { return initCamera(CAMERA_WIDTH, CAMERA_HEIGHT) }).then(detectFace)
+  }, [videoRef]) // eslint-disable-line react-hooks/exhaustive-deps
+  */
 
   const art: Artwork = artworkLibrary['iball']
   return (
@@ -109,6 +160,7 @@ const IBall: FunctionalComponent = () => {
       <div class="d-none"><ArtPlaque art={art} /></div>
       {process.env.NODE_ENV === 'production' && <LoadingScreen />}
       <Canvas ref={ref} init={init} onResize={init} draw={draw} />
+      <video ref={videoRef} autoPlay muted playsInline />
     </section>
   )
 }
