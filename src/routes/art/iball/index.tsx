@@ -6,7 +6,7 @@ import artworkLibrary from '../library'
 import style from '../canvas-template/style.css'
 import LoadingScreen from '../common/loading-screen'
 import { useEffect } from 'preact/hooks'
-//import * as faceapi from 'face-api.js'
+import * as faceapi from 'face-api.js' // @todo fix error on build... for now, just found "e.replace(" in "node_modules/face-api.js/node_modules/@tensorflow/tfjs-core/dist/tf-core.esm.js" and replaced "e" with an empty string
 
 const SCLERA_RADIUS = 32
 const PUPIL_RADIUS = 24
@@ -104,7 +104,6 @@ const IBall: FunctionalComponent = () => {
 
   }, [ref]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  /*
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     const cam = videoRef.current as HTMLVideoElement
@@ -112,7 +111,8 @@ const IBall: FunctionalComponent = () => {
 
     const faceapiOptions = new faceapi.TinyFaceDetectorOptions({ inputSize: 160, scoreThreshold: 0.5 })
     const detectionNet = faceapi.nets.tinyFaceDetector
-    const FACE_WEIGHTS_PATH = 'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+    // const FACE_WEIGHTS_PATH = 'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+    const FACE_WEIGHTS_PATH = '/static/face-weights'
     const CAMERA_WIDTH = 640
     const CAMERA_HEIGHT = 480
     
@@ -151,7 +151,6 @@ const IBall: FunctionalComponent = () => {
 
     loadNet().then(() => { return initCamera(CAMERA_WIDTH, CAMERA_HEIGHT) }).then(detectFace)
   }, [videoRef]) // eslint-disable-line react-hooks/exhaustive-deps
-  */
 
   const art: Artwork = artworkLibrary['iball']
   return (

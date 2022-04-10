@@ -50,6 +50,9 @@
       "build/"
     ]
   },
+  "dependencies": {
+    "face-api.js": "*"
+  },
   "devDependencies": {
     "@babel/core": "*",
     "@babel/eslint-parser": "*",
@@ -104,19 +107,6 @@
       "^react-dom/test-utils$": "preact/test-utils",
       "^react-dom$": "preact/compat",
       "^react/jsx-runtime$": "preact/jsx-runtime"
-    },
-    "globals": {
-      "ts-jest": {
-        "compiler": "ttypescript"
-      }
     }
-  },
-  "dependencies": {
-    "face-api.js": "*"
-  },
-  "browser": {
-    "fs": false,
-    "path": false,
-    "os": false
   }
 }
