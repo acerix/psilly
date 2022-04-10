@@ -43,6 +43,12 @@ main {
   height: 100%;
 }
 
+/* fix cam capture in iball */
+.canvas_frame__PZiEk > video {
+  position: absolute;
+  visibility: hidden;
+}
+
 .art_plaque__pvvej {
   display: none;
 }
@@ -143,4 +149,4 @@ main {
 }
 
 
-/*# sourceMappingURL=ssr-bundle.e4b8b.css.map*/
+/*# sourceMappingURL=ssr-bundle.163a0.css.map*/
