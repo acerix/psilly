@@ -60,7 +60,26 @@ const App: FunctionalComponent = () => {
         link={[
           {rel: "canonical", href: "https://psilly.com/"},
         ]}
-      />
+      >
+        <script type="application/ld+json">{`
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Psilly",
+            "legalName" : "Psilly Corporation",
+            "url": "https://psilly.com",
+            "logo": "https://psilly.com/assets/Psilly.png",
+            "foundingDate": "2006",
+            "founders": [
+              {
+              "@type": "Person",
+              "name": "Dylan Ferris"
+              }
+            ],
+            "email": "dylan@psilly.com"
+        }
+    `}</script>
+      </Helmet>
       <Header />
       <main>
         <Sequins />
