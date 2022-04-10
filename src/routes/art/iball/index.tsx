@@ -128,8 +128,8 @@ const IBall: FunctionalComponent = () => {
         audio: false,
         video: {
           facingMode: 'user',
-          width: width,
-          height: height
+          width,
+          height
         }
       })
       cam.srcObject = stream
@@ -146,10 +146,10 @@ const IBall: FunctionalComponent = () => {
         eyeAttracter[0] = (canvasCenter[0] - result.box.x / CAMERA_WIDTH * canvasCenter[0]) * 2
         eyeAttracter[1] = result.box.y / CAMERA_HEIGHT * canvasCenter[1] * 2
       }
-      detectFace()
+      void detectFace()
     }
 
-    loadNet().then(() => { return initCamera(CAMERA_WIDTH, CAMERA_HEIGHT) }).then(detectFace)
+    void loadNet().then(() => { return initCamera(CAMERA_WIDTH, CAMERA_HEIGHT) }).then(detectFace)
   }, [videoRef]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const art: Artwork = artworkLibrary['iball']
