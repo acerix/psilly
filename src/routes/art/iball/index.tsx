@@ -111,8 +111,7 @@ const IBall: FunctionalComponent = () => {
 
     const faceapiOptions = new faceapi.TinyFaceDetectorOptions({ inputSize: 160, scoreThreshold: 0.5 })
     const detectionNet = faceapi.nets.tinyFaceDetector
-    // const FACE_WEIGHTS_PATH = 'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
-    const FACE_WEIGHTS_PATH = '/static/face-weights'
+    const FACE_WEIGHTS_PATH = '/assets/face-weights' // 'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
     const CAMERA_WIDTH = 640
     const CAMERA_HEIGHT = 480
     
