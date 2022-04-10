@@ -109,8 +109,11 @@ const IBall: FunctionalComponent = () => {
     const cam = videoRef.current as HTMLVideoElement
     if (typeof window === 'undefined') return
 
-    const faceapiOptions = new faceapi.TinyFaceDetectorOptions({ inputSize: 160, scoreThreshold: 0.5 })
-    const detectionNet = faceapi.nets.tinyFaceDetector
+    // const faceapiOptions = new faceapi.TinyFaceDetectorOptions({ inputSize: 128, scoreThreshold: 0.5 })
+    // const detectionNet = faceapi.nets.tinyFaceDetector
+    const faceapiOptions = new faceapi.SsdMobilenetv1Options({ minConfidence: 0.5 })
+    const detectionNet = faceapi.nets.ssdMobilenetv1
+    
     const FACE_WEIGHTS_PATH = '/assets/face-weights' // 'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
     const CAMERA_WIDTH = 640
     const CAMERA_HEIGHT = 480
@@ -127,8 +130,8 @@ const IBall: FunctionalComponent = () => {
         audio: false,
         video: {
           facingMode: 'user',
-          width,
-          height
+          width: width,
+          height: height
         }
       })
       cam.srcObject = stream
@@ -157,8 +160,8 @@ const IBall: FunctionalComponent = () => {
       <Helmet><title>{art.title}</title></Helmet>
       <div class="d-none"><ArtPlaque art={art} /></div>
       {process.env.NODE_ENV === 'production' && <LoadingScreen />}
-      <Canvas ref={ref} init={init} onResize={init} draw={draw} />
       <video ref={videoRef} autoPlay muted playsInline />
+      <Canvas ref={ref} init={init} onResize={init} draw={draw} />
     </section>
   )
 }

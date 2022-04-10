@@ -15,6 +15,12 @@
   height: 100%;
 }
 
+/* fix cam capture in iball */
+.canvas_frame > video {
+  position: absolute;
+  visibility: hidden;
+}
+
 .art_plaque {
   display: none;
 }
