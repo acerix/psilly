@@ -20,6 +20,7 @@ const IBall: FunctionalComponent = () => {
   const eyeAttracter = [0, 0]
   const resolution = [19, 10]
   const eyes: number[][] = []
+  let attractorZDiv = 1
 
   const init = (ctx: CanvasRenderingContext2D): void => {
     eyeAttracter[0] = canvasCenter[0] = ctx.canvas.width/2
@@ -64,7 +65,7 @@ const IBall: FunctionalComponent = () => {
       ]
       const attractorDistance = Math.sqrt(lookOffset[0]**2 + lookOffset[1]**2)
       if (attractorDistance > PUPIL_TRAVEL_DISTANCE) {
-        const dv = PUPIL_TRAVEL_DISTANCE / attractorDistance
+        const dv = PUPIL_TRAVEL_DISTANCE / attractorDistance / attractorZDiv
         lookOffset[0] *= dv
         lookOffset[1] *= dv
       }
@@ -86,12 +87,14 @@ const IBall: FunctionalComponent = () => {
     const canvasEl = ref.current.base as HTMLCanvasElement
 
     const handleMouseMove = (event: MouseEvent): void => {
+      attractorZDiv = 1
       eyeAttracter[0] = event.clientX
       eyeAttracter[1] = event.clientY
     }
     canvasEl.addEventListener('mousemove', handleMouseMove)
 
     const handleTouchMove = (event: TouchEvent): void => {
+      attractorZDiv = 1
       eyeAttracter[0] = event.touches[0].pageX
       eyeAttracter[1] = event.touches[0].pageY
     }
@@ -145,6 +148,7 @@ const IBall: FunctionalComponent = () => {
     const detectFace = async () => {
       const result = await faceapi.detectSingleFace(cam, faceapiOptions)
       if (typeof result !== 'undefined') {
+        attractorZDiv = 2
         eyeAttracter[0] = (canvasCenter[0] - result.box.x / CAMERA_WIDTH * canvasCenter[0]) * 2
         eyeAttracter[1] = result.box.y / CAMERA_HEIGHT * canvasCenter[1] * 2
       }
