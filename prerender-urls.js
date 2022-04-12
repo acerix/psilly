@@ -220,7 +220,7 @@ module.exports = async function () {
       title: 'iBall',
       created: '2022',
       medium: 'JavaScript on WebGLRenderingContext',
-      description: 'Beauty is in the I of the ball holder.'
+      description: 'Booty is in the I of the ball holder.'
     },
     'canvas-template': {
       path: 'canvas-template',
