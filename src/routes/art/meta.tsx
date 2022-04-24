@@ -48,7 +48,7 @@ export const ArtPlaque: FunctionalComponent<ArtPlaqueProps> = (props: ArtPlaqueP
       </h5>
       <p class="card-text"><strong>{art.medium}</strong></p>
       <p class="card-text">{art.description}</p>
-      <p class="card-text"><a href={`//github.com/acerix/psilly/tree/main/src/routes/art/${art.path}`} title="Source Code on GitHub">&lt;sauce/&gt;</a></p>
+      <p class="card-text"><a href={`https://github.com/acerix/psilly/tree/main/src/routes/art/${art.path}`} title="Source code on GitHub">&lt;sauce/&gt;</a></p>
     </div>
     <noscript><p>This art requires JavaScript.</p></noscript>
   </div>

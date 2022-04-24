@@ -71,7 +71,7 @@ const Terms: FunctionalComponent = () => {
 
       <p><strong>Term and Termination.</strong> Subject to this Section, these Terms will remain in full force and effect while you use the Site. We may suspend or terminate your rights to use the Site at any time for any reason at our sole discretion, including for any use of the Site in violation of these Terms. Upon termination of your rights under these Terms, your Account and right to access and use the Site will terminate immediately. You understand that any termination of your Account may involve deletion of your User Content associated with your Account from our live databases. Company will not have any liability whatsoever to you for any termination of your rights under these Terms. Even after your rights under these Terms are terminated, the following provisions of these Terms will remain in effect: Sections 2 through 2.5, Section 3 and Sections 4 through 10.</p>
 
-      <h2>Copyright Policy.</h2>
+      <h2>Copyright Policy</h2>
 
       <p>Company respects the intellectual property of others and asks that users of our Site do the same. In connection with our Site, we have adopted and implemented a policy respecting copyright law that provides for the removal of any infringing materials and for the termination of users of our online Site who are repeated infringers of intellectual property rights, including copyrights. If you believe that one of our users is, through the use of our Site, unlawfully infringing the copyright(s) in a work, and wish to have the allegedly infringing material removed, the following information in the form of a written notification (pursuant to 17 U.S.C. § 512(c)) must be provided to our designated Copyright Agent:</p>
 
@@ -137,8 +137,6 @@ const Terms: FunctionalComponent = () => {
       <p><strong>Copyright/Trademark Information.</strong> Copyright ©. All rights reserved. All trademarks, logos and service marks displayed on the Site are our property or the property of other third-parties. You are not permitted to use these Marks without our prior written consent or the consent of such third party which may own the Marks.</p>
 
       <h2>Contact Information</h2>
-
-      <p>Address: 122 Barrette Street, Ottawa, ON, Canada</p>
       <p>Email: <a href="mailto:info@psilly.com">info@psilly.com</a></p>
     </section>
   )
