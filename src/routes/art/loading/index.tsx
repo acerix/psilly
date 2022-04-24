@@ -22,7 +22,10 @@ const Loading: FunctionalComponent = () => {
   const art: Artwork = artworkLibrary['canvas-template']
   return (
     <section class={style.canvas_frame}>
-      <Helmet><title>{art.title}</title></Helmet>
+      <Helmet>
+        <title>{art.title}</title>
+        <meta name="description" content={art.description} />
+      </Helmet>
       <div class="d-none"><ArtPlaque art={art} /></div>
       <LoadingScreen />
       <Canvas draw={draw} />

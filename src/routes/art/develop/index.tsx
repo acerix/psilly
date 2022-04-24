@@ -71,7 +71,10 @@ const Develop: FunctionalComponent = () => {
   const art: Artwork = artworkLibrary['develop']
   return (
     <section class={style.canvas_frame}>
-      <Helmet><title>{art.title}</title></Helmet>
+      <Helmet>
+        <title>{art.title}</title>
+        <meta name="description" content={art.description} />
+      </Helmet>
       <div class="d-none"><ArtPlaque art={art} /></div>
       <Canvas init={init} onResize={init} draw={draw} />
     </section>

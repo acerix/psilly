@@ -161,7 +161,10 @@ const Quadingle: FunctionalComponent = () => {
   const art: Artwork = artworkLibrary['quadingle']
   return (
     <section class={style.canvas_frame}>
-      <Helmet><title>{art.title}</title></Helmet>
+      <Helmet>
+        <title>{art.title}</title>
+        <meta name="description" content={art.description} />
+      </Helmet>
       <div class="d-none"><ArtPlaque art={art} /></div>
       <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" id="shaders" aria-labelledby="shadersLabel">
         <div class="offcanvas-header">

@@ -42,7 +42,10 @@ const GoldenAngleDonut: FunctionalComponent = () => {
   return (
     <section class={style.canvas_frame}>
       <Canvas init={init} draw={draw} onResize={onResize} />
-      <Helmet><title>{art.title}</title></Helmet>
+      <Helmet>
+        <title>{art.title}</title>
+        <meta name="description" content={art.description} />
+      </Helmet>
       <div class="d-none"><ArtPlaque art={art} /></div>
       <ParameterPanel something={69} />
     </section>
