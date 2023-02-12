@@ -1,0 +1,7 @@
+# Adding Art
+
+1. Make a copy of an existing directory in /routes/art/ as a template, eg. "canvas-template"
+1. Update Artwork in the new ./index.tsx to the new path
+1. Add to /routes/art/library.tsx
+1. Add to /src/components/app.tsx
+1. Save screenshot in /assets/art/thumbnails/
