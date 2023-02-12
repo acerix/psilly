@@ -1,8 +1,7 @@
+.cache
 node_modules
-/build
-/coverage
-/*.log
-/.idea
-/size-plugin.json
-/stats.json
+dist
+stats.html
+coverage
+.yarn
 

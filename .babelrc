@@ -1,6 +1,0 @@
-{
-    "compact": true,
-    "presets": [ 
-        "preact-cli/babel"
-    ]
-}
