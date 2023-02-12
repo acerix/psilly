@@ -1,5 +1,4 @@
 import { createRef, FunctionalComponent } from 'preact'
-import Helmet from 'react-helmet'
 import WebGL2 from '../common/webgl2'
 import { ArtPlaque, Artwork } from '../meta'
 import artworkLibrary from '../library'
@@ -28,7 +27,7 @@ import GridOverlay from '../common/grid-overlay'
 // }
 
 // function conj(a) {
-//   return {re:a.re, im:-a.im};  
+//   return {re:a.re, im:-a.im};
 // }
 
 // function Norm(a) {
@@ -68,7 +67,6 @@ import GridOverlay from '../common/grid-overlay'
 // function copy(z) {
 //   return {re:z.re, im:z.im};
 // }
-
 
 const initShader = (
   gl: WebGL2RenderingContext,
