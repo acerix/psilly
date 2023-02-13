@@ -162,5 +162,5 @@ export function App() {
 hydrate(<App />)
 
 export async function prerender(data) {
-	return await ssr(<App {...data} />);
+  return await ssr(<App {...data} />)
 }

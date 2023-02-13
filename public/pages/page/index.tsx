@@ -5,10 +5,6 @@ import Now from '../art/common/now'
 import Unfinity from '../art/unfinity'
 import NotFound from '../_404.js'
 
-function atob(s: string) {
-  return Buffer.from(s, 'base64').toString()
-}
-
 const cms = {
   'talk': (
     <Fragment>

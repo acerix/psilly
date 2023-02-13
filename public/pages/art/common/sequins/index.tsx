@@ -1,6 +1,12 @@
 import { FunctionalComponent, createRef } from 'preact'
 import { useEffect } from 'preact/hooks'
 
+if (typeof atob === 'undefined') {
+  global.atob = function (b64Encoded) {
+    return new Buffer(b64Encoded, 'base64').toString('binary')
+  }
+}
+
 type SuccessFunction = (element: HTMLElement) => void
 
 interface SequinsProps {
@@ -17,10 +23,9 @@ const Sequins: FunctionalComponent<SequinsProps> = (props: SequinsProps) => {
     const success =
       props?.success ||
       function (element: HTMLElement): void {
-        element.innerHTML = Buffer.from(
+        element.innerHTML = atob(
           'PGRpdiBjbGFzcz0iYWxlcnQgYWxlcnQtc3VjY2VzcyB0ZXh0LWRhcmsgbXktMiBteC00IiByb2xlPSJhbGVydCI+R29kIG1vZGUgZW5hYmxlZDwvZGl2Pg==',
-          'base64',
-        ).toString()
+        )
         window.scrollTo(0, 0)
         window.setTimeout(() => {
           element.innerHTML = ''

@@ -12,118 +12,172 @@ const Experiments: FunctionalComponent = () => {
       </p>
       <h2>Index of /experiments/</h2>
       <div class="list-group">
-        <a class="list-group-item list-group-item-action" href="../">
+        <a class="list-group-item list-group-item-action" href="/experiments/">
           ../
         </a>
-        <a class="list-group-item list-group-item-action" href="ajax/">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/ajax/">
           ajax/
         </a>
-        <a class="list-group-item list-group-item-action" href="colourfolium/">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/colourfolium/">
           colourfolium/
         </a>
-        <a class="list-group-item list-group-item-action" href="lib/">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/lib/">
           lib/
         </a>
-        <a class="list-group-item list-group-item-action" href="old/">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/old/">
           old/
         </a>
-        <a class="list-group-item list-group-item-action" href="LICENSE.txt">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/LICENSE.txt">
           LICENSE.txt
         </a>
-        <a class="list-group-item list-group-item-action" href="atoms.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/atoms.html">
           atoms.html
         </a>
-        <a class="list-group-item list-group-item-action" href="bouncer.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/bouncer.html">
           bouncer.html
         </a>
-        <a class="list-group-item list-group-item-action" href="breathe.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/breathe.html">
           breathe.html
         </a>
-        <a class="list-group-item list-group-item-action" href="chatter.pill">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/chatter.pill">
           chatter.pill
         </a>
-        <a class="list-group-item list-group-item-action" href="circle.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/circle.html">
           circle.html
         </a>
-        <a class="list-group-item list-group-item-action" href="evolve.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/evolve.html">
           evolve.html
         </a>
         <a
           class="list-group-item list-group-item-action"
-          href="evolve.oak.html">
+          href="/experiments/evolve.oak.html">
           evolve.oak.html
         </a>
-        <a class="list-group-item list-group-item-action" href="flame.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/flame.html">
           flame.html
         </a>
-        <a class="list-group-item list-group-item-action" href="glitch.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/glitch.html">
           glitch.html
         </a>
         <a
           class="list-group-item list-group-item-action"
-          href="golden_angle.html">
+          href="/experiments/golden_angle.html">
           golden_angle.html
         </a>
-        <a class="list-group-item list-group-item-action" href="gravity.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/gravity.html">
           gravity.html
         </a>
         <a
           class="list-group-item list-group-item-action"
-          href="lemniscate.html">
+          href="/experiments/lemniscate.html">
           lemniscate.html
         </a>
-        <a class="list-group-item list-group-item-action" href="mandledot.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/mandledot.html">
           mandledot.html
         </a>
-        <a class="list-group-item list-group-item-action" href="meld.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/meld.html">
           meld.html
         </a>
-        <a class="list-group-item list-group-item-action" href="mitosis.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/mitosis.html">
           mitosis.html
         </a>
-        <a class="list-group-item list-group-item-action" href="morse.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/morse.html">
           morse.html
         </a>
-        <a class="list-group-item list-group-item-action" href="phuzzy.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/phuzzy.html">
           phuzzy.html
         </a>
         <a
           class="list-group-item list-group-item-action"
-          href="polygons.7.html">
+          href="/experiments/polygons.7.html">
           polygons.7.html
         </a>
-        <a class="list-group-item list-group-item-action" href="polygons.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/polygons.html">
           polygons.html
         </a>
-        <a class="list-group-item list-group-item-action" href="pvnp.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/pvnp.html">
           pvnp.html
         </a>
-        <a class="list-group-item list-group-item-action" href="ratsynth.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/ratsynth.html">
           ratsynth.html
         </a>
-        <a class="list-group-item list-group-item-action" href="reboot.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/reboot.html">
           reboot.html
         </a>
-        <a class="list-group-item list-group-item-action" href="roots.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/roots.html">
           roots.html
         </a>
-        <a class="list-group-item list-group-item-action" href="sierp.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/sierp.html">
           sierp.html
         </a>
-        <a class="list-group-item list-group-item-action" href="static.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/static.html">
           static.html
         </a>
         <a
           class="list-group-item list-group-item-action"
-          href="tone_roller.html">
+          href="/experiments/tone_roller.html">
           tone_roller.html
         </a>
         <a
           class="list-group-item list-group-item-action"
-          href="wedge_tree.html">
+          href="/experiments/wedge_tree.html">
           wedge_tree.html
         </a>
-        <a class="list-group-item list-group-item-action" href="world.html">
+        <a
+          class="list-group-item list-group-item-action"
+          href="/experiments/world.html">
           world.html
         </a>
       </div>
