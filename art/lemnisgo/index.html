@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Psilly</title>
+		<meta name="description" content="An online community dedicated to psychedelic research, therapy, harm-reduction, and advocacy.">
+		<meta name="keywords" content="psilly, trippy, shroom, psychedelic">
+		<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@latest/dist/vapor/bootstrap.min.css" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/style.5840245b.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="modulepreload" as="script" href="/index.25f5c5b6.js">
+		<link rel="manifest" href="/manifest.json">
+		<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VLN98NDFY1"></script>
+		<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-VLN98NDFY1')</script>
+	</head>
+	<body><div class="app"><header><nav class="navbar navbar-expand-lg navbar-dark bg-dark"><div class="container"><a class="navbar-brand" href="/">Psilly.com <span role="img" aria-label="psychedelic mushroom">🍄</span></a><span class="navbar-text text-white">Relax, get psilly...</span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="nav-menu"><ul class="navbar-nav ms-auto"><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="https://puff.psilly.com/login">Login</a></li><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/art/">Art</a></li><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/listen/">Listen</a></li><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/watch/">Watch</a></li><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/read/">Read</a></li><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/play/">Play</a></li><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/talk/">Talk</a></li><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/chat/">Chat</a></li><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/jam/">Jam</a></li><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/faq/">FAQ</a></li><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/about/">About</a></li><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/contact/">Contact</a></li></ul></div></div></nav></header><main><div></div><section class="canvas_frame_1s2dhpy"><div class="d-none"><div class="card art_plaque"><a href="/art/lemnisgo/" aria-label="Experience"><picture><source srcset="/assets/art/thumbnails/lemnisgo.webp" type="image/webp" /><source srcset="/assets/art/thumbnails/lemnisgo.png" type="image/png" /><img src="/assets/art/thumbnails/lemnisgo.png" class="card-img-top" alt="Preview of Lem nis go!" /></picture></a><div class="card-body"><h5 class="card-title"><strong><em>Lem nis go!</em></strong>, 2021</h5><p class="card-text"><strong>JavaScript on WebGLRenderingContext</strong></p><p class="card-text">Sometimes lemn is moiré. Lem nis skate or lem nis go!</p><p class="card-text"><a href="https://github.com/acerix/psilly/tree/main/src/routes/art/lemnisgo" title="Source code on GitHub">&lt;sauce/&gt;</a></p></div><noscript><p>This art requires JavaScript.</p></noscript></div></div><div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" id="shaders" aria-labelledby="shadersLabel"><div class="offcanvas-header"><h5 class="offcanvas-title" id="shadersLabel">Shaders</h5><button type="button" class="btn-close text-reset" data-bs-dismiss="parameterPanel" aria-label="Close"></button></div><div class="offcanvas-body"><form><div class="mb-3"><label for="vertexShader">Vertex Shader</label><textarea class="form-control" id="vertexShader" rows="6">#version 300 es
+in vec2 a_position;
+in vec4 a_color;
+out vec4 v_color;
+
+void main(void) {
+  gl_Position = vec4(a_position, 0.0, 1.0);
+  v_color = a_color;
+}
+</textarea></div><div class="mb-3"><label for="fragmentShader">Fragment Shader</label><textarea class="form-control" id="fragmentShader" rows="20">#version 300 es
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+
+uniform float u_time;
+uniform vec2 u_translate;
+uniform vec2 u_scale;
+out vec4 fragmentColor;
+
+void main() {
+  float x = ( gl_FragCoord.x + u_translate.x ) * u_scale.x;
+  float y = ( gl_FragCoord.y + u_translate.y ) * u_scale.y;
+  float x2 = x*x;
+  float y2 = y*y;
+
+  // lemniscate of bernoulli (0 = -2x² + x⁴ + 2y² + 2x²y² + y⁴)
+  float z = -2.0*x2 + x2*x2 + 2.0*y2 + 2.0*x2*y2 + y2*y2;
+
+  fragmentColor.r = mod(z + u_time / 43.0, 1.0);
+  fragmentColor.g = z &lt; 1.0 ? z : 1.0 / z;
+  fragmentColor.b = mod(z - u_time / 73.0, 1.0);
+}
+</textarea></div></form></div></div><div style="display:none;"><div class="grid_overlay_d7zdhq"><canvas canvasMethodRefs="[object Object]"></canvas></div></div><canvas></canvas></section></main><footer class="footer text-muted py-3 mt-5"><div class="container"><div class="row"><div class="col-md-6"><p class="mb-2">© <time id="copyright-year">2023</time> <a class="text-muted text-decoration-none" href="/about/">Psilly Corporation</a>. Psilly™ is a trademark of <a class="text-muted text-decoration-none" href="/about/">Psilly Corporation</a>. All rights reserved.</p></div><div class="col-md-6"><p class="float-end mb-2"><a class="text-muted text-decoration-none me-2" href="/terms/" title="Website Terms of Use">Terms</a><a class="text-muted text-decoration-none me-2" href="/privacy/" title="Privacy Policy">Privacy</a><a class="text-muted text-decoration-none me-2" href="https://github.com/acerix/psilly" target="_blank" rel="noreferrer" title="Source Code on GitHub" role="img" aria-label="Cat face in HTML source code tag">&lt;🐱/&gt;</a><a class="text-muted text-decoration-none me-2" href="https://www.reddit.com/r/psilly/" target="_blank" rel="noreferrer" title="/r/psilly on Reddit" role="img" aria-label="Extraterrestrial being">👽</a><a class="text-muted text-decoration-none me-2" href="https://twitter.com/Psilly13" target="_blank" rel="noreferrer" title="@Psilly13 on Twitter" role="img" aria-label="Generic bird">🐦</a><a class="text-muted text-decoration-none me-2" href="https://facebook.com/PsillyCorp" target="_blank" rel="noreferrer" title="@PsillyCorp on facebook" role="img" aria-label="Old face">🗿</a><a class="text-muted text-decoration-none" href="https://www.youtube.com/channel/UCNYwYcc65kItw98wcqU0-Gg" target="_blank" rel="noreferrer" title="Psilly on YouTube" role="img" aria-label="A day-dream stimulation">📺</a></p></div></div></div></footer></div><script type="isodata"></script>
+		<script type="module" src="/index.25f5c5b6.js"></script>
+	</body>
+</html>
