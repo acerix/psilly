@@ -161,6 +161,9 @@ export function App() {
 
 hydrate(<App />)
 
+/**
+ * @param {import("preact").JSX.IntrinsicAttributes} data
+ */
 export async function prerender(data) {
   return await ssr(<App {...data} />)
 }
