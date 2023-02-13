@@ -59,7 +59,6 @@ const Atoms: FunctionalComponent = () => {
       drawParticle(ctx, electron)
       moveParticle(electron)
       wrapParticle(ctx, electron)
-      collideElectron(electron, atoms)
     }
     if (Math.random() > 0.99) {
       atoms.push(

@@ -1,8 +1,10 @@
+import Electron from './electron'
 import elements from './elements'
 import Particle from './particle'
 
 interface Atom extends Particle {
   protons: number
+  electrons: number
 }
 
 export function createAtom(x: number, y: number): Atom {
@@ -18,6 +20,7 @@ export function createAtom(x: number, y: number): Atom {
       y: speed * Math.cos(direction),
     },
     protons: 1,
+    electrons: 1,
   }
 }
 
@@ -32,8 +35,8 @@ export function drawAtom(ctx: CanvasRenderingContext2D, atom: Atom) {
   )
 }
 
-export function collideAtom(atom: Atom, atoms: Atom[]) {
-  for (const [index, particle] of Object.entries(atoms))
+export function collideAtom(atom: Atom, atoms: Atom[], electrons: Electron[]) {
+  for (const [index, particle] of Object.entries(atoms)) {
     if (particle !== atom) {
       // if touching, ie. distance between centres less than radiuses
       if (
@@ -44,10 +47,26 @@ export function collideAtom(atom: Atom, atoms: Atom[]) {
         // destroy the particle and consume it's attributes
         atoms.splice(+index, 1)
         atom.protons += particle.protons
-        atom.velocity.x += particle.velocity.x
-        atom.velocity.y += particle.velocity.y
+        const weight = particle.protons / atom.protons
+        atom.velocity.x += particle.velocity.x * weight
+        atom.velocity.y += particle.velocity.y * weight
       }
     }
+  }
+  for (const [index, particle] of Object.entries(electrons)) {
+    // if touching, ie. distance between centres less than radiuses
+    if (
+      Math.pow(particle.position.x - atom.position.x, 2) +
+        Math.pow(particle.position.y - atom.position.y, 2) <=
+      Math.pow(atom.protons + 1, 2)
+    ) {
+      // destroy the particle and consume it's attributes
+      atoms.splice(+index, 1)
+      atom.electrons += 1
+      atom.velocity.x += particle.velocity.x / atom.protons
+      atom.velocity.y += particle.velocity.y / atom.protons
+    }
+  }
 }
 
 // const PARTICLE_ATOM = 1;

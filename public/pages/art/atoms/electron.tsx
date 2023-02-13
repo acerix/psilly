@@ -21,24 +21,6 @@ export function createElectron(x: number, y: number): Electron {
   }
 }
 
-export function collideElectron(electron: Electron, atoms: Atom[]) {
-  // for (const atom of atoms) {
-  //   // if collision
-  //   if (
-  //     Math.sqrt(
-  //       Math.pow(electron.position.x - atom.position.x, 2) +
-  //         Math.pow(electron.position.y - atom.position.y, 2),
-  //     ) <=
-  //     10 + atom.protons
-  //   ) {
-  //     // console.log('eat e-')
-  //     // @todo remove the electron, add it to the atom
-  //     electron.speed = 0
-  //     atom.speed = 0
-  //   }
-  // }
-}
-
 //     this.move = function() {
 
 //         if (lottery(69)) self.direction+=.3*Math.random();
