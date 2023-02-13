@@ -17,9 +17,10 @@ const Sequins: FunctionalComponent<SequinsProps> = (props: SequinsProps) => {
     const success =
       props?.success ||
       function (element: HTMLElement): void {
-        element.innerHTML = atob(
+        element.innerHTML = Buffer.from(
           'PGRpdiBjbGFzcz0iYWxlcnQgYWxlcnQtc3VjY2VzcyB0ZXh0LWRhcmsgbXktMiBteC00IiByb2xlPSJhbGVydCI+R29kIG1vZGUgZW5hYmxlZDwvZGl2Pg==',
-        )
+          'base64',
+        ).toString()
         window.scrollTo(0, 0)
         window.setTimeout(() => {
           element.innerHTML = ''
