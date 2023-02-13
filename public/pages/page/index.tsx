@@ -5,6 +5,12 @@ import Now from '../art/common/now'
 import Unfinity from '../art/unfinity'
 import NotFound from '../_404.js'
 
+if (typeof atob === 'undefined') {
+  global.atob = function (b64Encoded) {
+    return new Buffer(b64Encoded, 'base64').toString('binary')
+  }
+}
+
 const cms = {
   'talk': (
     <Fragment>
