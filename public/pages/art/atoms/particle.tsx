@@ -1,9 +1,8 @@
-import Point from './point'
+import Vec2 from './vec2'
 
 interface Particle {
-  position: Point
-  direction: number
-  speed: number
+  position: Vec2
+  velocity: Vec2
 }
 
 export function drawParticle(
@@ -16,8 +15,8 @@ export function drawParticle(
 }
 
 export function moveParticle(particle: Particle) {
-  particle.position.x += particle.speed * Math.sin(particle.direction)
-  particle.position.y += particle.speed * Math.cos(particle.direction)
+  particle.position.x += particle.velocity.x
+  particle.position.y += particle.velocity.y
 }
 
 export function wrapParticle(

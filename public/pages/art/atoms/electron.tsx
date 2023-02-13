@@ -6,34 +6,37 @@ interface Electron extends Particle {
 }
 
 export function createElectron(x: number, y: number): Electron {
-  const electron = {
+  const speed = 32 - 16 * Math.random()
+  const direction = Math.random() * 2 * Math.PI
+  return {
     position: {
       x: x,
       y: y,
     },
-    direction: Math.random() * 2 * Math.PI,
-    speed: 32 - 16 * Math.random(),
-    temperature: 69,
+    velocity: {
+      x: speed * Math.sin(direction),
+      y: speed * Math.cos(direction),
+    },
+    temperature: 0,
   }
-  return electron
 }
 
 export function collideElectron(electron: Electron, atoms: Atom[]) {
-  for (const atom of atoms) {
-    // if collision
-    if (
-      Math.sqrt(
-        Math.pow(electron.position.x - atom.position.x, 2) +
-          Math.pow(electron.position.y - atom.position.y, 2),
-      ) <=
-      10 + atom.protons
-    ) {
-      // console.log('eat e-')
-      // @todo remove the electron, add it to the atom
-      electron.speed = 0
-      atom.speed = 0
-    }
-  }
+  // for (const atom of atoms) {
+  //   // if collision
+  //   if (
+  //     Math.sqrt(
+  //       Math.pow(electron.position.x - atom.position.x, 2) +
+  //         Math.pow(electron.position.y - atom.position.y, 2),
+  //     ) <=
+  //     10 + atom.protons
+  //   ) {
+  //     // console.log('eat e-')
+  //     // @todo remove the electron, add it to the atom
+  //     electron.speed = 0
+  //     atom.speed = 0
+  //   }
+  // }
 }
 
 //     this.move = function() {

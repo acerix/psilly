@@ -10,8 +10,8 @@ import ColorGenerator, { Color, colorToCss } from '../common/color-generator'
 import { drawParticle, moveParticle, wrapParticle } from './particle'
 
 const Atoms: FunctionalComponent = () => {
-  const atoms: Atom[] = []
-  const electrons: Electron[] = []
+  let atoms: Atom[] = []
+  let electrons: Electron[] = []
 
   const colorGenerator = ColorGenerator({
     mutate: (color: Color): void => {
@@ -25,7 +25,8 @@ const Atoms: FunctionalComponent = () => {
   })
 
   const init = (ctx: CanvasRenderingContext2D): void => {
-    for (let c = 0; c < 5; c++) {
+    atoms = []
+    for (let c = 0; c < 16; c++) {
       atoms.push(
         createAtom(
           Math.random() * ctx.canvas.width,
@@ -33,7 +34,8 @@ const Atoms: FunctionalComponent = () => {
         ),
       )
     }
-    for (let c = 0; c < 10; c++) {
+    electrons = []
+    for (let c = 0; c < 32; c++) {
       electrons.push(
         createElectron(
           Math.random() * ctx.canvas.width,

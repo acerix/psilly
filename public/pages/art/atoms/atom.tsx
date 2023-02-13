@@ -6,16 +6,19 @@ interface Atom extends Particle {
 }
 
 export function createAtom(x: number, y: number): Atom {
-  const atom = {
+  const speed = 0.5 - Math.random()
+  const direction = Math.random() * 2 * Math.PI
+  return {
     position: {
       x: x,
       y: y,
     },
-    direction: Math.random() * 2 * Math.PI,
-    speed: 0.5 - Math.random(),
+    velocity: {
+      x: speed * Math.sin(direction),
+      y: speed * Math.cos(direction),
+    },
     protons: 1,
   }
-  return atom
 }
 
 export function drawAtom(ctx: CanvasRenderingContext2D, atom: Atom) {
@@ -30,20 +33,19 @@ export function drawAtom(ctx: CanvasRenderingContext2D, atom: Atom) {
 }
 
 export function collideAtom(atom: Atom, atoms: Atom[]) {
-  for (const particle of atoms)
+  for (const [index, particle] of Object.entries(atoms))
     if (particle !== atom) {
-      // if collision
+      // if touching, ie. distance between centres less than radiuses
       if (
-        Math.sqrt(
-          Math.pow(particle.position.x - atom.position.x, 2) +
-            Math.pow(particle.position.y - atom.position.y, 2),
-        ) <=
-        10 + atom.protons
+        Math.pow(particle.position.x - atom.position.x, 2) +
+          Math.pow(particle.position.y - atom.position.y, 2) <=
+        Math.pow(particle.protons + atom.protons, 2)
       ) {
-        //console.log('join!')
-        // @todo fusion
-        particle.speed = 0
-        atom.speed = 0
+        // destroy the particle and consume it's attributes
+        atoms.splice(+index, 1)
+        atom.protons += particle.protons
+        atom.velocity.x += particle.velocity.x
+        atom.velocity.y += particle.velocity.y
       }
     }
 }
