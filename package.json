@@ -13,7 +13,7 @@
 		"clean": "rm -rf build coverage",
 		"dev": "yarn test --watch",
 		"serve": "wmr serve",
-		"predeploy": "yarn clean && yarn lint && yarn test --watchAll=false --coverage && yarn build && cp CNAME ./dist/",
+		"predeploy": "yarn clean && yarn lint && yarn test --watchAll=false --coverage && yarn build --prerender && yarn postbuild && cp CNAME ./dist/",
 		"deploy": "gh-pages -d dist"
 	},
 	"eslintConfig": {
