@@ -50,7 +50,7 @@ import WebGLTemplate from './pages/art/webgl-template'
 import Loading from './pages/art/loading'
 import GridTest from './pages/art/grid-test'
 import Page, { cms as cms_pages } from './pages/page'
-import Blog from './pages/blog'
+import Blog, { posts as blog_pages } from './pages/blog'
 import Sequins from './pages/art/common/sequins'
 
 export function App() {
@@ -168,6 +168,9 @@ export async function prerender(data) {
   // note: doens't work with newer node, try `nvm use 15`
   const result = await ssr(<App {...data} />)
   if (result.links) {
+    for (const path in blog_pages) {
+      result.links.add('/blog/' + path)
+    }
     for (const path in cms_pages) {
       result.links.add('/' + path)
       result.links.add('/page/' + path)

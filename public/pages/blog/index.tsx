@@ -1,7 +1,7 @@
 import { FunctionalComponent, Fragment } from 'preact'
 import Helmet from 'react-helmet'
 
-const posts = {
+export const posts = {
   hi: (
     <Fragment>
       <h1>Hello Blog</h1>
