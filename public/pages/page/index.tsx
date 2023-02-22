@@ -11,7 +11,7 @@ if (typeof atob === 'undefined') {
   }
 }
 
-const cms = {
+export const cms = {
   'talk': (
     <Fragment>
       <h1>Urging to speak?</h1>

@@ -49,7 +49,7 @@ import CanvasTemplate from './pages/art/canvas-template'
 import WebGLTemplate from './pages/art/webgl-template'
 import Loading from './pages/art/loading'
 import GridTest from './pages/art/grid-test'
-import Page from './pages/page'
+import Page, { cms as cms_pages } from './pages/page'
 import Blog from './pages/blog'
 import Sequins from './pages/art/common/sequins'
 
@@ -165,5 +165,13 @@ hydrate(<App />)
  * @param {import("preact").JSX.IntrinsicAttributes} data
  */
 export async function prerender(data) {
-  return await ssr(<App {...data} />)
+  // note: doens't work with newer node, try `nvm use 15`
+  const result = await ssr(<App {...data} />)
+  if (result.links) {
+    for (const path in cms_pages) {
+      result.links.add('/' + path)
+      result.links.add('/page/' + path)
+    }
+  }
+  return result
 }
