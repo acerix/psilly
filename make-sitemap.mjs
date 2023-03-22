@@ -6,13 +6,10 @@ import prettier from 'prettier'
 async function generate() {
   const prettierConfig = await prettier.resolveConfig('./prettier.config.js')
 
-  const today = (new Date()).toISOString().substring(0, 10)
+  const today = new Date().toISOString().substring(0, 10)
 
   let urlset = ''
-  const urls = [
-    '/',
-    '/about/',
-  ]
+  const urls = ['/', '/about/']
 
   for (const url of urls) {
     urlset += `<url><loc>https://psilly.com${url}</loc><lastmod>${today}</lastmod></url>`
@@ -22,7 +19,7 @@ async function generate() {
 
   const formatted = prettier.format(sitemap, {
     ...prettierConfig,
-    parser: 'html'
+    parser: 'html',
   })
   writeFileSync('dist/sitemap.xml', formatted)
 }
