@@ -1,0 +1,66 @@
+{
+  "createdAt": 1679421423594,
+  "system": {
+    "sandwormVersion": "1.32.1",
+    "nodeVersion": "19.6.0",
+    "lockfileVersion": 6,
+    "packageManager": "yarn",
+    "packageManagerVersion": "3.2.3"
+  },
+  "name": "psilly-site",
+  "version": "0.0.42",
+  "rootVulnerabilities": [],
+  "dependencyVulnerabilities": [],
+  "licenseUsage": [
+    {
+      "string": "MIT",
+      "meta": {
+        "type": "Permissive",
+        "isSpdxExpression": false
+      },
+      "dependencies": [
+        {
+          "name": "base64-js",
+          "version": "1.5.1"
+        },
+        {
+          "name": "buffer",
+          "version": "6.0.3"
+        },
+        {
+          "name": "preact-iso",
+          "version": "2.3.1"
+        },
+        {
+          "name": "preact",
+          "version": "10.12.1"
+        },
+        {
+          "name": "ts-debounce",
+          "version": "2.3.0"
+        },
+        {
+          "name": "use-hash-state",
+          "version": "2.0.1"
+        }
+      ]
+    },
+    {
+      "string": "BSD-3-Clause",
+      "meta": {
+        "type": "Permissive",
+        "isSpdxExpression": false
+      },
+      "dependencies": [
+        {
+          "name": "ieee754",
+          "version": "1.2.1"
+        }
+      ]
+    }
+  ],
+  "licenseIssues": [],
+  "metaIssues": [],
+  "resolvedIssues": [],
+  "errors": []
+}
