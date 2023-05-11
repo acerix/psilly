@@ -221,7 +221,7 @@ export const cms = {
       <h1>
         <abbr title="Lysergic Acid Diethylamide">LSD</abbr>
       </h1>
-      <p>Acid erupts; absolute acid erupts absolutly.</p>
+      <p>Acid erupts; absolute acid erupts absolutely.</p>
     </Fragment>
   ),
   'shrooms': (
