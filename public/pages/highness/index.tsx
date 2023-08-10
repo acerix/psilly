@@ -44,7 +44,7 @@ const Highness: FunctionalComponent<HighnessProps> = (props: HighnessProps) => {
           <p>
             A slow, calm chat may help you relax, try{' '}
             <a
-              href="https://chat.tripsit.me/chat/?a=1#sanctuary"
+              href="https://chat.tripsit.me/"
               target="_blank"
               rel="noreferrer">
               TripSit
