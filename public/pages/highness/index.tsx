@@ -43,10 +43,7 @@ const Highness: FunctionalComponent<HighnessProps> = (props: HighnessProps) => {
           </audio>
           <p>
             A slow, calm chat may help you relax, try{' '}
-            <a
-              href="https://chat.tripsit.me/"
-              target="_blank"
-              rel="noreferrer">
+            <a href="https://chat.tripsit.me/" target="_blank" rel="noreferrer">
               TripSit
             </a>
             .

@@ -21,7 +21,7 @@ async function generate() {
     ...prettierConfig,
     parser: 'html',
   })
-  writeFileSync('dist/sitemap.xml', formatted)
+  writeFileSync('dist/sitemap.xml', await formatted)
 }
 
 void generate()
