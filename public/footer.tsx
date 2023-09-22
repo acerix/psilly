@@ -52,16 +52,6 @@ export default function Footer() {
               </a>
               <a
                 class="text-muted text-decoration-none me-2"
-                href="https://twitter.com/Psilly13"
-                target="_blank"
-                rel="noreferrer"
-                title="@Psilly13 on Twitter"
-                role="img"
-                aria-label="Generic bird">
-                🐦
-              </a>
-              <a
-                class="text-muted text-decoration-none me-2"
                 href="https://facebook.com/PsillyCorp"
                 target="_blank"
                 rel="noreferrer"

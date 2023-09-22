@@ -147,7 +147,7 @@ export const cms = {
       <p>Fun games ahead! Wanna play?</p>
       <h2>Routine Fun Maintenance</h2>
       <p>
-        Sorry, fun is currently under construction.
+        Sorry, fun is currently under construction. 
       </p>
       <h2>External Fun</h2>
       <p>
