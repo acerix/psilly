@@ -62,7 +62,7 @@ export const ArtPlaque: FunctionalComponent<ArtPlaqueProps> = (
         <p class="card-text">{art.description}</p>
         <p class="card-text">
           <a
-            href={`https://github.com/acerix/psilly/tree/main/src/routes/art/${art.path}`}
+            href={`https://github.com/acerix/psilly/tree/main/public/pages/art/${art.path}`}
             title="Source code on GitHub">
             &lt;sauce/&gt;
           </a>
