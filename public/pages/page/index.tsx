@@ -146,9 +146,7 @@ export const cms = {
       <h1>Games</h1>
       <p>Fun games ahead! Wanna play?</p>
       <h2>Routine Fun Maintenance</h2>
-      <p>
-        Sorry, fun is currently under construction. 
-      </p>
+      <p>Sorry, fun is currently under construction.</p>
       <h2>External Fun</h2>
       <p>
         Do you have an excessively intense enthusiasm regarding, interest in, or

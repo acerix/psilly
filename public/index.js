@@ -6,6 +6,7 @@ import {
   hydrate,
   prerender as ssr,
 } from 'preact-iso'
+//import { toStatic } from 'hoofd/preact'
 import Helmet from 'react-helmet'
 import Header from './header'
 import Footer from './footer'
@@ -165,8 +166,10 @@ hydrate(<App />)
  * @param {import("preact").JSX.IntrinsicAttributes} data
  */
 export async function prerender(data) {
-  // note: doens't work with newer node, try `nvm use 15`
+  // Prerender app with `preact-iso`.
   const result = await ssr(<App {...data} />)
+
+  // Add blog, page, misc links
   if (result.links) {
     for (const path in blog_pages) {
       result.links.add('/blog/' + path)
@@ -175,6 +178,25 @@ export async function prerender(data) {
       result.links.add('/' + path)
       result.links.add('/page/' + path)
     }
+    result.links.add('/404/')
   }
-  return result
+
+  // use `hoofd` to collect all entries that should be injected
+  // into the `<head>` portion of the final document
+  // const head = toStatic()
+  // const elements = new Set([
+  //   ...head.links.map((props) => ({ type: 'link', props })),
+  //   ...head.metas.map((props) => ({ type: 'meta', props })),
+  //   ...head.scripts.map((props) => ({ type: 'script', props })),
+  // ])
+
+  // Return the results back to WMR
+  return {
+    ...result,
+    // head: {
+    //   lang: head.lang,
+    //   title: head.title,
+    //   elements,
+    // },
+  }
 }

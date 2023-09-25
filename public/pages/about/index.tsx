@@ -9,38 +9,87 @@ const About = () => (
       harm-reduction, and advocacy.
     </p>
     <h2>Mission Statement</h2>
-    <p>As Psillables, our mission is to cultivate a vibrant and inclusive online community dedicated to advancing the understanding, application, and responsible integration of psychedelic research, therapy, harm reduction, and advocacy. We envision a world where the potential of psychedelics is harnessed for the betterment of individuals, communities, and society as a whole.</p>
+    <p>
+      As Psillables, our mission is to cultivate a vibrant and inclusive online
+      community dedicated to advancing the understanding, application, and
+      responsible integration of psychedelic research, therapy, harm reduction,
+      and advocacy. We envision a world where the potential of psychedelics is
+      harnessed for the betterment of individuals, communities, and society as a
+      whole.
+    </p>
 
     <h2>Core Values</h2>
     <dl>
       <dt>Knowledge Sharing</dt>
-      <dd>We are committed to fostering a space where members can openly share their knowledge, experiences, and insights related to psychedelics. Through collaboration and education, we aim to expand the collective wisdom surrounding these substances.</dd>
+      <dd>
+        We are committed to fostering a space where members can openly share
+        their knowledge, experiences, and insights related to psychedelics.
+        Through collaboration and education, we aim to expand the collective
+        wisdom surrounding these substances.
+      </dd>
       <dt>Safety and Responsibility</dt>
-      <dd>We prioritize the well-being of all individuals involved with psychedelics. We promote harm reduction strategies, responsible use, and ethical conduct within our community to ensure that these powerful tools are utilized safely and respectfully.</dd>
+      <dd>
+        We prioritize the well-being of all individuals involved with
+        psychedelics. We promote harm reduction strategies, responsible use, and
+        ethical conduct within our community to ensure that these powerful tools
+        are utilized safely and respectfully.
+      </dd>
       <dt>Inclusivity and Diversity</dt>
-      <dd>We celebrate the rich tapestry of backgrounds, perspectives, and experiences within our community. We actively seek to create an inclusive environment that respects and values the diversity of our members.</dd>
+      <dd>
+        We celebrate the rich tapestry of backgrounds, perspectives, and
+        experiences within our community. We actively seek to create an
+        inclusive environment that respects and values the diversity of our
+        members.
+      </dd>
       <dt>Research and Innovation</dt>
-      <dd>We support and promote rigorous scientific research into the therapeutic potential of psychedelics. Our community serves as a hub for the exchange of groundbreaking research, ideas, and innovations in the field.</dd>
+      <dd>
+        We support and promote rigorous scientific research into the therapeutic
+        potential of psychedelics. Our community serves as a hub for the
+        exchange of groundbreaking research, ideas, and innovations in the
+        field.
+      </dd>
       <dt>Advocacy and Social Change</dt>
-      <dd>We believe in the potential of psychedelics to catalyze positive societal change. Through advocacy efforts, policy discussions, and community action, we strive to contribute to the broader movement seeking to reform outdated and unjust drug policies.</dd>
+      <dd>
+        We believe in the potential of psychedelics to catalyze positive
+        societal change. Through advocacy efforts, policy discussions, and
+        community action, we strive to contribute to the broader movement
+        seeking to reform outdated and unjust drug policies.
+      </dd>
       <dt>Support and Healing</dt>
-      <dd>We provide a supportive platform for individuals who have had transformative or challenging psychedelic experiences. Our community offers guidance, resources, and a compassionate network to help those seeking healing and integration.</dd>
+      <dd>
+        We provide a supportive platform for individuals who have had
+        transformative or challenging psychedelic experiences. Our community
+        offers guidance, resources, and a compassionate network to help those
+        seeking healing and integration.
+      </dd>
       <dt>Our Vision</dt>
-      <dd>We envision a future where psychedelic research and therapy are fully integrated into mainstream healthcare, where individuals have access to safe and effective psychedelic-assisted treatments, and where drug policies are evidence-based, compassionate, and just. Our community aims to be at the forefront of this transformation, driving change through education, advocacy, and a commitment to the well-being of all.</dd>
+      <dd>
+        We envision a future where psychedelic research and therapy are fully
+        integrated into mainstream healthcare, where individuals have access to
+        safe and effective psychedelic-assisted treatments, and where drug
+        policies are evidence-based, compassionate, and just. Our community aims
+        to be at the forefront of this transformation, driving change through
+        education, advocacy, and a commitment to the well-being of all.
+      </dd>
     </dl>
-    <p>Join Psilly as we embark on this journey of exploration, healing, and change, united by our shared passion for the responsible and informed use of psychedelics for the betterment of ourselves and the world around us. Together, we can create a brighter and more enlightened future.</p>
+    <p>
+      Join Psilly as we embark on this journey of exploration, healing, and
+      change, united by our shared passion for the responsible and informed use
+      of psychedelics for the betterment of ourselves and the world around us.
+      Together, we can create a brighter and more enlightened future.
+    </p>
     <h2>Non-profit</h2>
     <p>
-      Psilly rejects corporatocracies and the concept of profit. All surplus is invested in our mission to turn on the World.
+      Psilly rejects corporatocracies and the concept of profit. All surplus is
+      invested in our mission to turn on the World.
     </p>
     <h2>What does it mean to be Psilly?</h2>
     <p>
-      The term "psilly" is word play, combining "psilocybin" (a
-      psychoactive compound found in psychedelic mushrooms) with "silly"
-      (meaning lighthearted, playful, or absurd). Being psilly generally
-      refers to the altered state of mind or behavior that people may experience
-      after consuming psilocybin-containing mushrooms, such as Psilocybe
-      cubensis.
+      The term "psilly" is word play, combining "psilocybin" (a psychoactive
+      compound found in psychedelic mushrooms) with "silly" (meaning
+      lighthearted, playful, or absurd). Being psilly generally refers to the
+      altered state of mind or behavior that people may experience after
+      consuming psilocybin-containing mushrooms, such as Psilocybe cubensis.
     </p>
     <p>
       When someone describes themselves or others as being "psilly," they are
@@ -52,21 +101,21 @@ const About = () => (
       influence of psilocybin.
     </p>
     <p>
-      It's worth noting that while psilly may convey a lighthearted or
-      whimsical sense, the effects of psilocybin can vary widely, and
-      individuals may experience a range of emotions and sensations, both
-      positive and challenging. The term is not a medical or scientific term but
-      rather a colloquial expression often used within certain communities that
-      are familiar with or advocate for the use of psychedelic substances.
+      It's worth noting that while psilly may convey a lighthearted or whimsical
+      sense, the effects of psilocybin can vary widely, and individuals may
+      experience a range of emotions and sensations, both positive and
+      challenging. The term is not a medical or scientific term but rather a
+      colloquial expression often used within certain communities that are
+      familiar with or advocate for the use of psychedelic substances.
     </p>
     <h2>The Merits of Being Psilly</h2>
     <p>
-      The concept of being psilly has become emblematic of the altered state
-      of consciousness induced by consuming psilocybin-containing mushrooms.
-      While the use of these substances raises ethical and legal questions,
-      exploring the merits of a psilly state of mind provides an opportunity
-      to delve into the potential psychological, creative, and introspective
-      benefits that some individuals associate with such experiences.
+      The concept of being psilly has become emblematic of the altered state of
+      consciousness induced by consuming psilocybin-containing mushrooms. While
+      the use of these substances raises ethical and legal questions, exploring
+      the merits of a psilly state of mind provides an opportunity to delve into
+      the potential psychological, creative, and introspective benefits that
+      some individuals associate with such experiences.
     </p>
     <ol type="I">
       <li>
@@ -117,10 +166,10 @@ const About = () => (
         <br />
         Research into the therapeutic potential of psilocybin is ongoing, with
         some studies suggesting its effectiveness in treating conditions such as
-        depression, anxiety, and post-traumatic stress disorder. A psilly
-        state of mind, when guided by trained professionals in clinical
-        settings, could facilitate therapeutic insights and contribute to
-        improved mental health outcomes for certain individuals.
+        depression, anxiety, and post-traumatic stress disorder. A psilly state
+        of mind, when guided by trained professionals in clinical settings,
+        could facilitate therapeutic insights and contribute to improved mental
+        health outcomes for certain individuals.
       </li>
     </ol>
     <p>
