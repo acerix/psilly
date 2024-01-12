@@ -13,10 +13,10 @@ const Jam: FunctionalComponent = () => {
         <a href="https://jamulus.io/">Jamulus</a> server. The server is in
         Montréal, so for best results, live near here. N'est-ce pas?
       </p>
-      <pre>
+      <p>
         The server is "Psilly 🍄" (psilly.com:22124) on the "Any Genre 1"
         directory (anygenre1.jamulus.io:22124).
-      </pre>
+      </p>
       <h2>Who's Jammin' Now?</h2>
       <div class="mb-2">
         <JamulusStatus />

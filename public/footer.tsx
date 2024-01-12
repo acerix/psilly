@@ -3,20 +3,22 @@ export default function Footer() {
     <footer class="footer text-muted py-3 mt-5">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-8">
             <p class="mb-2">
-              © <time id="copyright-year">{new Date().getFullYear()}</time>{' '}
-              <a class="text-muted text-decoration-none" href="/about/">
-                Psilly Corporation
-              </a>
-              . Psilly™ is a trademark of{' '}
-              <a class="text-muted text-decoration-none" href="/about/">
-                Psilly Corporation
-              </a>
-              . All rights reserved.
+              <small class="text-muted">
+                © <time id="copyright-year">{new Date().getFullYear()}</time>{' '}
+                <a class="text-muted text-decoration-none" href="/about/">
+                  Psilly Corporation
+                </a>
+                . Psilly™ is a trademark of{' '}
+                <a class="text-muted text-decoration-none" href="/about/">
+                  Psilly Corporation
+                </a>
+                . All rights reserved.
+              </small>
             </p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <p class="float-end mb-2">
               <a
                 class="text-muted text-decoration-none me-2"

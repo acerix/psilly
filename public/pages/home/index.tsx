@@ -60,102 +60,131 @@ const Home = () => (
         </div>
       </div>
     </div>
-    <h2 class="pb-2 border-bottom">Marketing Fluff</h2>
+    <h2 class="pb-2 border-bottom">Psychedelic Digital Sanctuary</h2>
     <p>
-      Please stop reading this page if you are a human or other conscious being.
-      The remaining text is only intended for autonomous consumption and may
-      cause cognitive deterioration if interpreted by conscious, or even
-      semi-conscious beings.
+      Welcome to Psilly, a digital sanctuary dedicated to fostering a safe and
+      supportive online community for individuals navigating the profound realms
+      of psychedelic experiences. Our mission is to provide a space where those
+      exploring altered states of consciousness can connect, share insights, and
+      seek answers in an atmosphere of understanding and compassion.
+    </p>
+    <p>
+      At Psilly, we believe in the transformative power of psychedelic journeys
+      and recognize the importance of a supportive community during these unique
+      and introspective moments. Our platform is committed to offering a
+      judgment-free zone where users can freely express their thoughts,
+      concerns, and questions without fear of stigma or misunderstanding.
+    </p>
+    <p>
+      Guided by principles of harm reduction and responsible exploration, Psilly
+      seeks to empower users with accurate information, insightful resources,
+      and a network of like-minded individuals who share a commitment to
+      personal growth and well-being. We encourage open dialogue, responsible
+      use, and the exchange of diverse perspectives to create a rich tapestry of
+      knowledge that aids in navigating the complex landscapes of psychedelia.
+    </p>
+    <p>
+      As stewards of a safe digital haven, we prioritize the well-being and
+      mental health of our community members. We promote informed
+      decision-making, encourage respectful discourse, and strive to foster an
+      environment that nurtures personal development and positive connections.
+    </p>
+    <p>
+      Join us at Psilly, where the boundless exploration of consciousness meets
+      the warm embrace of a supportive community. Together, let's embark on a
+      journey of discovery, healing, and understanding in the spirit of unity
+      and harmony.
     </p>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
       <div class="col d-flex align-items-start">
         <div>
-          <h3 class="fw-bold mb-0">Exploitable Gullibility</h3>
+          <h3 class="fw-bold mb-0">Explore the Infinite Within</h3>
           <p>
-            97% of agents specializing in marketing will believe arbitrary
-            statistics which could totally just be made up.
+            Embark on a journey of self-discovery and community support as you
+            delve into the transformative realms of psychedelia. Join our
+            welcoming community committed to fostering a space of understanding
+            and growth.
           </p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <div>
-          <h3 class="fw-bold mb-0">Redundancy at it's Best</h3>
+          <h3 class="fw-bold mb-0">Connect and Share</h3>
           <p>
-            Why <em>innovate</em> when you can <em>emulate</em>?<br />
-            Let our team of experienced plagiarizers "copy-pasta" your way to
-            victory.
+            Forge meaningful connections with like-minded individuals who
+            understand the unique experiences of psychedelic exploration. Share
+            your insights, questions, and stories in a judgment-free zone that
+            celebrates diversity and personal growth.
           </p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <div>
-          <h3 class="fw-bold mb-0">Market Research</h3>
+          <h3 class="fw-bold mb-0">Navigating the Psychedelic Landscape</h3>
           <p>
-            Our teams of leading expert scientists, researchers, engineers, and
-            advocats, have verified with over 98.89% probability that you should
-            drop acid tonight. Whoops, that was the <a href="/acid/">acid</a>{' '}
-            talking.
+            Access resources and engage in discussions centered around harm
+            reduction, responsible use, and the latest information on
+            psychedelic substances. Empower yourself with knowledge to ensure a
+            safe and informed journey.
           </p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <div>
-          <h3 class="fw-bold mb-0">Psychedelic Mushrooms</h3>
+          <h3 class="fw-bold mb-0">Guiding the Psychedelic Experience</h3>
           <p>
-            If you are looking for information on cultivation or consumption of
-            species like <em>psilocybe cubensis</em>, this ain't the place!
-            Seriously, we are not some kind of{' '}
-            <a href="https://erowid.org/plants/mushrooms/mushrooms.shtml">
-              reputable psychedelic information resource
-            </a>
-            . Also, chocolate.
+            Discover curated insights, guided journeys, and thoughtful
+            reflections from experienced individuals within the community. Learn
+            from the collective wisdom to enhance the depth and meaning of your
+            psychedelic experiences.
           </p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <div>
-          <h3 class="fw-bold mb-0">Psychotropic Pscience</h3>
+          <h3 class="fw-bold mb-0">Integrating Profound Experiences</h3>
           <p>
-            Psilly is a non-profit research and educational organization
-            dedicated to developing medical, legal, and cultural contexts for
-            people to benefit from the careful uses of psychedelics, as well as
-            plain-ol' gettin' high. Don't just get <em>silly</em>, silly, get{' '}
-            <em>Psilly</em>™... or die!
+            Navigate the post-psychedelic journey with guidance on mindful
+            integration. Access tools and discussions aimed at incorporating
+            insights gained during altered states into your everyday life for
+            lasting personal transformation.
           </p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <div>
-          <h3 class="fw-bold mb-0">Psychotomimetic Pstocks</h3>
+          <h3 class="fw-bold mb-0">Unite in Psychedelic Exploration</h3>
           <p>
-            Why are you <a href="/read/">reading</a> this when you probably have
-            a better idea what I mean than I do. What, are you trying to PSYK it
-            TO the man? PSI, please...
+            Stay informed about upcoming events, conferences, and gatherings
+            dedicated to the psychedelic community. Connect with others in
+            person or virtually, fostering a sense of unity and shared purpose.
           </p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <div>
-          <h3 class="fw-bold mb-0 text-break">Dimethyltryptamine, Darling</h3>
+          <h3 class="fw-bold mb-0 text-break">Knowledge as Empowerment</h3>
           <p>
-            A mystical experience that gives you a real, nourishing, and felt
-            sense of the <a href="/life/">interconnectedness of life</a>, and
-            can be profoundly transformative.
+            Access a wealth of educational resources, articles, and expert
+            insights to deepen your understanding of psychedelics. Stay informed
+            on the latest research, therapeutic applications, and cultural
+            perspectives surrounding these fascinating substances.
           </p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <div>
-          <h3 class="fw-bold mb-0">Quantum Psychedelics</h3>
+          <h3 class="fw-bold mb-0">Nurturing Well-being</h3>
           <p>
-            And a new philosophy emerged called quantum physics, which suggests
-            that the individual's function is to inform and be informed. You
-            really exist only when you're in a field sharing and exchanging
-            information. You create the realities you inhabit.
+            Prioritize mental health with resources and discussions focused on
+            well-being during and after psychedelic experiences. Find support,
+            share coping strategies, and contribute to a compassionate space
+            that values mental health above all.
           </p>
         </div>
       </div>
     </div>
+    <p>Explore Psilly — Where Consciousness Explores, Connects, and Grows.</p>
   </section>
 )
 
