@@ -44,16 +44,6 @@ export default function Footer() {
               </a>
               <a
                 class="text-muted text-decoration-none me-2"
-                href="https://www.reddit.com/r/psilly/"
-                target="_blank"
-                rel="noreferrer"
-                title="/r/psilly on Reddit"
-                role="img"
-                aria-label="Extraterrestrial being">
-                👽
-              </a>
-              <a
-                class="text-muted text-decoration-none me-2"
                 href="https://facebook.com/PsillyCorp"
                 target="_blank"
                 rel="noreferrer"
